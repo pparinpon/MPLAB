@@ -28,8 +28,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_TEMPLATE_H
-#define	XC_HEADER_TEMPLATE_H
+#ifndef IO_CONTROL_TEMPLATE_H
+#define	IO_CONTROL_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
@@ -70,18 +70,19 @@ extern "C" {
     
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code.
-    int linkAngle;
-    GLOBAL unsigned char* getAngleByte(void);
-    GLOBAL int getAngle(void);
+    GLOBAL int linkAngle;
+    GLOBAL int direction;
+    GLOBAL void setCargo_Angle(void);
     GLOBAL void resetAngle(void);
     GLOBAL bit isOnClutch(void);
     GLOBAL void setOnClutch(void);
     GLOBAL void setOffClutch(void);
-    
+    GLOBAL void addAngle(void);
+    GLOBAL void setDirection(int m_direction);
     
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif	/* IO_CONTROL_TEMPLATE_H */
 

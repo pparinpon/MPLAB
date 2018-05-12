@@ -6,7 +6,7 @@
 #include "command_header.h"
 #include "calibrate_mode.h"
 #include "spi_header.h"
-
+#include "IO_control_header.h"
 CargoData cargoData;
 
 unsigned int cargoLengthnuf = 0;
@@ -15,6 +15,7 @@ unsigned long cargoWorkingCount = 0;
 bit isMycargo;
 
 void initCargo(void){
+    cargoData = getCargoData();
     isMycargo = 1;
     cargoData.WorkingCount = 0;
     cargoData.address = 0;
@@ -22,7 +23,6 @@ void initCargo(void){
     cargoData.clutchMode = 0;
     cargoData.command = 0;
     cargoData.index = 0;
-    cargoData.linkAngleBack = 0;
     cargoData.linkAngleTo = 0;
     cargoData.passedTime = 0;
 }
@@ -72,6 +72,7 @@ void readCargo(unsigned char spi1_Read_data){
                 }
                 break;
             case 5:
+                setCargo_Angle();
                 spi2_Send_data = (cargoData.linkAngleTo >> 8 & 0x00ff);
                 break;
             case 6:

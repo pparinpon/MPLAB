@@ -28,8 +28,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_CALIBRATE_H
-#define	XC_HEADER_CALIBRATE_H
+#ifndef CALIBRATE_MODE_CALIBRATE_H
+#define	CALIBRATE_MODE_CALIBRATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
@@ -99,5 +99,5 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#endif	/* XC_HEADER_CALIBRATE_H */
+#endif	/* CALIBRATE_MODE_CALIBRATE_H */
 

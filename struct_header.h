@@ -79,13 +79,14 @@ extern "C" {
     unsigned char index;
     unsigned char address;
     int linkAngleTo;
-    int linkAngleBack;
+    int linkAngleBack;// it is not used
     unsigned int passedTime;
     unsigned char clutchMode;
     unsigned long WorkingCount;
     } CargoData;
-    GLOBAL CargoData cargoData;
-
+GLOBAL CargoData cargoData;
+GLOBAL CargoData getCargoData(void);
+    
     
 
 #ifdef	__cplusplus

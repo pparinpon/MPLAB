@@ -28,8 +28,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_COMMAND_H
-#define	XC_HEADER_COMMAND_H
+#ifndef COMMAND_COMMAND_H
+#define	COMMAND_COMMAND_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
@@ -71,6 +71,7 @@ extern "C" {
     // linkage so the functions can be used by the c code. 
     GLOBAL unsigned char command[18];
     GLOBAL void initComand(void);
+    GLOBAL bit setCommandMode(unsigned char m_command);
     GLOBAL bit action(unsigned char comannd);
     GLOBAL bit clutchaction(unsigned char comannd);
     GLOBAL unsigned char readOK;
@@ -83,5 +84,5 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-#endif	/* XC_HEADER_COMMAND_H */
+#endif	/* COMMAND_COMMAND_H */
 

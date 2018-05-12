@@ -44,6 +44,7 @@
 #include <pic.h>
 #define _XTAL_FREQ 32000000
 
+#include "eeprom_header.h"
 #include "spi_header.h"
 #include "util_header.h"
 #include "command_header.h"
@@ -51,7 +52,7 @@
 #include "calibrate_mode.h"
 #include "normal_mode_header.h"
 #include "comu_type.h"
-
+#include "IO_control_header.h"
 
 unsigned char send_data;
 
@@ -84,9 +85,8 @@ void interrupt InterMSSP( void )
         }
     //interruptIO
     if(PIE0bits.INTE == 1){
-        
+        addAngle();
     }
-    
     
     
         PIR1bits.SSP1IF = 0 ;
