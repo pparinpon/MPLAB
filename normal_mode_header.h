@@ -70,9 +70,9 @@ extern "C" {
 
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code. 
-void initCargo(void);
-void resetCargo(void);
-void restartCargo(void);
+//void initCargo(void);
+//void resetCargo(void);
+//void restartCargo(void);
 
 GLOBAL void readCargo(unsigned char spi1_Read_data);
 #ifdef	__cplusplus

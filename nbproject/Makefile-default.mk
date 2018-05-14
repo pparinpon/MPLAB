@@ -30,12 +30,12 @@ ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 IMAGE_TYPE=debug
 OUTPUT_SUFFIX=elf
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 else
 IMAGE_TYPE=production
 OUTPUT_SUFFIX=hex
 DEBUGGABLE_SUFFIX=elf
-FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+FINAL_IMAGE=dist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 endif
 
 ifeq ($(COMPARE_BUILD), true)
@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=IO_control.c auto_conrtol.c cal_position.c calibrate_mode.c command.c compute_mode.c comu_type.c iterative_method.c main.c normal_mode.c spiControl.c util.c struct.c eeprom.c cargo_index.c
+SOURCEFILES_QUOTED_IF_SPACED=D:/programdata/16F18346_Link_IC.X/main.c D:/programdata/16F18346_Link_IC.X/spiControl.c D:/programdata/16F18346_Link_IC.X/util.c D:/programdata/16F18346_Link_IC.X/command.c D:/programdata/16F18346_Link_IC.X/calibrate_mode.c D:/programdata/16F18346_Link_IC.X/comu_type.c D:/programdata/16F18346_Link_IC.X/normal_mode.c D:/programdata/16F18346_Link_IC.X/IO_control.c D:/programdata/16F18346_Link_IC.X/cal_position.c D:/programdata/16F18346_Link_IC.X/auto_conrtol.c D:/programdata/16F18346_Link_IC.X/iterative_method.c D:/programdata/16F18346_Link_IC.X/compute_mode.c struct.c eeprom.c cargo_index.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/IO_control.p1 ${OBJECTDIR}/auto_conrtol.p1 ${OBJECTDIR}/cal_position.p1 ${OBJECTDIR}/calibrate_mode.p1 ${OBJECTDIR}/command.p1 ${OBJECTDIR}/compute_mode.p1 ${OBJECTDIR}/comu_type.p1 ${OBJECTDIR}/iterative_method.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/normal_mode.p1 ${OBJECTDIR}/spiControl.p1 ${OBJECTDIR}/util.p1 ${OBJECTDIR}/struct.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/cargo_index.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/IO_control.p1.d ${OBJECTDIR}/auto_conrtol.p1.d ${OBJECTDIR}/cal_position.p1.d ${OBJECTDIR}/calibrate_mode.p1.d ${OBJECTDIR}/command.p1.d ${OBJECTDIR}/compute_mode.p1.d ${OBJECTDIR}/comu_type.p1.d ${OBJECTDIR}/iterative_method.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/normal_mode.p1.d ${OBJECTDIR}/spiControl.p1.d ${OBJECTDIR}/util.p1.d ${OBJECTDIR}/struct.p1.d ${OBJECTDIR}/eeprom.p1.d ${OBJECTDIR}/cargo_index.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1140681021/main.p1 ${OBJECTDIR}/_ext/1140681021/spiControl.p1 ${OBJECTDIR}/_ext/1140681021/util.p1 ${OBJECTDIR}/_ext/1140681021/command.p1 ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1 ${OBJECTDIR}/_ext/1140681021/comu_type.p1 ${OBJECTDIR}/_ext/1140681021/normal_mode.p1 ${OBJECTDIR}/_ext/1140681021/IO_control.p1 ${OBJECTDIR}/_ext/1140681021/cal_position.p1 ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1 ${OBJECTDIR}/_ext/1140681021/iterative_method.p1 ${OBJECTDIR}/_ext/1140681021/compute_mode.p1 ${OBJECTDIR}/struct.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/cargo_index.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1140681021/main.p1.d ${OBJECTDIR}/_ext/1140681021/spiControl.p1.d ${OBJECTDIR}/_ext/1140681021/util.p1.d ${OBJECTDIR}/_ext/1140681021/command.p1.d ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1.d ${OBJECTDIR}/_ext/1140681021/comu_type.p1.d ${OBJECTDIR}/_ext/1140681021/normal_mode.p1.d ${OBJECTDIR}/_ext/1140681021/IO_control.p1.d ${OBJECTDIR}/_ext/1140681021/cal_position.p1.d ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1.d ${OBJECTDIR}/_ext/1140681021/iterative_method.p1.d ${OBJECTDIR}/_ext/1140681021/compute_mode.p1.d ${OBJECTDIR}/struct.p1.d ${OBJECTDIR}/eeprom.p1.d ${OBJECTDIR}/cargo_index.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/IO_control.p1 ${OBJECTDIR}/auto_conrtol.p1 ${OBJECTDIR}/cal_position.p1 ${OBJECTDIR}/calibrate_mode.p1 ${OBJECTDIR}/command.p1 ${OBJECTDIR}/compute_mode.p1 ${OBJECTDIR}/comu_type.p1 ${OBJECTDIR}/iterative_method.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/normal_mode.p1 ${OBJECTDIR}/spiControl.p1 ${OBJECTDIR}/util.p1 ${OBJECTDIR}/struct.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/cargo_index.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1140681021/main.p1 ${OBJECTDIR}/_ext/1140681021/spiControl.p1 ${OBJECTDIR}/_ext/1140681021/util.p1 ${OBJECTDIR}/_ext/1140681021/command.p1 ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1 ${OBJECTDIR}/_ext/1140681021/comu_type.p1 ${OBJECTDIR}/_ext/1140681021/normal_mode.p1 ${OBJECTDIR}/_ext/1140681021/IO_control.p1 ${OBJECTDIR}/_ext/1140681021/cal_position.p1 ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1 ${OBJECTDIR}/_ext/1140681021/iterative_method.p1 ${OBJECTDIR}/_ext/1140681021/compute_mode.p1 ${OBJECTDIR}/struct.p1 ${OBJECTDIR}/eeprom.p1 ${OBJECTDIR}/cargo_index.p1
 
 # Source Files
-SOURCEFILES=IO_control.c auto_conrtol.c cal_position.c calibrate_mode.c command.c compute_mode.c comu_type.c iterative_method.c main.c normal_mode.c spiControl.c util.c struct.c eeprom.c cargo_index.c
+SOURCEFILES=D:/programdata/16F18346_Link_IC.X/main.c D:/programdata/16F18346_Link_IC.X/spiControl.c D:/programdata/16F18346_Link_IC.X/util.c D:/programdata/16F18346_Link_IC.X/command.c D:/programdata/16F18346_Link_IC.X/calibrate_mode.c D:/programdata/16F18346_Link_IC.X/comu_type.c D:/programdata/16F18346_Link_IC.X/normal_mode.c D:/programdata/16F18346_Link_IC.X/IO_control.c D:/programdata/16F18346_Link_IC.X/cal_position.c D:/programdata/16F18346_Link_IC.X/auto_conrtol.c D:/programdata/16F18346_Link_IC.X/iterative_method.c D:/programdata/16F18346_Link_IC.X/compute_mode.c struct.c eeprom.c cargo_index.c
 
 
 CFLAGS=
@@ -87,107 +87,107 @@ FIXDEPS=fixDeps
 ifneq ($(INFORMATION_MESSAGE), )
 	@echo $(INFORMATION_MESSAGE)
 endif
-	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+	${MAKE}  -f nbproject/Makefile-default.mk dist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 
 MP_PROCESSOR_OPTION=16F18346
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/IO_control.p1: IO_control.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/IO_control.p1.d 
-	@${RM} ${OBJECTDIR}/IO_control.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/IO_control.p1  IO_control.c 
-	@-${MV} ${OBJECTDIR}/IO_control.d ${OBJECTDIR}/IO_control.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/IO_control.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/main.p1: D:/programdata/16F18346_Link_IC.X/main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/main.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/main.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/main.p1  D:/programdata/16F18346_Link_IC.X/main.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/main.d ${OBJECTDIR}/_ext/1140681021/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/auto_conrtol.p1: auto_conrtol.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/auto_conrtol.p1.d 
-	@${RM} ${OBJECTDIR}/auto_conrtol.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/auto_conrtol.p1  auto_conrtol.c 
-	@-${MV} ${OBJECTDIR}/auto_conrtol.d ${OBJECTDIR}/auto_conrtol.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/auto_conrtol.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/spiControl.p1: D:/programdata/16F18346_Link_IC.X/spiControl.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/spiControl.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/spiControl.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/spiControl.p1  D:/programdata/16F18346_Link_IC.X/spiControl.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/spiControl.d ${OBJECTDIR}/_ext/1140681021/spiControl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/spiControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/cal_position.p1: cal_position.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/cal_position.p1.d 
-	@${RM} ${OBJECTDIR}/cal_position.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/cal_position.p1  cal_position.c 
-	@-${MV} ${OBJECTDIR}/cal_position.d ${OBJECTDIR}/cal_position.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/cal_position.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/util.p1: D:/programdata/16F18346_Link_IC.X/util.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/util.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/util.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/util.p1  D:/programdata/16F18346_Link_IC.X/util.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/util.d ${OBJECTDIR}/_ext/1140681021/util.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/util.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/calibrate_mode.p1: calibrate_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/calibrate_mode.p1.d 
-	@${RM} ${OBJECTDIR}/calibrate_mode.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/calibrate_mode.p1  calibrate_mode.c 
-	@-${MV} ${OBJECTDIR}/calibrate_mode.d ${OBJECTDIR}/calibrate_mode.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/calibrate_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/command.p1: D:/programdata/16F18346_Link_IC.X/command.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/command.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/command.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/command.p1  D:/programdata/16F18346_Link_IC.X/command.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/command.d ${OBJECTDIR}/_ext/1140681021/command.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/command.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/command.p1: command.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/command.p1.d 
-	@${RM} ${OBJECTDIR}/command.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/command.p1  command.c 
-	@-${MV} ${OBJECTDIR}/command.d ${OBJECTDIR}/command.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/command.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1: D:/programdata/16F18346_Link_IC.X/calibrate_mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1  D:/programdata/16F18346_Link_IC.X/calibrate_mode.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.d ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/compute_mode.p1: compute_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/compute_mode.p1.d 
-	@${RM} ${OBJECTDIR}/compute_mode.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/compute_mode.p1  compute_mode.c 
-	@-${MV} ${OBJECTDIR}/compute_mode.d ${OBJECTDIR}/compute_mode.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/compute_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/comu_type.p1: D:/programdata/16F18346_Link_IC.X/comu_type.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/comu_type.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/comu_type.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/comu_type.p1  D:/programdata/16F18346_Link_IC.X/comu_type.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/comu_type.d ${OBJECTDIR}/_ext/1140681021/comu_type.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/comu_type.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/comu_type.p1: comu_type.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/comu_type.p1.d 
-	@${RM} ${OBJECTDIR}/comu_type.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/comu_type.p1  comu_type.c 
-	@-${MV} ${OBJECTDIR}/comu_type.d ${OBJECTDIR}/comu_type.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/comu_type.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/normal_mode.p1: D:/programdata/16F18346_Link_IC.X/normal_mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/normal_mode.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/normal_mode.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/normal_mode.p1  D:/programdata/16F18346_Link_IC.X/normal_mode.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/normal_mode.d ${OBJECTDIR}/_ext/1140681021/normal_mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/normal_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/iterative_method.p1: iterative_method.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/iterative_method.p1.d 
-	@${RM} ${OBJECTDIR}/iterative_method.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/iterative_method.p1  iterative_method.c 
-	@-${MV} ${OBJECTDIR}/iterative_method.d ${OBJECTDIR}/iterative_method.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/iterative_method.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/IO_control.p1: D:/programdata/16F18346_Link_IC.X/IO_control.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/IO_control.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/IO_control.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/IO_control.p1  D:/programdata/16F18346_Link_IC.X/IO_control.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/IO_control.d ${OBJECTDIR}/_ext/1140681021/IO_control.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/IO_control.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/cal_position.p1: D:/programdata/16F18346_Link_IC.X/cal_position.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/cal_position.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/cal_position.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/cal_position.p1  D:/programdata/16F18346_Link_IC.X/cal_position.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/cal_position.d ${OBJECTDIR}/_ext/1140681021/cal_position.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/cal_position.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/normal_mode.p1: normal_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/normal_mode.p1.d 
-	@${RM} ${OBJECTDIR}/normal_mode.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/normal_mode.p1  normal_mode.c 
-	@-${MV} ${OBJECTDIR}/normal_mode.d ${OBJECTDIR}/normal_mode.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/normal_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1: D:/programdata/16F18346_Link_IC.X/auto_conrtol.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1  D:/programdata/16F18346_Link_IC.X/auto_conrtol.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.d ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/spiControl.p1: spiControl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/spiControl.p1.d 
-	@${RM} ${OBJECTDIR}/spiControl.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/spiControl.p1  spiControl.c 
-	@-${MV} ${OBJECTDIR}/spiControl.d ${OBJECTDIR}/spiControl.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/spiControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/iterative_method.p1: D:/programdata/16F18346_Link_IC.X/iterative_method.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/iterative_method.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/iterative_method.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/iterative_method.p1  D:/programdata/16F18346_Link_IC.X/iterative_method.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/iterative_method.d ${OBJECTDIR}/_ext/1140681021/iterative_method.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/iterative_method.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/util.p1: util.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/util.p1.d 
-	@${RM} ${OBJECTDIR}/util.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/util.p1  util.c 
-	@-${MV} ${OBJECTDIR}/util.d ${OBJECTDIR}/util.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/util.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/compute_mode.p1: D:/programdata/16F18346_Link_IC.X/compute_mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/compute_mode.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/compute_mode.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/compute_mode.p1  D:/programdata/16F18346_Link_IC.X/compute_mode.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/compute_mode.d ${OBJECTDIR}/_ext/1140681021/compute_mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/compute_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/struct.p1: struct.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -214,101 +214,101 @@ ${OBJECTDIR}/cargo_index.p1: cargo_index.c  nbproject/Makefile-${CND_CONF}.mk
 	@${FIXDEPS} ${OBJECTDIR}/cargo_index.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 else
-${OBJECTDIR}/IO_control.p1: IO_control.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/IO_control.p1.d 
-	@${RM} ${OBJECTDIR}/IO_control.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/IO_control.p1  IO_control.c 
-	@-${MV} ${OBJECTDIR}/IO_control.d ${OBJECTDIR}/IO_control.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/IO_control.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/main.p1: D:/programdata/16F18346_Link_IC.X/main.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/main.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/main.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/main.p1  D:/programdata/16F18346_Link_IC.X/main.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/main.d ${OBJECTDIR}/_ext/1140681021/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/auto_conrtol.p1: auto_conrtol.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/auto_conrtol.p1.d 
-	@${RM} ${OBJECTDIR}/auto_conrtol.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/auto_conrtol.p1  auto_conrtol.c 
-	@-${MV} ${OBJECTDIR}/auto_conrtol.d ${OBJECTDIR}/auto_conrtol.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/auto_conrtol.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/spiControl.p1: D:/programdata/16F18346_Link_IC.X/spiControl.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/spiControl.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/spiControl.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/spiControl.p1  D:/programdata/16F18346_Link_IC.X/spiControl.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/spiControl.d ${OBJECTDIR}/_ext/1140681021/spiControl.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/spiControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/cal_position.p1: cal_position.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/cal_position.p1.d 
-	@${RM} ${OBJECTDIR}/cal_position.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/cal_position.p1  cal_position.c 
-	@-${MV} ${OBJECTDIR}/cal_position.d ${OBJECTDIR}/cal_position.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/cal_position.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/util.p1: D:/programdata/16F18346_Link_IC.X/util.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/util.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/util.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/util.p1  D:/programdata/16F18346_Link_IC.X/util.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/util.d ${OBJECTDIR}/_ext/1140681021/util.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/util.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/calibrate_mode.p1: calibrate_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/calibrate_mode.p1.d 
-	@${RM} ${OBJECTDIR}/calibrate_mode.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/calibrate_mode.p1  calibrate_mode.c 
-	@-${MV} ${OBJECTDIR}/calibrate_mode.d ${OBJECTDIR}/calibrate_mode.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/calibrate_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/command.p1: D:/programdata/16F18346_Link_IC.X/command.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/command.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/command.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/command.p1  D:/programdata/16F18346_Link_IC.X/command.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/command.d ${OBJECTDIR}/_ext/1140681021/command.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/command.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/command.p1: command.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/command.p1.d 
-	@${RM} ${OBJECTDIR}/command.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/command.p1  command.c 
-	@-${MV} ${OBJECTDIR}/command.d ${OBJECTDIR}/command.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/command.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1: D:/programdata/16F18346_Link_IC.X/calibrate_mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1  D:/programdata/16F18346_Link_IC.X/calibrate_mode.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.d ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/calibrate_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/compute_mode.p1: compute_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/compute_mode.p1.d 
-	@${RM} ${OBJECTDIR}/compute_mode.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/compute_mode.p1  compute_mode.c 
-	@-${MV} ${OBJECTDIR}/compute_mode.d ${OBJECTDIR}/compute_mode.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/compute_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/comu_type.p1: D:/programdata/16F18346_Link_IC.X/comu_type.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/comu_type.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/comu_type.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/comu_type.p1  D:/programdata/16F18346_Link_IC.X/comu_type.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/comu_type.d ${OBJECTDIR}/_ext/1140681021/comu_type.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/comu_type.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/comu_type.p1: comu_type.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/comu_type.p1.d 
-	@${RM} ${OBJECTDIR}/comu_type.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/comu_type.p1  comu_type.c 
-	@-${MV} ${OBJECTDIR}/comu_type.d ${OBJECTDIR}/comu_type.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/comu_type.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/normal_mode.p1: D:/programdata/16F18346_Link_IC.X/normal_mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/normal_mode.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/normal_mode.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/normal_mode.p1  D:/programdata/16F18346_Link_IC.X/normal_mode.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/normal_mode.d ${OBJECTDIR}/_ext/1140681021/normal_mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/normal_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/iterative_method.p1: iterative_method.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/iterative_method.p1.d 
-	@${RM} ${OBJECTDIR}/iterative_method.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/iterative_method.p1  iterative_method.c 
-	@-${MV} ${OBJECTDIR}/iterative_method.d ${OBJECTDIR}/iterative_method.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/iterative_method.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/IO_control.p1: D:/programdata/16F18346_Link_IC.X/IO_control.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/IO_control.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/IO_control.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/IO_control.p1  D:/programdata/16F18346_Link_IC.X/IO_control.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/IO_control.d ${OBJECTDIR}/_ext/1140681021/IO_control.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/IO_control.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/main.p1  main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/cal_position.p1: D:/programdata/16F18346_Link_IC.X/cal_position.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/cal_position.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/cal_position.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/cal_position.p1  D:/programdata/16F18346_Link_IC.X/cal_position.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/cal_position.d ${OBJECTDIR}/_ext/1140681021/cal_position.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/cal_position.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/normal_mode.p1: normal_mode.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/normal_mode.p1.d 
-	@${RM} ${OBJECTDIR}/normal_mode.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/normal_mode.p1  normal_mode.c 
-	@-${MV} ${OBJECTDIR}/normal_mode.d ${OBJECTDIR}/normal_mode.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/normal_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1: D:/programdata/16F18346_Link_IC.X/auto_conrtol.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1  D:/programdata/16F18346_Link_IC.X/auto_conrtol.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.d ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/auto_conrtol.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/spiControl.p1: spiControl.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/spiControl.p1.d 
-	@${RM} ${OBJECTDIR}/spiControl.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/spiControl.p1  spiControl.c 
-	@-${MV} ${OBJECTDIR}/spiControl.d ${OBJECTDIR}/spiControl.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/spiControl.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/iterative_method.p1: D:/programdata/16F18346_Link_IC.X/iterative_method.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/iterative_method.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/iterative_method.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/iterative_method.p1  D:/programdata/16F18346_Link_IC.X/iterative_method.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/iterative_method.d ${OBJECTDIR}/_ext/1140681021/iterative_method.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/iterative_method.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/util.p1: util.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/util.p1.d 
-	@${RM} ${OBJECTDIR}/util.p1 
-	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/util.p1  util.c 
-	@-${MV} ${OBJECTDIR}/util.d ${OBJECTDIR}/util.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/util.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+${OBJECTDIR}/_ext/1140681021/compute_mode.p1: D:/programdata/16F18346_Link_IC.X/compute_mode.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/1140681021" 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/compute_mode.p1.d 
+	@${RM} ${OBJECTDIR}/_ext/1140681021/compute_mode.p1 
+	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib $(COMPARISON_BUILD)  --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}/_ext/1140681021/compute_mode.p1  D:/programdata/16F18346_Link_IC.X/compute_mode.c 
+	@-${MV} ${OBJECTDIR}/_ext/1140681021/compute_mode.d ${OBJECTDIR}/_ext/1140681021/compute_mode.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/_ext/1140681021/compute_mode.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/struct.p1: struct.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -345,15 +345,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
+dist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk    
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
-	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.hex 
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"        $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	@${RM} dist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.hex 
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
+dist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk   
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.map  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/MPLAB.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
+	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.map  --double=24 --float=24 --opt=+asm,+asmfile,-speed,+space,-debug,-local --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist -DXPRJ_default=$(CND_CONF)  --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"     $(COMPARISON_BUILD) --memorysummary dist/${CND_CONF}/${IMAGE_TYPE}/memoryfile.xml -odist/${CND_CONF}/${IMAGE_TYPE}/16F18346_Link_IC.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     
 	
 endif
 

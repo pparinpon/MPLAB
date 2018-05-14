@@ -1,5 +1,5 @@
 
-# 1 "struct.c"
+# 1 "D:/programdata/16F18346_Link_IC.X/IO_control.c"
 
 # 26 "E:\microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10086,7 +10086,18 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 74 "struct_header.h"
+# 73 "D:/programdata/16F18346_Link_IC.X/IO_control_header.h"
+extern int linkAngle;
+extern int direction;
+extern void setCargo_Angle(void);
+extern void resetAngle(void);
+extern bit isOnClutch(void);
+extern void setOnClutch(void);
+extern void setOffClutch(void);
+extern void addAngle(void);
+extern void setDirection(int m_direction);
+
+# 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
 typedef struct {
@@ -10109,42 +10120,34 @@ extern void resetCargo(void);
 extern void restartCargo(void);
 extern void setCargoAngle(int m_linkAngleTo);
 
-# 5 "struct.c"
-bit isMycargo;
-
+# 6 "D:/programdata/16F18346_Link_IC.X/IO_control.c"
+int linkAngle = 0;
+int direction = 1;
 CargoData cargoData;
-CargoData getCargoData(void){
-return cargoData;
+void setCargo_Angle(void){
+cargoData = getCargoData();
+cargoData.linkAngleTo = linkAngle;
+setCargoData(cargoData);
+};
+void resetAngle(void){
+linkAngle = 0;
+};
+bit isOnClutch(void){
+if(LATAbits.LATA0 == 1){
+return 1;
+};
+return 0;
+};
+void setOnClutch(void){
+LATAbits.LATA0 = 1;
+};
+void setOffClutch(void){
+LATAbits.LATA0 = 0;
+};
+void addAngle(void){
+linkAngle += direction;
+setCargoAngle(linkAngle);
+};
+void setDirection(int m_direction){
+direction = m_direction;
 }
-void setCargoData(CargoData m_cargoData){
-cargoData = m_cargoData;
-};
-void initCargo(void){
-isMycargo = 1;
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
-}
-void resetCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-};
-void restartCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.command = 0;
-cargoData.index = 0;
-};
-void setCargoAngle(int m_linkAngleTo){
-cargoData.linkAngleTo = m_linkAngleTo;
-};

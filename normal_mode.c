@@ -12,41 +12,41 @@ CargoData cargoData;
 unsigned int cargoLengthnuf = 0;
 unsigned long cargoWorkingCount = 0;
 //unsigned int countabuf = 0;
-bit isMycargo;
-
-void initCargo(void){
-    cargoData = getCargoData();
-    isMycargo = 1;
-    cargoData.WorkingCount = 0;
-    cargoData.address = 0;
-    cargoData.cargoLength = 0xFFFF;
-    cargoData.clutchMode = 0;
-    cargoData.command = 0;
-    cargoData.index = 0;
-    cargoData.linkAngleTo = 0;
-    cargoData.passedTime = 0;
-}
-void resetCargo(void){
-    cargoData.WorkingCount = 0;
-    cargoData.address = 0;
-    cargoData.cargoLength = 0xFFFF;
-    cargoData.clutchMode = 0;
-    cargoData.command = 0;
-    cargoData.index = 0;
-};
-void restartCargo(void){
-    cargoData.WorkingCount = 0;
-    cargoData.address = 0;
-    cargoData.cargoLength = 0xFFFF;
-    cargoData.command = 0;
-    cargoData.index = 0;
-
-};
+//bit isMycargo;
+//
+//void initCargo(void){
+//    cargoData = getCargoData();
+//    isMycargo = 1;
+//    cargoData.WorkingCount = 0;
+//    cargoData.address = 0;
+//    cargoData.cargoLength = 0xFFFF;
+//    cargoData.clutchMode = 0;
+//    cargoData.command = 0;
+//    cargoData.index = 0;
+//    cargoData.linkAngleTo = 0;
+//    cargoData.passedTime = 0;
+//}
+//void resetCargo(void){
+//    cargoData.WorkingCount = 0;
+//    cargoData.address = 0;
+//    cargoData.cargoLength = 0xFFFF;
+//    cargoData.clutchMode = 0;
+//    cargoData.command = 0;
+//    cargoData.index = 0;
+//};
+//void restartCargo(void){
+//    cargoData.WorkingCount = 0;
+//    cargoData.address = 0;
+//    cargoData.cargoLength = 0xFFFF;
+//    cargoData.command = 0;
+//    cargoData.index = 0;
+//
+//};
 
 void readCargo(unsigned char spi1_Read_data){
     unsigned int bufint  = spi1_Read_data;
     unsigned long buflong = spi1_Read_data;
-
+    cargoData = getCargoData();
     if(isMycargo){
         switch(countabuf){
             case 0:
@@ -72,7 +72,6 @@ void readCargo(unsigned char spi1_Read_data){
                 }
                 break;
             case 5:
-                setCargo_Angle();
                 spi2_Send_data = (cargoData.linkAngleTo >> 8 & 0x00ff);
                 break;
             case 6:

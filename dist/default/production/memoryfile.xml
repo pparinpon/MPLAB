@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\MPLAB.production.hex">
+  <executable name="dist/default/production\16F18346_Link_IC.X.production.hex">
     <memory name="program">
       <units>words</units>
       <length>16384</length>
-      <used>1670</used>
-      <free>14714</free>
+      <used>1680</used>
+      <free>14704</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>2048</length>
-      <used>939</used>
-      <free>1109</free>
+      <used>938</used>
+      <free>1110</free>
     </memory>
   </executable>
 </project>

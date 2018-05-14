@@ -1,5 +1,5 @@
 
-# 1 "struct.c"
+# 1 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
 
 # 26 "E:\microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10086,65 +10086,205 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 74 "struct_header.h"
-extern unsigned int st_dataLength = 0xFFFF;
-extern unsigned char st_type = 0x00;
+# 77 "D:/programdata/16F18346_Link_IC.X/spi_header.h"
+extern void spi_init();
+extern void spi1_init(void);
+extern void spi2_init(void);
+extern unsigned char spi1_buffer_data[256];
+extern unsigned char spi2_buffer_data[256];
+extern unsigned char spi1_send_buffer_data[256];
+extern unsigned int read_count1;
+extern unsigned int count1;
+extern unsigned int read_count2;
+extern unsigned int count2;
+extern unsigned int spi1_send_count;
+extern unsigned int send_count1;
+extern unsigned char spi1_Read_data;
+extern unsigned char spi2_Send_data;
+
+extern bit isSPI1read(void);
+extern bit isSPI2read(void);
+extern bit isSPI1send(void);
+extern void setSPI1sendData(void);
+extern void setSPI2sendData(void);
+extern void setSPI1sendDataManual(unsigned char data);
+
+# 72 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.h"
+extern bit isCalibrated = 0;
+typedef struct {
+unsigned char My_address;
+unsigned long WorkingCount;
+unsigned char endpoint;
+}LinkInfo;
+
 typedef struct {
 unsigned int cargoLength;
 unsigned char command;
 unsigned char index;
-unsigned char address;
-int linkAngleTo;
-int linkAngleBack;
-unsigned int passedTime;
-unsigned char clutchMode;
 unsigned long WorkingCount;
-} CargoData;
-extern CargoData cargoData;
+unsigned char endpoint;
+}Clalibdata;
+
+
+extern void Calibrate_download(unsigned char spi_Read_data);
+extern void Calibrate_upload(void);
+extern void InitCalibrate(void);
+bit isEndpoint(void);
+extern void setLinkNo(unsigned char workingCounta);
+extern unsigned int getVENDER_ID(void);
+extern unsigned int getMACHINE_ID(void);
+extern LinkInfo linkInfo;
+extern Clalibdata calibdata;
+
+# 72 "D:/programdata/16F18346_Link_IC.X/command_header.h"
+extern unsigned char command[18];
+extern void initComand(void);
+extern bit setCommandMode(unsigned char m_command);
+extern bit action(unsigned char comannd);
+extern bit clutchaction(unsigned char comannd);
+extern unsigned char readOK;
+extern unsigned char readNG;
+extern unsigned int countabuf;
 extern bit isMycargo;
-extern CargoData getCargoData(void);
-extern void setCargoData(CargoData m_cargoData);
-extern void initCargo(void);
-extern void resetCargo(void);
-extern void restartCargo(void);
-extern void setCargoAngle(int m_linkAngleTo);
 
-# 5 "struct.c"
+# 8 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
+const unsigned int VENDER_ID = 0x01;
+const unsigned int MACHINE_ID = 0x01;
+typedef struct {
+unsigned char My_address;
+unsigned long WorkingCount;
+unsigned char endpoint;
+}LinkInfo;
+
+typedef struct {
+unsigned int cargoLength;
+unsigned char command;
+unsigned char index;
+unsigned long WorkingCount;
+}Clalibdata;
+
+LinkInfo linkInfo;
+Clalibdata calibdata;
+
 bit isMycargo;
+bit isEndPointTrig;
 
-CargoData cargoData;
-CargoData getCargoData(void){
-return cargoData;
+
+bit isEndpoint(void){
+unsigned char spi2data = 0;
+if(count2 > 1){
+spi2data = spi2_buffer_data[count2 -1];
+}else{
+spi2data = spi2_buffer_data[count2];
 }
-void setCargoData(CargoData m_cargoData){
-cargoData = m_cargoData;
-};
-void initCargo(void){
+if(spi2data < 255){
+LATAbits.LATA0 = 1;
+isEndPointTrig = 0;
+}else{
+LATAbits.LATA0 = 0;
+setSPI1sendDataManual(0x00);
+}
+return isEndPointTrig;
+}
+
+
+
+bit workingcounta0 = 0;
+bit workingcounta1 = 0;
+bit workingcounta2 = 0;
+bit workingcounta3 = 0;
+
+# 56
+void Calibrate_upload(void){
+if(!isSPI1send()){
+SSP2BUF = spi1_send_buffer_data[send_count1];
+send_count1++;
+}
+}
+void InitCalibrate(void){
+isEndPointTrig = 1;
+calibdata.cargoLength = 0xFFFF;
+calibdata.index = 0x00;
+calibdata.command =0x00;
+calibdata.WorkingCount = 0;
+linkInfo.endpoint = 0;
+linkInfo.My_address = 0;
+countabuf = 0;
 isMycargo = 1;
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
 }
-void resetCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
+void Calibrate_download(unsigned char spi_Read_data){
+
+unsigned int bufint = spi_Read_data;
+unsigned long buflong = spi_Read_data;
+isEndpoint();
+if(isMycargo){
+switch(countabuf){
+case 0:
+InitCalibrate();
+calibdata.cargoLength = (bufint << 8 | 0x00FF);
+spi2_Send_data = spi_Read_data;
+break;
+case 1:
+calibdata.cargoLength = calibdata.cargoLength & (bufint | 0xFF00);
+spi2_Send_data = spi_Read_data;
+break;
+case 2:
+calibdata.command = spi_Read_data;
+spi2_Send_data = spi_Read_data;
+break;
+case 3:
+calibdata.index = spi_Read_data;
+spi2_Send_data = spi_Read_data;
+break;
+case 4:
+linkInfo.My_address = spi_Read_data +1;
+spi2_Send_data = linkInfo.My_address;
+break;
+case 5:
+calibdata.WorkingCount++;
+spi2_Send_data = (calibdata.WorkingCount >> 24 & 0x000000ff);
+break;
+case 6:
+spi2_Send_data = (calibdata.WorkingCount >> 16 & 0x000000ff);
+break;
+case 7:
+spi2_Send_data = (calibdata.WorkingCount >> 8 & 0x000000ff);
+break;
+case 8:
+spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
+break;
+case 9:
+if(isEndPointTrig == 1){
+
+linkInfo.endpoint = 1;
+}else{
+linkInfo.endpoint = 0;
+}
+LATAbits.LATA0 = 0;
+spi2_Send_data = linkInfo.My_address;
+break;
+}
+}
+
+countabuf++;
+unsigned char buf = calibdata.cargoLength & 0x00FF;
+if(calibdata.cargoLength <= countabuf){
+calibdata.cargoLength = 0xFFFF;
+countabuf = 0;
+isMycargo = 1;
+}
+
+}
+
+void setLinkNo(unsigned char workingCounta){
+linkInfo.My_address = 0;
+linkInfo.WorkingCount = 0;
+linkInfo.My_address += workingCounta;
+linkInfo.WorkingCount++;
+}
+unsigned int getVENDER_ID(void){
+return VENDER_ID;
 };
-void restartCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.command = 0;
-cargoData.index = 0;
-};
-void setCargoAngle(int m_linkAngleTo){
-cargoData.linkAngleTo = m_linkAngleTo;
+unsigned int getMACHINE_ID(void){
+return MACHINE_ID;
 };

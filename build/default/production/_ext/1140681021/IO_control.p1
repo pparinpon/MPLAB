@@ -1,7 +1,21 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"76 struct_header.h
+"76 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [s S960 `ui 1 `uc 1 `uc 1 `uc 1 `i 1 `i 1 `ui 1 `uc 1 `ul 1 ]
 [n S960 . cargoLength command index address linkAngleTo linkAngleBack passedTime clutchMode WorkingCount ]
+"89
+[v _getCargoData `(S960 ~T0 @X0 0 ef ]
+"90
+[v _setCargoData `(v ~T0 @X0 0 ef1`S960 ]
+"2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2296
+[u S113 `S114 1 ]
+[n S113 . . ]
+"2306
+[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
+"94 D:/programdata/16F18346_Link_IC.X/struct_header.h
+[v _setCargoAngle `(v ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7631,7 +7645,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-"74 struct_header.h
+[; ;IO_control_header.h: 73: extern int linkAngle;
+[; ;IO_control_header.h: 74: extern int direction;
+[; ;IO_control_header.h: 75: extern void setCargo_Angle(void);
+[; ;IO_control_header.h: 76: extern void resetAngle(void);
+[; ;IO_control_header.h: 77: extern bit isOnClutch(void);
+[; ;IO_control_header.h: 78: extern void setOnClutch(void);
+[; ;IO_control_header.h: 79: extern void setOffClutch(void);
+[; ;IO_control_header.h: 80: extern void addAngle(void);
+[; ;IO_control_header.h: 81: extern void setDirection(int m_direction);
+"74 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _st_dataLength `ui ~T0 @X0 1 e ]
 [i _st_dataLength
 -> 65535 `ui
@@ -7662,141 +7685,132 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;struct_header.h: 92: extern void resetCargo(void);
 [; ;struct_header.h: 93: extern void restartCargo(void);
 [; ;struct_header.h: 94: extern void setCargoAngle(int m_linkAngleTo);
-"5 struct.c
-[v _isMycargo `b ~T0 @X0 1 e ]
-[; ;struct.c: 5: bit isMycargo;
+"6 D:/programdata/16F18346_Link_IC.X/IO_control.c
+[v _linkAngle `i ~T0 @X0 1 e ]
+[i _linkAngle
+-> 0 `i
+]
+[; ;IO_control.c: 6: int linkAngle = 0;
 "7
-[v _cargoData `S960 ~T0 @X0 1 e ]
-[; ;struct.c: 7: CargoData cargoData;
+[v _direction `i ~T0 @X0 1 e ]
+[i _direction
+-> 1 `i
+]
+[; ;IO_control.c: 7: int direction = 1;
 "8
-[v _getCargoData `(S960 ~T0 @X0 1 ef ]
-{
-[; ;struct.c: 8: CargoData getCargoData(void){
-[e :U _getCargoData ]
-[f ]
-[; ;struct.c: 9: return cargoData;
+[v _cargoData `S960 ~T0 @X0 1 e ]
+[; ;IO_control.c: 8: CargoData cargoData;
 "9
-[e ) _cargoData ]
-[e $UE 961  ]
-[; ;struct.c: 10: }
+[v _setCargo_Angle `(v ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 9: void setCargo_Angle(void){
+[e :U _setCargo_Angle ]
+[f ]
+[; ;IO_control.c: 10: cargoData = getCargoData();
 "10
+[e = _cargoData ( _getCargoData ..  ]
+[; ;IO_control.c: 11: cargoData.linkAngleTo = linkAngle;
+"11
+[e = . _cargoData 4 _linkAngle ]
+[; ;IO_control.c: 12: setCargoData(cargoData);
+"12
+[e ( _setCargoData (1 _cargoData ]
+[; ;IO_control.c: 13: };
+"13
 [e :UE 961 ]
 }
-"11
-[v _setCargoData `(v ~T0 @X0 1 ef1`S960 ]
+"14
+[v _resetAngle `(v ~T0 @X0 1 ef ]
 {
-[; ;struct.c: 11: void setCargoData(CargoData m_cargoData){
-[e :U _setCargoData ]
-[v _m_cargoData `S960 ~T0 @X0 1 r1 ]
+[; ;IO_control.c: 14: void resetAngle(void){
+[e :U _resetAngle ]
 [f ]
-[; ;struct.c: 12: cargoData = m_cargoData;
-"12
-[e = _cargoData _m_cargoData ]
-[; ;struct.c: 13: };
-"13
+[; ;IO_control.c: 15: linkAngle = 0;
+"15
+[e = _linkAngle -> 0 `i ]
+[; ;IO_control.c: 16: };
+"16
 [e :UE 962 ]
 }
-"14
-[v _initCargo `(v ~T0 @X0 1 ef ]
-{
-[; ;struct.c: 14: void initCargo(void){
-[e :U _initCargo ]
-[f ]
-[; ;struct.c: 15: isMycargo = 1;
-"15
-[e = _isMycargo -> -> 1 `i `b ]
-[; ;struct.c: 16: cargoData.WorkingCount = 0;
-"16
-[e = . _cargoData 8 -> -> -> 0 `i `l `ul ]
-[; ;struct.c: 17: cargoData.address = 0;
 "17
-[e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 18: cargoData.cargoLength = 0xFFFF;
+[v _isOnClutch `(b ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 17: bit isOnClutch(void){
+[e :U _isOnClutch ]
+[f ]
+[; ;IO_control.c: 18: if(LATAbits.LATA0 == 1){
 "18
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;struct.c: 19: cargoData.clutchMode = 0;
+[e $ ! == -> . . _LATAbits 0 0 `i -> 1 `i 964  ]
+{
+[; ;IO_control.c: 19: return 1;
 "19
-[e = . _cargoData 7 -> -> 0 `i `uc ]
-[; ;struct.c: 20: cargoData.command = 0;
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
 "20
-[e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 21: cargoData.index = 0;
+}
+[e :U 964 ]
+[; ;IO_control.c: 20: };
+[; ;IO_control.c: 21: return 0;
 "21
-[e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 22: cargoData.linkAngleTo = 0;
+[e ) -> -> 0 `i `b ]
+[e $UE 963  ]
+[; ;IO_control.c: 22: };
 "22
-[e = . _cargoData 4 -> 0 `i ]
-[; ;struct.c: 23: cargoData.passedTime = 0;
-"23
-[e = . _cargoData 6 -> -> 0 `i `ui ]
-[; ;struct.c: 24: }
-"24
 [e :UE 963 ]
 }
+"23
+[v _setOnClutch `(v ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 23: void setOnClutch(void){
+[e :U _setOnClutch ]
+[f ]
+[; ;IO_control.c: 24: LATAbits.LATA0 = 1;
+"24
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+[; ;IO_control.c: 25: };
 "25
-[v _resetCargo `(v ~T0 @X0 1 ef ]
-{
-[; ;struct.c: 25: void resetCargo(void){
-[e :U _resetCargo ]
-[f ]
-[; ;struct.c: 26: cargoData.WorkingCount = 0;
-"26
-[e = . _cargoData 8 -> -> -> 0 `i `l `ul ]
-[; ;struct.c: 27: cargoData.address = 0;
-"27
-[e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 28: cargoData.cargoLength = 0xFFFF;
-"28
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;struct.c: 29: cargoData.clutchMode = 0;
-"29
-[e = . _cargoData 7 -> -> 0 `i `uc ]
-[; ;struct.c: 30: cargoData.command = 0;
-"30
-[e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 31: cargoData.index = 0;
-"31
-[e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 32: };
-"32
-[e :UE 964 ]
-}
-"33
-[v _restartCargo `(v ~T0 @X0 1 ef ]
-{
-[; ;struct.c: 33: void restartCargo(void){
-[e :U _restartCargo ]
-[f ]
-[; ;struct.c: 34: cargoData.WorkingCount = 0;
-"34
-[e = . _cargoData 8 -> -> -> 0 `i `l `ul ]
-[; ;struct.c: 35: cargoData.address = 0;
-"35
-[e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 36: cargoData.cargoLength = 0xFFFF;
-"36
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;struct.c: 37: cargoData.command = 0;
-"37
-[e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 38: cargoData.index = 0;
-"38
-[e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 39: };
-"39
 [e :UE 965 ]
 }
-"40
-[v _setCargoAngle `(v ~T0 @X0 1 ef1`i ]
+"26
+[v _setOffClutch `(v ~T0 @X0 1 ef ]
 {
-[; ;struct.c: 40: void setCargoAngle(int m_linkAngleTo){
-[e :U _setCargoAngle ]
-[v _m_linkAngleTo `i ~T0 @X0 1 r1 ]
+[; ;IO_control.c: 26: void setOffClutch(void){
+[e :U _setOffClutch ]
 [f ]
-[; ;struct.c: 41: cargoData.linkAngleTo = m_linkAngleTo;
-"41
-[e = . _cargoData 4 _m_linkAngleTo ]
-[; ;struct.c: 42: };
-"42
+[; ;IO_control.c: 27: LATAbits.LATA0 = 0;
+"27
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;IO_control.c: 28: };
+"28
 [e :UE 966 ]
+}
+"29
+[v _addAngle `(v ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 29: void addAngle(void){
+[e :U _addAngle ]
+[f ]
+[; ;IO_control.c: 30: linkAngle += direction;
+"30
+[e =+ _linkAngle _direction ]
+[; ;IO_control.c: 31: setCargoAngle(linkAngle);
+"31
+[e ( _setCargoAngle (1 _linkAngle ]
+[; ;IO_control.c: 32: };
+"32
+[e :UE 967 ]
+}
+"33
+[v _setDirection `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;IO_control.c: 33: void setDirection(int m_direction){
+[e :U _setDirection ]
+[v _m_direction `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;IO_control.c: 34: direction = m_direction;
+"34
+[e = _direction _m_direction ]
+[; ;IO_control.c: 35: }
+"35
+[e :UE 968 ]
 }

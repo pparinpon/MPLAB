@@ -1,7 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"76 struct_header.h
-[s S960 `ui 1 `uc 1 `uc 1 `uc 1 `i 1 `i 1 `ui 1 `uc 1 `ul 1 ]
-[n S960 . cargoLength command index address linkAngleTo linkAngleBack passedTime clutchMode WorkingCount ]
+"88 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h
+[v _Calibrate_download `(v ~T0 @X0 0 ef1`uc ]
+"89 D:/programdata/16F18346_Link_IC.X/spi_header.h
+[v _spi1_Read_data `uc ~T0 @X0 0 e ]
+"77 D:/programdata/16F18346_Link_IC.X/normal_mode_header.h
+[v _readCargo `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7631,172 +7634,212 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-"74 struct_header.h
-[v _st_dataLength `ui ~T0 @X0 1 e ]
-[i _st_dataLength
--> 65535 `ui
+[; ;comu_type.h: 74: extern bit setComunicateMode(unsigned char m_type);
+[; ;comu_type.h: 75: extern void initComu_types(void);
+[; ;normal_mode_header.h: 77: extern void readCargo(unsigned char spi1_Read_data);
+[; ;spi_header.h: 77: extern void spi_init();
+[; ;spi_header.h: 78: extern void spi1_init(void);
+[; ;spi_header.h: 79: extern void spi2_init(void);
+[; ;spi_header.h: 80: extern unsigned char spi1_buffer_data[256];
+[; ;spi_header.h: 81: extern unsigned char spi2_buffer_data[256];
+[; ;spi_header.h: 82: extern unsigned char spi1_send_buffer_data[256];
+[; ;spi_header.h: 83: extern unsigned int read_count1;
+[; ;spi_header.h: 84: extern unsigned int count1;
+[; ;spi_header.h: 85: extern unsigned int read_count2;
+[; ;spi_header.h: 86: extern unsigned int count2;
+[; ;spi_header.h: 87: extern unsigned int spi1_send_count;
+[; ;spi_header.h: 88: extern unsigned int send_count1;
+[; ;spi_header.h: 89: extern unsigned char spi1_Read_data;
+[; ;spi_header.h: 90: extern unsigned char spi2_Send_data;
+[; ;spi_header.h: 92: extern bit isSPI1read(void);
+[; ;spi_header.h: 93: extern bit isSPI2read(void);
+[; ;spi_header.h: 94: extern bit isSPI1send(void);
+[; ;spi_header.h: 95: extern void setSPI1sendData(void);
+[; ;spi_header.h: 96: extern void setSPI2sendData(void);
+[; ;spi_header.h: 97: extern void setSPI1sendDataManual(unsigned char data);
+"72 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h
+[v _isCalibrated `b ~T0 @X0 1 e ]
+[i _isCalibrated
+-> 0 `i
 ]
-[; ;struct_header.h: 74: extern unsigned int st_dataLength = 0xFFFF;
-"75
-[v _st_type `uc ~T0 @X0 1 e ]
-[i _st_type
--> -> 0 `i `uc
-]
-[; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
-[; ;struct_header.h: 76: typedef struct {
-[; ;struct_header.h: 77: unsigned int cargoLength;
-[; ;struct_header.h: 78: unsigned char command;
-[; ;struct_header.h: 79: unsigned char index;
-[; ;struct_header.h: 80: unsigned char address;
-[; ;struct_header.h: 81: int linkAngleTo;
-[; ;struct_header.h: 82: int linkAngleBack;
-[; ;struct_header.h: 83: unsigned int passedTime;
-[; ;struct_header.h: 84: unsigned char clutchMode;
-[; ;struct_header.h: 85: unsigned long WorkingCount;
-[; ;struct_header.h: 86: } CargoData;
-[; ;struct_header.h: 87: extern CargoData cargoData;
-[; ;struct_header.h: 88: extern bit isMycargo;
-[; ;struct_header.h: 89: extern CargoData getCargoData(void);
-[; ;struct_header.h: 90: extern void setCargoData(CargoData m_cargoData);
-[; ;struct_header.h: 91: extern void initCargo(void);
-[; ;struct_header.h: 92: extern void resetCargo(void);
-[; ;struct_header.h: 93: extern void restartCargo(void);
-[; ;struct_header.h: 94: extern void setCargoAngle(int m_linkAngleTo);
-"5 struct.c
-[v _isMycargo `b ~T0 @X0 1 e ]
-[; ;struct.c: 5: bit isMycargo;
-"7
-[v _cargoData `S960 ~T0 @X0 1 e ]
-[; ;struct.c: 7: CargoData cargoData;
-"8
-[v _getCargoData `(S960 ~T0 @X0 1 ef ]
+[; ;calibrate_mode.h: 72: extern bit isCalibrated = 0;
+[; ;calibrate_mode.h: 73: typedef struct {
+[; ;calibrate_mode.h: 74: unsigned char My_address;
+[; ;calibrate_mode.h: 75: unsigned long WorkingCount;
+[; ;calibrate_mode.h: 76: unsigned char endpoint;
+[; ;calibrate_mode.h: 77: }LinkInfo;
+[; ;calibrate_mode.h: 79: typedef struct {
+[; ;calibrate_mode.h: 80: unsigned int cargoLength;
+[; ;calibrate_mode.h: 81: unsigned char command;
+[; ;calibrate_mode.h: 82: unsigned char index;
+[; ;calibrate_mode.h: 83: unsigned long WorkingCount;
+[; ;calibrate_mode.h: 84: unsigned char endpoint;
+[; ;calibrate_mode.h: 85: }Clalibdata;
+[; ;calibrate_mode.h: 88: extern void Calibrate_download(unsigned char spi_Read_data);
+[; ;calibrate_mode.h: 89: extern void Calibrate_upload(void);
+[; ;calibrate_mode.h: 90: extern void InitCalibrate(void);
+[; ;calibrate_mode.h: 91: bit isEndpoint(void);
+[; ;calibrate_mode.h: 92: extern void setLinkNo(unsigned char workingCounta);
+[; ;calibrate_mode.h: 93: extern unsigned int getVENDER_ID(void);
+[; ;calibrate_mode.h: 94: extern unsigned int getMACHINE_ID(void);
+[; ;calibrate_mode.h: 95: extern LinkInfo linkInfo;
+[; ;calibrate_mode.h: 96: extern Clalibdata calibdata;
+"15 D:/programdata/16F18346_Link_IC.X/comu_type.c
+[v _comu_types `uc ~T0 @X0 -> 18 `i e ]
+[; ;comu_type.c: 15: unsigned char comu_types[18];
+"18
+[v _initComu_types `(v ~T0 @X0 1 ef ]
 {
-[; ;struct.c: 8: CargoData getCargoData(void){
-[e :U _getCargoData ]
+[; ;comu_type.c: 18: void initComu_types(void){
+[e :U _initComu_types ]
 [f ]
-[; ;struct.c: 9: return cargoData;
-"9
-[e ) _cargoData ]
-[e $UE 961  ]
-[; ;struct.c: 10: }
-"10
-[e :UE 961 ]
-}
-"11
-[v _setCargoData `(v ~T0 @X0 1 ef1`S960 ]
-{
-[; ;struct.c: 11: void setCargoData(CargoData m_cargoData){
-[e :U _setCargoData ]
-[v _m_cargoData `S960 ~T0 @X0 1 r1 ]
-[f ]
-[; ;struct.c: 12: cargoData = m_cargoData;
-"12
-[e = _cargoData _m_cargoData ]
-[; ;struct.c: 13: };
-"13
+[; ;comu_type.c: 19: comu_types[0] = 0b00111111;
+"19
+[e = *U + &U _comu_types * -> -> -> 0 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 63 `i `uc ]
+[; ;comu_type.c: 20: comu_types[1] = 0b01111111;
+"20
+[e = *U + &U _comu_types * -> -> -> 1 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 127 `i `uc ]
+[; ;comu_type.c: 21: comu_types[2] = 0b10011111;
+"21
+[e = *U + &U _comu_types * -> -> -> 2 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 159 `i `uc ]
+[; ;comu_type.c: 22: comu_types[3] = 0b10101111;
+"22
+[e = *U + &U _comu_types * -> -> -> 3 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 175 `i `uc ]
+[; ;comu_type.c: 23: comu_types[4] = 0b10111111;
+"23
+[e = *U + &U _comu_types * -> -> -> 4 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 191 `i `uc ]
+[; ;comu_type.c: 24: comu_types[5] = 0b11001111;
+"24
+[e = *U + &U _comu_types * -> -> -> 5 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 207 `i `uc ]
+[; ;comu_type.c: 25: comu_types[6] = 0b11010111;
+"25
+[e = *U + &U _comu_types * -> -> -> 6 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 215 `i `uc ]
+[; ;comu_type.c: 26: comu_types[7] = 0b11011111;
+"26
+[e = *U + &U _comu_types * -> -> -> 7 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 223 `i `uc ]
+[; ;comu_type.c: 27: comu_types[8] = 0b11100111;
+"27
+[e = *U + &U _comu_types * -> -> -> 8 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 231 `i `uc ]
+[; ;comu_type.c: 28: comu_types[9] = 0b11101011;
+"28
+[e = *U + &U _comu_types * -> -> -> 9 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 235 `i `uc ]
+[; ;comu_type.c: 29: comu_types[10] = 0b11101111;
+"29
+[e = *U + &U _comu_types * -> -> -> 10 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 239 `i `uc ]
+[; ;comu_type.c: 30: comu_types[11] = 0b11110001;
+"30
+[e = *U + &U _comu_types * -> -> -> 11 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 241 `i `uc ]
+[; ;comu_type.c: 31: comu_types[12] = 0b11110011;
+"31
+[e = *U + &U _comu_types * -> -> -> 12 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 243 `i `uc ]
+[; ;comu_type.c: 32: comu_types[13] = 0b11110101;
+"32
+[e = *U + &U _comu_types * -> -> -> 13 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 245 `i `uc ]
+[; ;comu_type.c: 33: comu_types[14] = 0b11110111;
+"33
+[e = *U + &U _comu_types * -> -> -> 14 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 247 `i `uc ]
+[; ;comu_type.c: 34: comu_types[15] = 0b11111000;
+"34
+[e = *U + &U _comu_types * -> -> -> 15 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 248 `i `uc ]
+[; ;comu_type.c: 35: comu_types[16] = 0b11111001;
+"35
+[e = *U + &U _comu_types * -> -> -> 16 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 249 `i `uc ]
+[; ;comu_type.c: 36: comu_types[17] = 0b11111010;
+"36
+[e = *U + &U _comu_types * -> -> -> 17 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 250 `i `uc ]
+[; ;comu_type.c: 37: }
+"37
 [e :UE 962 ]
 }
-"14
-[v _initCargo `(v ~T0 @X0 1 ef ]
-{
-[; ;struct.c: 14: void initCargo(void){
-[e :U _initCargo ]
-[f ]
-[; ;struct.c: 15: isMycargo = 1;
-"15
-[e = _isMycargo -> -> 1 `i `b ]
-[; ;struct.c: 16: cargoData.WorkingCount = 0;
-"16
-[e = . _cargoData 8 -> -> -> 0 `i `l `ul ]
-[; ;struct.c: 17: cargoData.address = 0;
-"17
-[e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 18: cargoData.cargoLength = 0xFFFF;
-"18
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;struct.c: 19: cargoData.clutchMode = 0;
-"19
-[e = . _cargoData 7 -> -> 0 `i `uc ]
-[; ;struct.c: 20: cargoData.command = 0;
-"20
-[e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 21: cargoData.index = 0;
-"21
-[e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 22: cargoData.linkAngleTo = 0;
-"22
-[e = . _cargoData 4 -> 0 `i ]
-[; ;struct.c: 23: cargoData.passedTime = 0;
-"23
-[e = . _cargoData 6 -> -> 0 `i `ui ]
-[; ;struct.c: 24: }
-"24
-[e :UE 963 ]
-}
-"25
-[v _resetCargo `(v ~T0 @X0 1 ef ]
-{
-[; ;struct.c: 25: void resetCargo(void){
-[e :U _resetCargo ]
-[f ]
-[; ;struct.c: 26: cargoData.WorkingCount = 0;
-"26
-[e = . _cargoData 8 -> -> -> 0 `i `l `ul ]
-[; ;struct.c: 27: cargoData.address = 0;
-"27
-[e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 28: cargoData.cargoLength = 0xFFFF;
-"28
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;struct.c: 29: cargoData.clutchMode = 0;
-"29
-[e = . _cargoData 7 -> -> 0 `i `uc ]
-[; ;struct.c: 30: cargoData.command = 0;
-"30
-[e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 31: cargoData.index = 0;
-"31
-[e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 32: };
-"32
-[e :UE 964 ]
-}
-"33
-[v _restartCargo `(v ~T0 @X0 1 ef ]
-{
-[; ;struct.c: 33: void restartCargo(void){
-[e :U _restartCargo ]
-[f ]
-[; ;struct.c: 34: cargoData.WorkingCount = 0;
-"34
-[e = . _cargoData 8 -> -> -> 0 `i `l `ul ]
-[; ;struct.c: 35: cargoData.address = 0;
-"35
-[e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 36: cargoData.cargoLength = 0xFFFF;
-"36
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;struct.c: 37: cargoData.command = 0;
-"37
-[e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 38: cargoData.index = 0;
 "38
-[e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 39: };
-"39
-[e :UE 965 ]
-}
-"40
-[v _setCargoAngle `(v ~T0 @X0 1 ef1`i ]
+[v _setComunicateMode `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;struct.c: 40: void setCargoAngle(int m_linkAngleTo){
-[e :U _setCargoAngle ]
-[v _m_linkAngleTo `i ~T0 @X0 1 r1 ]
+[; ;comu_type.c: 38: bit setComunicateMode(unsigned char m_type){
+[e :U _setComunicateMode ]
+[v _m_type `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;struct.c: 41: cargoData.linkAngleTo = m_linkAngleTo;
+[; ;comu_type.c: 39: for(int i = 0; i < 18; i++){
+"39
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 18 `i 964  ]
+[e $U 965  ]
+[e :U 964 ]
+{
+[; ;comu_type.c: 40: if(comu_types[i] == m_type){
+"40
+[e $ ! == -> *U + &U _comu_types * -> -> _i `ui `ux -> -> # *U &U _comu_types `ui `ux `i -> _m_type `i 967  ]
+{
+[; ;comu_type.c: 41: switch(i){
 "41
-[e = . _cargoData 4 _m_linkAngleTo ]
-[; ;struct.c: 42: };
+[e $U 969  ]
+{
+[; ;comu_type.c: 42: case 0:
 "42
-[e :UE 966 ]
+[e :U 970 ]
+[; ;comu_type.c: 43: Calibrate_download(spi1_Read_data);
+"43
+[e ( _Calibrate_download (1 _spi1_Read_data ]
+[; ;comu_type.c: 44: return 1;
+"44
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 45: case 1:
+"45
+[e :U 971 ]
+[; ;comu_type.c: 46: readCargo(spi1_Read_data);
+"46
+[e ( _readCargo (1 _spi1_Read_data ]
+[; ;comu_type.c: 47: return 1;
+"47
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 48: case 2:
+"48
+[e :U 972 ]
+[; ;comu_type.c: 49: return 1;
+"49
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 50: case 3:
+"50
+[e :U 973 ]
+[; ;comu_type.c: 51: return 1;
+"51
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+"52
+}
+[; ;comu_type.c: 52: }
+[e $U 968  ]
+"41
+[e :U 969 ]
+[e [\ _i , $ -> 0 `i 970
+ , $ -> 1 `i 971
+ , $ -> 2 `i 972
+ , $ -> 3 `i 973
+ 968 ]
+"52
+[e :U 968 ]
+"53
+}
+[e :U 967 ]
+"54
+}
+"39
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 18 `i 964  ]
+[e :U 965 ]
+"54
+}
+[; ;comu_type.c: 53: }
+[; ;comu_type.c: 54: }
+[; ;comu_type.c: 55: return 0;
+"55
+[e ) -> -> 0 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 56: }
+"56
+[e :UE 963 ]
 }

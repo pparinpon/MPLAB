@@ -18,7 +18,7 @@
 #pragma config FCMEN = ON       // Fail-Safe Clock Monitor Enable (Fail-Safe Clock Monitor is enabled)
 
 // CONFIG2
-#pragma config MCLRE = ON       // Master Clear Enable bit (MCLR/VPP pin function is MCLR; Weak pull-up enabled)
+#pragma config MCLRE = OFF      // Master Clear Enable bit (MCLR/VPP pin function is digital input; MCLR internally disabled; Weak pull-up under control of port pin's WPU control bit.)
 #pragma config PWRTE = OFF      // Power-up Timer Enable bit (PWRT disabled)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bits (WDT disabled; SWDTEN is ignored)
 #pragma config LPBOREN = ON     // Low-power BOR enable bit (ULPBOR enabled)
@@ -30,7 +30,7 @@
 
 // CONFIG3
 #pragma config WRT = OFF        // User NVM self-write protection bits (Write protection off)
-#pragma config LVP = ON         // Low Voltage Programming Enable bit (Low Voltage programming enabled. MCLR/VPP pin function is MCLR. MCLRE configuration bit is ignored.)
+#pragma config LVP = OFF        // Low Voltage Programming Enable bit (High Voltage on MCLR/VPP must be used for programming.)
 
 // CONFIG4
 #pragma config CP = OFF         // User NVM Program Memory Code Protection bit (User NVM code protection disabled)
@@ -64,6 +64,8 @@ bit isreadTrain = 0;
 void read_train(void);
 void resetTrainData(void);
 bit isTrainSt(unsigned char buf);
+
+bit ra3condision = 0;
 void interrupt InterMSSP( void )
 {
     if (PIR1bits.SSP1IF == 1) {       // SPI_recieve
@@ -84,15 +86,15 @@ void interrupt InterMSSP( void )
             }
         }
     //interruptIO
-    if(PIE0bits.INTE == 1){
+    if(IOCAFbits.IOCAF3 == 1){
         addAngle();
     }
-    
-    
-        PIR1bits.SSP1IF = 0 ;
-        PIR2bits.SSP2IF = 0 ;
-        PIR0bits.INTF = 0;
-        PIR0bits.IOCIF = 0;
+    IOCAFbits.IOCAF3 = 0;
+   
+    PIR1bits.SSP1IF = 0 ;
+    PIR2bits.SSP2IF = 0 ;
+    PIR0bits.INTF = 0;
+    PIR0bits.IOCIF = 0;
 }
 void initbuffer(void){
     for(int i = 0; i < 256; i++){
@@ -118,7 +120,6 @@ INLVLBbits.INLVLB4 = 0; //TTL level
 INLVLBbits.INLVLB6 = 0; //TTL level
 INLVLCbits.INLVLC5 = 0; //TTL level
 
-WPUA = 0b111111; //pull-up
 TRISBbits.TRISB5 = 1; //DI2
 INLVLBbits.INLVLB5 = 0; //TTL level DI2
 INLVLBbits.INLVLB7 = 0; //TTL level SCK2
@@ -130,9 +131,10 @@ return;
 
 void io_init(){
     PIE0bits.IOCIE = 1;//IO interrupt
+    IOCAPbits.IOCAP3 = 1;
+    IOCANbits.IOCAN3 = 1;
     PIE0bits.INTE = 1;
-    INTCONbits.INTEDG = 1;
-    IOCAFbits.IOCAF3 = 1;
+    INTCONbits.INTEDG = 1;  
 }
 int trainPos = 0;
 void initTrain(void){

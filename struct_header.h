@@ -71,22 +71,27 @@ extern "C" {
 #include "global_header.h"
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code. 
-    GLOBAL unsigned int st_dataLength = 0xFFFF;
-    GLOBAL unsigned char st_type = 0x00;
-    typedef struct {
-    unsigned int cargoLength;
-    unsigned char command;
-    unsigned char index;
-    unsigned char address;
-    int linkAngleTo;
-    int linkAngleBack;// it is not used
-    unsigned int passedTime;
-    unsigned char clutchMode;
-    unsigned long WorkingCount;
-    } CargoData;
+GLOBAL unsigned int st_dataLength = 0xFFFF;
+GLOBAL unsigned char st_type = 0x00;
+typedef struct {
+unsigned int cargoLength;
+unsigned char command;
+unsigned char index;
+unsigned char address;
+int linkAngleTo;
+int linkAngleBack;// it is not used
+unsigned int passedTime;
+unsigned char clutchMode;
+unsigned long WorkingCount;
+} CargoData;
 GLOBAL CargoData cargoData;
+GLOBAL bit isMycargo;
 GLOBAL CargoData getCargoData(void);
-    
+GLOBAL void setCargoData(CargoData m_cargoData);
+GLOBAL void initCargo(void);
+GLOBAL void resetCargo(void);
+GLOBAL void restartCargo(void);
+GLOBAL void setCargoAngle(int m_linkAngleTo);
     
 
 #ifdef	__cplusplus
