@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC LITE Macro Assembler V1.45 build -152302408 
-                                                                                               Mon May 14 10:56:13 2018
+                                                                                               Mon May 14 11:44:02 2018
 
 Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160504
      1                           	processor	16F18346
@@ -5209,7 +5209,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5164  0092                     __ptext6:	
   5165 ;; *************** function _readCargo *****************
   5166 ;; Defined at:
-  5167 ;;		line 46 in file "D:/programdata/16F18346_Link_IC.X/normal_mode.c"
+  5167 ;;		line 15 in file "D:/programdata/16F18346_Link_IC.X/normal_mode.c"
   5168 ;; Parameters:    Size  Location     Type
   5169 ;;  spi1_Read_da    1    wreg     unsigned char 
   5170 ;; Auto vars:     Size  Location     Type
@@ -5256,7 +5256,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5206  0092  0021               	movlb	1	; select bank1
   5207  0093  00ED               	movwf	readCargo@spi1_Read_data^(0+128)
   5208                           
-  5209                           ;normal_mode.c: 47: unsigned int bufint = spi1_Read_data;
+  5209                           ;normal_mode.c: 16: unsigned int bufint = spi1_Read_data;
   5210  0094  086D               	movf	readCargo@spi1_Read_data^(0+128),w
   5211  0095  0020               	movlb	0	; select bank0
   5212  0096  00E3               	movwf	??_readCargo
@@ -5269,7 +5269,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5219  009D  0021               	movlb	1	; select bank1
   5220  009E  00EC               	movwf	(readCargo@bufint+1)^(0+128)
   5221                           
-  5222                           ;normal_mode.c: 48: unsigned long buflong = spi1_Read_data;
+  5222                           ;normal_mode.c: 17: unsigned long buflong = spi1_Read_data;
   5223  009F  086D               	movf	readCargo@spi1_Read_data^(0+128),w
   5224  00A0  0020               	movlb	0	; select bank0
   5225  00A1  00E3               	movwf	??_readCargo
@@ -5292,7 +5292,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5242  00B2  0021               	movlb	1	; select bank1
   5243  00B3  00E7               	movwf	readCargo@buflong^(0+128)
   5244                           
-  5245                           ;normal_mode.c: 49: cargoData = getCargoData();
+  5245                           ;normal_mode.c: 18: cargoData = getCargoData();
   5246  00B4  3186  260A  3180   	fcall	_getCargoData
   5247  00B7  0020               	movlb	0	; select bank0
   5248  00B8  3052               	movlw	low ?_getCargoData
@@ -5311,21 +5311,21 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5261  00C4  0BE3               	decfsz	??_readCargo,f
   5262  00C5  28C2               	goto	u1170
   5263                           
-  5264                           ;normal_mode.c: 50: if(isMycargo){
+  5264                           ;normal_mode.c: 19: if(isMycargo){
   5265  00C6  18F8               	btfsc	_isMycargo/(0+8),_isMycargo& (0+7)
   5266  00C7  2958               	goto	l2698
   5267  00C8  2967               	goto	l2700
   5268  00C9                     l485:	
-  5269                           ;normal_mode.c: 52: case 0:
+  5269                           ;normal_mode.c: 21: case 0:
   5270                           
-  5271                           ;normal_mode.c: 51: switch(countabuf){
+  5271                           ;normal_mode.c: 20: switch(countabuf){
   5272                           
   5273                           
-  5274                           ;normal_mode.c: 53: LATAbits.LATA0 = 1;
+  5274                           ;normal_mode.c: 22: LATAbits.LATA0 = 1;
   5275  00C9  0022               	movlb	2	; select bank2
   5276  00CA  140C               	bsf	12,0	;volatile
   5277                           
-  5278                           ;normal_mode.c: 54: cargoLengthnuf = (bufint << 8);
+  5278                           ;normal_mode.c: 23: cargoLengthnuf = (bufint << 8);
   5279  00CB  0021               	movlb	1	; select bank1
   5280  00CC  086B               	movf	readCargo@bufint^(0+128),w
   5281  00CD  0020               	movlb	0	; select bank0
@@ -5336,17 +5336,17 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5286  00D2  0864               	movf	??_readCargo+1,w
   5287  00D3  00B7               	movwf	_cargoLengthnuf+1
   5288                           
-  5289                           ;normal_mode.c: 55: break;
+  5289                           ;normal_mode.c: 24: break;
   5290  00D4  2967               	goto	l2700
   5291  00D5                     l487:	
-  5292                           ;normal_mode.c: 56: case 1:
+  5292                           ;normal_mode.c: 25: case 1:
   5293                           
   5294                           
-  5295                           ;normal_mode.c: 57: LATAbits.LATA0 = 0;
+  5295                           ;normal_mode.c: 26: LATAbits.LATA0 = 0;
   5296  00D5  0022               	movlb	2	; select bank2
   5297  00D6  100C               	bcf	12,0	;volatile
   5298                           
-  5299                           ;normal_mode.c: 58: cargoData.cargoLength = (cargoLengthnuf | bufint);
+  5299                           ;normal_mode.c: 27: cargoData.cargoLength = (cargoLengthnuf | bufint);
   5300  00D7  0021               	movlb	1	; select bank1
   5301  00D8  086B               	movf	readCargo@bufint^(0+128),w
   5302  00D9  0020               	movlb	0	; select bank0
@@ -5358,13 +5358,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5308  00DF  0437               	iorwf	_cargoLengthnuf+1,w
   5309  00E0  00A1               	movwf	_cargoData+1
   5310                           
-  5311                           ;normal_mode.c: 59: break;
+  5311                           ;normal_mode.c: 28: break;
   5312  00E1  2967               	goto	l2700
   5313  00E2                     l2660:	
-  5314                           ;normal_mode.c: 60: case 2:
+  5314                           ;normal_mode.c: 29: case 2:
   5315                           
   5316                           
-  5317                           ;normal_mode.c: 61: cargoData.command = spi1_Read_data;
+  5317                           ;normal_mode.c: 30: cargoData.command = spi1_Read_data;
   5318  00E2  0021               	movlb	1	; select bank1
   5319  00E3  086D               	movf	readCargo@spi1_Read_data^(0+128),w
   5320  00E4  0020               	movlb	0	; select bank0
@@ -5372,13 +5372,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5322  00E6  0863               	movf	??_readCargo,w
   5323  00E7  00A2               	movwf	_cargoData+2
   5324                           
-  5325                           ;normal_mode.c: 62: break;
+  5325                           ;normal_mode.c: 31: break;
   5326  00E8  2967               	goto	l2700
   5327  00E9                     l2662:	
-  5328                           ;normal_mode.c: 63: case 3:
+  5328                           ;normal_mode.c: 32: case 3:
   5329                           
   5330                           
-  5331                           ;normal_mode.c: 64: cargoData.index = spi1_Read_data;
+  5331                           ;normal_mode.c: 33: cargoData.index = spi1_Read_data;
   5332  00E9  0021               	movlb	1	; select bank1
   5333  00EA  086D               	movf	readCargo@spi1_Read_data^(0+128),w
   5334  00EB  0020               	movlb	0	; select bank0
@@ -5386,13 +5386,13 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5336  00ED  0863               	movf	??_readCargo,w
   5337  00EE  00A3               	movwf	_cargoData+3
   5338                           
-  5339                           ;normal_mode.c: 65: break;
+  5339                           ;normal_mode.c: 34: break;
   5340  00EF  2967               	goto	l2700
   5341  00F0                     l2664:	
-  5342                           ;normal_mode.c: 66: case 4:
+  5342                           ;normal_mode.c: 35: case 4:
   5343                           
   5344                           
-  5345                           ;normal_mode.c: 67: cargoData.address = spi1_Read_data;
+  5345                           ;normal_mode.c: 36: cargoData.address = spi1_Read_data;
   5346  00F0  0021               	movlb	1	; select bank1
   5347  00F1  086D               	movf	readCargo@spi1_Read_data^(0+128),w
   5348  00F2  0020               	movlb	0	; select bank0
@@ -5400,83 +5400,83 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5350  00F4  0863               	movf	??_readCargo,w
   5351  00F5  00A4               	movwf	_cargoData+4
   5352                           
-  5353                           ;normal_mode.c: 68: if(cargoData.address != linkInfo.My_address){
+  5353                           ;normal_mode.c: 37: if(cargoData.address != linkInfo.My_address){
   5354  00F6  0824               	movf	_cargoData+4,w
   5355  00F7  0630               	xorwf	_linkInfo,w
   5356  00F8  1903               	skipnz
   5357  00F9  2967               	goto	l2700
   5358                           
-  5359                           ;normal_mode.c: 69: restartCargo();
+  5359                           ;normal_mode.c: 38: restartCargo();
   5360  00FA  3185  25F9  3180   	fcall	_restartCargo
   5361                           
-  5362                           ;normal_mode.c: 70: isMycargo = 0;
+  5362                           ;normal_mode.c: 39: isMycargo = 0;
   5363  00FD  10F8               	bcf	_isMycargo/(0+8),_isMycargo& (0+7)
   5364                           
-  5365                           ;normal_mode.c: 72: }
-  5366                           ;normal_mode.c: 73: break;
+  5365                           ;normal_mode.c: 41: }
+  5366                           ;normal_mode.c: 42: break;
   5367                           
-  5368                           ;normal_mode.c: 71: }else{
+  5368                           ;normal_mode.c: 40: }else{
   5369  00FE  2967               	goto	l2700
   5370  00FF                     l2670:	
-  5371                           ;normal_mode.c: 74: case 5:
+  5371                           ;normal_mode.c: 43: case 5:
   5372                           
   5373                           
-  5374                           ;normal_mode.c: 76: spi2_Send_data = (cargoData.linkAngleTo >> 8 & 0x00ff);
+  5374                           ;normal_mode.c: 44: spi2_Send_data = (cargoData.linkAngleTo >> 8 & 0x00ff);
   5375  00FF  0020               	movlb	0	; select bank0
   5376  0100  0826               	movf	_cargoData+6,w
   5377  0101  2954               	goto	L11
   5378  0102                     l2672:	
-  5379                           ;normal_mode.c: 78: case 6:
+  5379                           ;normal_mode.c: 46: case 6:
   5380                           
-  5381                           ;normal_mode.c: 77: break;
+  5381                           ;normal_mode.c: 45: break;
   5382                           
   5383                           
-  5384                           ;normal_mode.c: 79: spi2_Send_data = (cargoData.linkAngleTo & 0x00ff);
+  5384                           ;normal_mode.c: 47: spi2_Send_data = (cargoData.linkAngleTo & 0x00ff);
   5385  0102  0825               	movf	_cargoData+5,w
   5386  0103  2954               	goto	L11
   5387  0104                     l2674:	
-  5388                           ;normal_mode.c: 81: case 7:
+  5388                           ;normal_mode.c: 49: case 7:
   5389                           
-  5390                           ;normal_mode.c: 80: break;
+  5390                           ;normal_mode.c: 48: break;
   5391                           
   5392                           
-  5393                           ;normal_mode.c: 82: spi2_Send_data = (cargoData.linkAngleBack >> 8 & 0x00ff);
+  5393                           ;normal_mode.c: 50: spi2_Send_data = (cargoData.linkAngleBack >> 8 & 0x00ff);
   5394  0104  0828               	movf	_cargoData+8,w
   5395  0105  2954               	goto	L11
   5396  0106                     l2676:	
-  5397                           ;normal_mode.c: 84: case 8:
+  5397                           ;normal_mode.c: 52: case 8:
   5398                           
-  5399                           ;normal_mode.c: 83: break;
+  5399                           ;normal_mode.c: 51: break;
   5400                           
   5401                           
-  5402                           ;normal_mode.c: 85: spi2_Send_data = (cargoData.linkAngleBack & 0x00ff);
+  5402                           ;normal_mode.c: 53: spi2_Send_data = (cargoData.linkAngleBack & 0x00ff);
   5403  0106  0827               	movf	_cargoData+7,w
   5404  0107  2954               	goto	L11
   5405  0108                     l2678:	
-  5406                           ;normal_mode.c: 87: case 9:
+  5406                           ;normal_mode.c: 55: case 9:
   5407                           
-  5408                           ;normal_mode.c: 86: break;
+  5408                           ;normal_mode.c: 54: break;
   5409                           
   5410                           
-  5411                           ;normal_mode.c: 88: spi2_Send_data = (cargoData.passedTime >> 8 & 0x00ff);
+  5411                           ;normal_mode.c: 56: spi2_Send_data = (cargoData.passedTime >> 8 & 0x00ff);
   5412  0108  082A               	movf	_cargoData+10,w
   5413  0109  2954               	goto	L11
   5414  010A                     l2680:	
-  5415                           ;normal_mode.c: 90: case 10:
+  5415                           ;normal_mode.c: 58: case 10:
   5416                           
-  5417                           ;normal_mode.c: 89: break;
+  5417                           ;normal_mode.c: 57: break;
   5418                           
   5419                           
-  5420                           ;normal_mode.c: 91: spi2_Send_data = (cargoData.passedTime & 0x00ff);
+  5420                           ;normal_mode.c: 59: spi2_Send_data = (cargoData.passedTime & 0x00ff);
   5421  010A  0829               	movf	_cargoData+9,w
   5422  010B  2954               	goto	L11
   5423  010C                     l2682:	
-  5424                           ;normal_mode.c: 93: case 11:
+  5424                           ;normal_mode.c: 61: case 11:
   5425                           
-  5426                           ;normal_mode.c: 92: break;
+  5426                           ;normal_mode.c: 60: break;
   5427                           
   5428                           
-  5429                           ;normal_mode.c: 94: cargoData.clutchMode = spi1_Read_data;
+  5429                           ;normal_mode.c: 62: cargoData.clutchMode = spi1_Read_data;
   5430  010C  0021               	movlb	1	; select bank1
   5431  010D  086D               	movf	readCargo@spi1_Read_data^(0+128),w
   5432  010E  0020               	movlb	0	; select bank0
@@ -5484,17 +5484,17 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5434  0110  0863               	movf	??_readCargo,w
   5435  0111  00AB               	movwf	_cargoData+11
   5436                           
-  5437                           ;normal_mode.c: 95: clutchaction(cargoData.clutchMode);
+  5437                           ;normal_mode.c: 63: clutchaction(cargoData.clutchMode);
   5438  0112  082B               	movf	_cargoData+11,w
   5439  0113  3186  2659  3180   	fcall	_clutchaction
   5440                           
-  5441                           ;normal_mode.c: 96: break;
+  5441                           ;normal_mode.c: 64: break;
   5442  0116  2967               	goto	l2700
   5443  0117                     l2686:	
-  5444                           ;normal_mode.c: 97: case 12:
+  5444                           ;normal_mode.c: 65: case 12:
   5445                           
   5446                           
-  5447                           ;normal_mode.c: 98: cargoData.WorkingCount++;
+  5447                           ;normal_mode.c: 66: cargoData.WorkingCount++;
   5448  0117  3001               	movlw	1
   5449  0118  0020               	movlb	0	; select bank0
   5450  0119  07AC               	addwf	_cargoData+12,f
@@ -5505,7 +5505,7 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5455  011E  3000               	movlw	0
   5456  011F  3DAF               	addwfc	_cargoData+15,f
   5457                           
-  5458                           ;normal_mode.c: 99: spi2_Send_data = (cargoData.WorkingCount >> 24 & 0x000000ff);
+  5458                           ;normal_mode.c: 67: spi2_Send_data = (cargoData.WorkingCount >> 24 & 0x000000ff);
   5459  0120  082C               	movf	_cargoData+12,w
   5460  0121  00E3               	movwf	??_readCargo
   5461  0122  082D               	movf	_cargoData+13,w
@@ -5524,12 +5524,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5474  012E  2929               	goto	u1205
   5475  012F  294F               	goto	L13
   5476  0130                     l2690:	
-  5477                           ;normal_mode.c: 101: case 13:
+  5477                           ;normal_mode.c: 69: case 13:
   5478                           
-  5479                           ;normal_mode.c: 100: break;
+  5479                           ;normal_mode.c: 68: break;
   5480                           
   5481                           
-  5482                           ;normal_mode.c: 102: spi2_Send_data = (cargoData.WorkingCount >> 16 & 0x000000ff);
+  5482                           ;normal_mode.c: 70: spi2_Send_data = (cargoData.WorkingCount >> 16 & 0x000000ff);
   5483  0130  082C               	movf	_cargoData+12,w
   5484  0131  00E3               	movwf	??_readCargo
   5485  0132  082D               	movf	_cargoData+13,w
@@ -5548,12 +5548,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5498  013E  2939               	goto	u1215
   5499  013F  294F               	goto	L13
   5500  0140                     l2692:	
-  5501                           ;normal_mode.c: 104: case 14:
+  5501                           ;normal_mode.c: 72: case 14:
   5502                           
-  5503                           ;normal_mode.c: 103: break;
+  5503                           ;normal_mode.c: 71: break;
   5504                           
   5505                           
-  5506                           ;normal_mode.c: 105: spi2_Send_data = (cargoData.WorkingCount >> 8 & 0x000000ff);
+  5506                           ;normal_mode.c: 73: spi2_Send_data = (cargoData.WorkingCount >> 8 & 0x000000ff);
   5507  0140  082C               	movf	_cargoData+12,w
   5508  0141  00E3               	movwf	??_readCargo
   5509  0142  082D               	movf	_cargoData+13,w
@@ -5576,12 +5576,12 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5526  0151  0867               	movf	??_readCargo+4,w
   5527  0152  2956               	goto	L10
   5528  0153                     l2694:	
-  5529                           ;normal_mode.c: 107: case 15:
+  5529                           ;normal_mode.c: 75: case 15:
   5530                           
-  5531                           ;normal_mode.c: 106: break;
+  5531                           ;normal_mode.c: 74: break;
   5532                           
   5533                           
-  5534                           ;normal_mode.c: 108: spi2_Send_data = (cargoData.WorkingCount & 0x000000ff);
+  5534                           ;normal_mode.c: 76: spi2_Send_data = (cargoData.WorkingCount & 0x000000ff);
   5535  0153  082C               	movf	_cargoData+12,w
   5536  0154                     L11:	
   5537  0154  00E3               	movwf	??_readCargo
@@ -5589,9 +5589,9 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5539  0156                     L10:	
   5540  0156  00D1               	movwf	_spi2_Send_data
   5541                           
-  5542                           ;normal_mode.c: 110: }
+  5542                           ;normal_mode.c: 78: }
   5543                           
-  5544                           ;normal_mode.c: 109: break;
+  5544                           ;normal_mode.c: 77: break;
   5545  0157  2967               	goto	l2700
   5546  0158                     l2698:	
   5547                           
@@ -5632,15 +5632,15 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5581  0166  0082               	movwf	2
   5582  0167                     l2700:	
   5583                           
-  5584                           ;normal_mode.c: 111: }
-  5585                           ;normal_mode.c: 113: countabuf++;
+  5584                           ;normal_mode.c: 79: }
+  5585                           ;normal_mode.c: 81: countabuf++;
   5586  0167  3001               	movlw	1
   5587  0168  0020               	movlb	0	; select bank0
   5588  0169  07C4               	addwf	_countabuf,f
   5589  016A  3000               	movlw	0
   5590  016B  3DC5               	addwfc	_countabuf+1,f
   5591                           
-  5592                           ;normal_mode.c: 114: if(cargoData.cargoLength <= countabuf){
+  5592                           ;normal_mode.c: 82: if(cargoData.cargoLength <= countabuf){
   5593  016C  0821               	movf	_cargoData+1,w
   5594  016D  0245               	subwf	_countabuf+1,w
   5595  016E  1D03               	skipz
@@ -5651,11 +5651,11 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5600  0172  1C03               	skipc
   5601  0173  0008               	return
   5602                           
-  5603                           ;normal_mode.c: 115: cargoLengthnuf = 0;
+  5603                           ;normal_mode.c: 83: cargoLengthnuf = 0;
   5604  0174  01B6               	clrf	_cargoLengthnuf
   5605  0175  01B7               	clrf	_cargoLengthnuf+1
   5606                           
-  5607                           ;normal_mode.c: 116: cargoWorkingCount = 0;
+  5607                           ;normal_mode.c: 84: cargoWorkingCount = 0;
   5608  0176  3000               	movlw	0
   5609  0177  0021               	movlb	1	; select bank1
   5610  0178  00E2               	movwf	(_cargoWorkingCount+3)^(0+128)
@@ -5666,18 +5666,18 @@ Microchip Technology Omniscient Code Generator v1.45 (Free mode) build 201711160
   5615  017D  3000               	movlw	0
   5616  017E  00DF               	movwf	_cargoWorkingCount^(0+128)
   5617                           
-  5618                           ;normal_mode.c: 117: cargoData.cargoLength = 0xFFFF;
+  5618                           ;normal_mode.c: 85: cargoData.cargoLength = 0xFFFF;
   5619  017F  30FF               	movlw	255
   5620  0180  0020               	movlb	0	; select bank0
   5621  0181  00A0               	movwf	_cargoData
   5622  0182  30FF               	movlw	255
   5623  0183  00A1               	movwf	_cargoData+1
   5624                           
-  5625                           ;normal_mode.c: 118: countabuf = 0;
+  5625                           ;normal_mode.c: 86: countabuf = 0;
   5626  0184  01C4               	clrf	_countabuf
   5627  0185  01C5               	clrf	_countabuf+1
   5628                           
-  5629                           ;normal_mode.c: 119: isMycargo = 1;
+  5629                           ;normal_mode.c: 87: isMycargo = 1;
   5630  0186  14F8               	bsf	_isMycargo/(0+8),_isMycargo& (0+7)
   5631  0187  0008               	return
   5632  0188                     __end_of_readCargo:	
@@ -9056,7 +9056,7 @@ BANK25               0      0       0      57        0.0%
 
 
 Microchip Technology PIC Macro Assembler V1.45 build -152302408 
-Symbol Table                                                                                   Mon May 14 10:56:13 2018
+Symbol Table                                                                                   Mon May 14 11:44:02 2018
 
                   _InitCalibrate 05B7                                pc 0002                      __CFG_CP$OFF 0000  
                  _cargoLengthnuf 0036                              l134 037C                              l341 0661  
