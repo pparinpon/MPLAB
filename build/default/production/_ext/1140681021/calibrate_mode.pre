@@ -10147,7 +10147,30 @@ extern unsigned char readNG;
 extern unsigned int countabuf;
 extern bit isMycargo;
 
-# 8 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
+# 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
+extern unsigned int st_dataLength = 0xFFFF;
+extern unsigned char st_type = 0x00;
+typedef struct {
+unsigned int cargoLength;
+unsigned char command;
+unsigned char index;
+unsigned char address;
+int linkAngleTo;
+int linkAngleBack;
+unsigned int passedTime;
+unsigned char clutchMode;
+unsigned long WorkingCount;
+} CargoData;
+extern CargoData cargoData;
+extern bit isMycargo;
+extern CargoData getCargoData(void);
+extern void setCargoData(CargoData m_cargoData);
+extern void initCargo(void);
+extern void resetCargo(void);
+extern void restartCargo(void);
+extern void setCargoAngle(int m_linkAngleTo);
+
+# 9 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
 const unsigned int VENDER_ID = 0x01;
 const unsigned int MACHINE_ID = 0x01;
 typedef struct {
@@ -10166,7 +10189,6 @@ unsigned long WorkingCount;
 LinkInfo linkInfo;
 Clalibdata calibdata;
 
-bit isMycargo;
 bit isEndPointTrig;
 
 
@@ -10178,10 +10200,10 @@ spi2data = spi2_buffer_data[count2 -1];
 spi2data = spi2_buffer_data[count2];
 }
 if(spi2data < 255){
-LATAbits.LATA0 = 1;
+LATAbits.LATA0 = 0;
 isEndPointTrig = 0;
 }else{
-LATAbits.LATA0 = 0;
+LATAbits.LATA0 = 1;
 setSPI1sendDataManual(0x00);
 }
 return isEndPointTrig;
@@ -10207,17 +10229,17 @@ calibdata.cargoLength = 0xFFFF;
 calibdata.index = 0x00;
 calibdata.command =0x00;
 calibdata.WorkingCount = 0;
+CargoData cargoData = getCargoData();
+cargoData.linkAngleTo = 0;
 linkInfo.endpoint = 0;
 linkInfo.My_address = 0;
 countabuf = 0;
-isMycargo = 1;
 }
 void Calibrate_download(unsigned char spi_Read_data){
 
 unsigned int bufint = spi_Read_data;
 unsigned long buflong = spi_Read_data;
 isEndpoint();
-if(isMycargo){
 switch(countabuf){
 case 0:
 InitCalibrate();
@@ -10254,24 +10276,20 @@ case 8:
 spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
 break;
 case 9:
+LATAbits.LATA0 = 0;
 if(isEndPointTrig == 1){
-
 linkInfo.endpoint = 1;
 }else{
 linkInfo.endpoint = 0;
 }
-LATAbits.LATA0 = 0;
 spi2_Send_data = linkInfo.My_address;
 break;
 }
-}
 
 countabuf++;
-unsigned char buf = calibdata.cargoLength & 0x00FF;
 if(calibdata.cargoLength <= countabuf){
 calibdata.cargoLength = 0xFFFF;
 countabuf = 0;
-isMycargo = 1;
 }
 
 }

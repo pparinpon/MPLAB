@@ -7773,30 +7773,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;struct.c: 35: cargoData.address = 0;
 "35
 [e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 36: cargoData.cargoLength = 0xFFFF;
+[; ;struct.c: 36: cargoData.command = 0;
 "36
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;struct.c: 37: cargoData.command = 0;
-"37
 [e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 38: cargoData.index = 0;
-"38
+[; ;struct.c: 37: cargoData.index = 0;
+"37
 [e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 39: };
-"39
+[; ;struct.c: 38: };
+"38
 [e :UE 965 ]
 }
-"40
+"39
 [v _setCargoAngle `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;struct.c: 40: void setCargoAngle(int m_linkAngleTo){
+[; ;struct.c: 39: void setCargoAngle(int m_linkAngleTo){
 [e :U _setCargoAngle ]
 [v _m_linkAngleTo `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;struct.c: 41: cargoData.linkAngleTo = m_linkAngleTo;
-"41
+[; ;struct.c: 40: cargoData.linkAngleTo = m_linkAngleTo;
+"40
 [e = . _cargoData 4 _m_linkAngleTo ]
-[; ;struct.c: 42: };
-"42
+[; ;struct.c: 41: };
+"41
 [e :UE 966 ]
 }

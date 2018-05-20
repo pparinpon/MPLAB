@@ -11,58 +11,61 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$E:\temp\s43c8.obj
+$E:\temp\sakg8.obj
 reset_vec CODE 0 0 0 2 2
-end_init CODE 0 5A 5A 2 2
+end_init CODE 0 5D 5D 2 2
 config CONFIG 0 8007 8007 4 2
 $dist/default/production\16F18346_Link_IC.X.production.obj
-bitnvCOMMON COMMON 1 3C0 78 2 1
-cinit CODE 0 5C 5C 36 2
-text1 CODE 0 664 664 A 2
-text2 CODE 0 533 533 22 2
-text3 CODE 0 577 577 20 2
-text4 CODE 0 50F 50F 24 2
-text5 CODE 0 41B 41B 3C 2
-text6 CODE 0 92 92 F6 2
-text7 CODE 0 60A 60A 10 2
-text8 CODE 0 659 659 B 2
-text9 CODE 0 188 188 E7 2
-text10 CODE 0 457 457 38 2
-text11 CODE 0 680 680 6 2
-text12 CODE 0 5B7 5B7 17 2
-text13 CODE 0 391 391 45 2
-text14 CODE 0 61A 61A D 2
-text15 CODE 0 66E 66E 9 2
-text16 CODE 0 349 349 48 2
-text17 CODE 0 677 677 9 2
-text18 CODE 0 5F9 5F9 11 2
-text19 CODE 0 3D6 3D6 45 2
-text20 CODE 0 26F 26F 6D 2
-text21 CODE 0 2DC 2DC 6D 2
-text22 CODE 0 5CE 5CE 17 2
-text23 CODE 0 4E7 4E7 28 2
-text24 CODE 0 4BD 4BD 2A 2
-text25 CODE 0 627 627 D 2
-text27 CODE 0 555 555 22 2
-text28 CODE 0 634 634 D 2
-text29 CODE 0 64D 64D C 2
-text30 CODE 0 686 686 6 2
-maintext CODE 0 48F 48F 2E 2
+bitnvCOMMON COMMON 1 3C0 78 1 1
+cinit CODE 0 5F 5F 42 2
+text1 CODE 0 67B 67B A 2
+text2 CODE 0 563 563 22 2
+text3 CODE 0 5A7 5A7 20 2
+text4 CODE 0 53E 53E 25 2
+text5 CODE 0 41D 41D 3E 2
+text6 CODE 0 196 196 E0 2
+text7 CODE 0 670 670 B 2
+text8 CODE 0 A1 A1 F5 2
+text9 CODE 0 45B 45B 38 2
+text10 CODE 0 697 697 6 2
+text11 CODE 0 4C1 4C1 2B 2
+text12 CODE 0 614 614 10 2
+text13 CODE 0 3DB 3DB 42 2
+text14 CODE 0 624 624 D 2
+text15 CODE 0 685 685 9 2
+text16 CODE 0 350 350 46 2
+text17 CODE 0 68E 68E 9 2
+text18 CODE 0 631 631 D 2
+text19 CODE 0 396 396 45 2
+text20 CODE 0 276 276 6D 2
+text21 CODE 0 2E3 2E3 6D 2
+text22 CODE 0 5E7 5E7 17 2
+text23 CODE 0 516 516 28 2
+text24 CODE 0 4EC 4EC 2A 2
+text25 CODE 0 63E 63E D 2
+text27 CODE 0 585 585 22 2
+text28 CODE 0 64B 64B D 2
+text29 CODE 0 664 664 C 2
+text30 CODE 0 69D 69D 6 2
+maintext CODE 0 493 493 2E 2
 cstackCOMMON COMMON 1 71 71 7 1
-cstackBANK0 BANK0 1 52 52 1A 1
-cstackBANK1 BANK1 1 E7 E7 7 1
-stringtext1 STRCODE 0 690 690 2 2
-stringtext2 STRCODE 0 692 692 2 2
-intentry CODE 0 4 4 56 2
-bitbssCOMMON COMMON 1 380 70 7 1
-bssBANK0 BANK0 1 20 20 32 1
-bssBANK1 BANK1 1 A0 A0 47 1
-idataBANK0 CODE 0 68C 68C 4 2
+cstackBANK0 BANK0 1 20 20 28 1
+cstackBANK1 BANK1 1 E3 E3 A 1
+stringtext1 STRCODE 0 6A7 6A7 2 2
+stringtext2 STRCODE 0 6A9 6A9 2 2
+intentry CODE 0 4 4 59 2
+bitbssCOMMON COMMON 1 380 70 8 1
+bssBANK0 BANK0 1 48 48 24 1
+bssBANK1 BANK1 1 A0 A0 43 1
+bssBANK2 BANK2 1 120 120 12 1
+idataBANK0 CODE 0 6A3 6A3 2 2
+idataBANK1 CODE 0 6A5 6A5 2 2
 eeprom_data EEDATA 3 0 F000 100 2
-swtext1 CONST 0 597 597 20 2
-swtext2 CONST 0 5E5 5E5 14 2
-dataBANK0 BANK0 1 6C 6C 4 1
-clrtext CODE 0 641 641 C 2
+swtext1 CONST 0 5C7 5C7 20 2
+swtext2 CONST 0 600 600 14 2
+dataBANK0 BANK0 1 6C 6C 2 1
+dataBANK1 BANK1 1 ED ED 2 1
+clrtext CODE 0 658 658 C 2
 bssCOMMON COMMON 1 79 79 1 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -70,8 +73,9 @@ bssCOMMON COMMON 1 79 79 1 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM EE-EF 1
-RAM 120-16F 1
+RAM 6E-6F 1
+RAM EF-EF 1
+RAM 132-16F 1
 RAM 1A0-1EF 1
 RAM 220-26F 1
 RAM 2A0-2EF 1
@@ -85,8 +89,9 @@ RAM 620-66F 1
 RAM 6A0-6EF 1
 RAM 720-76F 1
 RAM 7A0-7DF 1
-BANK1 EE-EF 1
-BANK2 120-16F 1
+BANK0 6E-6F 1
+BANK1 EF-EF 1
+BANK2 132-16F 1
 BANK3 1A0-1EF 1
 BANK4 220-26F 1
 BANK5 2A0-2EF 1
@@ -95,9 +100,11 @@ BANK7 3A0-3EF 1
 BANK8 420-46F 1
 BANK9 4A0-4EF 1
 CONST 2-3 2
-CONST 694-3FFF 2
+CONST 5FE-5FF 2
+CONST 6AB-3FFF 2
 ENTRY 2-3 2
-ENTRY 694-3FFF 2
+ENTRY 5FE-5FF 2
+ENTRY 6AB-3FFF 2
 IDLOC 8000-8003 2
 SFR10 500-51F 1
 SFR11 580-59F 1
@@ -121,9 +128,10 @@ SFR28 E00-E6F 1
 SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
-STACK 209E-24EF 1
+STACK 20B2-24EF 1
 CODE 2-3 2
-CODE 694-3FFF 2
+CODE 5FE-5FF 2
+CODE 6AB-3FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -143,9 +151,11 @@ BANK15 7A0-7DF 1
 BIGRAM 2000-27EF 1
 COMMON 7A-7D 1
 STRCODE 2-3 2
-STRCODE 694-3FFF 2
+STRCODE 5FE-5FF 2
+STRCODE 6AB-3FFF 2
 STRING 2-3 2
-STRING 694-3FFF 2
+STRING 5FE-5FF 2
+STRING 6AB-3FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -160,49 +170,59 @@ STRING 694-3FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\16F18346_Link_IC.X.production.obj
-5C cinit CODE >8176:E:\temp\s43c8.
-5C cinit CODE >8179:E:\temp\s43c8.
-5C cinit CODE >8313:E:\temp\s43c8.
-5F cinit CODE >8314:E:\temp\s43c8.
-60 cinit CODE >8315:E:\temp\s43c8.
-63 cinit CODE >8316:E:\temp\s43c8.
-64 cinit CODE >8317:E:\temp\s43c8.
-67 cinit CODE >8318:E:\temp\s43c8.
-68 cinit CODE >8319:E:\temp\s43c8.
-6B cinit CODE >8320:E:\temp\s43c8.
-6C cinit CODE >8343:E:\temp\s43c8.
-6D cinit CODE >8344:E:\temp\s43c8.
-6E cinit CODE >8345:E:\temp\s43c8.
-6F cinit CODE >8346:E:\temp\s43c8.
-70 cinit CODE >8347:E:\temp\s43c8.
-71 cinit CODE >8348:E:\temp\s43c8.
-72 cinit CODE >8349:E:\temp\s43c8.
-73 cinit CODE >8350:E:\temp\s43c8.
-74 cinit CODE >8351:E:\temp\s43c8.
-77 cinit CODE >8355:E:\temp\s43c8.
-78 cinit CODE >8359:E:\temp\s43c8.
-79 cinit CODE >8363:E:\temp\s43c8.
-7A cinit CODE >8364:E:\temp\s43c8.
-7B cinit CODE >8365:E:\temp\s43c8.
-7C cinit CODE >8366:E:\temp\s43c8.
-7D cinit CODE >8367:E:\temp\s43c8.
-7E cinit CODE >8368:E:\temp\s43c8.
-7F cinit CODE >8369:E:\temp\s43c8.
-80 cinit CODE >8370:E:\temp\s43c8.
-81 cinit CODE >8371:E:\temp\s43c8.
-84 cinit CODE >8375:E:\temp\s43c8.
-85 cinit CODE >8376:E:\temp\s43c8.
-86 cinit CODE >8377:E:\temp\s43c8.
-87 cinit CODE >8378:E:\temp\s43c8.
-88 cinit CODE >8379:E:\temp\s43c8.
-89 cinit CODE >8380:E:\temp\s43c8.
-8A cinit CODE >8381:E:\temp\s43c8.
-8B cinit CODE >8382:E:\temp\s43c8.
-8C cinit CODE >8383:E:\temp\s43c8.
-8E cinit CODE >8389:E:\temp\s43c8.
-8E cinit CODE >8391:E:\temp\s43c8.
-8F cinit CODE >8392:E:\temp\s43c8.
-90 cinit CODE >8393:E:\temp\s43c8.
+5F cinit CODE >8177:E:\temp\sakg8.
+5F cinit CODE >8180:E:\temp\sakg8.
+5F cinit CODE >8322:E:\temp\sakg8.
+62 cinit CODE >8323:E:\temp\sakg8.
+63 cinit CODE >8324:E:\temp\sakg8.
+66 cinit CODE >8325:E:\temp\sakg8.
+67 cinit CODE >8329:E:\temp\sakg8.
+68 cinit CODE >8330:E:\temp\sakg8.
+6B cinit CODE >8331:E:\temp\sakg8.
+6C cinit CODE >8332:E:\temp\sakg8.
+6F cinit CODE >8333:E:\temp\sakg8.
+70 cinit CODE >8356:E:\temp\sakg8.
+71 cinit CODE >8357:E:\temp\sakg8.
+72 cinit CODE >8358:E:\temp\sakg8.
+73 cinit CODE >8359:E:\temp\sakg8.
+74 cinit CODE >8360:E:\temp\sakg8.
+75 cinit CODE >8361:E:\temp\sakg8.
+76 cinit CODE >8362:E:\temp\sakg8.
+77 cinit CODE >8363:E:\temp\sakg8.
+78 cinit CODE >8364:E:\temp\sakg8.
+7B cinit CODE >8368:E:\temp\sakg8.
+7C cinit CODE >8372:E:\temp\sakg8.
+7D cinit CODE >8376:E:\temp\sakg8.
+7E cinit CODE >8377:E:\temp\sakg8.
+7F cinit CODE >8378:E:\temp\sakg8.
+80 cinit CODE >8379:E:\temp\sakg8.
+81 cinit CODE >8380:E:\temp\sakg8.
+82 cinit CODE >8381:E:\temp\sakg8.
+83 cinit CODE >8382:E:\temp\sakg8.
+84 cinit CODE >8383:E:\temp\sakg8.
+85 cinit CODE >8384:E:\temp\sakg8.
+88 cinit CODE >8388:E:\temp\sakg8.
+89 cinit CODE >8389:E:\temp\sakg8.
+8A cinit CODE >8390:E:\temp\sakg8.
+8B cinit CODE >8391:E:\temp\sakg8.
+8C cinit CODE >8392:E:\temp\sakg8.
+8D cinit CODE >8393:E:\temp\sakg8.
+8E cinit CODE >8394:E:\temp\sakg8.
+8F cinit CODE >8395:E:\temp\sakg8.
+90 cinit CODE >8396:E:\temp\sakg8.
+93 cinit CODE >8400:E:\temp\sakg8.
+94 cinit CODE >8401:E:\temp\sakg8.
+95 cinit CODE >8402:E:\temp\sakg8.
+96 cinit CODE >8403:E:\temp\sakg8.
+97 cinit CODE >8404:E:\temp\sakg8.
+98 cinit CODE >8405:E:\temp\sakg8.
+99 cinit CODE >8406:E:\temp\sakg8.
+9A cinit CODE >8407:E:\temp\sakg8.
+9B cinit CODE >8408:E:\temp\sakg8.
+9D cinit CODE >8414:E:\temp\sakg8.
+9D cinit CODE >8416:E:\temp\sakg8.
+9E cinit CODE >8417:E:\temp\sakg8.
+9F cinit CODE >8418:E:\temp\sakg8.
 4 intentry CODE >69:D:/programdata/16F18346_Link_IC.X/main.c
 9 intentry CODE >71:D:/programdata/16F18346_Link_IC.X/main.c
 B intentry CODE >72:D:/programdata/16F18346_Link_IC.X/main.c
@@ -211,394 +231,386 @@ B intentry CODE >72:D:/programdata/16F18346_Link_IC.X/main.c
 24 intentry CODE >75:D:/programdata/16F18346_Link_IC.X/main.c
 28 intentry CODE >76:D:/programdata/16F18346_Link_IC.X/main.c
 2A intentry CODE >79:D:/programdata/16F18346_Link_IC.X/main.c
-2C intentry CODE >80:D:/programdata/16F18346_Link_IC.X/main.c
-2E intentry CODE >81:D:/programdata/16F18346_Link_IC.X/main.c
-3F intentry CODE >82:D:/programdata/16F18346_Link_IC.X/main.c
-44 intentry CODE >83:D:/programdata/16F18346_Link_IC.X/main.c
-48 intentry CODE >84:D:/programdata/16F18346_Link_IC.X/main.c
-4A intentry CODE >89:D:/programdata/16F18346_Link_IC.X/main.c
-4D intentry CODE >90:D:/programdata/16F18346_Link_IC.X/main.c
-4F intentry CODE >92:D:/programdata/16F18346_Link_IC.X/main.c
-51 intentry CODE >94:D:/programdata/16F18346_Link_IC.X/main.c
-53 intentry CODE >95:D:/programdata/16F18346_Link_IC.X/main.c
-54 intentry CODE >96:D:/programdata/16F18346_Link_IC.X/main.c
-55 intentry CODE >97:D:/programdata/16F18346_Link_IC.X/main.c
-56 intentry CODE >98:D:/programdata/16F18346_Link_IC.X/main.c
-686 text30 CODE >40:D:\programdata\16F18346_Link_IC.X\struct.c
-686 text30 CODE >41:D:\programdata\16F18346_Link_IC.X\struct.c
-68B text30 CODE >42:D:\programdata\16F18346_Link_IC.X\struct.c
-64D text29 CODE >29:D:/programdata/16F18346_Link_IC.X/IO_control.c
-64D text29 CODE >30:D:/programdata/16F18346_Link_IC.X/IO_control.c
-652 text29 CODE >31:D:/programdata/16F18346_Link_IC.X/IO_control.c
-658 text29 CODE >32:D:/programdata/16F18346_Link_IC.X/IO_control.c
-634 text28 CODE >76:D:/programdata/16F18346_Link_IC.X/spiControl.c
-634 text28 CODE >77:D:/programdata/16F18346_Link_IC.X/spiControl.c
-63D text28 CODE >78:D:/programdata/16F18346_Link_IC.X/spiControl.c
-63E text28 CODE >79:D:/programdata/16F18346_Link_IC.X/spiControl.c
-63F text28 CODE >80:D:/programdata/16F18346_Link_IC.X/spiControl.c
-555 text27 CODE >92:D:/programdata/16F18346_Link_IC.X/spiControl.c
-555 text27 CODE >93:D:/programdata/16F18346_Link_IC.X/spiControl.c
-55A text27 CODE >94:D:/programdata/16F18346_Link_IC.X/spiControl.c
-568 text27 CODE >95:D:/programdata/16F18346_Link_IC.X/spiControl.c
-56D text27 CODE >96:D:/programdata/16F18346_Link_IC.X/spiControl.c
-571 text27 CODE >97:D:/programdata/16F18346_Link_IC.X/spiControl.c
-573 text27 CODE >99:D:/programdata/16F18346_Link_IC.X/spiControl.c
-574 text27 CODE >100:D:/programdata/16F18346_Link_IC.X/spiControl.c
-627 text25 CODE >9:D:/programdata/16F18346_Link_IC.X/util.c
-627 text25 CODE >10:D:/programdata/16F18346_Link_IC.X/util.c
-629 text25 CODE >11:D:/programdata/16F18346_Link_IC.X/util.c
-62A text25 CODE >12:D:/programdata/16F18346_Link_IC.X/util.c
-62B text25 CODE >13:D:/programdata/16F18346_Link_IC.X/util.c
-62D text25 CODE >14:D:/programdata/16F18346_Link_IC.X/util.c
-62E text25 CODE >15:D:/programdata/16F18346_Link_IC.X/util.c
-62F text25 CODE >16:D:/programdata/16F18346_Link_IC.X/util.c
-631 text25 CODE >17:D:/programdata/16F18346_Link_IC.X/util.c
-632 text25 CODE >18:D:/programdata/16F18346_Link_IC.X/util.c
-633 text25 CODE >19:D:/programdata/16F18346_Link_IC.X/util.c
-4BD text24 CODE >99:D:/programdata/16F18346_Link_IC.X/main.c
-4BD text24 CODE >100:D:/programdata/16F18346_Link_IC.X/main.c
-4CB text24 CODE >101:D:/programdata/16F18346_Link_IC.X/main.c
-4D7 text24 CODE >102:D:/programdata/16F18346_Link_IC.X/main.c
-4E2 text24 CODE >100:D:/programdata/16F18346_Link_IC.X/main.c
-4E7 text23 CODE >105:D:/programdata/16F18346_Link_IC.X/main.c
-4E7 text23 CODE >106:D:/programdata/16F18346_Link_IC.X/main.c
-4EA text23 CODE >107:D:/programdata/16F18346_Link_IC.X/main.c
-4EC text23 CODE >108:D:/programdata/16F18346_Link_IC.X/main.c
-4EF text23 CODE >110:D:/programdata/16F18346_Link_IC.X/main.c
-4F4 text23 CODE >111:D:/programdata/16F18346_Link_IC.X/main.c
-4F6 text23 CODE >112:D:/programdata/16F18346_Link_IC.X/main.c
-4F8 text23 CODE >113:D:/programdata/16F18346_Link_IC.X/main.c
-4FB text23 CODE >114:D:/programdata/16F18346_Link_IC.X/main.c
-4FD text23 CODE >115:D:/programdata/16F18346_Link_IC.X/main.c
-4FF text23 CODE >116:D:/programdata/16F18346_Link_IC.X/main.c
-501 text23 CODE >117:D:/programdata/16F18346_Link_IC.X/main.c
-502 text23 CODE >118:D:/programdata/16F18346_Link_IC.X/main.c
-503 text23 CODE >119:D:/programdata/16F18346_Link_IC.X/main.c
-505 text23 CODE >120:D:/programdata/16F18346_Link_IC.X/main.c
-506 text23 CODE >121:D:/programdata/16F18346_Link_IC.X/main.c
-507 text23 CODE >123:D:/programdata/16F18346_Link_IC.X/main.c
-509 text23 CODE >124:D:/programdata/16F18346_Link_IC.X/main.c
-50B text23 CODE >125:D:/programdata/16F18346_Link_IC.X/main.c
-50C text23 CODE >126:D:/programdata/16F18346_Link_IC.X/main.c
-50D text23 CODE >127:D:/programdata/16F18346_Link_IC.X/main.c
-5CE text22 CODE >14:D:\programdata\16F18346_Link_IC.X\struct.c
-5CE text22 CODE >15:D:\programdata\16F18346_Link_IC.X\struct.c
-5CF text22 CODE >16:D:\programdata\16F18346_Link_IC.X\struct.c
-5D8 text22 CODE >17:D:\programdata\16F18346_Link_IC.X\struct.c
-5D9 text22 CODE >18:D:\programdata\16F18346_Link_IC.X\struct.c
-5DD text22 CODE >19:D:\programdata\16F18346_Link_IC.X\struct.c
-5DE text22 CODE >20:D:\programdata\16F18346_Link_IC.X\struct.c
-5DF text22 CODE >21:D:\programdata\16F18346_Link_IC.X\struct.c
-5E0 text22 CODE >22:D:\programdata\16F18346_Link_IC.X\struct.c
-5E2 text22 CODE >23:D:\programdata\16F18346_Link_IC.X\struct.c
-5E4 text22 CODE >24:D:\programdata\16F18346_Link_IC.X\struct.c
-2DC text21 CODE >12:D:/programdata/16F18346_Link_IC.X/command.c
-2DC text21 CODE >13:D:/programdata/16F18346_Link_IC.X/command.c
-2E2 text21 CODE >14:D:/programdata/16F18346_Link_IC.X/command.c
-2E8 text21 CODE >15:D:/programdata/16F18346_Link_IC.X/command.c
-2EE text21 CODE >16:D:/programdata/16F18346_Link_IC.X/command.c
-2F4 text21 CODE >17:D:/programdata/16F18346_Link_IC.X/command.c
-2FA text21 CODE >18:D:/programdata/16F18346_Link_IC.X/command.c
-300 text21 CODE >19:D:/programdata/16F18346_Link_IC.X/command.c
-306 text21 CODE >20:D:/programdata/16F18346_Link_IC.X/command.c
-30C text21 CODE >21:D:/programdata/16F18346_Link_IC.X/command.c
-312 text21 CODE >22:D:/programdata/16F18346_Link_IC.X/command.c
-318 text21 CODE >23:D:/programdata/16F18346_Link_IC.X/command.c
-31E text21 CODE >24:D:/programdata/16F18346_Link_IC.X/command.c
-324 text21 CODE >25:D:/programdata/16F18346_Link_IC.X/command.c
-32A text21 CODE >26:D:/programdata/16F18346_Link_IC.X/command.c
-330 text21 CODE >27:D:/programdata/16F18346_Link_IC.X/command.c
-336 text21 CODE >28:D:/programdata/16F18346_Link_IC.X/command.c
-33C text21 CODE >29:D:/programdata/16F18346_Link_IC.X/command.c
-342 text21 CODE >30:D:/programdata/16F18346_Link_IC.X/command.c
-348 text21 CODE >31:D:/programdata/16F18346_Link_IC.X/command.c
-26F text20 CODE >18:D:/programdata/16F18346_Link_IC.X/comu_type.c
-26F text20 CODE >19:D:/programdata/16F18346_Link_IC.X/comu_type.c
-275 text20 CODE >20:D:/programdata/16F18346_Link_IC.X/comu_type.c
-27B text20 CODE >21:D:/programdata/16F18346_Link_IC.X/comu_type.c
-281 text20 CODE >22:D:/programdata/16F18346_Link_IC.X/comu_type.c
-287 text20 CODE >23:D:/programdata/16F18346_Link_IC.X/comu_type.c
-28D text20 CODE >24:D:/programdata/16F18346_Link_IC.X/comu_type.c
-293 text20 CODE >25:D:/programdata/16F18346_Link_IC.X/comu_type.c
-299 text20 CODE >26:D:/programdata/16F18346_Link_IC.X/comu_type.c
-29F text20 CODE >27:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2A5 text20 CODE >28:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2AB text20 CODE >29:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2B1 text20 CODE >30:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2B7 text20 CODE >31:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2BD text20 CODE >32:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2C3 text20 CODE >33:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2C9 text20 CODE >34:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2CF text20 CODE >35:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2D5 text20 CODE >36:D:/programdata/16F18346_Link_IC.X/comu_type.c
-2DB text20 CODE >37:D:/programdata/16F18346_Link_IC.X/comu_type.c
-3D6 text19 CODE >192:D:/programdata/16F18346_Link_IC.X/main.c
-3D8 text19 CODE >193:D:/programdata/16F18346_Link_IC.X/main.c
-40B text19 CODE >194:D:/programdata/16F18346_Link_IC.X/main.c
-417 text19 CODE >195:D:/programdata/16F18346_Link_IC.X/main.c
-418 text19 CODE >196:D:/programdata/16F18346_Link_IC.X/main.c
-419 text19 CODE >197:D:/programdata/16F18346_Link_IC.X/main.c
-5F9 text18 CODE >33:D:\programdata\16F18346_Link_IC.X\struct.c
-5F9 text18 CODE >34:D:\programdata\16F18346_Link_IC.X\struct.c
-602 text18 CODE >35:D:\programdata\16F18346_Link_IC.X\struct.c
-603 text18 CODE >36:D:\programdata\16F18346_Link_IC.X\struct.c
-607 text18 CODE >37:D:\programdata\16F18346_Link_IC.X\struct.c
-608 text18 CODE >38:D:\programdata\16F18346_Link_IC.X\struct.c
-609 text18 CODE >39:D:\programdata\16F18346_Link_IC.X\struct.c
-677 text17 CODE >186:D:/programdata/16F18346_Link_IC.X/main.c
-677 text17 CODE >187:D:/programdata/16F18346_Link_IC.X/main.c
-67C text17 CODE >188:D:/programdata/16F18346_Link_IC.X/main.c
-67D text17 CODE >189:D:/programdata/16F18346_Link_IC.X/main.c
-67F text17 CODE >190:D:/programdata/16F18346_Link_IC.X/main.c
-349 text16 CODE >140:D:/programdata/16F18346_Link_IC.X/main.c
-349 text16 CODE >141:D:/programdata/16F18346_Link_IC.X/main.c
-358 text16 CODE >142:D:/programdata/16F18346_Link_IC.X/main.c
-35C text16 CODE >143:D:/programdata/16F18346_Link_IC.X/main.c
-360 text16 CODE >144:D:/programdata/16F18346_Link_IC.X/main.c
-366 text16 CODE >145:D:/programdata/16F18346_Link_IC.X/main.c
-368 text16 CODE >146:D:/programdata/16F18346_Link_IC.X/main.c
-36B text16 CODE >147:D:/programdata/16F18346_Link_IC.X/main.c
-36D text16 CODE >148:D:/programdata/16F18346_Link_IC.X/main.c
-370 text16 CODE >149:D:/programdata/16F18346_Link_IC.X/main.c
-371 text16 CODE >150:D:/programdata/16F18346_Link_IC.X/main.c
-374 text16 CODE >151:D:/programdata/16F18346_Link_IC.X/main.c
-376 text16 CODE >152:D:/programdata/16F18346_Link_IC.X/main.c
-377 text16 CODE >153:D:/programdata/16F18346_Link_IC.X/main.c
-37C text16 CODE >154:D:/programdata/16F18346_Link_IC.X/main.c
-37C text16 CODE >155:D:/programdata/16F18346_Link_IC.X/main.c
-384 text16 CODE >156:D:/programdata/16F18346_Link_IC.X/main.c
-386 text16 CODE >157:D:/programdata/16F18346_Link_IC.X/main.c
-388 text16 CODE >158:D:/programdata/16F18346_Link_IC.X/main.c
-38A text16 CODE >159:D:/programdata/16F18346_Link_IC.X/main.c
-38B text16 CODE >160:D:/programdata/16F18346_Link_IC.X/main.c
-38E text16 CODE >161:D:/programdata/16F18346_Link_IC.X/main.c
-66E text15 CODE >132:D:/programdata/16F18346_Link_IC.X/main.c
-66E text15 CODE >133:D:/programdata/16F18346_Link_IC.X/main.c
-670 text15 CODE >134:D:/programdata/16F18346_Link_IC.X/main.c
-672 text15 CODE >135:D:/programdata/16F18346_Link_IC.X/main.c
-673 text15 CODE >136:D:/programdata/16F18346_Link_IC.X/main.c
-675 text15 CODE >137:D:/programdata/16F18346_Link_IC.X/main.c
-676 text15 CODE >138:D:/programdata/16F18346_Link_IC.X/main.c
-61A text14 CODE >67:D:/programdata/16F18346_Link_IC.X/spiControl.c
-61A text14 CODE >68:D:/programdata/16F18346_Link_IC.X/spiControl.c
-623 text14 CODE >69:D:/programdata/16F18346_Link_IC.X/spiControl.c
-624 text14 CODE >70:D:/programdata/16F18346_Link_IC.X/spiControl.c
-625 text14 CODE >71:D:/programdata/16F18346_Link_IC.X/spiControl.c
-391 text13 CODE >204:D:/programdata/16F18346_Link_IC.X/main.c
-391 text13 CODE >205:D:/programdata/16F18346_Link_IC.X/main.c
-399 text13 CODE >206:D:/programdata/16F18346_Link_IC.X/main.c
-39A text13 CODE >210:D:/programdata/16F18346_Link_IC.X/main.c
-3A3 text13 CODE >213:D:/programdata/16F18346_Link_IC.X/main.c
-3AF text13 CODE >214:D:/programdata/16F18346_Link_IC.X/main.c
-3B0 text13 CODE >216:D:/programdata/16F18346_Link_IC.X/main.c
-3B4 text13 CODE >217:D:/programdata/16F18346_Link_IC.X/main.c
-3B5 text13 CODE >221:D:/programdata/16F18346_Link_IC.X/main.c
-3B6 text13 CODE >206:D:/programdata/16F18346_Link_IC.X/main.c
-3C9 text13 CODE >223:D:/programdata/16F18346_Link_IC.X/main.c
-3CD text13 CODE >224:D:/programdata/16F18346_Link_IC.X/main.c
-3CF text13 CODE >226:D:/programdata/16F18346_Link_IC.X/main.c
-3D3 text13 CODE >227:D:/programdata/16F18346_Link_IC.X/main.c
-5B7 text12 CODE >62:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5B7 text12 CODE >63:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5B8 text12 CODE >64:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5BD text12 CODE >65:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5BE text12 CODE >66:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5BF text12 CODE >67:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5C7 text12 CODE >68:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5C9 text12 CODE >69:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5CA text12 CODE >70:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5CC text12 CODE >71:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5CD text12 CODE >72:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-680 text11 CODE >103:D:/programdata/16F18346_Link_IC.X/spiControl.c
-682 text11 CODE >104:D:/programdata/16F18346_Link_IC.X/spiControl.c
-685 text11 CODE >105:D:/programdata/16F18346_Link_IC.X/spiControl.c
-457 text10 CODE >30:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-457 text10 CODE >31:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-459 text10 CODE >32:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-460 text10 CODE >33:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-474 text10 CODE >35:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-482 text10 CODE >37:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-485 text10 CODE >38:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-487 text10 CODE >39:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-488 text10 CODE >40:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-489 text10 CODE >41:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-48B text10 CODE >42:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-48E text10 CODE >43:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-5E5 swtext2 CONST >79:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-188 text9 CODE >73:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-18A text9 CODE >75:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-191 text9 CODE >76:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-19E text9 CODE >77:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1A1 text9 CODE >78:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1A4 text9 CODE >81:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1A7 text9 CODE >82:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1B3 text9 CODE >86:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1C5 text9 CODE >90:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1CB text9 CODE >94:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1D0 text9 CODE >95:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1D3 text9 CODE >98:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1D9 text9 CODE >102:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1E2 text9 CODE >103:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-1F9 text9 CODE >106:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-211 text9 CODE >109:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-22C text9 CODE >112:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-230 text9 CODE >114:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-230 text9 CODE >115:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-232 text9 CODE >117:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-234 text9 CODE >118:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-235 text9 CODE >119:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-236 text9 CODE >121:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-238 text9 CODE >122:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-23D text9 CODE >124:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-23E text9 CODE >79:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-24E text9 CODE >127:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-253 text9 CODE >128:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-259 text9 CODE >129:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-265 text9 CODE >130:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-26A text9 CODE >131:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-26D text9 CODE >132:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-659 text8 CODE >68:D:/programdata/16F18346_Link_IC.X/command.c
-65B text8 CODE >69:D:/programdata/16F18346_Link_IC.X/command.c
-65E text8 CODE >70:D:/programdata/16F18346_Link_IC.X/command.c
-660 text8 CODE >71:D:/programdata/16F18346_Link_IC.X/command.c
-661 text8 CODE >72:D:/programdata/16F18346_Link_IC.X/command.c
-60A text7 CODE >8:D:\programdata\16F18346_Link_IC.X\struct.c
-60A text7 CODE >9:D:\programdata\16F18346_Link_IC.X\struct.c
-597 swtext1 CONST >20:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-92 text6 CODE >15:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-94 text6 CODE >16:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-9F text6 CODE >17:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-B4 text6 CODE >18:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-C6 text6 CODE >19:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-C9 text6 CODE >21:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-C9 text6 CODE >22:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-CB text6 CODE >23:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-D4 text6 CODE >24:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-D5 text6 CODE >25:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-D5 text6 CODE >26:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-D7 text6 CODE >27:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-E1 text6 CODE >28:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-E2 text6 CODE >30:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-E8 text6 CODE >31:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-E9 text6 CODE >33:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-EF text6 CODE >34:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-F0 text6 CODE >36:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-F6 text6 CODE >37:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-FA text6 CODE >38:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-FD text6 CODE >39:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-FE text6 CODE >42:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-FF text6 CODE >44:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-102 text6 CODE >47:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-104 text6 CODE >50:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-106 text6 CODE >53:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-108 text6 CODE >56:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-10A text6 CODE >59:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-10C text6 CODE >62:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-112 text6 CODE >63:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-116 text6 CODE >64:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-117 text6 CODE >66:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-120 text6 CODE >67:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-130 text6 CODE >70:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-140 text6 CODE >73:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-153 text6 CODE >76:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-157 text6 CODE >78:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-158 text6 CODE >20:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-167 text6 CODE >81:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-16C text6 CODE >82:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-174 text6 CODE >83:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-176 text6 CODE >84:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-17F text6 CODE >85:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-184 text6 CODE >86:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-186 text6 CODE >87:D:/programdata/16F18346_Link_IC.X/normal_mode.c
-41B text5 CODE >38:D:/programdata/16F18346_Link_IC.X/comu_type.c
-41D text5 CODE >39:D:/programdata/16F18346_Link_IC.X/comu_type.c
-42A text5 CODE >40:D:/programdata/16F18346_Link_IC.X/comu_type.c
-434 text5 CODE >43:D:/programdata/16F18346_Link_IC.X/comu_type.c
-437 text5 CODE >44:D:/programdata/16F18346_Link_IC.X/comu_type.c
-438 text5 CODE >46:D:/programdata/16F18346_Link_IC.X/comu_type.c
-43B text5 CODE >51:D:/programdata/16F18346_Link_IC.X/comu_type.c
-43C text5 CODE >41:D:/programdata/16F18346_Link_IC.X/comu_type.c
-450 text5 CODE >39:D:/programdata/16F18346_Link_IC.X/comu_type.c
-456 text5 CODE >56:D:/programdata/16F18346_Link_IC.X/comu_type.c
-50F text4 CODE >106:D:/programdata/16F18346_Link_IC.X/spiControl.c
-50F text4 CODE >107:D:/programdata/16F18346_Link_IC.X/spiControl.c
-513 text4 CODE >108:D:/programdata/16F18346_Link_IC.X/spiControl.c
-516 text4 CODE >109:D:/programdata/16F18346_Link_IC.X/spiControl.c
-517 text4 CODE >110:D:/programdata/16F18346_Link_IC.X/spiControl.c
-528 text4 CODE >111:D:/programdata/16F18346_Link_IC.X/spiControl.c
-52C text4 CODE >112:D:/programdata/16F18346_Link_IC.X/spiControl.c
-530 text4 CODE >113:D:/programdata/16F18346_Link_IC.X/spiControl.c
-532 text4 CODE >114:D:/programdata/16F18346_Link_IC.X/spiControl.c
-577 text3 CODE >33:D:/programdata/16F18346_Link_IC.X/spiControl.c
-577 text3 CODE >35:D:/programdata/16F18346_Link_IC.X/spiControl.c
-579 text3 CODE >36:D:/programdata/16F18346_Link_IC.X/spiControl.c
-57C text3 CODE >37:D:/programdata/16F18346_Link_IC.X/spiControl.c
-581 text3 CODE >38:D:/programdata/16F18346_Link_IC.X/spiControl.c
-583 text3 CODE >39:D:/programdata/16F18346_Link_IC.X/spiControl.c
-584 text3 CODE >40:D:/programdata/16F18346_Link_IC.X/spiControl.c
-588 text3 CODE >41:D:/programdata/16F18346_Link_IC.X/spiControl.c
-589 text3 CODE >42:D:/programdata/16F18346_Link_IC.X/spiControl.c
-58A text3 CODE >43:D:/programdata/16F18346_Link_IC.X/spiControl.c
-58B text3 CODE >44:D:/programdata/16F18346_Link_IC.X/spiControl.c
-58C text3 CODE >45:D:/programdata/16F18346_Link_IC.X/spiControl.c
-58E text3 CODE >46:D:/programdata/16F18346_Link_IC.X/spiControl.c
-590 text3 CODE >47:D:/programdata/16F18346_Link_IC.X/spiControl.c
-596 text3 CODE >48:D:/programdata/16F18346_Link_IC.X/spiControl.c
-533 text2 CODE >49:D:/programdata/16F18346_Link_IC.X/spiControl.c
-533 text2 CODE >51:D:/programdata/16F18346_Link_IC.X/spiControl.c
-535 text2 CODE >52:D:/programdata/16F18346_Link_IC.X/spiControl.c
-538 text2 CODE >53:D:/programdata/16F18346_Link_IC.X/spiControl.c
-53A text2 CODE >54:D:/programdata/16F18346_Link_IC.X/spiControl.c
-53F text2 CODE >55:D:/programdata/16F18346_Link_IC.X/spiControl.c
-541 text2 CODE >56:D:/programdata/16F18346_Link_IC.X/spiControl.c
-542 text2 CODE >57:D:/programdata/16F18346_Link_IC.X/spiControl.c
-546 text2 CODE >58:D:/programdata/16F18346_Link_IC.X/spiControl.c
-547 text2 CODE >59:D:/programdata/16F18346_Link_IC.X/spiControl.c
-548 text2 CODE >60:D:/programdata/16F18346_Link_IC.X/spiControl.c
-549 text2 CODE >61:D:/programdata/16F18346_Link_IC.X/spiControl.c
-54A text2 CODE >62:D:/programdata/16F18346_Link_IC.X/spiControl.c
-54C text2 CODE >63:D:/programdata/16F18346_Link_IC.X/spiControl.c
-54E text2 CODE >64:D:/programdata/16F18346_Link_IC.X/spiControl.c
-554 text2 CODE >65:D:/programdata/16F18346_Link_IC.X/spiControl.c
-664 text1 CODE >22:D:/programdata/16F18346_Link_IC.X/spiControl.c
-664 text1 CODE >23:D:/programdata/16F18346_Link_IC.X/spiControl.c
-665 text1 CODE >24:D:/programdata/16F18346_Link_IC.X/spiControl.c
-666 text1 CODE >25:D:/programdata/16F18346_Link_IC.X/spiControl.c
-669 text1 CODE >26:D:/programdata/16F18346_Link_IC.X/spiControl.c
-66B text1 CODE >27:D:/programdata/16F18346_Link_IC.X/spiControl.c
-66C text1 CODE >28:D:/programdata/16F18346_Link_IC.X/spiControl.c
-66D text1 CODE >30:D:/programdata/16F18346_Link_IC.X/spiControl.c
-48F maintext CODE >164:D:/programdata/16F18346_Link_IC.X/main.c
-48F maintext CODE >165:D:/programdata/16F18346_Link_IC.X/main.c
-492 maintext CODE >166:D:/programdata/16F18346_Link_IC.X/main.c
-495 maintext CODE >167:D:/programdata/16F18346_Link_IC.X/main.c
-498 maintext CODE >168:D:/programdata/16F18346_Link_IC.X/main.c
-49B maintext CODE >169:D:/programdata/16F18346_Link_IC.X/main.c
-49E maintext CODE >170:D:/programdata/16F18346_Link_IC.X/main.c
-4A1 maintext CODE >171:D:/programdata/16F18346_Link_IC.X/main.c
-4A4 maintext CODE >172:D:/programdata/16F18346_Link_IC.X/main.c
-4A6 maintext CODE >174:D:/programdata/16F18346_Link_IC.X/main.c
-4AB maintext CODE >175:D:/programdata/16F18346_Link_IC.X/main.c
-4AE maintext CODE >176:D:/programdata/16F18346_Link_IC.X/main.c
-4B0 maintext CODE >177:D:/programdata/16F18346_Link_IC.X/main.c
-4B5 maintext CODE >178:D:/programdata/16F18346_Link_IC.X/main.c
-4B6 maintext CODE >179:D:/programdata/16F18346_Link_IC.X/main.c
-4B9 maintext CODE >181:D:/programdata/16F18346_Link_IC.X/main.c
-4BC maintext CODE >173:D:/programdata/16F18346_Link_IC.X/main.c
-641 clrtext CODE >8326:E:\temp\s43c8.
-641 clrtext CODE >8327:E:\temp\s43c8.
-642 clrtext CODE >8328:E:\temp\s43c8.
-642 clrtext CODE >8329:E:\temp\s43c8.
-643 clrtext CODE >8330:E:\temp\s43c8.
-644 clrtext CODE >8331:E:\temp\s43c8.
-645 clrtext CODE >8332:E:\temp\s43c8.
-646 clrtext CODE >8333:E:\temp\s43c8.
-647 clrtext CODE >8334:E:\temp\s43c8.
-648 clrtext CODE >8335:E:\temp\s43c8.
-649 clrtext CODE >8336:E:\temp\s43c8.
-64A clrtext CODE >8337:E:\temp\s43c8.
-64B clrtext CODE >8339:E:\temp\s43c8.
-64C clrtext CODE >8338:E:\temp\s43c8.
+2E intentry CODE >80:D:/programdata/16F18346_Link_IC.X/main.c
+31 intentry CODE >81:D:/programdata/16F18346_Link_IC.X/main.c
+42 intentry CODE >82:D:/programdata/16F18346_Link_IC.X/main.c
+47 intentry CODE >83:D:/programdata/16F18346_Link_IC.X/main.c
+4B intentry CODE >84:D:/programdata/16F18346_Link_IC.X/main.c
+4D intentry CODE >89:D:/programdata/16F18346_Link_IC.X/main.c
+50 intentry CODE >90:D:/programdata/16F18346_Link_IC.X/main.c
+52 intentry CODE >92:D:/programdata/16F18346_Link_IC.X/main.c
+54 intentry CODE >94:D:/programdata/16F18346_Link_IC.X/main.c
+56 intentry CODE >95:D:/programdata/16F18346_Link_IC.X/main.c
+57 intentry CODE >96:D:/programdata/16F18346_Link_IC.X/main.c
+58 intentry CODE >97:D:/programdata/16F18346_Link_IC.X/main.c
+59 intentry CODE >98:D:/programdata/16F18346_Link_IC.X/main.c
+69D text30 CODE >39:D:\programdata\16F18346_Link_IC.X\struct.c
+69D text30 CODE >40:D:\programdata\16F18346_Link_IC.X\struct.c
+6A2 text30 CODE >41:D:\programdata\16F18346_Link_IC.X\struct.c
+664 text29 CODE >29:D:/programdata/16F18346_Link_IC.X/IO_control.c
+664 text29 CODE >30:D:/programdata/16F18346_Link_IC.X/IO_control.c
+669 text29 CODE >31:D:/programdata/16F18346_Link_IC.X/IO_control.c
+66F text29 CODE >32:D:/programdata/16F18346_Link_IC.X/IO_control.c
+64B text28 CODE >76:D:/programdata/16F18346_Link_IC.X/spiControl.c
+64B text28 CODE >77:D:/programdata/16F18346_Link_IC.X/spiControl.c
+654 text28 CODE >78:D:/programdata/16F18346_Link_IC.X/spiControl.c
+655 text28 CODE >79:D:/programdata/16F18346_Link_IC.X/spiControl.c
+656 text28 CODE >80:D:/programdata/16F18346_Link_IC.X/spiControl.c
+585 text27 CODE >92:D:/programdata/16F18346_Link_IC.X/spiControl.c
+585 text27 CODE >93:D:/programdata/16F18346_Link_IC.X/spiControl.c
+58A text27 CODE >94:D:/programdata/16F18346_Link_IC.X/spiControl.c
+598 text27 CODE >95:D:/programdata/16F18346_Link_IC.X/spiControl.c
+59D text27 CODE >96:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5A1 text27 CODE >97:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5A3 text27 CODE >99:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5A4 text27 CODE >100:D:/programdata/16F18346_Link_IC.X/spiControl.c
+63E text25 CODE >9:D:/programdata/16F18346_Link_IC.X/util.c
+63E text25 CODE >10:D:/programdata/16F18346_Link_IC.X/util.c
+640 text25 CODE >11:D:/programdata/16F18346_Link_IC.X/util.c
+641 text25 CODE >12:D:/programdata/16F18346_Link_IC.X/util.c
+642 text25 CODE >13:D:/programdata/16F18346_Link_IC.X/util.c
+644 text25 CODE >14:D:/programdata/16F18346_Link_IC.X/util.c
+645 text25 CODE >15:D:/programdata/16F18346_Link_IC.X/util.c
+646 text25 CODE >16:D:/programdata/16F18346_Link_IC.X/util.c
+648 text25 CODE >17:D:/programdata/16F18346_Link_IC.X/util.c
+649 text25 CODE >18:D:/programdata/16F18346_Link_IC.X/util.c
+64A text25 CODE >19:D:/programdata/16F18346_Link_IC.X/util.c
+4EC text24 CODE >99:D:/programdata/16F18346_Link_IC.X/main.c
+4EC text24 CODE >100:D:/programdata/16F18346_Link_IC.X/main.c
+4FA text24 CODE >101:D:/programdata/16F18346_Link_IC.X/main.c
+506 text24 CODE >102:D:/programdata/16F18346_Link_IC.X/main.c
+511 text24 CODE >100:D:/programdata/16F18346_Link_IC.X/main.c
+516 text23 CODE >105:D:/programdata/16F18346_Link_IC.X/main.c
+516 text23 CODE >106:D:/programdata/16F18346_Link_IC.X/main.c
+519 text23 CODE >107:D:/programdata/16F18346_Link_IC.X/main.c
+51B text23 CODE >108:D:/programdata/16F18346_Link_IC.X/main.c
+51E text23 CODE >110:D:/programdata/16F18346_Link_IC.X/main.c
+523 text23 CODE >111:D:/programdata/16F18346_Link_IC.X/main.c
+525 text23 CODE >112:D:/programdata/16F18346_Link_IC.X/main.c
+527 text23 CODE >113:D:/programdata/16F18346_Link_IC.X/main.c
+52A text23 CODE >114:D:/programdata/16F18346_Link_IC.X/main.c
+52C text23 CODE >115:D:/programdata/16F18346_Link_IC.X/main.c
+52E text23 CODE >116:D:/programdata/16F18346_Link_IC.X/main.c
+530 text23 CODE >117:D:/programdata/16F18346_Link_IC.X/main.c
+531 text23 CODE >118:D:/programdata/16F18346_Link_IC.X/main.c
+532 text23 CODE >119:D:/programdata/16F18346_Link_IC.X/main.c
+534 text23 CODE >120:D:/programdata/16F18346_Link_IC.X/main.c
+535 text23 CODE >121:D:/programdata/16F18346_Link_IC.X/main.c
+536 text23 CODE >123:D:/programdata/16F18346_Link_IC.X/main.c
+538 text23 CODE >124:D:/programdata/16F18346_Link_IC.X/main.c
+53A text23 CODE >125:D:/programdata/16F18346_Link_IC.X/main.c
+53B text23 CODE >126:D:/programdata/16F18346_Link_IC.X/main.c
+53C text23 CODE >127:D:/programdata/16F18346_Link_IC.X/main.c
+5E7 text22 CODE >14:D:\programdata\16F18346_Link_IC.X\struct.c
+5E7 text22 CODE >15:D:\programdata\16F18346_Link_IC.X\struct.c
+5E8 text22 CODE >16:D:\programdata\16F18346_Link_IC.X\struct.c
+5F1 text22 CODE >17:D:\programdata\16F18346_Link_IC.X\struct.c
+5F2 text22 CODE >18:D:\programdata\16F18346_Link_IC.X\struct.c
+5F6 text22 CODE >19:D:\programdata\16F18346_Link_IC.X\struct.c
+5F7 text22 CODE >20:D:\programdata\16F18346_Link_IC.X\struct.c
+5F8 text22 CODE >21:D:\programdata\16F18346_Link_IC.X\struct.c
+5F9 text22 CODE >22:D:\programdata\16F18346_Link_IC.X\struct.c
+5FB text22 CODE >23:D:\programdata\16F18346_Link_IC.X\struct.c
+5FD text22 CODE >24:D:\programdata\16F18346_Link_IC.X\struct.c
+2E3 text21 CODE >12:D:/programdata/16F18346_Link_IC.X/command.c
+2E3 text21 CODE >13:D:/programdata/16F18346_Link_IC.X/command.c
+2E9 text21 CODE >14:D:/programdata/16F18346_Link_IC.X/command.c
+2EF text21 CODE >15:D:/programdata/16F18346_Link_IC.X/command.c
+2F5 text21 CODE >16:D:/programdata/16F18346_Link_IC.X/command.c
+2FB text21 CODE >17:D:/programdata/16F18346_Link_IC.X/command.c
+301 text21 CODE >18:D:/programdata/16F18346_Link_IC.X/command.c
+307 text21 CODE >19:D:/programdata/16F18346_Link_IC.X/command.c
+30D text21 CODE >20:D:/programdata/16F18346_Link_IC.X/command.c
+313 text21 CODE >21:D:/programdata/16F18346_Link_IC.X/command.c
+319 text21 CODE >22:D:/programdata/16F18346_Link_IC.X/command.c
+31F text21 CODE >23:D:/programdata/16F18346_Link_IC.X/command.c
+325 text21 CODE >24:D:/programdata/16F18346_Link_IC.X/command.c
+32B text21 CODE >25:D:/programdata/16F18346_Link_IC.X/command.c
+331 text21 CODE >26:D:/programdata/16F18346_Link_IC.X/command.c
+337 text21 CODE >27:D:/programdata/16F18346_Link_IC.X/command.c
+33D text21 CODE >28:D:/programdata/16F18346_Link_IC.X/command.c
+343 text21 CODE >29:D:/programdata/16F18346_Link_IC.X/command.c
+349 text21 CODE >30:D:/programdata/16F18346_Link_IC.X/command.c
+34F text21 CODE >31:D:/programdata/16F18346_Link_IC.X/command.c
+276 text20 CODE >18:D:/programdata/16F18346_Link_IC.X/comu_type.c
+276 text20 CODE >19:D:/programdata/16F18346_Link_IC.X/comu_type.c
+27C text20 CODE >20:D:/programdata/16F18346_Link_IC.X/comu_type.c
+282 text20 CODE >21:D:/programdata/16F18346_Link_IC.X/comu_type.c
+288 text20 CODE >22:D:/programdata/16F18346_Link_IC.X/comu_type.c
+28E text20 CODE >23:D:/programdata/16F18346_Link_IC.X/comu_type.c
+294 text20 CODE >24:D:/programdata/16F18346_Link_IC.X/comu_type.c
+29A text20 CODE >25:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2A0 text20 CODE >26:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2A6 text20 CODE >27:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2AC text20 CODE >28:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2B2 text20 CODE >29:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2B8 text20 CODE >30:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2BE text20 CODE >31:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2C4 text20 CODE >32:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2CA text20 CODE >33:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2D0 text20 CODE >34:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2D6 text20 CODE >35:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2DC text20 CODE >36:D:/programdata/16F18346_Link_IC.X/comu_type.c
+2E2 text20 CODE >37:D:/programdata/16F18346_Link_IC.X/comu_type.c
+396 text19 CODE >191:D:/programdata/16F18346_Link_IC.X/main.c
+398 text19 CODE >192:D:/programdata/16F18346_Link_IC.X/main.c
+3CB text19 CODE >193:D:/programdata/16F18346_Link_IC.X/main.c
+3D7 text19 CODE >194:D:/programdata/16F18346_Link_IC.X/main.c
+3D8 text19 CODE >195:D:/programdata/16F18346_Link_IC.X/main.c
+3D9 text19 CODE >196:D:/programdata/16F18346_Link_IC.X/main.c
+631 text18 CODE >33:D:\programdata\16F18346_Link_IC.X\struct.c
+631 text18 CODE >34:D:\programdata\16F18346_Link_IC.X\struct.c
+63A text18 CODE >35:D:\programdata\16F18346_Link_IC.X\struct.c
+63B text18 CODE >36:D:\programdata\16F18346_Link_IC.X\struct.c
+63C text18 CODE >37:D:\programdata\16F18346_Link_IC.X\struct.c
+63D text18 CODE >38:D:\programdata\16F18346_Link_IC.X\struct.c
+68E text17 CODE >185:D:/programdata/16F18346_Link_IC.X/main.c
+68E text17 CODE >186:D:/programdata/16F18346_Link_IC.X/main.c
+693 text17 CODE >187:D:/programdata/16F18346_Link_IC.X/main.c
+694 text17 CODE >188:D:/programdata/16F18346_Link_IC.X/main.c
+696 text17 CODE >189:D:/programdata/16F18346_Link_IC.X/main.c
+350 text16 CODE >140:D:/programdata/16F18346_Link_IC.X/main.c
+350 text16 CODE >141:D:/programdata/16F18346_Link_IC.X/main.c
+35F text16 CODE >142:D:/programdata/16F18346_Link_IC.X/main.c
+363 text16 CODE >143:D:/programdata/16F18346_Link_IC.X/main.c
+367 text16 CODE >144:D:/programdata/16F18346_Link_IC.X/main.c
+36D text16 CODE >145:D:/programdata/16F18346_Link_IC.X/main.c
+370 text16 CODE >146:D:/programdata/16F18346_Link_IC.X/main.c
+372 text16 CODE >147:D:/programdata/16F18346_Link_IC.X/main.c
+375 text16 CODE >148:D:/programdata/16F18346_Link_IC.X/main.c
+376 text16 CODE >149:D:/programdata/16F18346_Link_IC.X/main.c
+379 text16 CODE >150:D:/programdata/16F18346_Link_IC.X/main.c
+37B text16 CODE >151:D:/programdata/16F18346_Link_IC.X/main.c
+37C text16 CODE >152:D:/programdata/16F18346_Link_IC.X/main.c
+381 text16 CODE >153:D:/programdata/16F18346_Link_IC.X/main.c
+381 text16 CODE >154:D:/programdata/16F18346_Link_IC.X/main.c
+389 text16 CODE >155:D:/programdata/16F18346_Link_IC.X/main.c
+38B text16 CODE >156:D:/programdata/16F18346_Link_IC.X/main.c
+38D text16 CODE >157:D:/programdata/16F18346_Link_IC.X/main.c
+38F text16 CODE >158:D:/programdata/16F18346_Link_IC.X/main.c
+390 text16 CODE >159:D:/programdata/16F18346_Link_IC.X/main.c
+393 text16 CODE >160:D:/programdata/16F18346_Link_IC.X/main.c
+685 text15 CODE >132:D:/programdata/16F18346_Link_IC.X/main.c
+685 text15 CODE >133:D:/programdata/16F18346_Link_IC.X/main.c
+687 text15 CODE >134:D:/programdata/16F18346_Link_IC.X/main.c
+689 text15 CODE >135:D:/programdata/16F18346_Link_IC.X/main.c
+68A text15 CODE >136:D:/programdata/16F18346_Link_IC.X/main.c
+68C text15 CODE >137:D:/programdata/16F18346_Link_IC.X/main.c
+68D text15 CODE >138:D:/programdata/16F18346_Link_IC.X/main.c
+624 text14 CODE >67:D:/programdata/16F18346_Link_IC.X/spiControl.c
+624 text14 CODE >68:D:/programdata/16F18346_Link_IC.X/spiControl.c
+62D text14 CODE >69:D:/programdata/16F18346_Link_IC.X/spiControl.c
+62E text14 CODE >70:D:/programdata/16F18346_Link_IC.X/spiControl.c
+62F text14 CODE >71:D:/programdata/16F18346_Link_IC.X/spiControl.c
+3DB text13 CODE >203:D:/programdata/16F18346_Link_IC.X/main.c
+3DB text13 CODE >204:D:/programdata/16F18346_Link_IC.X/main.c
+3E3 text13 CODE >205:D:/programdata/16F18346_Link_IC.X/main.c
+3E4 text13 CODE >207:D:/programdata/16F18346_Link_IC.X/main.c
+3ED text13 CODE >210:D:/programdata/16F18346_Link_IC.X/main.c
+3F9 text13 CODE >211:D:/programdata/16F18346_Link_IC.X/main.c
+3FA text13 CODE >213:D:/programdata/16F18346_Link_IC.X/main.c
+3FE text13 CODE >214:D:/programdata/16F18346_Link_IC.X/main.c
+3FF text13 CODE >218:D:/programdata/16F18346_Link_IC.X/main.c
+400 text13 CODE >205:D:/programdata/16F18346_Link_IC.X/main.c
+410 text13 CODE >220:D:/programdata/16F18346_Link_IC.X/main.c
+414 text13 CODE >221:D:/programdata/16F18346_Link_IC.X/main.c
+416 text13 CODE >223:D:/programdata/16F18346_Link_IC.X/main.c
+41A text13 CODE >224:D:/programdata/16F18346_Link_IC.X/main.c
+614 text12 CODE >8:D:\programdata\16F18346_Link_IC.X\struct.c
+614 text12 CODE >9:D:\programdata\16F18346_Link_IC.X\struct.c
+4C1 text11 CODE >62:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4C1 text11 CODE >63:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4C2 text11 CODE >64:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4C7 text11 CODE >65:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4C8 text11 CODE >66:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4C9 text11 CODE >67:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4D1 text11 CODE >68:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4E3 text11 CODE >69:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4E5 text11 CODE >70:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4E7 text11 CODE >71:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4E8 text11 CODE >72:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+4EB text11 CODE >73:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+697 text10 CODE >103:D:/programdata/16F18346_Link_IC.X/spiControl.c
+699 text10 CODE >104:D:/programdata/16F18346_Link_IC.X/spiControl.c
+69C text10 CODE >105:D:/programdata/16F18346_Link_IC.X/spiControl.c
+45B text9 CODE >30:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+45B text9 CODE >31:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+45D text9 CODE >32:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+464 text9 CODE >33:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+478 text9 CODE >35:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+486 text9 CODE >37:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+489 text9 CODE >38:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+48B text9 CODE >39:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+48C text9 CODE >40:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+48D text9 CODE >41:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+48F text9 CODE >42:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+492 text9 CODE >43:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+600 swtext2 CONST >79:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+A1 text8 CODE >74:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+A3 text8 CODE >76:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+AE text8 CODE >77:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+C3 text8 CODE >78:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+C6 text8 CODE >79:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+C7 text8 CODE >81:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+CA text8 CODE >82:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+D7 text8 CODE >86:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+ED text8 CODE >90:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+F5 text8 CODE >94:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+FC text8 CODE >95:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+FE text8 CODE >98:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+107 text8 CODE >102:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+110 text8 CODE >103:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+127 text8 CODE >106:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+13F text8 CODE >109:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+15A text8 CODE >112:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+15D text8 CODE >114:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+15D text8 CODE >115:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+15F text8 CODE >116:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+161 text8 CODE >117:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+164 text8 CODE >118:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+165 text8 CODE >119:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+167 text8 CODE >121:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+16C text8 CODE >123:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+16D text8 CODE >79:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+17D text8 CODE >125:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+181 text8 CODE >126:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+18D text8 CODE >127:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+192 text8 CODE >128:D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+670 text7 CODE >68:D:/programdata/16F18346_Link_IC.X/command.c
+672 text7 CODE >69:D:/programdata/16F18346_Link_IC.X/command.c
+675 text7 CODE >70:D:/programdata/16F18346_Link_IC.X/command.c
+677 text7 CODE >71:D:/programdata/16F18346_Link_IC.X/command.c
+678 text7 CODE >72:D:/programdata/16F18346_Link_IC.X/command.c
+5C7 swtext1 CONST >20:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+196 text6 CODE >15:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+198 text6 CODE >16:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+19F text6 CODE >17:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1AC text6 CODE >18:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1BE text6 CODE >19:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1C1 text6 CODE >22:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1CA text6 CODE >25:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1D6 text6 CODE >26:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1D7 text6 CODE >28:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1DB text6 CODE >29:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1DC text6 CODE >31:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1E0 text6 CODE >32:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1E1 text6 CODE >34:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1E5 text6 CODE >35:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1EA text6 CODE >36:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1ED text6 CODE >37:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1EE text6 CODE >40:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1EF text6 CODE >42:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1F2 text6 CODE >45:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1F4 text6 CODE >48:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1F6 text6 CODE >51:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1F8 text6 CODE >54:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1FA text6 CODE >57:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+1FC text6 CODE >60:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+200 text6 CODE >61:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+204 text6 CODE >62:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+205 text6 CODE >64:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+20E text6 CODE >65:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+21E text6 CODE >68:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+22E text6 CODE >71:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+241 text6 CODE >74:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+245 text6 CODE >76:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+246 text6 CODE >20:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+255 text6 CODE >79:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+25A text6 CODE >80:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+262 text6 CODE >81:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+265 text6 CODE >82:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+26D text6 CODE >83:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+272 text6 CODE >84:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+274 text6 CODE >85:D:/programdata/16F18346_Link_IC.X/normal_mode.c
+41D text5 CODE >38:D:/programdata/16F18346_Link_IC.X/comu_type.c
+41F text5 CODE >39:D:/programdata/16F18346_Link_IC.X/comu_type.c
+42E text5 CODE >40:D:/programdata/16F18346_Link_IC.X/comu_type.c
+438 text5 CODE >43:D:/programdata/16F18346_Link_IC.X/comu_type.c
+43B text5 CODE >44:D:/programdata/16F18346_Link_IC.X/comu_type.c
+43C text5 CODE >46:D:/programdata/16F18346_Link_IC.X/comu_type.c
+43F text5 CODE >51:D:/programdata/16F18346_Link_IC.X/comu_type.c
+440 text5 CODE >41:D:/programdata/16F18346_Link_IC.X/comu_type.c
+454 text5 CODE >39:D:/programdata/16F18346_Link_IC.X/comu_type.c
+45A text5 CODE >56:D:/programdata/16F18346_Link_IC.X/comu_type.c
+53E text4 CODE >106:D:/programdata/16F18346_Link_IC.X/spiControl.c
+53E text4 CODE >107:D:/programdata/16F18346_Link_IC.X/spiControl.c
+542 text4 CODE >108:D:/programdata/16F18346_Link_IC.X/spiControl.c
+546 text4 CODE >109:D:/programdata/16F18346_Link_IC.X/spiControl.c
+547 text4 CODE >110:D:/programdata/16F18346_Link_IC.X/spiControl.c
+558 text4 CODE >111:D:/programdata/16F18346_Link_IC.X/spiControl.c
+55C text4 CODE >112:D:/programdata/16F18346_Link_IC.X/spiControl.c
+560 text4 CODE >113:D:/programdata/16F18346_Link_IC.X/spiControl.c
+562 text4 CODE >114:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5A7 text3 CODE >33:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5A7 text3 CODE >35:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5A9 text3 CODE >36:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5AC text3 CODE >37:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5B1 text3 CODE >38:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5B3 text3 CODE >39:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5B4 text3 CODE >40:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5B8 text3 CODE >41:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5B9 text3 CODE >42:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5BA text3 CODE >43:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5BB text3 CODE >44:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5BC text3 CODE >45:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5BE text3 CODE >46:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5C0 text3 CODE >47:D:/programdata/16F18346_Link_IC.X/spiControl.c
+5C6 text3 CODE >48:D:/programdata/16F18346_Link_IC.X/spiControl.c
+563 text2 CODE >49:D:/programdata/16F18346_Link_IC.X/spiControl.c
+563 text2 CODE >51:D:/programdata/16F18346_Link_IC.X/spiControl.c
+565 text2 CODE >52:D:/programdata/16F18346_Link_IC.X/spiControl.c
+568 text2 CODE >53:D:/programdata/16F18346_Link_IC.X/spiControl.c
+56A text2 CODE >54:D:/programdata/16F18346_Link_IC.X/spiControl.c
+56F text2 CODE >55:D:/programdata/16F18346_Link_IC.X/spiControl.c
+571 text2 CODE >56:D:/programdata/16F18346_Link_IC.X/spiControl.c
+572 text2 CODE >57:D:/programdata/16F18346_Link_IC.X/spiControl.c
+576 text2 CODE >58:D:/programdata/16F18346_Link_IC.X/spiControl.c
+577 text2 CODE >59:D:/programdata/16F18346_Link_IC.X/spiControl.c
+578 text2 CODE >60:D:/programdata/16F18346_Link_IC.X/spiControl.c
+579 text2 CODE >61:D:/programdata/16F18346_Link_IC.X/spiControl.c
+57A text2 CODE >62:D:/programdata/16F18346_Link_IC.X/spiControl.c
+57C text2 CODE >63:D:/programdata/16F18346_Link_IC.X/spiControl.c
+57E text2 CODE >64:D:/programdata/16F18346_Link_IC.X/spiControl.c
+584 text2 CODE >65:D:/programdata/16F18346_Link_IC.X/spiControl.c
+67B text1 CODE >22:D:/programdata/16F18346_Link_IC.X/spiControl.c
+67B text1 CODE >23:D:/programdata/16F18346_Link_IC.X/spiControl.c
+67C text1 CODE >24:D:/programdata/16F18346_Link_IC.X/spiControl.c
+67D text1 CODE >25:D:/programdata/16F18346_Link_IC.X/spiControl.c
+680 text1 CODE >26:D:/programdata/16F18346_Link_IC.X/spiControl.c
+682 text1 CODE >27:D:/programdata/16F18346_Link_IC.X/spiControl.c
+683 text1 CODE >28:D:/programdata/16F18346_Link_IC.X/spiControl.c
+684 text1 CODE >30:D:/programdata/16F18346_Link_IC.X/spiControl.c
+493 maintext CODE >163:D:/programdata/16F18346_Link_IC.X/main.c
+493 maintext CODE >164:D:/programdata/16F18346_Link_IC.X/main.c
+496 maintext CODE >165:D:/programdata/16F18346_Link_IC.X/main.c
+499 maintext CODE >166:D:/programdata/16F18346_Link_IC.X/main.c
+49C maintext CODE >167:D:/programdata/16F18346_Link_IC.X/main.c
+49F maintext CODE >168:D:/programdata/16F18346_Link_IC.X/main.c
+4A2 maintext CODE >169:D:/programdata/16F18346_Link_IC.X/main.c
+4A5 maintext CODE >170:D:/programdata/16F18346_Link_IC.X/main.c
+4A8 maintext CODE >171:D:/programdata/16F18346_Link_IC.X/main.c
+4AA maintext CODE >173:D:/programdata/16F18346_Link_IC.X/main.c
+4AF maintext CODE >174:D:/programdata/16F18346_Link_IC.X/main.c
+4B2 maintext CODE >175:D:/programdata/16F18346_Link_IC.X/main.c
+4B4 maintext CODE >176:D:/programdata/16F18346_Link_IC.X/main.c
+4B9 maintext CODE >177:D:/programdata/16F18346_Link_IC.X/main.c
+4BA maintext CODE >178:D:/programdata/16F18346_Link_IC.X/main.c
+4BD maintext CODE >180:D:/programdata/16F18346_Link_IC.X/main.c
+4C0 maintext CODE >172:D:/programdata/16F18346_Link_IC.X/main.c
+658 clrtext CODE >8339:E:\temp\sakg8.
+658 clrtext CODE >8340:E:\temp\sakg8.
+659 clrtext CODE >8341:E:\temp\sakg8.
+659 clrtext CODE >8342:E:\temp\sakg8.
+65A clrtext CODE >8343:E:\temp\sakg8.
+65B clrtext CODE >8344:E:\temp\sakg8.
+65C clrtext CODE >8345:E:\temp\sakg8.
+65D clrtext CODE >8346:E:\temp\sakg8.
+65E clrtext CODE >8347:E:\temp\sakg8.
+65F clrtext CODE >8348:E:\temp\sakg8.
+660 clrtext CODE >8349:E:\temp\sakg8.
+661 clrtext CODE >8350:E:\temp\sakg8.
+662 clrtext CODE >8352:E:\temp\sakg8.
+663 clrtext CODE >8351:E:\temp\sakg8.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -613,17 +625,20 @@ FF text6 CODE >44:D:/programdata/16F18346_Link_IC.X/normal_mode.c
 %SYMTAB
 ___latbits 3 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __LdataBANK0 200 1E000 ABS 0 dataBANK0 -
+__LdataBANK1 200 1E000 ABS 0 dataBANK1 -
 __Hspace_0 F1000 0 ABS 0 - -
-__Hspace_1 3C2 0 ABS 0 - -
+__Hspace_1 3C1 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 100 0 ABS 0 - -
 __HidataBANK0 1E200 0 ABS 0 idataBANK0 -
-Calibrate_download@bufint 63 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_st_dataLength 6E 0 BANK0 1 dataBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__HidataBANK1 1E200 0 ABS 0 idataBANK1 -
+Calibrate_download@bufint E7 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_st_dataLength 6C 0 BANK0 1 dataBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP1STATbits 214 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_resetTrainData D00 0 CODE 0 text17 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_resetTrainData D2E 0 CODE 0 text17 dist/default/production\16F18346_Link_IC.X.production.obj
 __BbssBANK0 1E200 1E000 ABS 0 bssBANK0 -
 __BbssBANK1 1E200 1E000 ABS 0 bssBANK1 -
+__BbssBANK2 1E200 1E000 ABS 0 bssBANK2 -
 __pbitnvCOMMON 3C0 -348 COMMON 1 bitnvCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
 __Heeprom_data 200 1E000 EEDATA 3 eeprom_data -
 __size_of_setCargoAngle 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
@@ -631,39 +646,40 @@ __Hstrings 200 1E000 ABS 0 strings -
 _WPUA 20C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _WPUB 20D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _WPUC 20E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-___sp 0 0 STACK 2 stack E:\temp\s43c8.obj
-_init 9CE 0 CODE 0 text23 dist/default/production\16F18346_Link_IC.X.production.obj
-_main 91E 0 CODE 0 maintext dist/default/production\16F18346_Link_IC.X.production.obj
+___sp 0 0 STACK 2 stack E:\temp\sakg8.obj
+_init A2C 0 CODE 0 text23 dist/default/production\16F18346_Link_IC.X.production.obj
+_main 926 0 CODE 0 maintext dist/default/production\16F18346_Link_IC.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-start B4 0 CODE 0 init E:\temp\s43c8.obj
+start BA 0 CODE 0 init E:\temp\sakg8.obj
 __size_of_init 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __HbssCOMMON 200 1E000 ABS 0 bssCOMMON -
 _OSCFRQbits 91F 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_startTrainBytes E3 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_startTrainBytes D7 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_isEndpoint 8AE 0 CODE 0 text10 dist/default/production\16F18346_Link_IC.X.production.obj
+_isEndpoint 8B6 0 CODE 0 text9 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_read_train 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __LidataBANK0 1E200 0 ABS 0 idataBANK0 -
+__LidataBANK1 1E200 0 ABS 0 idataBANK1 -
 __Hpowerup 0 0 CODE 0 powerup -
 __pbitbssCOMMON 380 -310 COMMON 1 bitbssCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_setCargoAngle D18 0 CODE 0 text30 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_setCargoAngle D46 0 CODE 0 text30 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_setSPI2sendData 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-intlevel0 0 0 ENTRY 0 functab E:\temp\s43c8.obj
-intlevel1 0 0 ENTRY 0 functab E:\temp\s43c8.obj
-intlevel2 0 0 ENTRY 0 functab E:\temp\s43c8.obj
-intlevel3 0 0 ENTRY 0 functab E:\temp\s43c8.obj
-intlevel4 0 0 ENTRY 0 functab E:\temp\s43c8.obj
-intlevel5 0 0 ENTRY 0 functab E:\temp\s43c8.obj
+intlevel0 0 0 ENTRY 0 functab E:\temp\sakg8.obj
+intlevel1 0 0 ENTRY 0 functab E:\temp\sakg8.obj
+intlevel2 0 0 ENTRY 0 functab E:\temp\sakg8.obj
+intlevel3 0 0 ENTRY 0 functab E:\temp\sakg8.obj
+intlevel4 0 0 ENTRY 0 functab E:\temp\sakg8.obj
+intlevel5 0 0 ENTRY 0 functab E:\temp\sakg8.obj
 __LbssCOMMON 200 1E000 ABS 0 bssCOMMON -
 __LbitnvCOMMON F1000 -D2E00 ABS 0 bitnvCOMMON -
 wtemp0 7E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_spi2_Send_data 51 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-Calibrate_download@spi_Read_data 65 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_spi2_Send_data 6B 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+Calibrate_download@spi_Read_data E9 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hfunctab 0 0 ENTRY 0 functab -
-_comu_types B2 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_setComunicateMode 8AE 0 CODE 0 text5 dist/default/production\16F18346_Link_IC.X.production.obj
-readCargo@buflong E7 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_comu_types A0 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_setComunicateMode 8B6 0 CODE 0 text5 dist/default/production\16F18346_Link_IC.X.production.obj
+readCargo@buflong 36 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hclrtext 200 1E000 ABS 0 clrtext -
 __CFG_LPBOREN$ON 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_isSPI1read 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
@@ -671,38 +687,38 @@ __size_of_isSPI2read 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.prod
 _ANSELA 18C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _ANSELB 18D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _ANSELC 18E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-setComunicateMode@i 6A 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_spi1_send_count 3C 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_isreadTrain 385 -310 COMMON 1 bitbssCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
+setComunicateMode@i EB 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_spi1_send_count DF 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_isreadTrain 386 -310 COMMON 1 bitbssCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_BORV$HIGH 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_io_init 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_InterMSSP B4 0 CODE 0 intentry dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_isEndpoint 91E 0 CODE 0 text10 dist/default/production\16F18346_Link_IC.X.production.obj
-_cargoLengthnuf 36 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_InterMSSP BA 0 CODE 0 intentry dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_isEndpoint 926 0 CODE 0 text9 dist/default/production\16F18346_Link_IC.X.production.obj
+_cargoLengthnuf DB 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_InterMSSP 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __BbitnvCOMMON 1E200 -D2E00 ABS 0 bitnvCOMMON -
 __Lmaintext 200 1E000 ABS 0 maintext -
-_clutchaction CB2 0 CODE 0 text8 dist/default/production\16F18346_Link_IC.X.production.obj
+_clutchaction CE0 0 CODE 0 text7 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_FEXTOSC$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _spi1_Read_data 79 0 COMMON 1 bssCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP1SSPPSbits E22 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_initbuffer 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _OSCTUNEbits 91E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _InterMSSP 8 0 CODE 0 intentry dist/default/production\16F18346_Link_IC.X.production.obj
-_getCargoData C14 0 CODE 0 text7 dist/default/production\16F18346_Link_IC.X.production.obj
+_getCargoData C28 0 CODE 0 text12 dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP2SSPPSbits E1F 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_clear 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_MCLRE$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP2CON1bits 21D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-start_initialization B8 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
+start_initialization BE 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP2CON3bits 21F 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-clutchaction@comannd 52 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-readCargo@spi1_Read_data ED 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+clutchaction@comannd 20 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+readCargo@spi1_Read_data 3C 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 _TRISBbits 8D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _TRISCbits 8E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_setComunicateMode 836 0 CODE 0 text5 dist/default/production\16F18346_Link_IC.X.production.obj
-_direction 6C 0 BANK0 1 dataBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_initComu_types 4DE 0 CODE 0 text20 dist/default/production\16F18346_Link_IC.X.production.obj
+_setComunicateMode 83A 0 CODE 0 text5 dist/default/production\16F18346_Link_IC.X.production.obj
+_direction ED 0 BANK1 1 dataBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_initComu_types 4EC 0 CODE 0 text20 dist/default/production\16F18346_Link_IC.X.production.obj
 _RA2PPS E92 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _RB7PPS E9F 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _RC2PPS EA2 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
@@ -717,6 +733,7 @@ __Bbank6 1E200 1E000 ABS 0 bank6 -
 __Bbank7 1E200 1E000 ABS 0 bank7 -
 __Bbank8 1E200 1E000 ABS 0 bank8 -
 __Bbank9 1E200 1E000 ABS 0 bank9 -
+InitCalibrate@cargoData 32 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Bsfr10 1E200 1E000 ABS 0 sfr10 -
 __Bsfr11 1E200 1E000 ABS 0 sfr11 -
 __Bsfr12 1E200 1E000 ABS 0 sfr12 -
@@ -739,19 +756,19 @@ __Bsfr28 1E200 1E000 ABS 0 sfr28 -
 __Bsfr29 1E200 1E000 ABS 0 sfr29 -
 __Bsfr30 1E200 1E000 ABS 0 sfr30 -
 __Bsfr31 1E200 1E000 ABS 0 sfr31 -
-clear_ram0 C82 0 CODE 0 clrtext dist/default/production\16F18346_Link_IC.X.production.obj
-__pcstackBANK0 52 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-__pcstackBANK1 E7 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_setSPI1sendData AEE 0 CODE 0 text27 dist/default/production\16F18346_Link_IC.X.production.obj
+clear_ram0 CB0 0 CODE 0 clrtext dist/default/production\16F18346_Link_IC.X.production.obj
+__pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__pcstackBANK1 E3 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_setSPI1sendData B4E 0 CODE 0 text27 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_getCargoData 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __HbitnvCOMMON F1000 -D2E00 ABS 0 bitnvCOMMON -
-spi1_init@dummy 53 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_spi1_init B2E 0 CODE 0 text3 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_spi2_init AAA 0 CODE 0 text2 dist/default/production\16F18346_Link_IC.X.production.obj
+spi1_init@dummy 21 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_spi1_init B8E 0 CODE 0 text3 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_spi2_init B0A 0 CODE 0 text2 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_spi1_init 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-___int_sp 0 0 STACK 2 stack E:\temp\s43c8.obj
+___int_sp 0 0 STACK 2 stack E:\temp\sakg8.obj
 __size_of_setSPI1sendDataManual 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_io_init CEE 0 CODE 0 text15 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_io_init D1C 0 CODE 0 text15 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hbank0 200 1E000 ABS 0 bank0 -
 __Hbank1 200 1E000 ABS 0 bank1 -
 __Hbank2 200 1E000 ABS 0 bank2 -
@@ -762,10 +779,10 @@ __Hbank6 200 1E000 ABS 0 bank6 -
 __Hbank7 200 1E000 ABS 0 bank7 -
 __Hbank8 200 1E000 ABS 0 bank8 -
 __Hbank9 200 1E000 ABS 0 bank9 -
-__Hcinit 124 0 CODE 0 cinit -
+__Hcinit 142 0 CODE 0 cinit -
 __size_of_spi2_init 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Hidloc 0 0 IDLOC 0 idloc -
-__end_of_clutchaction CC8 0 CODE 0 text8 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_clutchaction CF6 0 CODE 0 text7 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hsfr10 200 1E000 ABS 0 sfr10 -
 __Hsfr11 200 1E000 ABS 0 sfr11 -
 __Hsfr12 200 1E000 ABS 0 sfr12 -
@@ -789,7 +806,7 @@ __Hsfr29 200 1E000 ABS 0 sfr29 -
 __Hsfr30 200 1E000 ABS 0 sfr30 -
 __Hsfr31 200 1E000 ABS 0 sfr31 -
 __Hstack 0 0 STACK 2 stack -
-_countabuf 44 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_countabuf 5E 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hbank10 200 1E000 ABS 0 bank10 -
 __Hbank11 200 1E000 ABS 0 bank11 -
 __Hbank12 200 1E000 ABS 0 bank12 -
@@ -812,17 +829,17 @@ __Hbank28 200 1E000 BANK28 1 bank28 -
 __Hbank29 200 1E000 BANK29 1 bank29 -
 __Hbank30 200 1E000 BANK30 1 bank30 -
 __Hbank31 200 1E000 BANK31 1 bank31 -
-_read_count1 46 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_read_count2 42 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_read_count1 60 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_read_count2 5C 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hbigram 200 1E000 ABS 0 bigram -
-_trainPos 40 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_trainPos 5A 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hmaintext 200 1E000 ABS 0 maintext -
 _spi1_buffer_data 26F0 0 ABS 1 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_Calibrate_download 4DE 0 CODE 0 text9 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_Calibrate_download 32C 0 CODE 0 text8 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hcommon 200 1E000 ABS 0 common -
 __Hconfig 10016 0 CONFIG 0 config -
-isTrainSt@buf 5A 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_getCargoData C34 0 CODE 0 text7 dist/default/production\16F18346_Link_IC.X.production.obj
+isTrainSt@buf 28 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_getCargoData C48 0 CODE 0 text12 dist/default/production\16F18346_Link_IC.X.production.obj
 __Lbank0 200 1E000 ABS 0 bank0 -
 __Lbank1 200 1E000 ABS 0 bank1 -
 __Lbank2 200 1E000 ABS 0 bank2 -
@@ -833,9 +850,9 @@ __Lbank6 200 1E000 ABS 0 bank6 -
 __Lbank7 200 1E000 ABS 0 bank7 -
 __Lbank8 200 1E000 ABS 0 bank8 -
 __Lbank9 200 1E000 ABS 0 bank9 -
-__Lcinit B8 0 CODE 0 cinit -
+__Lcinit BE 0 CODE 0 cinit -
 __Lidloc 0 0 IDLOC 0 idloc -
-_spi1_init AEE 0 CODE 0 text3 dist/default/production\16F18346_Link_IC.X.production.obj
+_spi1_init B4E 0 CODE 0 text3 dist/default/production\16F18346_Link_IC.X.production.obj
 __Lsfr10 200 1E000 ABS 0 sfr10 -
 __Lsfr11 200 1E000 ABS 0 sfr11 -
 __Lsfr12 200 1E000 ABS 0 sfr12 -
@@ -859,9 +876,9 @@ __Lsfr29 200 1E000 ABS 0 sfr29 -
 __Lsfr30 200 1E000 ABS 0 sfr30 -
 __Lsfr31 200 1E000 ABS 0 sfr31 -
 __Lstack 0 0 STACK 2 stack -
-_linkInfo 30 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_spi2_init A66 0 CODE 0 text2 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_initComu_types 5B8 0 CODE 0 text20 dist/default/production\16F18346_Link_IC.X.production.obj
+_linkInfo CD 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_spi2_init AC6 0 CODE 0 text2 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_initComu_types 5C6 0 CODE 0 text20 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_resetTrainData 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _INTCONbits B 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Babs1 1E200 1E000 ABS 0 abs1 -
@@ -879,7 +896,7 @@ __Bsfr9 1E200 1E000 ABS 0 sfr9 -
 __Btext 1E200 1E000 ABS 0 text -
 __Habs1 200 1E000 ABS 0 abs1 -
 __Hcode 200 1E000 ABS 0 code -
-__Hinit B4 0 CODE 0 init -
+__Hinit BA 0 CODE 0 init -
 __Hsfr0 200 1E000 ABS 0 sfr0 -
 __Hsfr1 200 1E000 ABS 0 sfr1 -
 __Hsfr2 200 1E000 ABS 0 sfr2 -
@@ -893,7 +910,7 @@ __Hsfr9 200 1E000 ABS 0 sfr9 -
 __Htext 200 1E000 ABS 0 text -
 __Labs1 200 1E000 ABS 0 abs1 -
 __Lcode 200 1E000 ABS 0 code -
-__Linit B4 0 CODE 0 init -
+__Linit BA 0 CODE 0 init -
 __Lsfr0 200 1E000 ABS 0 sfr0 -
 __Lsfr1 200 1E000 ABS 0 sfr1 -
 __Lsfr2 200 1E000 ABS 0 sfr2 -
@@ -905,74 +922,75 @@ __Lsfr7 200 1E000 ABS 0 sfr7 -
 __Lsfr8 200 1E000 ABS 0 sfr8 -
 __Lsfr9 200 1E000 ABS 0 sfr9 -
 __Ltext 200 1E000 ABS 0 text -
-__pstringtext1 D20 0 STRCODE 0 stringtext1 dist/default/production\16F18346_Link_IC.X.production.obj
-__pstringtext2 D24 0 STRCODE 0 stringtext2 dist/default/production\16F18346_Link_IC.X.production.obj
+__pstringtext1 D4E 0 STRCODE 0 stringtext1 dist/default/production\16F18346_Link_IC.X.production.obj
+__pstringtext2 D52 0 STRCODE 0 stringtext2 dist/default/production\16F18346_Link_IC.X.production.obj
 __LcstackBANK0 200 1E000 ABS 0 cstackBANK0 -
 __LcstackBANK1 200 1E000 ABS 0 cstackBANK1 -
 _SSP2STATbits 21C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 int$flags 7E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-?_getCargoData 52 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+?_getCargoData 20 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __HcstackCOMMON 200 1E000 ABS 0 cstackCOMMON -
 __S0 800B 0 ABS 0 - -
-__S1 EE 0 ABS 0 - -
+__S1 132 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 F100 0 ABS 0 - -
-_setSPI1sendData AAA 0 CODE 0 text27 dist/default/production\16F18346_Link_IC.X.production.obj
-setSPI1sendDataManual@data 52 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_MACHINE_ID D24 0 STRCODE 0 stringtext1 dist/default/production\16F18346_Link_IC.X.production.obj
-_Calibrate_download 310 0 CODE 0 text9 dist/default/production\16F18346_Link_IC.X.production.obj
-Calibrate_download@buf 62 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_count1 4A 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_count2 48 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_setSPI1sendData B0A 0 CODE 0 text27 dist/default/production\16F18346_Link_IC.X.production.obj
+setSPI1sendDataManual@data 20 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_MACHINE_ID D52 0 STRCODE 0 stringtext1 dist/default/production\16F18346_Link_IC.X.production.obj
+_Calibrate_download 142 0 CODE 0 text8 dist/default/production\16F18346_Link_IC.X.production.obj
+_count1 64 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_count2 62 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Bstrings 1E200 1E000 ABS 0 strings -
-_cargoData 20 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-Calibrate_download@buflong 5E 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_cargoData 48 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+Calibrate_download@buflong E3 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_isEndpoint 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_initComand 5B8 0 CODE 0 text21 dist/default/production\16F18346_Link_IC.X.production.obj
+_initComand 5C6 0 CODE 0 text21 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Lintentry 8 0 CODE 0 intentry -
-__end_of_VENDER_ID D28 0 STRCODE 0 stringtext2 dist/default/production\16F18346_Link_IC.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec E:\temp\s43c8.obj
+__end_of_VENDER_ID D56 0 STRCODE 0 stringtext2 dist/default/production\16F18346_Link_IC.X.production.obj
+reset_vec 0 0 CODE 0 reset_vec E:\temp\sakg8.obj
 __BcstackBANK0 1E200 1E000 ABS 0 cstackBANK0 -
 __BcstackBANK1 1E200 1E000 ABS 0 cstackBANK1 -
 __size_of_addAngle 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __pdataBANK0 6C 0 BANK0 1 dataBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-spi2_init@dummy 53 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__pdataBANK1 ED 0 BANK1 1 dataBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+spi2_init@dummy 21 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __LbssBANK0 200 1E000 ABS 0 bssBANK0 -
 __LbssBANK1 200 1E000 ABS 0 bssBANK1 -
+__LbssBANK2 200 1E000 ABS 0 bssBANK2 -
 __CFG_FCMEN$ON 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Lstringtext1 1E200 0 ABS 0 stringtext1 -
 __Lstringtext2 1E200 0 ABS 0 stringtext2 -
 _IOCAFbits 393 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _IOCANbits 392 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _IOCAPbits 391 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_initCargo BCA 0 CODE 0 text22 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_initCargo BFC 0 CODE 0 text22 dist/default/production\16F18346_Link_IC.X.production.obj
 _PIE0bits 90 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _PIE1bits 91 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _PIE2bits 92 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_initTrain 722 0 CODE 0 text16 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_initTrain 72C 0 CODE 0 text16 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_initCargo 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _spi1_send_buffer_data 24F0 0 ABS 1 - dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext10 8AE 0 CODE 0 text10 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext11 D00 0 CODE 0 text11 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext12 B6E 0 CODE 0 text12 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext13 722 0 CODE 0 text13 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext14 C34 0 CODE 0 text14 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext15 CDC 0 CODE 0 text15 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext16 692 0 CODE 0 text16 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext17 CEE 0 CODE 0 text17 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext18 BF2 0 CODE 0 text18 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext19 7AC 0 CODE 0 text19 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext20 4DE 0 CODE 0 text20 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext21 5B8 0 CODE 0 text21 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext22 B9C 0 CODE 0 text22 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext23 9CE 0 CODE 0 text23 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext24 97A 0 CODE 0 text24 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext25 C4E 0 CODE 0 text25 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext27 AAA 0 CODE 0 text27 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext28 C68 0 CODE 0 text28 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext29 C9A 0 CODE 0 text29 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext30 D0C 0 CODE 0 text30 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext10 D2E 0 CODE 0 text10 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext11 982 0 CODE 0 text11 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext12 C28 0 CODE 0 text12 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext13 7B6 0 CODE 0 text13 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext14 C48 0 CODE 0 text14 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext15 D0A 0 CODE 0 text15 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext16 6A0 0 CODE 0 text16 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext17 D1C 0 CODE 0 text17 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext18 C62 0 CODE 0 text18 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext19 72C 0 CODE 0 text19 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext20 4EC 0 CODE 0 text20 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext21 5C6 0 CODE 0 text21 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext22 BCE 0 CODE 0 text22 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext23 A2C 0 CODE 0 text23 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext24 9D8 0 CODE 0 text24 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext25 C7C 0 CODE 0 text25 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext27 B0A 0 CODE 0 text27 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext28 C96 0 CODE 0 text28 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext29 CC8 0 CODE 0 text29 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext30 D3A 0 CODE 0 text30 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_initTrain 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Bbank10 1E200 1E000 ABS 0 bank10 -
 __Bbank11 1E200 1E000 ABS 0 bank11 -
@@ -1020,7 +1038,7 @@ __Lbank29 200 1E000 BANK29 1 bank29 -
 __Lbank30 200 1E000 BANK30 1 bank30 -
 __Lbank31 200 1E000 BANK31 1 bank31 -
 __BcstackCOMMON 1E200 1E000 ABS 0 cstackCOMMON -
-__pmaintext 91E 0 CODE 0 maintext dist/default/production\16F18346_Link_IC.X.production.obj
+__pmaintext 926 0 CODE 0 maintext dist/default/production\16F18346_Link_IC.X.production.obj
 __Lbigram 200 1E000 ABS 0 bigram -
 __Bcommon 1E200 1E000 ABS 0 common -
 __Bclrtext 1E200 1E000 ABS 0 clrtext -
@@ -1029,146 +1047,151 @@ __Lconfig 1000E 0 CONFIG 0 config -
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _LATAbits 10C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_initCargo B9C 0 CODE 0 text22 dist/default/production\16F18346_Link_IC.X.production.obj
-_read_train 722 0 CODE 0 text13 dist/default/production\16F18346_Link_IC.X.production.obj
-_initTrain 692 0 CODE 0 text16 dist/default/production\16F18346_Link_IC.X.production.obj
-readCargo@bufint EB 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_initCargo BCE 0 CODE 0 text22 dist/default/production\16F18346_Link_IC.X.production.obj
+_read_train 7B6 0 CODE 0 text13 dist/default/production\16F18346_Link_IC.X.production.obj
+_initTrain 6A0 0 CODE 0 text16 dist/default/production\16F18346_Link_IC.X.production.obj
+readCargo@bufint 3A 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 _isEndPointTrig 3C0 -348 COMMON 1 bitnvCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_setSPI1sendData 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_initComand 692 0 CODE 0 text21 dist/default/production\16F18346_Link_IC.X.production.obj
-stackhi 24EF 0 ABS 0 - E:\temp\s43c8.obj
-stacklo 209E 0 ABS 0 - E:\temp\s43c8.obj
+__end_of_initComand 6A0 0 CODE 0 text21 dist/default/production\16F18346_Link_IC.X.production.obj
+stackhi 24EF 0 ABS 0 - E:\temp\sakg8.obj
+stacklo 20B2 0 ABS 0 - E:\temp\sakg8.obj
 __Bmaintext 1E200 1E000 ABS 0 maintext -
-_addAngle C9A 0 CODE 0 text29 dist/default/production\16F18346_Link_IC.X.production.obj
+_addAngle CC8 0 CODE 0 text29 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __pbssBIGRAM 24F0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_InitCalibrate B6E 0 CODE 0 text12 dist/default/production\16F18346_Link_IC.X.production.obj
+_InitCalibrate 982 0 CODE 0 text11 dist/default/production\16F18346_Link_IC.X.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __pbssCOMMON 79 0 COMMON 1 bssCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
 __HbitbssCOMMON F1000 -D2E00 ABS 0 bitbssCOMMON -
-read_train@bufint 54 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+read_train@bufint 22 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __HcstackBANK0 200 1E000 ABS 0 cstackBANK0 -
 __HcstackBANK1 200 1E000 ABS 0 cstackBANK1 -
 _PIR0bits 10 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _PIR1bits 11 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _PIR2bits 12 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__Lend_init B4 0 CODE 0 end_init -
+__Lend_init BA 0 CODE 0 end_init -
 __CFG_CSWEN$ON 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_addAngle CB2 0 CODE 0 text29 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_addAngle CE0 0 CODE 0 text29 dist/default/production\16F18346_Link_IC.X.production.obj
 __LcstackCOMMON 200 1E000 ABS 0 cstackCOMMON -
-_isSPI1read C34 0 CODE 0 text14 dist/default/production\16F18346_Link_IC.X.production.obj
-_isSPI2read C68 0 CODE 0 text28 dist/default/production\16F18346_Link_IC.X.production.obj
-end_of_initialization 11C 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
+_isSPI1read C48 0 CODE 0 text14 dist/default/production\16F18346_Link_IC.X.production.obj
+_isSPI2read C96 0 CODE 0 text28 dist/default/production\16F18346_Link_IC.X.production.obj
+end_of_initialization 13A 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
 _spi2_buffer_data 25F0 0 ABS 1 - dist/default/production\16F18346_Link_IC.X.production.obj
-__Hintentry B4 0 CODE 0 intentry -
-_calibdata D6 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+__Hintentry BA 0 CODE 0 intentry -
+_calibdata C4 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_RSTOSC$HFINT32 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Lstrings 200 1E000 ABS 0 strings -
-initbuffer@i 54 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-isEndpoint@spi2data 58 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+initbuffer@i 22 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+isEndpoint@spi2data 26 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec -
 __HbssBANK0 200 1E000 ABS 0 bssBANK0 -
 __HbssBANK1 200 1E000 ABS 0 bssBANK1 -
+__HbssBANK2 200 1E000 ABS 0 bssBANK2 -
 _INLVLAbits 38C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _INLVLBbits 38D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _INLVLCbits 38E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_restartCargo BF2 0 CODE 0 text18 dist/default/production\16F18346_Link_IC.X.production.obj
-_io_init CDC 0 CODE 0 text15 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext1 CC8 0 CODE 0 text1 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext2 A66 0 CODE 0 text2 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext3 AEE 0 CODE 0 text3 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext4 A1E 0 CODE 0 text4 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext5 836 0 CODE 0 text5 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext6 124 0 CODE 0 text6 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext7 C14 0 CODE 0 text7 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext8 CB2 0 CODE 0 text8 dist/default/production\16F18346_Link_IC.X.production.obj
-__ptext9 310 0 CODE 0 text9 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_read_train 7AC 0 CODE 0 text13 dist/default/production\16F18346_Link_IC.X.production.obj
+_restartCargo C62 0 CODE 0 text18 dist/default/production\16F18346_Link_IC.X.production.obj
+_io_init D0A 0 CODE 0 text15 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext1 CF6 0 CODE 0 text1 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext2 AC6 0 CODE 0 text2 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext3 B4E 0 CODE 0 text3 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext4 A7C 0 CODE 0 text4 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext5 83A 0 CODE 0 text5 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext6 32C 0 CODE 0 text6 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext7 CE0 0 CODE 0 text7 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext8 142 0 CODE 0 text8 dist/default/production\16F18346_Link_IC.X.production.obj
+__ptext9 8B6 0 CODE 0 text9 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_read_train 83A 0 CODE 0 text13 dist/default/production\16F18346_Link_IC.X.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 1E000 EEDATA 3 eeprom_data -
 setCargoAngle@m_linkAngleTo 71 0 COMMON 1 cstackCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
 __Lreset_vec 0 0 CODE 0 reset_vec -
-_cargo_index A0 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_cargo_index 120 0 BANK2 1 bssBANK2 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hstringtext1 1E200 0 ABS 0 stringtext1 -
 __Hstringtext2 1E200 0 ABS 0 stringtext2 -
-_st_type 50 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_linkAngle 38 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_setSPI2sendData A66 0 CODE 0 text4 dist/default/production\16F18346_Link_IC.X.production.obj
-_initbuffer 97A 0 CODE 0 text24 dist/default/production\16F18346_Link_IC.X.production.obj
+_st_type 6A 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+_linkAngle DD 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_setSPI2sendData AC6 0 CODE 0 text4 dist/default/production\16F18346_Link_IC.X.production.obj
+_initbuffer 9D8 0 CODE 0 text24 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_CLKOUTEN$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_readCargo 310 0 CODE 0 text6 dist/default/production\16F18346_Link_IC.X.production.obj
-_setCargoAngle D0C 0 CODE 0 text30 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of__initialization 11C 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_readCargo 4EC 0 CODE 0 text6 dist/default/production\16F18346_Link_IC.X.production.obj
+_setCargoAngle D3A 0 CODE 0 text30 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of__initialization 13A 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_spi_init 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Lfunctab 0 0 ENTRY 0 functab -
 __size_of_readCargo 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __BbitbssCOMMON 1E200 -D2E00 ABS 0 bitbssCOMMON -
 __BdataBANK0 1E200 1E000 ABS 0 dataBANK0 -
-__pidataBANK0 D18 0 CODE 0 idataBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-_send_count1 3A 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__BdataBANK1 1E200 1E000 ABS 0 dataBANK1 -
+__pidataBANK0 D46 0 CODE 0 idataBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__pidataBANK1 D4A 0 CODE 0 idataBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_send_count1 58 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __Lclrtext 200 1E000 ABS 0 clrtext -
 _SSP1CON1bits 215 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP1CON3bits 217 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_isSPI1read C4E 0 CODE 0 text14 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_isSPI2read C82 0 CODE 0 text28 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_isSPI1read C62 0 CODE 0 text14 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_isSPI2read CB0 0 CODE 0 text28 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_restartCargo 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_Calibrate_download 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __pcstackCOMMON 71 0 COMMON 1 cstackCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_isTrainSt 836 0 CODE 0 text19 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_isTrainSt 7B6 0 CODE 0 text19 dist/default/production\16F18346_Link_IC.X.production.obj
 __Beeprom_data 1E000 1E000 EEDATA 3 eeprom_data -
-_readCargo 124 0 CODE 0 text6 dist/default/production\16F18346_Link_IC.X.production.obj
+_readCargo 32C 0 CODE 0 text6 dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP1BUF 211 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _SSP2BUF 219 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_initComu_types 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_isTrainSt 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__Hend_init B8 0 CODE 0 end_init -
+__Hend_init BE 0 CODE 0 end_init -
 __size_of_InitCalibrate 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_isMycargo 3C1 -348 COMMON 1 bitnvCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_init A1E 0 CODE 0 text23 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_main 97A 0 CODE 0 maintext dist/default/production\16F18346_Link_IC.X.production.obj
-_resetTrainData CEE 0 CODE 0 text17 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_clear C68 0 CODE 0 text25 dist/default/production\16F18346_Link_IC.X.production.obj
+_isMycargo 380 -310 COMMON 1 bitbssCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_init A7C 0 CODE 0 text23 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_main 982 0 CODE 0 maintext dist/default/production\16F18346_Link_IC.X.production.obj
+_resetTrainData D1C 0 CODE 0 text17 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_clear C96 0 CODE 0 text25 dist/default/production\16F18346_Link_IC.X.production.obj
 _PORTA C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _PORTB D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _PORTC E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _TRISA 8C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _TRISB 8D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _TRISC 8E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-setComunicateMode@m_type 69 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+setComunicateMode@m_type EA 0 BANK1 1 cstackBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
 __Bram 1E200 1E000 ABS 0 ram -
 __Hram 200 1E000 ABS 0 ram -
 __Lram 200 1E000 ABS 0 ram -
-_clear C4E 0 CODE 0 text25 dist/default/production\16F18346_Link_IC.X.production.obj
+_clear C7C 0 CODE 0 text25 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_setComunicateMode 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_restartCargo C14 0 CODE 0 text18 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_restartCargo C7C 0 CODE 0 text18 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __pintentry 8 0 CODE 0 intentry dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_setSPI1sendDataManual D0C 0 CODE 0 text11 dist/default/production\16F18346_Link_IC.X.production.obj
-_setSPI2sendData A1E 0 CODE 0 text4 dist/default/production\16F18346_Link_IC.X.production.obj
-_isTrainSt 7AC 0 CODE 0 text19 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_setSPI1sendDataManual D3A 0 CODE 0 text10 dist/default/production\16F18346_Link_IC.X.production.obj
+_setSPI2sendData A7C 0 CODE 0 text4 dist/default/production\16F18346_Link_IC.X.production.obj
+_isTrainSt 72C 0 CODE 0 text19 dist/default/production\16F18346_Link_IC.X.production.obj
 __HdataBANK0 200 1E000 ABS 0 dataBANK0 -
+__HdataBANK1 200 1E000 ABS 0 dataBANK1 -
 __LbitbssCOMMON F1000 -D2E00 ABS 0 bitbssCOMMON -
 __CFG_PPS1WAY$ON 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__initialization B8 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
+__initialization BE 0 CODE 0 cinit dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_PWRTE$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-__pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
+__pbssBANK0 48 0 BANK0 1 bssBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __pbssBANK1 A0 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_initbuffer 9CE 0 CODE 0 text24 dist/default/production\16F18346_Link_IC.X.production.obj
+__pbssBANK2 120 0 BANK2 1 bssBANK2 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_initbuffer A2C 0 CODE 0 text24 dist/default/production\16F18346_Link_IC.X.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_spi_init CC8 0 CODE 0 text1 dist/default/production\16F18346_Link_IC.X.production.obj
-_command C4 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_InitCalibrate B9C 0 CODE 0 text12 dist/default/production\16F18346_Link_IC.X.production.obj
+_spi_init CF6 0 CODE 0 text1 dist/default/production\16F18346_Link_IC.X.production.obj
+_command B2 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_InitCalibrate 9D8 0 CODE 0 text11 dist/default/production\16F18346_Link_IC.X.production.obj
 __BbssCOMMON 1E200 1E000 ABS 0 bssCOMMON -
-_cargoWorkingCount DF 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
+_cargoWorkingCount D3 0 BANK1 1 bssBANK1 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_initComand 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-_setSPI1sendDataManual D00 0 CODE 0 text11 dist/default/production\16F18346_Link_IC.X.production.obj
-__end_of_spi_init CDC 0 CODE 0 text1 dist/default/production\16F18346_Link_IC.X.production.obj
-__pswtext1 B2E 0 CONST 0 swtext1 dist/default/production\16F18346_Link_IC.X.production.obj
-__pswtext2 BCA 0 CONST 0 swtext2 dist/default/production\16F18346_Link_IC.X.production.obj
+_setSPI1sendDataManual D2E 0 CODE 0 text10 dist/default/production\16F18346_Link_IC.X.production.obj
+__end_of_spi_init D0A 0 CODE 0 text1 dist/default/production\16F18346_Link_IC.X.production.obj
+__pswtext1 B8E 0 CONST 0 swtext1 dist/default/production\16F18346_Link_IC.X.production.obj
+__pswtext2 C00 0 CONST 0 swtext2 dist/default/production\16F18346_Link_IC.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1209,15 +1232,16 @@ _spi2_buffer_data 1 25F0 0
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text12 0 5B7 B6E 2E 2
-text18 0 5F9 BF2 97 2
-stringtext1 0 690 D20 4 2
-intentry 0 4 8 593 2
+text12 0 614 C28 93 2
+text22 0 5E7 BCE 17 2
+cstackBANK0 1 20 20 4E 1
+stringtext1 0 6A7 D4E 4 2
+intentry 0 4 8 5C3 2
 bitbssCOMMON 1 380 70 A 1
 reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 50 1
-bssBANK1 1 A0 A0 4E 1
+bssBANK1 1 A0 A0 4F 1
+bssBANK2 1 120 120 12 1
 eeprom_data 3 0 1E000 100 2
-swtext1 0 597 B2E 20 2
-swtext2 0 5E5 BCA 14 2
+swtext1 0 5C7 B8E 20 2
+swtext2 0 600 C00 14 2
 config 0 8007 1000E 4 2

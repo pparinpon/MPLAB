@@ -160,15 +160,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _spi2_Send_data `uc ~T0 @X0 0 e ]
 "66 D:/programdata/16F18346_Link_IC.X/main.c
 [v _isTrainSt `(b ~T0 @X0 0 ef1`uc ]
-"2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
-[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
-"2296
-[u S113 `S114 1 ]
-[n S113 . . ]
-"2306
-[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
-"65 D:/programdata/16F18346_Link_IC.X/main.c
+"65
 [v _resetTrainData `(v ~T0 @X0 0 ef ]
 "79 D:/programdata/16F18346_Link_IC.X/command_header.h
 [v _countabuf `ui ~T0 @X0 0 e ]
@@ -183,6 +175,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _spi_init `(v ~T0 @X0 0 ef ]
 "91 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _initCargo `(v ~T0 @X0 0 ef ]
+"2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2296
+[u S113 `S114 1 ]
+[n S113 . . ]
+"2306
+[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 "92 D:/programdata/16F18346_Link_IC.X/spi_header.h
 [v _isSPI1read `(b ~T0 @X0 0 ef ]
 "74 D:/programdata/16F18346_Link_IC.X/comu_type.h
@@ -8249,312 +8249,302 @@ Version 3.2 HI-TECH Software Intermediate Code
 "144
 [e $ ! ( _isTrainSt (1 _spi1_Read_data 977  ]
 {
-[; ;main.c: 145: LATAbits.LATA0 = 0;
+[; ;main.c: 145: trainPos = 0;
 "145
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 146: trainPos = 0;
-"146
 [e = _trainPos -> 0 `i ]
-[; ;main.c: 147: read_count1 = 0;
-"147
+[; ;main.c: 146: read_count1 = 0;
+"146
 [e = _read_count1 -> -> 0 `i `ui ]
-[; ;main.c: 148: resetTrainData();
-"148
+[; ;main.c: 147: resetTrainData();
+"147
 [e ( _resetTrainData ..  ]
-[; ;main.c: 149: isreadTrain = 0;
-"149
+[; ;main.c: 148: isreadTrain = 0;
+"148
 [e = _isreadTrain -> -> 0 `i `b ]
-[; ;main.c: 150: count1 = 0;
-"150
+[; ;main.c: 149: count1 = 0;
+"149
 [e = _count1 -> -> 0 `i `ui ]
-[; ;main.c: 151: countabuf = 0;
-"151
+[; ;main.c: 150: countabuf = 0;
+"150
 [e = _countabuf -> -> 0 `i `ui ]
-"152
+"151
 }
-[; ;main.c: 152: }else{
+[; ;main.c: 151: }else{
 [e $U 978  ]
 [e :U 977 ]
 {
-[; ;main.c: 153: trainPos++;
-"153
+[; ;main.c: 152: trainPos++;
+"152
 [e ++ _trainPos -> 1 `i ]
-"154
+"153
 }
 [e :U 978 ]
-[; ;main.c: 154: }
-[; ;main.c: 155: if(st_dataLength < trainPos){
-"155
+[; ;main.c: 153: }
+[; ;main.c: 154: if(st_dataLength < trainPos){
+"154
 [e $ ! < _st_dataLength -> _trainPos `ui 979  ]
 {
-[; ;main.c: 156: trainPos = 0;
-"156
+[; ;main.c: 155: trainPos = 0;
+"155
 [e = _trainPos -> 0 `i ]
-[; ;main.c: 157: read_count1 = 0;
-"157
+[; ;main.c: 156: read_count1 = 0;
+"156
 [e = _read_count1 -> -> 0 `i `ui ]
-[; ;main.c: 158: resetTrainData();
-"158
+[; ;main.c: 157: resetTrainData();
+"157
 [e ( _resetTrainData ..  ]
-[; ;main.c: 159: isreadTrain = 0;
-"159
+[; ;main.c: 158: isreadTrain = 0;
+"158
 [e = _isreadTrain -> -> 0 `i `b ]
-[; ;main.c: 160: count1 = 0;
-"160
+[; ;main.c: 159: count1 = 0;
+"159
 [e = _count1 -> -> 0 `i `ui ]
-[; ;main.c: 161: countabuf = 0;
-"161
+[; ;main.c: 160: countabuf = 0;
+"160
 [e = _countabuf -> -> 0 `i `ui ]
-"162
+"161
 }
 [e :U 979 ]
+[; ;main.c: 161: }
 [; ;main.c: 162: }
-[; ;main.c: 163: }
-"163
+"162
 [e :UE 976 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"164
+"163
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 164: void main(void) {
+[; ;main.c: 163: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 165: initComand();
-"165
+[; ;main.c: 164: initComand();
+"164
 [e ( _initComand ..  ]
-[; ;main.c: 166: initComu_types();
-"166
+[; ;main.c: 165: initComu_types();
+"165
 [e ( _initComu_types ..  ]
-[; ;main.c: 167: InitCalibrate();
-"167
+[; ;main.c: 166: InitCalibrate();
+"166
 [e ( _InitCalibrate ..  ]
-[; ;main.c: 168: init();
-"168
+[; ;main.c: 167: init();
+"167
 [e ( _init ..  ]
-[; ;main.c: 169: io_init();
-"169
+[; ;main.c: 168: io_init();
+"168
 [e ( _io_init ..  ]
-[; ;main.c: 170: spi_init();
-"170
+[; ;main.c: 169: spi_init();
+"169
 [e ( _spi_init ..  ]
-[; ;main.c: 171: initCargo();
-"171
+[; ;main.c: 170: initCargo();
+"170
 [e ( _initCargo ..  ]
-[; ;main.c: 172: LATAbits.LATA0 = 1;
-"172
+[; ;main.c: 171: LATAbits.LATA0 = 1;
+"171
 [e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 173: while(1){
-"173
+[; ;main.c: 172: while(1){
+"172
 [e :U 982 ]
 {
-[; ;main.c: 174: if(!isSPI1read()){
-"174
+[; ;main.c: 173: if(!isSPI1read()){
+"173
 [e $ ! ! ( _isSPI1read ..  984  ]
 {
-[; ;main.c: 175: initTrain();
-"175
+[; ;main.c: 174: initTrain();
+"174
 [e ( _initTrain ..  ]
-[; ;main.c: 176: if(isreadTrain){
-"176
+[; ;main.c: 175: if(isreadTrain){
+"175
 [e $ ! _isreadTrain 985  ]
 {
-[; ;main.c: 177: setComunicateMode(st_type);
-"177
+[; ;main.c: 176: setComunicateMode(st_type);
+"176
 [e ( _setComunicateMode (1 _st_type ]
-"178
+"177
 }
-[; ;main.c: 178: }else{
+[; ;main.c: 177: }else{
 [e $U 986  ]
 [e :U 985 ]
 {
-[; ;main.c: 179: read_train();
-"179
+[; ;main.c: 178: read_train();
+"178
 [e ( _read_train ..  ]
-"180
+"179
 }
 [e :U 986 ]
-[; ;main.c: 180: }
-[; ;main.c: 181: setSPI2sendData();
-"181
+[; ;main.c: 179: }
+[; ;main.c: 180: setSPI2sendData();
+"180
 [e ( _setSPI2sendData ..  ]
-"182
+"181
 }
 [e :U 984 ]
-"183
+"182
 }
 [e :U 981 ]
-"173
+"172
 [e $U 982  ]
 [e :U 983 ]
-[; ;main.c: 182: }
-[; ;main.c: 183: };
-[; ;main.c: 184: return;
-"184
+[; ;main.c: 181: }
+[; ;main.c: 182: };
+[; ;main.c: 183: return;
+"183
 [e $UE 980  ]
-[; ;main.c: 185: }
-"185
+[; ;main.c: 184: }
+"184
 [e :UE 980 ]
 }
-"186
+"185
 [v _resetTrainData `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 186: void resetTrainData(void){
+[; ;main.c: 185: void resetTrainData(void){
 [e :U _resetTrainData ]
 [f ]
-[; ;main.c: 187: st_dataLength = 0xFFFF;
-"187
+[; ;main.c: 186: st_dataLength = 0xFFFF;
+"186
 [e = _st_dataLength -> 65535 `ui ]
-[; ;main.c: 188: st_type = 0;
-"188
+[; ;main.c: 187: st_type = 0;
+"187
 [e = _st_type -> -> 0 `i `uc ]
-[; ;main.c: 189: restartCargo();
-"189
+[; ;main.c: 188: restartCargo();
+"188
 [e ( _restartCargo ..  ]
-[; ;main.c: 190: }
-"190
+[; ;main.c: 189: }
+"189
 [e :UE 987 ]
 }
-"191
+"190
 [v _startTrainBytes `ul ~T0 @X0 1 e ]
 [i _startTrainBytes
 -> -> -> 0 `i `l `ul
 ]
-[; ;main.c: 191: unsigned long startTrainBytes = 0;
-"192
+[; ;main.c: 190: unsigned long startTrainBytes = 0;
+"191
 [v _isTrainSt `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;main.c: 192: bit isTrainSt(unsigned char buf){
+[; ;main.c: 191: bit isTrainSt(unsigned char buf){
 [e :U _isTrainSt ]
 [v _buf `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 193: startTrainBytes = startTrainBytes << 8 | buf;
-"193
+[; ;main.c: 192: startTrainBytes = startTrainBytes << 8 | buf;
+"192
 [e = _startTrainBytes | << _startTrainBytes -> 8 `i -> _buf `ul ]
-[; ;main.c: 194: if(startTrainBytes == 0xFFFFFFFF){
-"194
+[; ;main.c: 193: if(startTrainBytes == 0xFFFFFFFF){
+"193
 [e $ ! == _startTrainBytes -> -1 `ul 989  ]
 {
-[; ;main.c: 195: return 1;
-"195
+[; ;main.c: 194: return 1;
+"194
 [e ) -> -> 1 `i `b ]
 [e $UE 988  ]
-"196
+"195
 }
-[; ;main.c: 196: }else{
+[; ;main.c: 195: }else{
 [e $U 990  ]
 [e :U 989 ]
 {
-[; ;main.c: 197: return 0;
-"197
+[; ;main.c: 196: return 0;
+"196
 [e ) -> -> 0 `i `b ]
 [e $UE 988  ]
-"198
+"197
 }
 [e :U 990 ]
+[; ;main.c: 197: }
 [; ;main.c: 198: }
-[; ;main.c: 199: }
-"199
+"198
 [e :UE 988 ]
 }
-"202
+"201
 [v _counta2 `i ~T0 @X0 1 e ]
 [i _counta2
 -> 0 `i
 ]
-[; ;main.c: 202: int counta2 = 0;
-"204
+[; ;main.c: 201: int counta2 = 0;
+"203
 [v _read_train `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 204: void read_train(void){
+[; ;main.c: 203: void read_train(void){
 [e :U _read_train ]
 [f ]
-"205
+"204
 [v _bufint `ui ~T0 @X0 1 a ]
-[; ;main.c: 205: unsigned int bufint = spi1_Read_data;
+[; ;main.c: 204: unsigned int bufint = spi1_Read_data;
 [e = _bufint -> _spi1_Read_data `ui ]
-[; ;main.c: 206: switch(trainPos){
-"206
+[; ;main.c: 205: switch(trainPos){
+"205
 [e $U 993  ]
 {
-[; ;main.c: 207: case 0:
-"207
+[; ;main.c: 206: case 1:
+"206
 [e :U 994 ]
+[; ;main.c: 207: st_dataLength = (bufint << 8 | 0x00FF);
+"207
+[e = _st_dataLength | << _bufint -> 8 `i -> -> 255 `i `ui ]
 [; ;main.c: 208: break;
 "208
 [e $U 992  ]
-[; ;main.c: 209: case 1:
+[; ;main.c: 209: case 2:
 "209
 [e :U 995 ]
-[; ;main.c: 210: st_dataLength = (bufint << 8 | 0x00FF);
+[; ;main.c: 210: st_dataLength = st_dataLength & (bufint | 0xFF00);
 "210
-[e = _st_dataLength | << _bufint -> 8 `i -> -> 255 `i `ui ]
+[e = _st_dataLength & _st_dataLength | _bufint -> 65280 `ui ]
 [; ;main.c: 211: break;
 "211
 [e $U 992  ]
-[; ;main.c: 212: case 2:
+[; ;main.c: 212: case 3:
 "212
 [e :U 996 ]
-[; ;main.c: 213: st_dataLength = st_dataLength & (bufint | 0xFF00);
+[; ;main.c: 213: st_type = spi1_Read_data;
 "213
-[e = _st_dataLength & _st_dataLength | _bufint -> 65280 `ui ]
-[; ;main.c: 214: break;
-"214
-[e $U 992  ]
-[; ;main.c: 215: case 3:
-"215
-[e :U 997 ]
-[; ;main.c: 216: st_type = spi1_Read_data;
-"216
 [e = _st_type _spi1_Read_data ]
-[; ;main.c: 217: isreadTrain = 1;
-"217
+[; ;main.c: 214: isreadTrain = 1;
+"214
 [e = _isreadTrain -> -> 1 `i `b ]
-[; ;main.c: 218: break;
+[; ;main.c: 215: break;
+"215
+[e $U 992  ]
+[; ;main.c: 216: default :
+"216
+[e :U 997 ]
+[; ;main.c: 217: break;
+"217
+[e $U 992  ]
 "218
-[e $U 992  ]
-[; ;main.c: 219: default :
-"219
-[e :U 998 ]
-[; ;main.c: 220: break;
-"220
-[e $U 992  ]
-"221
 }
-[; ;main.c: 221: }
+[; ;main.c: 218: }
 [e $U 992  ]
-"206
+"205
 [e :U 993 ]
-[e [\ _trainPos , $ -> 0 `i 994
- , $ -> 1 `i 995
- , $ -> 2 `i 996
- , $ -> 3 `i 997
- 998 ]
-"221
+[e [\ _trainPos , $ -> 1 `i 994
+ , $ -> 2 `i 995
+ , $ -> 3 `i 996
+ 997 ]
+"218
 [e :U 992 ]
-[; ;main.c: 223: if(read_count1 == 256){
-"223
-[e $ ! == _read_count1 -> -> 256 `i `ui 999  ]
+[; ;main.c: 220: if(read_count1 == 256){
+"220
+[e $ ! == _read_count1 -> -> 256 `i `ui 998  ]
 {
-[; ;main.c: 224: read_count1 = 0;
-"224
+[; ;main.c: 221: read_count1 = 0;
+"221
 [e = _read_count1 -> -> 0 `i `ui ]
+"222
+}
+[e :U 998 ]
+[; ;main.c: 222: }
+[; ;main.c: 223: if(read_count2 == 256){
+"223
+[e $ ! == _read_count2 -> -> 256 `i `ui 999  ]
+{
+[; ;main.c: 224: read_count2 = 0;
+"224
+[e = _read_count2 -> -> 0 `i `ui ]
 "225
 }
 [e :U 999 ]
 [; ;main.c: 225: }
-[; ;main.c: 226: if(read_count2 == 256){
+[; ;main.c: 226: }
 "226
-[e $ ! == _read_count2 -> -> 256 `i `ui 1000  ]
-{
-[; ;main.c: 227: read_count2 = 0;
-"227
-[e = _read_count2 -> -> 0 `i `ui ]
-"228
-}
-[e :U 1000 ]
-[; ;main.c: 228: }
-[; ;main.c: 229: }
-"229
 [e :UE 991 ]
 }

@@ -4,6 +4,7 @@
 #include "spi_header.h"
 #include "calibrate_mode.h"
 #include "command_header.h"
+#include "struct_header.h"
 
 const unsigned int VENDER_ID = 0x01;
 const unsigned int MACHINE_ID = 0x01;
@@ -23,7 +24,6 @@ typedef struct {
 LinkInfo linkInfo;
 Clalibdata calibdata;
 //unsigned int countabuf = 0;
-bit isMycargo;
 bit isEndPointTrig;
 
 
@@ -35,10 +35,10 @@ bit isEndpoint(void){
         spi2data =  spi2_buffer_data[count2];
     }
     if(spi2data < 255){
-        LATAbits.LATA0 = 1;
+        LATAbits.LATA0 = 0;
         isEndPointTrig = 0;
     }else{
-        LATAbits.LATA0 = 0;
+        LATAbits.LATA0 = 1;
         setSPI1sendDataManual(0x00);
     }
     return isEndPointTrig; 
@@ -65,71 +65,67 @@ void InitCalibrate(void){
     calibdata.index = 0x00;
     calibdata.command =0x00;
     calibdata.WorkingCount = 0;
+    CargoData cargoData = getCargoData();
+    cargoData.linkAngleTo = 0;
     linkInfo.endpoint = 0;
     linkInfo.My_address = 0;
     countabuf = 0;
-    isMycargo = 1;
 }
 void Calibrate_download(unsigned char spi_Read_data){
 
     unsigned int bufint  = spi_Read_data;
     unsigned long buflong = spi_Read_data;
     isEndpoint();
-    if(isMycargo){
-        switch(countabuf){
-            case 0:
-                InitCalibrate();
-                calibdata.cargoLength = (bufint << 8 | 0x00FF);
-                spi2_Send_data = spi_Read_data;
-                break;
-            case 1:
-                calibdata.cargoLength = calibdata.cargoLength & (bufint  | 0xFF00);
-                spi2_Send_data = spi_Read_data;
-                break;
-            case 2:
-                calibdata.command = spi_Read_data;
-                spi2_Send_data = spi_Read_data;
-                break;
-            case 3:
-                calibdata.index = spi_Read_data;
-                spi2_Send_data = spi_Read_data;
-                break;
-            case 4:
-                linkInfo.My_address = spi_Read_data +1;
-                spi2_Send_data = linkInfo.My_address;
-                break;
-            case 5:
-                calibdata.WorkingCount++;
-                spi2_Send_data = (calibdata.WorkingCount >> 24 & 0x000000ff);
-                break;
-            case 6:
-                spi2_Send_data = (calibdata.WorkingCount >> 16 & 0x000000ff);
-                break;
-            case 7:
-                spi2_Send_data = (calibdata.WorkingCount >> 8 & 0x000000ff);
-                break;
-            case 8:
-                spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
-                break; 
-            case 9:
-                if(isEndPointTrig == 1){
-
-                    linkInfo.endpoint = 1;
-                }else{
-                    linkInfo.endpoint = 0;
-                }
-                        LATAbits.LATA0 = 0;
-                    spi2_Send_data = linkInfo.My_address;
-                break;       
-        }
+    switch(countabuf){
+        case 0:
+            InitCalibrate();
+            calibdata.cargoLength = (bufint << 8 | 0x00FF);
+            spi2_Send_data = spi_Read_data;
+            break;
+        case 1:
+            calibdata.cargoLength = calibdata.cargoLength & (bufint  | 0xFF00);
+            spi2_Send_data = spi_Read_data;
+            break;
+        case 2:
+            calibdata.command = spi_Read_data;
+            spi2_Send_data = spi_Read_data;
+            break;
+        case 3:
+            calibdata.index = spi_Read_data;
+            spi2_Send_data = spi_Read_data;
+            break;
+        case 4:
+            linkInfo.My_address = spi_Read_data +1;
+            spi2_Send_data = linkInfo.My_address;
+            break;
+        case 5:
+            calibdata.WorkingCount++;
+            spi2_Send_data = (calibdata.WorkingCount >> 24 & 0x000000ff);
+            break;
+        case 6:
+            spi2_Send_data = (calibdata.WorkingCount >> 16 & 0x000000ff);
+            break;
+        case 7:
+            spi2_Send_data = (calibdata.WorkingCount >> 8 & 0x000000ff);
+            break;
+        case 8:
+            spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
+            break; 
+        case 9:
+                    LATAbits.LATA0 = 0;
+            if(isEndPointTrig == 1){
+                linkInfo.endpoint = 1;
+            }else{
+                linkInfo.endpoint = 0;
+            }
+            spi2_Send_data = linkInfo.My_address;
+            break;       
     }
     
     countabuf++;
-    unsigned char buf = calibdata.cargoLength & 0x00FF;
     if(calibdata.cargoLength <= countabuf){
         calibdata.cargoLength = 0xFFFF;
         countabuf = 0;
-        isMycargo = 1;
     }
 
 }

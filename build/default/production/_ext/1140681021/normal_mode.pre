@@ -10197,12 +10197,10 @@ cargoData = getCargoData();
 if(isMycargo){
 switch(countabuf){
 case 0:
-LATAbits.LATA0 = 1;
-cargoLengthnuf = (bufint << 8);
+cargoData.cargoLength = (bufint << 8 | 0x00FF);
 break;
 case 1:
-LATAbits.LATA0 = 0;
-cargoData.cargoLength = (cargoLengthnuf | bufint);
+cargoData.cargoLength = cargoData.cargoLength & (bufint | 0xFF00);
 break;
 case 2:
 cargoData.command = spi1_Read_data;

@@ -142,7 +142,6 @@ void initTrain(void){
             spi2_Send_data = spi1_Read_data;
             read_count1++;
             if(isTrainSt(spi1_Read_data)){
-                LATAbits.LATA0 = 0;
                 trainPos = 0;   
                 read_count1 = 0;
                 resetTrainData();
@@ -204,8 +203,6 @@ int counta2 = 0;
 void read_train(void){
     unsigned int bufint = spi1_Read_data;    
     switch(trainPos){
-        case 0:
-            break;
         case 1:
             st_dataLength = (bufint << 8 | 0x00FF);
             break;

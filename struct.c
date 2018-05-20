@@ -33,7 +33,6 @@ void resetCargo(void){
 void restartCargo(void){
     cargoData.WorkingCount = 0;
     cargoData.address = 0;
-    cargoData.cargoLength = 0xFFFF;
     cargoData.command = 0;
     cargoData.index = 0;
 };
