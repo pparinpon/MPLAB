@@ -86,7 +86,6 @@ extern "C" {
     
     
     GLOBAL void Calibrate_download(unsigned char spi_Read_data);
-    GLOBAL void Calibrate_upload(void);
     GLOBAL void InitCalibrate(void);
     bit isEndpoint(void);
     GLOBAL void setLinkNo(unsigned char workingCounta);

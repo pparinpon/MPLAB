@@ -97,7 +97,8 @@ void setSPI1sendData(void){
             read_count2 = 0;
         }
     }else{
-        SSP1BUF = 0x00;    
+//        LATAbits.LATA0 = ~LATAbits.LATA0; 
+        SSP1BUF = 0xC8;    
     }
 }
 void setSPI1sendDataManual(unsigned char data){
@@ -105,6 +106,7 @@ void setSPI1sendDataManual(unsigned char data){
 }
 void setSPI2sendData(void){
     if(linkInfo.endpoint == 0){
+        LATAbits.LATA0 = ~LATAbits.LATA0; 
         SSP2BUF = spi2_Send_data;
     }else{
         spi2_buffer_data[count2] = spi2_Send_data;

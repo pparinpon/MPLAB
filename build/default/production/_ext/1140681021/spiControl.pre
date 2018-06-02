@@ -10127,7 +10127,6 @@ unsigned char endpoint;
 
 
 extern void Calibrate_download(unsigned char spi_Read_data);
-extern void Calibrate_upload(void);
 extern void InitCalibrate(void);
 bit isEndpoint(void);
 extern void setLinkNo(unsigned char workingCounta);
@@ -10229,7 +10228,8 @@ if(read_count2 == 256){
 read_count2 = 0;
 }
 }else{
-SSP1BUF = 0x00;
+
+SSP1BUF = 0xC8;
 }
 }
 void setSPI1sendDataManual(unsigned char data){
@@ -10237,6 +10237,7 @@ SSP1BUF = data;
 }
 void setSPI2sendData(void){
 if(linkInfo.endpoint == 0){
+LATAbits.LATA0 = ~LATAbits.LATA0;
 SSP2BUF = spi2_Send_data;
 }else{
 spi2_buffer_data[count2] = spi2_Send_data;

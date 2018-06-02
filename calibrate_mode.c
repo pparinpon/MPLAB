@@ -35,12 +35,13 @@ bit isEndpoint(void){
         spi2data =  spi2_buffer_data[count2];
     }
     if(spi2data < 255){
-        LATAbits.LATA0 = 0;
+//        LATAbits.LATA0 = 0;
         isEndPointTrig = 0;
     }else{
-        LATAbits.LATA0 = 1;
+//        LATAbits.LATA0 = 1;
         setSPI1sendDataManual(0x00);
     }
+
     return isEndPointTrig; 
 }
 
@@ -50,15 +51,6 @@ bit workingcounta0 = 0;
 bit workingcounta1 = 0;
 bit workingcounta2 = 0;
 bit workingcounta3 = 0;
-/*
- It send data mater(PC sid) to slave side (link)
- */
-void Calibrate_upload(void){
-    if(!isSPI1send()){
-        SSP2BUF = spi1_send_buffer_data[send_count1];
-        send_count1++;
-    }
-}
 void InitCalibrate(void){
     isEndPointTrig = 1;
     calibdata.cargoLength = 0xFFFF;
@@ -112,15 +104,21 @@ void Calibrate_download(unsigned char spi_Read_data){
             spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
             break; 
         case 9:
-                    LATAbits.LATA0 = 0;
+//                    LATAbits.LATA0 = 0;
             if(isEndPointTrig == 1){
                 linkInfo.endpoint = 1;
             }else{
                 linkInfo.endpoint = 0;
             }
             spi2_Send_data = linkInfo.My_address;
+            isEndPointTrig = 0;
             break;       
     }
+    if(isEndPointTrig){
+        spi2_Send_data = 0x00;
+    }
+    
+    
     
     countabuf++;
     if(calibdata.cargoLength <= countabuf){

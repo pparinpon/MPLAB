@@ -10141,7 +10141,6 @@ unsigned char endpoint;
 
 
 extern void Calibrate_download(unsigned char spi_Read_data);
-extern void Calibrate_upload(void);
 extern void InitCalibrate(void);
 bit isEndpoint(void);
 extern void setLinkNo(unsigned char workingCounta);

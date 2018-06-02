@@ -9,7 +9,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "73 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h
 [s S961 `uc 1 `ul 1 `uc 1 ]
 [n S961 . My_address WorkingCount endpoint ]
-"95
+"94
 [v _linkInfo `S961 ~T0 @X0 0 e ]
 "93 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _restartCargo `(v ~T0 @X0 0 ef ]
@@ -7708,14 +7708,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;calibrate_mode.h: 84: unsigned char endpoint;
 [; ;calibrate_mode.h: 85: }Clalibdata;
 [; ;calibrate_mode.h: 88: extern void Calibrate_download(unsigned char spi_Read_data);
-[; ;calibrate_mode.h: 89: extern void Calibrate_upload(void);
-[; ;calibrate_mode.h: 90: extern void InitCalibrate(void);
-[; ;calibrate_mode.h: 91: bit isEndpoint(void);
-[; ;calibrate_mode.h: 92: extern void setLinkNo(unsigned char workingCounta);
-[; ;calibrate_mode.h: 93: extern unsigned int getVENDER_ID(void);
-[; ;calibrate_mode.h: 94: extern unsigned int getMACHINE_ID(void);
-[; ;calibrate_mode.h: 95: extern LinkInfo linkInfo;
-[; ;calibrate_mode.h: 96: extern Clalibdata calibdata;
+[; ;calibrate_mode.h: 89: extern void InitCalibrate(void);
+[; ;calibrate_mode.h: 90: bit isEndpoint(void);
+[; ;calibrate_mode.h: 91: extern void setLinkNo(unsigned char workingCounta);
+[; ;calibrate_mode.h: 92: extern unsigned int getVENDER_ID(void);
+[; ;calibrate_mode.h: 93: extern unsigned int getMACHINE_ID(void);
+[; ;calibrate_mode.h: 94: extern LinkInfo linkInfo;
+[; ;calibrate_mode.h: 95: extern Clalibdata calibdata;
 [; ;spi_header.h: 77: extern void spi_init();
 [; ;spi_header.h: 78: extern void spi1_init(void);
 [; ;spi_header.h: 79: extern void spi2_init(void);

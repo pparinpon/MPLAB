@@ -7676,14 +7676,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;calibrate_mode.h: 84: unsigned char endpoint;
 [; ;calibrate_mode.h: 85: }Clalibdata;
 [; ;calibrate_mode.h: 88: extern void Calibrate_download(unsigned char spi_Read_data);
-[; ;calibrate_mode.h: 89: extern void Calibrate_upload(void);
-[; ;calibrate_mode.h: 90: extern void InitCalibrate(void);
-[; ;calibrate_mode.h: 91: bit isEndpoint(void);
-[; ;calibrate_mode.h: 92: extern void setLinkNo(unsigned char workingCounta);
-[; ;calibrate_mode.h: 93: extern unsigned int getVENDER_ID(void);
-[; ;calibrate_mode.h: 94: extern unsigned int getMACHINE_ID(void);
-[; ;calibrate_mode.h: 95: extern LinkInfo linkInfo;
-[; ;calibrate_mode.h: 96: extern Clalibdata calibdata;
+[; ;calibrate_mode.h: 89: extern void InitCalibrate(void);
+[; ;calibrate_mode.h: 90: bit isEndpoint(void);
+[; ;calibrate_mode.h: 91: extern void setLinkNo(unsigned char workingCounta);
+[; ;calibrate_mode.h: 92: extern unsigned int getVENDER_ID(void);
+[; ;calibrate_mode.h: 93: extern unsigned int getMACHINE_ID(void);
+[; ;calibrate_mode.h: 94: extern LinkInfo linkInfo;
+[; ;calibrate_mode.h: 95: extern Clalibdata calibdata;
 "15 D:/programdata/16F18346_Link_IC.X/comu_type.c
 [v _comu_types `uc ~T0 @X0 -> 18 `i e ]
 [; ;comu_type.c: 15: unsigned char comu_types[18];

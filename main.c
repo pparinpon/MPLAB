@@ -59,7 +59,6 @@ unsigned char send_data;
 unsigned char spi1_Read_data = 0;
 unsigned char spi2_Read_data = 0;
 bit isreadTrain = 0;
-
 // Method
 void read_train(void);
 void resetTrainData(void);
@@ -76,20 +75,22 @@ void interrupt InterMSSP( void )
             count1 = 0;
         }
     }
-        if(linkInfo.endpoint == 0){
+//        if(linkInfo.endpoint == 0){
             if (PIR2bits.SSP2IF == 1) {       // SPI_recieve
                 spi2_buffer_data[count2] = SSP2BUF;
+                LATAbits.LATA0 = ~LATAbits.LATA0; 
                 count2++;
                 if(count2 == 256){
                     count2 = 0;
                 }
             }
-        }
+//        }
     //interruptIO
     if(IOCAFbits.IOCAF3 == 1){
         addAngle();
+        IOCAFbits.IOCAF3 = 0;
     }
-    IOCAFbits.IOCAF3 = 0;
+
    
     PIR1bits.SSP1IF = 0 ;
     PIR2bits.SSP2IF = 0 ;
@@ -141,22 +142,21 @@ void initTrain(void){
             spi1_Read_data = spi1_buffer_data[read_count1];
             spi2_Send_data = spi1_Read_data;
             read_count1++;
+            if(read_count1 == 256){
+               read_count1 = 0;
+            }
             if(isTrainSt(spi1_Read_data)){
                 trainPos = 0;   
-                read_count1 = 0;
                 resetTrainData();
                 isreadTrain = 0;
-                count1 = 0;
                 countabuf = 0;
             }else{
                 trainPos++;
             }
             if(st_dataLength < trainPos){
                 trainPos = 0;   
-                read_count1 = 0;
                 resetTrainData();
                 isreadTrain = 0;
-                count1 = 0;
                 countabuf = 0;               
             }
 }
@@ -215,12 +215,5 @@ void read_train(void){
             break;
         default :
             break;
-    }
-
-    if(read_count1 == 256){
-    read_count1 = 0;    
-    }
-    if(read_count2 == 256){
-    read_count2 = 0;    
     }
 }

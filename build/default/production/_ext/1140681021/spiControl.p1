@@ -132,8 +132,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 "73 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h
 [s S960 `uc 1 `ul 1 `uc 1 ]
 [n S960 . My_address WorkingCount endpoint ]
-"95
+"94
 [v _linkInfo `S960 ~T0 @X0 0 e ]
+"2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2296
+[u S113 `S114 1 ]
+[n S113 . . ]
+"2306
+[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7802,14 +7810,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;calibrate_mode.h: 84: unsigned char endpoint;
 [; ;calibrate_mode.h: 85: }Clalibdata;
 [; ;calibrate_mode.h: 88: extern void Calibrate_download(unsigned char spi_Read_data);
-[; ;calibrate_mode.h: 89: extern void Calibrate_upload(void);
-[; ;calibrate_mode.h: 90: extern void InitCalibrate(void);
-[; ;calibrate_mode.h: 91: bit isEndpoint(void);
-[; ;calibrate_mode.h: 92: extern void setLinkNo(unsigned char workingCounta);
-[; ;calibrate_mode.h: 93: extern unsigned int getVENDER_ID(void);
-[; ;calibrate_mode.h: 94: extern unsigned int getMACHINE_ID(void);
-[; ;calibrate_mode.h: 95: extern LinkInfo linkInfo;
-[; ;calibrate_mode.h: 96: extern Clalibdata calibdata;
+[; ;calibrate_mode.h: 89: extern void InitCalibrate(void);
+[; ;calibrate_mode.h: 90: bit isEndpoint(void);
+[; ;calibrate_mode.h: 91: extern void setLinkNo(unsigned char workingCounta);
+[; ;calibrate_mode.h: 92: extern unsigned int getVENDER_ID(void);
+[; ;calibrate_mode.h: 93: extern unsigned int getMACHINE_ID(void);
+[; ;calibrate_mode.h: 94: extern LinkInfo linkInfo;
+[; ;calibrate_mode.h: 95: extern Clalibdata calibdata;
 "8 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _spi1_buffer_data `uc ~T0 @X0 -> 256 `i e ]
 [; ;spiControl.c: 8: unsigned char spi1_buffer_data[256];
@@ -8119,72 +8126,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 977  ]
 [e :U 975 ]
 {
-[; ;spiControl.c: 100: SSP1BUF = 0x00;
-"100
-[e = _SSP1BUF -> -> 0 `i `uc ]
+[; ;spiControl.c: 101: SSP1BUF = 0xC8;
 "101
+[e = _SSP1BUF -> -> 200 `i `uc ]
+"102
 }
 [e :U 977 ]
-[; ;spiControl.c: 101: }
 [; ;spiControl.c: 102: }
-"102
+[; ;spiControl.c: 103: }
+"103
 [e :UE 974 ]
 }
-"103
+"104
 [v _setSPI1sendDataManual `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;spiControl.c: 103: void setSPI1sendDataManual(unsigned char data){
+[; ;spiControl.c: 104: void setSPI1sendDataManual(unsigned char data){
 [e :U _setSPI1sendDataManual ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;spiControl.c: 104: SSP1BUF = data;
-"104
-[e = _SSP1BUF _data ]
-[; ;spiControl.c: 105: }
+[; ;spiControl.c: 105: SSP1BUF = data;
 "105
+[e = _SSP1BUF _data ]
+[; ;spiControl.c: 106: }
+"106
 [e :UE 978 ]
 }
-"106
+"107
 [v _setSPI2sendData `(v ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 106: void setSPI2sendData(void){
+[; ;spiControl.c: 107: void setSPI2sendData(void){
 [e :U _setSPI2sendData ]
 [f ]
-[; ;spiControl.c: 107: if(linkInfo.endpoint == 0){
-"107
+[; ;spiControl.c: 108: if(linkInfo.endpoint == 0){
+"108
 [e $ ! == -> . _linkInfo 2 `i -> 0 `i 980  ]
 {
-[; ;spiControl.c: 108: SSP2BUF = spi2_Send_data;
-"108
-[e = _SSP2BUF _spi2_Send_data ]
+[; ;spiControl.c: 109: LATAbits.LATA0 = ~LATAbits.LATA0;
 "109
+[e = . . _LATAbits 0 0 -> ~ -> . . _LATAbits 0 0 `i `uc ]
+[; ;spiControl.c: 110: SSP2BUF = spi2_Send_data;
+"110
+[e = _SSP2BUF _spi2_Send_data ]
+"111
 }
-[; ;spiControl.c: 109: }else{
+[; ;spiControl.c: 111: }else{
 [e $U 981  ]
 [e :U 980 ]
 {
-[; ;spiControl.c: 110: spi2_buffer_data[count2] = spi2_Send_data;
-"110
-[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _spi2_Send_data ]
-[; ;spiControl.c: 111: count2++;
-"111
-[e ++ _count2 -> -> 1 `i `ui ]
-[; ;spiControl.c: 112: if(count2 == 256){
+[; ;spiControl.c: 112: spi2_buffer_data[count2] = spi2_Send_data;
 "112
+[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _spi2_Send_data ]
+[; ;spiControl.c: 113: count2++;
+"113
+[e ++ _count2 -> -> 1 `i `ui ]
+[; ;spiControl.c: 114: if(count2 == 256){
+"114
 [e $ ! == _count2 -> -> 256 `i `ui 982  ]
 {
-[; ;spiControl.c: 113: count2 = 0;
-"113
+[; ;spiControl.c: 115: count2 = 0;
+"115
 [e = _count2 -> -> 0 `i `ui ]
-"114
+"116
 }
 [e :U 982 ]
-"115
+"117
 }
 [e :U 981 ]
-[; ;spiControl.c: 114: }
-[; ;spiControl.c: 115: }
 [; ;spiControl.c: 116: }
-"116
+[; ;spiControl.c: 117: }
+[; ;spiControl.c: 118: }
+"118
 [e :UE 979 ]
 }
