@@ -3,11 +3,11 @@
 [d edition pro ]
 [d chip 16F18346 ]
 [d frameptr 6 ]
-"30 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+"31 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
 [v _isEndpoint isEndpoint `(b  1 e 0 0 ]
-"54
+"53
 [v _InitCalibrate InitCalibrate `(v  1 e 1 0 ]
-"66
+"65
 [v _Calibrate_download Calibrate_download `(v  1 e 1 0 ]
 "12 D:/programdata/16F18346_Link_IC.X/command.c
 [v _initComand initComand `(v  1 e 1 0 ]
@@ -23,23 +23,23 @@
 [v _setDirection setDirection `(v  1 e 1 0 ]
 "68 D:/programdata/16F18346_Link_IC.X/main.c
 [v _InterMSSP InterMSSP `II(v  1 e 1 0 ]
-"100
+"95
 [v _initbuffer initbuffer `(v  1 e 1 0 ]
-"106
+"101
 [v _init init `(v  1 e 1 0 ]
-"133
+"128
 [v _io_init io_init `(v  1 e 1 0 ]
-"141
+"136
 [v _initTrain initTrain `(v  1 e 1 0 ]
-"163
+"158
 [v _main main `(v  1 e 1 0 ]
-"185
+"180
 [v _resetTrainData resetTrainData `(v  1 e 1 0 ]
-"191
+"186
 [v _isTrainSt isTrainSt `(b  1 e 0 0 ]
-"203
+"198
 [v _read_train read_train `(v  1 e 1 0 ]
-"15 D:/programdata/16F18346_Link_IC.X/normal_mode.c
+"17 D:/programdata/16F18346_Link_IC.X/normal_mode.c
 [v _readCargo readCargo `(v  1 e 1 0 ]
 "22 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _spi_init spi_init `(v  1 e 1 0 ]
@@ -53,43 +53,57 @@
 [v _isSPI2read isSPI2read `(b  1 e 0 0 ]
 "92
 [v _setSPI1sendData setSPI1sendData `(v  1 e 1 0 ]
-"104
+"105
 [v _setSPI1sendDataManual setSPI1sendDataManual `(v  1 e 1 0 ]
-"107
+"108
 [v _setSPI2sendData setSPI2sendData `(v  1 e 1 0 ]
 "9 D:/programdata/16F18346_Link_IC.X/util.c
 [v _clear clear `(v  1 e 1 0 ]
+"20
+[v _TransLong256To255 TransLong256To255 `(l  1 e 4 0 ]
+"6 E:\microchip\xc8\v1.45\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+"5 E:\microchip\xc8\v1.45\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+"6 E:\microchip\xc8\v1.45\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"6 E:\microchip\xc8\v1.45\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
 "62 E:\microchip\xc8\v1.45\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 "86 E:\microchip\xc8\v1.45\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
+"15 E:\microchip\xc8\v1.45\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"15 E:\microchip\xc8\v1.45\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
 "6 E:\microchip\xc8\v1.45\sources\pic\eeprom.c
 [v _eecpymem eecpymem `(v  1 e 1 0 ]
 "39
 [v _memcpyee memcpyee `(v  1 e 1 0 ]
-"76 D:/programdata/16F18346_Link_IC.X/struct_header.h
-[s S908 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
+"77 D:/programdata/16F18346_Link_IC.X/struct_header.h
+[s S918 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
 "8 D:\programdata\16F18346_Link_IC.X\struct.c
-[v _getCargoData getCargoData `(S908  1 e 16 0 ]
+[v _getCargoData getCargoData `(S918  1 e 16 0 ]
 "11
 [v _setCargoData setCargoData `(v  1 e 1 0 ]
 "14
 [v _initCargo initCargo `(v  1 e 1 0 ]
-"33
+"36
 [v _restartCargo restartCargo `(v  1 e 1 0 ]
-"39
+"41
 [v _setCargoAngle setCargoAngle `(v  1 e 1 0 ]
 "9 D:\programdata\16F18346_Link_IC.X\cargo_index.c
 [v _countabuf countabuf `ui  1 e 2 0 ]
 "10
 [v _cargo_index cargo_index `[18]uc  1 e 18 0 ]
-[s S756 . 6 `uc 1 My_address 1 0 `ul 1 WorkingCount 4 1 `uc 1 endpoint 1 5 ]
-"24 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
-[v _linkInfo linkInfo `S756  1 e 6 0 ]
-[s S899 . 9 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `ul 1 WorkingCount 4 4 `uc 1 endpoint 1 8 ]
-"25
-[v _calibdata calibdata `S899  1 e 9 0 ]
-"27
+[s S757 . 6 `uc 1 My_address 1 0 `ul 1 WorkingCount 4 1 `uc 1 endpoint 1 5 ]
+"25 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+[v _linkInfo linkInfo `S757  1 e 6 0 ]
+[s S909 . 9 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `ul 1 WorkingCount 4 4 `uc 1 endpoint 1 8 ]
+"26
+[v _calibdata calibdata `S909  1 e 9 0 ]
+"28
 [v _isEndPointTrig isEndPointTrig `b  1 e 0 0 ]
 "9 D:/programdata/16F18346_Link_IC.X/command.c
 [v _command command `[18]uc  1 e 18 0 ]
@@ -101,13 +115,13 @@
 [v _direction direction `i  1 e 2 0 ]
 "61 D:/programdata/16F18346_Link_IC.X/main.c
 [v _isreadTrain isreadTrain `b  1 e 0 0 ]
-"140
+"135
 [v _trainPos trainPos `i  1 e 2 0 ]
-"190
+"185
 [v _startTrainBytes startTrainBytes `ul  1 e 4 0 ]
-"12 D:/programdata/16F18346_Link_IC.X/normal_mode.c
+"14 D:/programdata/16F18346_Link_IC.X/normal_mode.c
 [v _cargoLengthnuf cargoLengthnuf `ui  1 e 2 0 ]
-"13
+"15
 [v _cargoWorkingCount cargoWorkingCount `ul  1 e 4 0 ]
 "8 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _spi1_buffer_data spi1_buffer_data `[256]uc  1 e 256 @9968 ]
@@ -131,28 +145,28 @@
 [v _spi1_Read_data spi1_Read_data `uc  1 e 1 0 ]
 "18
 [v _spi2_Send_data spi2_Send_data `uc  1 e 1 0 ]
-[s S305 . 1 `uc 1 INTEDG 1 0 :1:0 
+[s S288 . 1 `uc 1 INTEDG 1 0 :1:0 
 `uc 1 . 1 0 :5:1 
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
 "362 E:\microchip\xc8\v1.45\include\pic16f18346.h
-[u S310 . 1 `S305 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES310  1 e 1 @11 ]
+[u S293 . 1 `S288 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES293  1 e 1 @11 ]
 "382
 [v _PORTA PORTA `VEuc  1 e 1 @12 ]
 "432
 [v _PORTB PORTB `VEuc  1 e 1 @13 ]
 "471
 [v _PORTC PORTC `VEuc  1 e 1 @14 ]
-[s S109 . 1 `uc 1 INTF 1 0 :1:0 
+[s S92 . 1 `uc 1 INTF 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIF 1 0 :1:4 
 `uc 1 TMR0IF 1 0 :1:5 
 ]
 "546
-[u S114 . 1 `S109 1 . 1 0 ]
-[v _PIR0bits PIR0bits `VES114  1 e 1 @16 ]
+[u S97 . 1 `S92 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES97  1 e 1 @16 ]
 [s S19 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 BCL1IF 1 0 :1:2 
@@ -181,18 +195,18 @@
 [v _TRISA TRISA `VEuc  1 e 1 @140 ]
 "1593
 [v _TRISB TRISB `VEuc  1 e 1 @141 ]
-[s S169 . 1 `uc 1 . 1 0 :4:0 
+[s S152 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TRISB4 1 0 :1:4 
 `uc 1 TRISB5 1 0 :1:5 
 `uc 1 TRISB6 1 0 :1:6 
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1607
-[u S175 . 1 `S169 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES175  1 e 1 @141 ]
+[u S158 . 1 `S152 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES158  1 e 1 @141 ]
 "1632
 [v _TRISC TRISC `VEuc  1 e 1 @142 ]
-[s S184 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S167 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -202,17 +216,17 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1649
-[u S193 . 1 `S184 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES193  1 e 1 @142 ]
-[s S258 . 1 `uc 1 INTE 1 0 :1:0 
+[u S176 . 1 `S167 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES176  1 e 1 @142 ]
+[s S241 . 1 `uc 1 INTE 1 0 :1:0 
 `uc 1 . 1 0 :3:1 
 `uc 1 IOCIE 1 0 :1:4 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
 "1707
-[u S263 . 1 `S258 1 . 1 0 ]
-[v _PIE0bits PIE0bits `VES263  1 e 1 @144 ]
-[s S598 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S246 . 1 `S241 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES246  1 e 1 @144 ]
+[s S599 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 BCL1IE 1 0 :1:2 
 `uc 1 SSP1IE 1 0 :1:3 
@@ -222,9 +236,9 @@
 `uc 1 TMR1GIE 1 0 :1:7 
 ]
 "1744
-[u S607 . 1 `S598 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES607  1 e 1 @145 ]
-[s S722 . 1 `uc 1 NCO1IE 1 0 :1:0 
+[u S608 . 1 `S599 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES608  1 e 1 @145 ]
+[s S723 . 1 `uc 1 NCO1IE 1 0 :1:0 
 `uc 1 TMR4IE 1 0 :1:1 
 `uc 1 BCL2IE 1 0 :1:2 
 `uc 1 SSP2IE 1 0 :1:3 
@@ -234,9 +248,9 @@
 `uc 1 TMR6IE 1 0 :1:7 
 ]
 "1806
-[u S731 . 1 `S722 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES731  1 e 1 @146 ]
-[s S71 . 1 `uc 1 LATA0 1 0 :1:0 
+[u S732 . 1 `S723 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES732  1 e 1 @146 ]
+[s S333 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -244,8 +258,8 @@
 `uc 1 LATA5 1 0 :1:5 
 ]
 "2306
-[u S78 . 1 `S71 1 . 1 0 ]
-[v _LATAbits LATAbits `VES78  1 e 1 @268 ]
+[u S340 . 1 `S333 1 . 1 0 ]
+[v _LATAbits LATAbits `VES340  1 e 1 @268 ]
 "2930
 [v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
 "2975
@@ -260,7 +274,7 @@
 [v _WPUC WPUC `VEuc  1 e 1 @526 ]
 "4093
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @529 ]
-[s S577 . 1 `uc 1 BF 1 0 :1:0 
+[s S578 . 1 `uc 1 BF 1 0 :1:0 
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -270,23 +284,23 @@
 `uc 1 SMP 1 0 :1:7 
 ]
 "4877
-[u S586 . 1 `S577 1 . 1 0 ]
-[v _SSP1STATbits SSP1STATbits `VES586  1 e 1 @532 ]
-[s S551 . 1 `uc 1 SSPM 1 0 :4:0 
+[u S587 . 1 `S578 1 . 1 0 ]
+[v _SSP1STATbits SSP1STATbits `VES587  1 e 1 @532 ]
+[s S552 . 1 `uc 1 SSPM 1 0 :4:0 
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "5010
-[s S557 . 1 `uc 1 SSPM0 1 0 :1:0 
+[s S558 . 1 `uc 1 SSPM0 1 0 :1:0 
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
-[u S562 . 1 `S551 1 . 1 0 `S557 1 . 1 0 ]
-[v _SSP1CON1bits SSP1CON1bits `VES562  1 e 1 @533 ]
-[s S509 . 1 `uc 1 DHEN 1 0 :1:0 
+[u S563 . 1 `S552 1 . 1 0 `S558 1 . 1 0 ]
+[v _SSP1CON1bits SSP1CON1bits `VES563  1 e 1 @533 ]
+[s S510 . 1 `uc 1 DHEN 1 0 :1:0 
 `uc 1 AHEN 1 0 :1:1 
 `uc 1 SBCDE 1 0 :1:2 
 `uc 1 SDAHT 1 0 :1:3 
@@ -296,17 +310,17 @@
 `uc 1 ACKTIM 1 0 :1:7 
 ]
 "5391
-[u S518 . 1 `S509 1 . 1 0 ]
-[v _SSP1CON3bits SSP1CON3bits `VES518  1 e 1 @535 ]
+[u S519 . 1 `S510 1 . 1 0 ]
+[v _SSP1CON3bits SSP1CON3bits `VES519  1 e 1 @535 ]
 "5491
 [v _SSP2BUF SSP2BUF `VEuc  1 e 1 @537 ]
 "5892
-[v _SSP2STATbits SSP2STATbits `VES586  1 e 1 @540 ]
+[v _SSP2STATbits SSP2STATbits `VES587  1 e 1 @540 ]
 "5962
-[v _SSP2CON1bits SSP2CON1bits `VES562  1 e 1 @541 ]
+[v _SSP2CON1bits SSP2CON1bits `VES563  1 e 1 @541 ]
 "6154
-[v _SSP2CON3bits SSP2CON3bits `VES518  1 e 1 @543 ]
-[s S241 . 1 `uc 1 INLVLA0 1 0 :1:0 
+[v _SSP2CON3bits SSP2CON3bits `VES519  1 e 1 @543 ]
+[s S224 . 1 `uc 1 INLVLA0 1 0 :1:0 
 `uc 1 INLVLA1 1 0 :1:1 
 `uc 1 INLVLA2 1 0 :1:2 
 `uc 1 INLVLA3 1 0 :1:3 
@@ -314,18 +328,18 @@
 `uc 1 INLVLA5 1 0 :1:5 
 ]
 "7252
-[u S248 . 1 `S241 1 . 1 0 ]
-[v _INLVLAbits INLVLAbits `VES248  1 e 1 @908 ]
-[s S205 . 1 `uc 1 . 1 0 :4:0 
+[u S231 . 1 `S224 1 . 1 0 ]
+[v _INLVLAbits INLVLAbits `VES231  1 e 1 @908 ]
+[s S188 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 INLVLB4 1 0 :1:4 
 `uc 1 INLVLB5 1 0 :1:5 
 `uc 1 INLVLB6 1 0 :1:6 
 `uc 1 INLVLB7 1 0 :1:7 
 ]
 "7301
-[u S211 . 1 `S205 1 . 1 0 ]
-[v _INLVLBbits INLVLBbits `VES211  1 e 1 @909 ]
-[s S220 . 1 `uc 1 INLVLC0 1 0 :1:0 
+[u S194 . 1 `S188 1 . 1 0 ]
+[v _INLVLBbits INLVLBbits `VES194  1 e 1 @909 ]
+[s S203 . 1 `uc 1 INLVLC0 1 0 :1:0 
 `uc 1 INLVLC1 1 0 :1:1 
 `uc 1 INLVLC2 1 0 :1:2 
 `uc 1 INLVLC3 1 0 :1:3 
@@ -335,9 +349,9 @@
 `uc 1 INLVLC7 1 0 :1:7 
 ]
 "7343
-[u S229 . 1 `S220 1 . 1 0 ]
-[v _INLVLCbits INLVLCbits `VES229  1 e 1 @910 ]
-[s S271 . 1 `uc 1 IOCAP0 1 0 :1:0 
+[u S212 . 1 `S203 1 . 1 0 ]
+[v _INLVLCbits INLVLCbits `VES212  1 e 1 @910 ]
+[s S254 . 1 `uc 1 IOCAP0 1 0 :1:0 
 `uc 1 IOCAP1 1 0 :1:1 
 `uc 1 IOCAP2 1 0 :1:2 
 `uc 1 IOCAP3 1 0 :1:3 
@@ -345,9 +359,9 @@
 `uc 1 IOCAP5 1 0 :1:5 
 ]
 "7403
-[u S278 . 1 `S271 1 . 1 0 ]
-[v _IOCAPbits IOCAPbits `VES278  1 e 1 @913 ]
-[s S288 . 1 `uc 1 IOCAN0 1 0 :1:0 
+[u S261 . 1 `S254 1 . 1 0 ]
+[v _IOCAPbits IOCAPbits `VES261  1 e 1 @913 ]
+[s S271 . 1 `uc 1 IOCAN0 1 0 :1:0 
 `uc 1 IOCAN1 1 0 :1:1 
 `uc 1 IOCAN2 1 0 :1:2 
 `uc 1 IOCAN3 1 0 :1:3 
@@ -355,9 +369,9 @@
 `uc 1 IOCAN5 1 0 :1:5 
 ]
 "7453
-[u S295 . 1 `S288 1 . 1 0 ]
-[v _IOCANbits IOCANbits `VES295  1 e 1 @914 ]
-[s S88 . 1 `uc 1 IOCAF0 1 0 :1:0 
+[u S278 . 1 `S271 1 . 1 0 ]
+[v _IOCANbits IOCANbits `VES278  1 e 1 @914 ]
+[s S71 . 1 `uc 1 IOCAF0 1 0 :1:0 
 `uc 1 IOCAF1 1 0 :1:1 
 `uc 1 IOCAF2 1 0 :1:2 
 `uc 1 IOCAF3 1 0 :1:3 
@@ -365,52 +379,52 @@
 `uc 1 IOCAF5 1 0 :1:5 
 ]
 "7503
-[u S95 . 1 `S88 1 . 1 0 ]
-[v _IOCAFbits IOCAFbits `VES95  1 e 1 @915 ]
-[s S140 . 1 `uc 1 HFTUN 1 0 :6:0 
+[u S78 . 1 `S71 1 . 1 0 ]
+[v _IOCAFbits IOCAFbits `VES78  1 e 1 @915 ]
+[s S123 . 1 `uc 1 HFTUN 1 0 :6:0 
 ]
 "13110
-[s S142 . 1 `uc 1 HFTUN0 1 0 :1:0 
+[s S125 . 1 `uc 1 HFTUN0 1 0 :1:0 
 `uc 1 HFTUN1 1 0 :1:1 
 `uc 1 HFTUN2 1 0 :1:2 
 `uc 1 HFTUN3 1 0 :1:3 
 `uc 1 HFTUN4 1 0 :1:4 
 `uc 1 HFTUN5 1 0 :1:5 
 ]
-[u S149 . 1 `S140 1 . 1 0 `S142 1 . 1 0 ]
-[v _OSCTUNEbits OSCTUNEbits `VES149  1 e 1 @2334 ]
-[s S122 . 1 `uc 1 HFFRQ 1 0 :4:0 
+[u S132 . 1 `S123 1 . 1 0 `S125 1 . 1 0 ]
+[v _OSCTUNEbits OSCTUNEbits `VES132  1 e 1 @2334 ]
+[s S105 . 1 `uc 1 HFFRQ 1 0 :4:0 
 ]
 "13166
-[s S124 . 1 `uc 1 HFFRQ0 1 0 :1:0 
+[s S107 . 1 `uc 1 HFFRQ0 1 0 :1:0 
 `uc 1 HFFRQ1 1 0 :1:1 
 `uc 1 HFFRQ2 1 0 :1:2 
 `uc 1 HFFRQ3 1 0 :1:3 
 ]
-[u S129 . 1 `S122 1 . 1 0 `S124 1 . 1 0 ]
-[v _OSCFRQbits OSCFRQbits `VES129  1 e 1 @2335 ]
-[s S655 . 1 `uc 1 SSP2SSPPS 1 0 :5:0 
+[u S112 . 1 `S105 1 . 1 0 `S107 1 . 1 0 ]
+[v _OSCFRQbits OSCFRQbits `VES112  1 e 1 @2335 ]
+[s S656 . 1 `uc 1 SSP2SSPPS 1 0 :5:0 
 ]
 "14013
-[s S657 . 1 `uc 1 SSP2SSPPS0 1 0 :1:0 
+[s S658 . 1 `uc 1 SSP2SSPPS0 1 0 :1:0 
 `uc 1 SSP2SSPPS1 1 0 :1:1 
 `uc 1 SSP2SSPPS2 1 0 :1:2 
 `uc 1 SSP2SSPPS3 1 0 :1:3 
 `uc 1 SSP2SSPPS4 1 0 :1:4 
 ]
-[u S663 . 1 `S655 1 . 1 0 `S657 1 . 1 0 ]
-[v _SSP2SSPPSbits SSP2SSPPSbits `VES663  1 e 1 @3615 ]
-[s S531 . 1 `uc 1 SSP1SSPPS 1 0 :5:0 
+[u S664 . 1 `S656 1 . 1 0 `S658 1 . 1 0 ]
+[v _SSP2SSPPSbits SSP2SSPPSbits `VES664  1 e 1 @3615 ]
+[s S532 . 1 `uc 1 SSP1SSPPS 1 0 :5:0 
 ]
 "14169
-[s S533 . 1 `uc 1 SSP1SSPPS0 1 0 :1:0 
+[s S534 . 1 `uc 1 SSP1SSPPS0 1 0 :1:0 
 `uc 1 SSP1SSPPS1 1 0 :1:1 
 `uc 1 SSP1SSPPS2 1 0 :1:2 
 `uc 1 SSP1SSPPS3 1 0 :1:3 
 `uc 1 SSP1SSPPS4 1 0 :1:4 
 ]
-[u S539 . 1 `S531 1 . 1 0 `S533 1 . 1 0 ]
-[v _SSP1SSPPSbits SSP1SSPPSbits `VES539  1 e 1 @3618 ]
+[u S540 . 1 `S532 1 . 1 0 `S534 1 . 1 0 ]
+[v _SSP1SSPPSbits SSP1SSPPSbits `VES540  1 e 1 @3618 ]
 "14700
 [v _RA2PPS RA2PPS `VEuc  1 e 1 @3730 ]
 "15012
@@ -419,17 +433,19 @@
 [v _RC2PPS RC2PPS `VEuc  1 e 1 @3746 ]
 "5 D:\programdata\16F18346_Link_IC.X\struct.c
 [v _isMycargo isMycargo `b  1 e 0 0 ]
-[s S908 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
+[s S918 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
 "7
-[v _cargoData cargoData `S908  1 e 16 0 ]
+[v _cargoData cargoData `S918  1 e 16 0 ]
 "74 D:\programdata\16F18346_Link_IC.X\struct_header.h
 [v _st_dataLength st_dataLength `ui  1 e 2 0 ]
 "75
 [v _st_type st_type `uc  1 e 1 0 ]
-"163 D:/programdata/16F18346_Link_IC.X/main.c
+"76
+[v _SPI_OFFSET_BYTE SPI_OFFSET_BYTE `uc  1 e 1 0 ]
+"158 D:/programdata/16F18346_Link_IC.X/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"184
+"179
 } 0
 "22 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _spi_init spi_init `(v  1 e 1 0 ]
@@ -450,10 +466,10 @@
 [v spi1_init@dummy dummy `uc  1 a 1 1 ]
 "48
 } 0
-"107
+"108
 [v _setSPI2sendData setSPI2sendData `(v  1 e 1 0 ]
 {
-"118
+"120
 } 0
 "38 D:/programdata/16F18346_Link_IC.X/comu_type.c
 [v _setComunicateMode setComunicateMode `(b  1 e 0 0 ]
@@ -466,18 +482,18 @@
 [v setComunicateMode@m_type m_type `uc  1 a 1 7 ]
 "56
 } 0
-"15 D:/programdata/16F18346_Link_IC.X/normal_mode.c
+"17 D:/programdata/16F18346_Link_IC.X/normal_mode.c
 [v _readCargo readCargo `(v  1 e 1 0 ]
 {
 [v readCargo@spi1_Read_data spi1_Read_data `uc  1 a 1 wreg ]
+"19
+[v readCargo@buflong buflong `ul  1 a 4 0 ]
+"18
+[v readCargo@bufint bufint `ui  1 a 2 4 ]
 "17
-[v readCargo@buflong buflong `ul  1 a 4 22 ]
-"16
-[v readCargo@bufint bufint `ui  1 a 2 26 ]
-"15
 [v readCargo@spi1_Read_data spi1_Read_data `uc  1 a 1 wreg ]
-[v readCargo@spi1_Read_data spi1_Read_data `uc  1 a 1 28 ]
-"87
+[v readCargo@spi1_Read_data spi1_Read_data `uc  1 a 1 6 ]
+"89
 } 0
 "68 D:/programdata/16F18346_Link_IC.X/command.c
 [v _clutchaction clutchaction `(b  1 e 0 0 ]
@@ -487,89 +503,142 @@
 [v clutchaction@comannd comannd `uc  1 a 1 0 ]
 "74
 } 0
-"66 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+"65 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
 [v _Calibrate_download Calibrate_download `(v  1 e 1 0 ]
 {
 [v Calibrate_download@spi_Read_data spi_Read_data `uc  1 a 1 wreg ]
-"69
+"68
 [v Calibrate_download@buflong buflong `ul  1 a 4 0 ]
-"68
+"67
 [v Calibrate_download@bufint bufint `ui  1 a 2 4 ]
-"66
+"65
 [v Calibrate_download@spi_Read_data spi_Read_data `uc  1 a 1 wreg ]
-"68
+"67
 [v Calibrate_download@spi_Read_data spi_Read_data `uc  1 a 1 6 ]
-"129
+"130
 } 0
-"30
+"31
 [v _isEndpoint isEndpoint `(b  1 e 0 0 ]
 {
-"31
+"32
 [v isEndpoint@spi2data spi2data `uc  1 a 1 6 ]
-"46
+"45
 } 0
-"104 D:/programdata/16F18346_Link_IC.X/spiControl.c
+"105 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _setSPI1sendDataManual setSPI1sendDataManual `(v  1 e 1 0 ]
 {
 [v setSPI1sendDataManual@data data `uc  1 a 1 wreg ]
 [v setSPI1sendDataManual@data data `uc  1 a 1 wreg ]
 [v setSPI1sendDataManual@data data `uc  1 a 1 0 ]
-"106
+"107
 } 0
-"54 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+"20 D:/programdata/16F18346_Link_IC.X/util.c
+[v _TransLong256To255 TransLong256To255 `(l  1 e 4 0 ]
+{
+"36
+[v TransLong256To255@j j `i  1 a 2 27 ]
+"34
+[v TransLong256To255@pow pow `l  1 a 4 33 ]
+"22
+[v TransLong256To255@buf buf `l  1 a 4 39 ]
+"25
+[v TransLong256To255@mod mod `l  1 a 4 29 ]
+"24
+[v TransLong256To255@TransData TransData `l  1 a 4 23 ]
+"26
+[v TransLong256To255@i i `i  1 a 2 37 ]
+"20
+[v TransLong256To255@data data `l  1 p 4 15 ]
+"47
+} 0
+"15 E:\microchip\xc8\v1.45\sources\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+{
+"17
+[v ___lmul@product product `ul  1 a 4 8 ]
+"15
+[v ___lmul@multiplier multiplier `ul  1 p 4 0 ]
+[v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
+"129
+} 0
+"5 E:\microchip\xc8\v1.45\sources\common\almod.c
+[v ___almod __almod `(l  1 e 4 0 ]
+{
+"11
+[v ___almod@sign sign `uc  1 a 1 10 ]
+[v ___almod@counter counter `uc  1 a 1 9 ]
+"5
+[v ___almod@divisor divisor `l  1 p 4 0 ]
+[v ___almod@dividend dividend `l  1 p 4 4 ]
+"35
+} 0
+"6 E:\microchip\xc8\v1.45\sources\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
+{
+"11
+[v ___aldiv@quotient quotient `l  1 a 4 11 ]
+"12
+[v ___aldiv@sign sign `uc  1 a 1 10 ]
+[v ___aldiv@counter counter `uc  1 a 1 9 ]
+"6
+[v ___aldiv@divisor divisor `l  1 p 4 0 ]
+[v ___aldiv@dividend dividend `l  1 p 4 4 ]
+"42
+} 0
+"53 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
 [v _InitCalibrate InitCalibrate `(v  1 e 1 0 ]
 {
-[s S908 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
-"59
-[v InitCalibrate@cargoData cargoData `S908  1 a 16 18 ]
-"65
+[s S918 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
+"58
+[v InitCalibrate@cargoData cargoData `S918  1 a 16 18 ]
+"64
 } 0
-"76 D:/programdata/16F18346_Link_IC.X/struct_header.h
-[s S908 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
+"77 D:/programdata/16F18346_Link_IC.X/struct_header.h
+[s S918 . 16 `ui 1 cargoLength 2 0 `uc 1 command 1 2 `uc 1 index 1 3 `uc 1 address 1 4 `i 1 linkAngleTo 2 5 `i 1 linkAngleBack 2 7 `ui 1 passedTime 2 9 `uc 1 clutchMode 1 11 `ul 1 WorkingCount 4 12 ]
 "8 D:\programdata\16F18346_Link_IC.X\struct.c
-[v _getCargoData getCargoData `(S908  1 e 16 0 ]
+[v _getCargoData getCargoData `(S918  1 e 16 0 ]
 {
 "10
 } 0
-"203 D:/programdata/16F18346_Link_IC.X/main.c
+"198 D:/programdata/16F18346_Link_IC.X/main.c
 [v _read_train read_train `(v  1 e 1 0 ]
 {
-"204
+"199
 [v read_train@bufint bufint `ui  1 a 2 2 ]
-"219
+"214
 } 0
 "67 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _isSPI1read isSPI1read `(b  1 e 0 0 ]
 {
 "74
 } 0
-"133 D:/programdata/16F18346_Link_IC.X/main.c
+"128 D:/programdata/16F18346_Link_IC.X/main.c
 [v _io_init io_init `(v  1 e 1 0 ]
 {
-"139
+"134
 } 0
-"141
+"136
 [v _initTrain initTrain `(v  1 e 1 0 ]
 {
-"162
+"157
 } 0
-"185
+"180
 [v _resetTrainData resetTrainData `(v  1 e 1 0 ]
 {
-"189
+"184
 } 0
-"33 D:\programdata\16F18346_Link_IC.X\struct.c
+"36 D:\programdata\16F18346_Link_IC.X\struct.c
 [v _restartCargo restartCargo `(v  1 e 1 0 ]
 {
-"38
+"40
 } 0
-"191 D:/programdata/16F18346_Link_IC.X/main.c
+"186 D:/programdata/16F18346_Link_IC.X/main.c
 [v _isTrainSt isTrainSt `(b  1 e 0 0 ]
 {
 [v isTrainSt@buf buf `uc  1 a 1 wreg ]
 [v isTrainSt@buf buf `uc  1 a 1 wreg ]
-[v isTrainSt@buf buf `uc  1 a 1 8 ]
-"198
+[v isTrainSt@buf buf `uc  1 a 1 10 ]
+"193
 } 0
 "18 D:/programdata/16F18346_Link_IC.X/comu_type.c
 [v _initComu_types initComu_types `(v  1 e 1 0 ]
@@ -586,17 +655,17 @@
 {
 "24
 } 0
-"106 D:/programdata/16F18346_Link_IC.X/main.c
+"101 D:/programdata/16F18346_Link_IC.X/main.c
 [v _init init `(v  1 e 1 0 ]
 {
-"131
+"126
 } 0
-"100
+"95
 [v _initbuffer initbuffer `(v  1 e 1 0 ]
 {
-"101
+"96
 [v initbuffer@i i `i  1 a 2 2 ]
-"105
+"100
 } 0
 "9 D:/programdata/16F18346_Link_IC.X/util.c
 [v _clear clear `(v  1 e 1 0 ]
@@ -606,12 +675,12 @@
 "68 D:/programdata/16F18346_Link_IC.X/main.c
 [v _InterMSSP InterMSSP `II(v  1 e 1 0 ]
 {
-"99
+"94
 } 0
 "92 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _setSPI1sendData setSPI1sendData `(v  1 e 1 0 ]
 {
-"103
+"104
 } 0
 "76
 [v _isSPI2read isSPI2read `(b  1 e 0 0 ]
@@ -623,9 +692,9 @@
 {
 "32
 } 0
-"39 D:\programdata\16F18346_Link_IC.X\struct.c
+"41 D:\programdata\16F18346_Link_IC.X\struct.c
 [v _setCargoAngle setCargoAngle `(v  1 e 1 0 ]
 {
 [v setCargoAngle@m_linkAngleTo m_linkAngleTo `i  1 p 2 0 ]
-"41
+"43
 } 0

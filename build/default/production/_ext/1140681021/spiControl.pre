@@ -10135,6 +10135,30 @@ extern unsigned int getMACHINE_ID(void);
 extern LinkInfo linkInfo;
 extern Clalibdata calibdata;
 
+# 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
+extern unsigned int st_dataLength = 0xFFFF;
+extern unsigned char st_type = 0x00;
+extern unsigned char SPI_OFFSET_BYTE = 0x01;
+typedef struct {
+unsigned int cargoLength;
+unsigned char command;
+unsigned char index;
+unsigned char address;
+int linkAngleTo;
+int linkAngleBack;
+unsigned int passedTime;
+unsigned char clutchMode;
+unsigned long WorkingCount;
+} CargoData;
+extern CargoData cargoData;
+extern bit isMycargo;
+extern CargoData getCargoData(void);
+extern void setCargoData(CargoData m_cargoData);
+extern void initCargo(void);
+extern void resetCargo(void);
+extern void restartCargo(void);
+extern void setCargoAngle(int m_linkAngleTo);
+
 # 8 "D:/programdata/16F18346_Link_IC.X/spiControl.c"
 unsigned char spi1_buffer_data[256];
 unsigned char spi2_buffer_data[256];
@@ -10226,18 +10250,20 @@ SSP1BUF = spi2_buffer_data[read_count2];
 read_count2++;
 if(read_count2 == 256){
 read_count2 = 0;
+
 }
 }else{
 
-SSP1BUF = 0xC8;
+SSP1BUF = 0x01;
 }
 }
 void setSPI1sendDataManual(unsigned char data){
 SSP1BUF = data;
 }
 void setSPI2sendData(void){
+spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
 if(linkInfo.endpoint == 0){
-LATAbits.LATA0 = ~LATAbits.LATA0;
+
 SSP2BUF = spi2_Send_data;
 }else{
 spi2_buffer_data[count2] = spi2_Send_data;

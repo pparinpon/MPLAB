@@ -67,35 +67,30 @@ bit isTrainSt(unsigned char buf);
 bit ra3condision = 0;
 void interrupt InterMSSP( void )
 {
-    if (PIR1bits.SSP1IF == 1) {       // SPI_recieve
-        spi1_buffer_data[count1] = SSP1BUF;
+    if (PIR1bits.SSP1IF == 1) {
+        // SPI_recieve
+        spi1_buffer_data[count1] = SSP1BUF -SPI_OFFSET_BYTE;
         setSPI1sendData();
         count1++;
         if(count1 == 256){
             count1 = 0;
         }
-    }
-//        if(linkInfo.endpoint == 0){
-            if (PIR2bits.SSP2IF == 1) {       // SPI_recieve
-                spi2_buffer_data[count2] = SSP2BUF;
-                LATAbits.LATA0 = ~LATAbits.LATA0; 
-                count2++;
-                if(count2 == 256){
-                    count2 = 0;
-                }
-            }
-//        }
-    //interruptIO
-    if(IOCAFbits.IOCAF3 == 1){
+    }else if (PIR2bits.SSP2IF == 1) {
+        // SPI_recieve
+        spi2_buffer_data[count2] = SSP2BUF;
+        count2++;
+        if(count2 == 256){
+            count2 = 0;
+        }
+    }else if(IOCAFbits.IOCAF3 == 1){
+        //interruptIO
         addAngle();
-        IOCAFbits.IOCAF3 = 0;
     }
-
-   
-    PIR1bits.SSP1IF = 0 ;
-    PIR2bits.SSP2IF = 0 ;
-    PIR0bits.INTF = 0;
-    PIR0bits.IOCIF = 0;
+        PIR1bits.SSP1IF = 0 ;
+        PIR2bits.SSP2IF = 0 ;
+        IOCAFbits.IOCAF3 = 0;
+        PIR0bits.IOCIF = 0;
+        PIR0bits.INTF = 0;
 }
 void initbuffer(void){
     for(int i = 0; i < 256; i++){
@@ -189,7 +184,7 @@ void resetTrainData(void){
 }
 unsigned long startTrainBytes = 0;
 bit isTrainSt(unsigned char buf){
-  startTrainBytes = startTrainBytes << 8 | buf; 
+  startTrainBytes = startTrainBytes << 8 | (buf +SPI_OFFSET_BYTE); 
   if(startTrainBytes == 0xFFFFFFFF){
       return 1;
   }else{

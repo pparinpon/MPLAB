@@ -5,6 +5,7 @@
 #include "calibrate_mode.h"
 #include "command_header.h"
 #include "struct_header.h"
+#include "util_header.h"
 
 const unsigned int VENDER_ID = 0x01;
 const unsigned int MACHINE_ID = 0x01;
@@ -35,10 +36,8 @@ bit isEndpoint(void){
         spi2data =  spi2_buffer_data[count2];
     }
     if(spi2data < 255){
-//        LATAbits.LATA0 = 0;
         isEndPointTrig = 0;
     }else{
-//        LATAbits.LATA0 = 1;
         setSPI1sendDataManual(0x00);
     }
 
@@ -92,22 +91,24 @@ void Calibrate_download(unsigned char spi_Read_data){
             break;
         case 5:
             calibdata.WorkingCount++;
-            spi2_Send_data = (calibdata.WorkingCount >> 24 & 0x000000ff);
+            spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 24 & 0x000000ff);
             break;
         case 6:
-            spi2_Send_data = (calibdata.WorkingCount >> 16 & 0x000000ff);
+            spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 16 & 0x000000ff);
             break;
         case 7:
-            spi2_Send_data = (calibdata.WorkingCount >> 8 & 0x000000ff);
+            spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 8 & 0x000000ff);
             break;
         case 8:
-            spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
+            spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) & 0x000000ff);
             break; 
         case 9:
-//                    LATAbits.LATA0 = 0;
+
             if(isEndPointTrig == 1){
+                LATAbits.LATA0 = 1;
                 linkInfo.endpoint = 1;
             }else{
+                LATAbits.LATA0 = 0;
                 linkInfo.endpoint = 0;
             }
             spi2_Send_data = linkInfo.My_address;

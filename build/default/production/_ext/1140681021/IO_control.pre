@@ -10100,6 +10100,7 @@ extern void setDirection(int m_direction);
 # 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
+extern unsigned char SPI_OFFSET_BYTE = 0x01;
 typedef struct {
 unsigned int cargoLength;
 unsigned char command;

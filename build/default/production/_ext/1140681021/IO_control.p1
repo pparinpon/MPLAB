@@ -1,10 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"76 D:/programdata/16F18346_Link_IC.X/struct_header.h
+"77 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [s S960 `ui 1 `uc 1 `uc 1 `uc 1 `i 1 `i 1 `ui 1 `uc 1 `ul 1 ]
 [n S960 . cargoLength command index address linkAngleTo linkAngleBack passedTime clutchMode WorkingCount ]
-"89
-[v _getCargoData `(S960 ~T0 @X0 0 ef ]
 "90
+[v _getCargoData `(S960 ~T0 @X0 0 ef ]
+"91
 [v _setCargoData `(v ~T0 @X0 0 ef1`S960 ]
 "2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
 [s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -14,7 +14,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S113 . . ]
 "2306
 [v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
-"94 D:/programdata/16F18346_Link_IC.X/struct_header.h
+"95 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _setCargoAngle `(v ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -7666,25 +7666,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
-[; ;struct_header.h: 76: typedef struct {
-[; ;struct_header.h: 77: unsigned int cargoLength;
-[; ;struct_header.h: 78: unsigned char command;
-[; ;struct_header.h: 79: unsigned char index;
-[; ;struct_header.h: 80: unsigned char address;
-[; ;struct_header.h: 81: int linkAngleTo;
-[; ;struct_header.h: 82: int linkAngleBack;
-[; ;struct_header.h: 83: unsigned int passedTime;
-[; ;struct_header.h: 84: unsigned char clutchMode;
-[; ;struct_header.h: 85: unsigned long WorkingCount;
-[; ;struct_header.h: 86: } CargoData;
-[; ;struct_header.h: 87: extern CargoData cargoData;
-[; ;struct_header.h: 88: extern bit isMycargo;
-[; ;struct_header.h: 89: extern CargoData getCargoData(void);
-[; ;struct_header.h: 90: extern void setCargoData(CargoData m_cargoData);
-[; ;struct_header.h: 91: extern void initCargo(void);
-[; ;struct_header.h: 92: extern void resetCargo(void);
-[; ;struct_header.h: 93: extern void restartCargo(void);
-[; ;struct_header.h: 94: extern void setCargoAngle(int m_linkAngleTo);
+"76
+[v _SPI_OFFSET_BYTE `uc ~T0 @X0 1 e ]
+[i _SPI_OFFSET_BYTE
+-> -> 1 `i `uc
+]
+[; ;struct_header.h: 76: extern unsigned char SPI_OFFSET_BYTE = 0x01;
+[; ;struct_header.h: 77: typedef struct {
+[; ;struct_header.h: 78: unsigned int cargoLength;
+[; ;struct_header.h: 79: unsigned char command;
+[; ;struct_header.h: 80: unsigned char index;
+[; ;struct_header.h: 81: unsigned char address;
+[; ;struct_header.h: 82: int linkAngleTo;
+[; ;struct_header.h: 83: int linkAngleBack;
+[; ;struct_header.h: 84: unsigned int passedTime;
+[; ;struct_header.h: 85: unsigned char clutchMode;
+[; ;struct_header.h: 86: unsigned long WorkingCount;
+[; ;struct_header.h: 87: } CargoData;
+[; ;struct_header.h: 88: extern CargoData cargoData;
+[; ;struct_header.h: 89: extern bit isMycargo;
+[; ;struct_header.h: 90: extern CargoData getCargoData(void);
+[; ;struct_header.h: 91: extern void setCargoData(CargoData m_cargoData);
+[; ;struct_header.h: 92: extern void initCargo(void);
+[; ;struct_header.h: 93: extern void resetCargo(void);
+[; ;struct_header.h: 94: extern void restartCargo(void);
+[; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
 "6 D:/programdata/16F18346_Link_IC.X/IO_control.c
 [v _linkAngle `i ~T0 @X0 1 e ]
 [i _linkAngle

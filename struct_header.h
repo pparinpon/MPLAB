@@ -73,6 +73,7 @@ extern "C" {
     // linkage so the functions can be used by the c code. 
 GLOBAL unsigned int st_dataLength = 0xFFFF;
 GLOBAL unsigned char st_type = 0x00;
+GLOBAL unsigned char SPI_OFFSET_BYTE = 0x01;
 typedef struct {
 unsigned int cargoLength;
 unsigned char command;

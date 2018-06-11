@@ -7,6 +7,8 @@
 #include "calibrate_mode.h"
 #include "spi_header.h"
 #include "IO_control_header.h"
+#include "util_header.h"
+
 CargoData cargoData;
 
 unsigned int cargoLengthnuf = 0;
@@ -62,16 +64,16 @@ void readCargo(unsigned char spi1_Read_data){
                 break;
             case 12:
                 cargoData.WorkingCount++;
-                spi2_Send_data = (cargoData.WorkingCount >> 24 & 0x000000ff);
+                spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 24 & 0x000000ff);
                 break;
             case 13:
-                spi2_Send_data = (cargoData.WorkingCount >> 16 & 0x000000ff);
+                spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 16 & 0x000000ff);
                 break;
             case 14:
-                spi2_Send_data = (cargoData.WorkingCount >> 8 & 0x000000ff);
+                spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 8 & 0x000000ff);
                 break;
             case 15:
-                spi2_Send_data = (cargoData.WorkingCount & 0x000000ff);
+                spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) & 0x000000ff);
                 break;
         }
     }

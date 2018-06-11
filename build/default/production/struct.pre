@@ -10089,6 +10089,7 @@ extern __bank0 __bit __timeout;
 # 74 "struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
+extern unsigned char SPI_OFFSET_BYTE = 0x01;
 typedef struct {
 unsigned int cargoLength;
 unsigned char command;
@@ -10137,9 +10138,11 @@ cargoData.cargoLength = 0xFFFF;
 cargoData.clutchMode = 0;
 cargoData.command = 0;
 cargoData.index = 0;
+cargoData.linkAngleTo = 0;
+cargoData.passedTime = 0;
+
 };
 void restartCargo(void){
-cargoData.WorkingCount = 0;
 cargoData.address = 0;
 cargoData.command = 0;
 cargoData.index = 0;

@@ -1,23 +1,25 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"76 D:/programdata/16F18346_Link_IC.X/struct_header.h
+"77 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [s S960 `ui 1 `uc 1 `uc 1 `uc 1 `i 1 `i 1 `ui 1 `uc 1 `ul 1 ]
 [n S960 . cargoLength command index address linkAngleTo linkAngleBack passedTime clutchMode WorkingCount ]
-"89
+"90
 [v _getCargoData `(S960 ~T0 @X0 0 ef ]
-"88
+"89
 [v _isMycargo `b ~T0 @X0 0 e ]
 "73 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h
 [s S961 `uc 1 `ul 1 `uc 1 ]
 [n S961 . My_address WorkingCount endpoint ]
 "94
 [v _linkInfo `S961 ~T0 @X0 0 e ]
-"93 D:/programdata/16F18346_Link_IC.X/struct_header.h
+"94 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _restartCargo `(v ~T0 @X0 0 ef ]
 "90 D:/programdata/16F18346_Link_IC.X/spi_header.h
 [v _spi2_Send_data `uc ~T0 @X0 0 e ]
 "76 D:/programdata/16F18346_Link_IC.X/command_header.h
 [v _clutchaction `(b ~T0 @X0 0 ef1`uc ]
-"79
+"74 D:/programdata/16F18346_Link_IC.X/util_header.h
+[v _TransLong256To255 `(l ~T0 @X0 0 ef1`l ]
+"79 D:/programdata/16F18346_Link_IC.X/command_header.h
 [v _countabuf `ui ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -7661,25 +7663,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
-[; ;struct_header.h: 76: typedef struct {
-[; ;struct_header.h: 77: unsigned int cargoLength;
-[; ;struct_header.h: 78: unsigned char command;
-[; ;struct_header.h: 79: unsigned char index;
-[; ;struct_header.h: 80: unsigned char address;
-[; ;struct_header.h: 81: int linkAngleTo;
-[; ;struct_header.h: 82: int linkAngleBack;
-[; ;struct_header.h: 83: unsigned int passedTime;
-[; ;struct_header.h: 84: unsigned char clutchMode;
-[; ;struct_header.h: 85: unsigned long WorkingCount;
-[; ;struct_header.h: 86: } CargoData;
-[; ;struct_header.h: 87: extern CargoData cargoData;
-[; ;struct_header.h: 88: extern bit isMycargo;
-[; ;struct_header.h: 89: extern CargoData getCargoData(void);
-[; ;struct_header.h: 90: extern void setCargoData(CargoData m_cargoData);
-[; ;struct_header.h: 91: extern void initCargo(void);
-[; ;struct_header.h: 92: extern void resetCargo(void);
-[; ;struct_header.h: 93: extern void restartCargo(void);
-[; ;struct_header.h: 94: extern void setCargoAngle(int m_linkAngleTo);
+"76
+[v _SPI_OFFSET_BYTE `uc ~T0 @X0 1 e ]
+[i _SPI_OFFSET_BYTE
+-> -> 1 `i `uc
+]
+[; ;struct_header.h: 76: extern unsigned char SPI_OFFSET_BYTE = 0x01;
+[; ;struct_header.h: 77: typedef struct {
+[; ;struct_header.h: 78: unsigned int cargoLength;
+[; ;struct_header.h: 79: unsigned char command;
+[; ;struct_header.h: 80: unsigned char index;
+[; ;struct_header.h: 81: unsigned char address;
+[; ;struct_header.h: 82: int linkAngleTo;
+[; ;struct_header.h: 83: int linkAngleBack;
+[; ;struct_header.h: 84: unsigned int passedTime;
+[; ;struct_header.h: 85: unsigned char clutchMode;
+[; ;struct_header.h: 86: unsigned long WorkingCount;
+[; ;struct_header.h: 87: } CargoData;
+[; ;struct_header.h: 88: extern CargoData cargoData;
+[; ;struct_header.h: 89: extern bit isMycargo;
+[; ;struct_header.h: 90: extern CargoData getCargoData(void);
+[; ;struct_header.h: 91: extern void setCargoData(CargoData m_cargoData);
+[; ;struct_header.h: 92: extern void initCargo(void);
+[; ;struct_header.h: 93: extern void resetCargo(void);
+[; ;struct_header.h: 94: extern void restartCargo(void);
+[; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
 [; ;command_header.h: 72: extern unsigned char command[18];
 [; ;command_header.h: 73: extern void initComand(void);
 [; ;command_header.h: 74: extern bit setCommandMode(unsigned char m_command);
@@ -7744,222 +7752,226 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IO_control_header.h: 79: extern void setOffClutch(void);
 [; ;IO_control_header.h: 80: extern void addAngle(void);
 [; ;IO_control_header.h: 81: extern void setDirection(int m_direction);
-"10 D:/programdata/16F18346_Link_IC.X/normal_mode.c
+[; ;util_header.h: 72: extern bit writeEEPROM(unsigned char *data);
+[; ;util_header.h: 73: extern void clear(void);
+[; ;util_header.h: 74: extern long TransLong256To255(long data);
+[; ;util_header.h: 75: extern int TransInt256To255(int data);
+"12 D:/programdata/16F18346_Link_IC.X/normal_mode.c
 [v _cargoData `S960 ~T0 @X0 1 e ]
-[; ;normal_mode.c: 10: CargoData cargoData;
-"12
+[; ;normal_mode.c: 12: CargoData cargoData;
+"14
 [v _cargoLengthnuf `ui ~T0 @X0 1 e ]
 [i _cargoLengthnuf
 -> -> 0 `i `ui
 ]
-[; ;normal_mode.c: 12: unsigned int cargoLengthnuf = 0;
-"13
+[; ;normal_mode.c: 14: unsigned int cargoLengthnuf = 0;
+"15
 [v _cargoWorkingCount `ul ~T0 @X0 1 e ]
 [i _cargoWorkingCount
 -> -> -> 0 `i `l `ul
 ]
-[; ;normal_mode.c: 13: unsigned long cargoWorkingCount = 0;
-"15
+[; ;normal_mode.c: 15: unsigned long cargoWorkingCount = 0;
+"17
 [v _readCargo `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;normal_mode.c: 15: void readCargo(unsigned char spi1_Read_data){
+[; ;normal_mode.c: 17: void readCargo(unsigned char spi1_Read_data){
 [e :U _readCargo ]
 [v _spi1_Read_data `uc ~T0 @X0 1 r1 ]
 [f ]
-"16
-[v _bufint `ui ~T0 @X0 1 a ]
-[; ;normal_mode.c: 16: unsigned int bufint = spi1_Read_data;
-[e = _bufint -> _spi1_Read_data `ui ]
-"17
-[v _buflong `ul ~T0 @X0 1 a ]
-[; ;normal_mode.c: 17: unsigned long buflong = spi1_Read_data;
-[e = _buflong -> _spi1_Read_data `ul ]
-[; ;normal_mode.c: 18: cargoData = getCargoData();
 "18
-[e = _cargoData ( _getCargoData ..  ]
-[; ;normal_mode.c: 19: if(isMycargo){
+[v _bufint `ui ~T0 @X0 1 a ]
+[; ;normal_mode.c: 18: unsigned int bufint = spi1_Read_data;
+[e = _bufint -> _spi1_Read_data `ui ]
 "19
+[v _buflong `ul ~T0 @X0 1 a ]
+[; ;normal_mode.c: 19: unsigned long buflong = spi1_Read_data;
+[e = _buflong -> _spi1_Read_data `ul ]
+[; ;normal_mode.c: 20: cargoData = getCargoData();
+"20
+[e = _cargoData ( _getCargoData ..  ]
+[; ;normal_mode.c: 21: if(isMycargo){
+"21
 [e $ ! _isMycargo 964  ]
 {
-[; ;normal_mode.c: 20: switch(countabuf){
-"20
+[; ;normal_mode.c: 22: switch(countabuf){
+"22
 [e $U 966  ]
 {
-[; ;normal_mode.c: 21: case 0:
-"21
-[e :U 967 ]
-[; ;normal_mode.c: 22: cargoData.cargoLength = (bufint << 8 | 0x00FF);
-"22
-[e = . _cargoData 0 | << _bufint -> 8 `i -> -> 255 `i `ui ]
-[; ;normal_mode.c: 23: break;
+[; ;normal_mode.c: 23: case 0:
 "23
-[e $U 965  ]
-[; ;normal_mode.c: 24: case 1:
+[e :U 967 ]
+[; ;normal_mode.c: 24: cargoData.cargoLength = (bufint << 8 | 0x00FF);
 "24
-[e :U 968 ]
-[; ;normal_mode.c: 25: cargoData.cargoLength = cargoData.cargoLength & (bufint | 0xFF00);
+[e = . _cargoData 0 | << _bufint -> 8 `i -> -> 255 `i `ui ]
+[; ;normal_mode.c: 25: break;
 "25
-[e = . _cargoData 0 & . _cargoData 0 | _bufint -> 65280 `ui ]
-[; ;normal_mode.c: 26: break;
+[e $U 965  ]
+[; ;normal_mode.c: 26: case 1:
 "26
-[e $U 965  ]
-[; ;normal_mode.c: 27: case 2:
+[e :U 968 ]
+[; ;normal_mode.c: 27: cargoData.cargoLength = cargoData.cargoLength & (bufint | 0xFF00);
 "27
-[e :U 969 ]
-[; ;normal_mode.c: 28: cargoData.command = spi1_Read_data;
+[e = . _cargoData 0 & . _cargoData 0 | _bufint -> 65280 `ui ]
+[; ;normal_mode.c: 28: break;
 "28
-[e = . _cargoData 1 _spi1_Read_data ]
-[; ;normal_mode.c: 29: break;
+[e $U 965  ]
+[; ;normal_mode.c: 29: case 2:
 "29
-[e $U 965  ]
-[; ;normal_mode.c: 30: case 3:
+[e :U 969 ]
+[; ;normal_mode.c: 30: cargoData.command = spi1_Read_data;
 "30
-[e :U 970 ]
-[; ;normal_mode.c: 31: cargoData.index = spi1_Read_data;
+[e = . _cargoData 1 _spi1_Read_data ]
+[; ;normal_mode.c: 31: break;
 "31
-[e = . _cargoData 2 _spi1_Read_data ]
-[; ;normal_mode.c: 32: break;
-"32
 [e $U 965  ]
-[; ;normal_mode.c: 33: case 4:
+[; ;normal_mode.c: 32: case 3:
+"32
+[e :U 970 ]
+[; ;normal_mode.c: 33: cargoData.index = spi1_Read_data;
 "33
-[e :U 971 ]
-[; ;normal_mode.c: 34: cargoData.address = spi1_Read_data;
+[e = . _cargoData 2 _spi1_Read_data ]
+[; ;normal_mode.c: 34: break;
 "34
-[e = . _cargoData 3 _spi1_Read_data ]
-[; ;normal_mode.c: 35: if(cargoData.address != linkInfo.My_address){
+[e $U 965  ]
+[; ;normal_mode.c: 35: case 4:
 "35
+[e :U 971 ]
+[; ;normal_mode.c: 36: cargoData.address = spi1_Read_data;
+"36
+[e = . _cargoData 3 _spi1_Read_data ]
+[; ;normal_mode.c: 37: if(cargoData.address != linkInfo.My_address){
+"37
 [e $ ! != -> . _cargoData 3 `i -> . _linkInfo 0 `i 972  ]
 {
-[; ;normal_mode.c: 36: restartCargo();
-"36
-[e ( _restartCargo ..  ]
-[; ;normal_mode.c: 37: isMycargo = 0;
-"37
-[e = _isMycargo -> -> 0 `i `b ]
+[; ;normal_mode.c: 38: restartCargo();
 "38
+[e ( _restartCargo ..  ]
+[; ;normal_mode.c: 39: isMycargo = 0;
+"39
+[e = _isMycargo -> -> 0 `i `b ]
+"40
 }
-[; ;normal_mode.c: 38: }else{
+[; ;normal_mode.c: 40: }else{
 [e $U 973  ]
 [e :U 972 ]
 {
-"39
+"41
 }
 [e :U 973 ]
-[; ;normal_mode.c: 39: }
-[; ;normal_mode.c: 40: break;
-"40
-[e $U 965  ]
-[; ;normal_mode.c: 41: case 5:
-"41
-[e :U 974 ]
-[; ;normal_mode.c: 42: spi2_Send_data = (cargoData.linkAngleTo >> 8 & 0x00ff);
+[; ;normal_mode.c: 41: }
+[; ;normal_mode.c: 42: break;
 "42
-[e = _spi2_Send_data -> & >> . _cargoData 4 -> 8 `i -> 255 `i `uc ]
-[; ;normal_mode.c: 43: break;
+[e $U 965  ]
+[; ;normal_mode.c: 43: case 5:
 "43
-[e $U 965  ]
-[; ;normal_mode.c: 44: case 6:
+[e :U 974 ]
+[; ;normal_mode.c: 44: spi2_Send_data = (cargoData.linkAngleTo >> 8 & 0x00ff);
 "44
-[e :U 975 ]
-[; ;normal_mode.c: 45: spi2_Send_data = (cargoData.linkAngleTo & 0x00ff);
+[e = _spi2_Send_data -> & >> . _cargoData 4 -> 8 `i -> 255 `i `uc ]
+[; ;normal_mode.c: 45: break;
 "45
-[e = _spi2_Send_data -> & . _cargoData 4 -> 255 `i `uc ]
-[; ;normal_mode.c: 46: break;
+[e $U 965  ]
+[; ;normal_mode.c: 46: case 6:
 "46
-[e $U 965  ]
-[; ;normal_mode.c: 47: case 7:
+[e :U 975 ]
+[; ;normal_mode.c: 47: spi2_Send_data = (cargoData.linkAngleTo & 0x00ff);
 "47
-[e :U 976 ]
-[; ;normal_mode.c: 48: spi2_Send_data = (cargoData.linkAngleBack >> 8 & 0x00ff);
+[e = _spi2_Send_data -> & . _cargoData 4 -> 255 `i `uc ]
+[; ;normal_mode.c: 48: break;
 "48
-[e = _spi2_Send_data -> & >> . _cargoData 5 -> 8 `i -> 255 `i `uc ]
-[; ;normal_mode.c: 49: break;
+[e $U 965  ]
+[; ;normal_mode.c: 49: case 7:
 "49
-[e $U 965  ]
-[; ;normal_mode.c: 50: case 8:
+[e :U 976 ]
+[; ;normal_mode.c: 50: spi2_Send_data = (cargoData.linkAngleBack >> 8 & 0x00ff);
 "50
-[e :U 977 ]
-[; ;normal_mode.c: 51: spi2_Send_data = (cargoData.linkAngleBack & 0x00ff);
+[e = _spi2_Send_data -> & >> . _cargoData 5 -> 8 `i -> 255 `i `uc ]
+[; ;normal_mode.c: 51: break;
 "51
-[e = _spi2_Send_data -> & . _cargoData 5 -> 255 `i `uc ]
-[; ;normal_mode.c: 52: break;
+[e $U 965  ]
+[; ;normal_mode.c: 52: case 8:
 "52
-[e $U 965  ]
-[; ;normal_mode.c: 53: case 9:
+[e :U 977 ]
+[; ;normal_mode.c: 53: spi2_Send_data = (cargoData.linkAngleBack & 0x00ff);
 "53
-[e :U 978 ]
-[; ;normal_mode.c: 54: spi2_Send_data = (cargoData.passedTime >> 8 & 0x00ff);
+[e = _spi2_Send_data -> & . _cargoData 5 -> 255 `i `uc ]
+[; ;normal_mode.c: 54: break;
 "54
-[e = _spi2_Send_data -> & >> . _cargoData 6 -> 8 `i -> -> 255 `i `ui `uc ]
-[; ;normal_mode.c: 55: break;
+[e $U 965  ]
+[; ;normal_mode.c: 55: case 9:
 "55
-[e $U 965  ]
-[; ;normal_mode.c: 56: case 10:
+[e :U 978 ]
+[; ;normal_mode.c: 56: spi2_Send_data = (cargoData.passedTime >> 8 & 0x00ff);
 "56
-[e :U 979 ]
-[; ;normal_mode.c: 57: spi2_Send_data = (cargoData.passedTime & 0x00ff);
+[e = _spi2_Send_data -> & >> . _cargoData 6 -> 8 `i -> -> 255 `i `ui `uc ]
+[; ;normal_mode.c: 57: break;
 "57
-[e = _spi2_Send_data -> & . _cargoData 6 -> -> 255 `i `ui `uc ]
-[; ;normal_mode.c: 58: break;
+[e $U 965  ]
+[; ;normal_mode.c: 58: case 10:
 "58
-[e $U 965  ]
-[; ;normal_mode.c: 59: case 11:
+[e :U 979 ]
+[; ;normal_mode.c: 59: spi2_Send_data = (cargoData.passedTime & 0x00ff);
 "59
-[e :U 980 ]
-[; ;normal_mode.c: 60: cargoData.clutchMode = spi1_Read_data;
+[e = _spi2_Send_data -> & . _cargoData 6 -> -> 255 `i `ui `uc ]
+[; ;normal_mode.c: 60: break;
 "60
-[e = . _cargoData 7 _spi1_Read_data ]
-[; ;normal_mode.c: 61: clutchaction(cargoData.clutchMode);
+[e $U 965  ]
+[; ;normal_mode.c: 61: case 11:
 "61
-[e ( _clutchaction (1 . _cargoData 7 ]
-[; ;normal_mode.c: 62: break;
+[e :U 980 ]
+[; ;normal_mode.c: 62: cargoData.clutchMode = spi1_Read_data;
 "62
-[e $U 965  ]
-[; ;normal_mode.c: 63: case 12:
+[e = . _cargoData 7 _spi1_Read_data ]
+[; ;normal_mode.c: 63: clutchaction(cargoData.clutchMode);
 "63
-[e :U 981 ]
-[; ;normal_mode.c: 64: cargoData.WorkingCount++;
+[e ( _clutchaction (1 . _cargoData 7 ]
+[; ;normal_mode.c: 64: break;
 "64
-[e ++ . _cargoData 8 -> -> -> 1 `i `l `ul ]
-[; ;normal_mode.c: 65: spi2_Send_data = (cargoData.WorkingCount >> 24 & 0x000000ff);
+[e $U 965  ]
+[; ;normal_mode.c: 65: case 12:
 "65
-[e = _spi2_Send_data -> & >> . _cargoData 8 -> 24 `i -> -> -> 255 `i `l `ul `uc ]
-[; ;normal_mode.c: 66: break;
+[e :U 981 ]
+[; ;normal_mode.c: 66: cargoData.WorkingCount++;
 "66
-[e $U 965  ]
-[; ;normal_mode.c: 67: case 13:
+[e ++ . _cargoData 8 -> -> -> 1 `i `l `ul ]
+[; ;normal_mode.c: 67: spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 24 & 0x000000ff);
 "67
-[e :U 982 ]
-[; ;normal_mode.c: 68: spi2_Send_data = (cargoData.WorkingCount >> 16 & 0x000000ff);
+[e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _cargoData 8 `l -> 24 `i -> -> 255 `i `l `uc ]
+[; ;normal_mode.c: 68: break;
 "68
-[e = _spi2_Send_data -> & >> . _cargoData 8 -> 16 `i -> -> -> 255 `i `l `ul `uc ]
-[; ;normal_mode.c: 69: break;
+[e $U 965  ]
+[; ;normal_mode.c: 69: case 13:
 "69
-[e $U 965  ]
-[; ;normal_mode.c: 70: case 14:
+[e :U 982 ]
+[; ;normal_mode.c: 70: spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 16 & 0x000000ff);
 "70
-[e :U 983 ]
-[; ;normal_mode.c: 71: spi2_Send_data = (cargoData.WorkingCount >> 8 & 0x000000ff);
+[e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _cargoData 8 `l -> 16 `i -> -> 255 `i `l `uc ]
+[; ;normal_mode.c: 71: break;
 "71
-[e = _spi2_Send_data -> & >> . _cargoData 8 -> 8 `i -> -> -> 255 `i `l `ul `uc ]
-[; ;normal_mode.c: 72: break;
+[e $U 965  ]
+[; ;normal_mode.c: 72: case 14:
 "72
-[e $U 965  ]
-[; ;normal_mode.c: 73: case 15:
+[e :U 983 ]
+[; ;normal_mode.c: 73: spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 8 & 0x000000ff);
 "73
-[e :U 984 ]
-[; ;normal_mode.c: 74: spi2_Send_data = (cargoData.WorkingCount & 0x000000ff);
+[e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _cargoData 8 `l -> 8 `i -> -> 255 `i `l `uc ]
+[; ;normal_mode.c: 74: break;
 "74
-[e = _spi2_Send_data -> & . _cargoData 8 -> -> -> 255 `i `l `ul `uc ]
-[; ;normal_mode.c: 75: break;
+[e $U 965  ]
+[; ;normal_mode.c: 75: case 15:
 "75
-[e $U 965  ]
+[e :U 984 ]
+[; ;normal_mode.c: 76: spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) & 0x000000ff);
 "76
-}
-[; ;normal_mode.c: 76: }
+[e = _spi2_Send_data -> & ( _TransLong256To255 (1 -> . _cargoData 8 `l -> -> 255 `i `l `uc ]
+[; ;normal_mode.c: 77: break;
+"77
 [e $U 965  ]
-"20
+"78
+}
+[; ;normal_mode.c: 78: }
+[e $U 965  ]
+"22
 [e :U 966 ]
 [e [\ _countabuf , $ -> -> 0 `i `ui 967
  , $ -> -> 1 `i `ui 968
@@ -7978,39 +7990,39 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 14 `i `ui 983
  , $ -> -> 15 `i `ui 984
  965 ]
-"76
+"78
 [e :U 965 ]
-"77
+"79
 }
 [e :U 964 ]
-[; ;normal_mode.c: 77: }
-[; ;normal_mode.c: 79: countabuf++;
-"79
+[; ;normal_mode.c: 79: }
+[; ;normal_mode.c: 81: countabuf++;
+"81
 [e ++ _countabuf -> -> 1 `i `ui ]
-[; ;normal_mode.c: 80: if(cargoData.cargoLength <= countabuf){
-"80
+[; ;normal_mode.c: 82: if(cargoData.cargoLength <= countabuf){
+"82
 [e $ ! <= . _cargoData 0 _countabuf 985  ]
 {
-[; ;normal_mode.c: 81: cargoLengthnuf = 0;
-"81
-[e = _cargoLengthnuf -> -> 0 `i `ui ]
-[; ;normal_mode.c: 82: cargoWorkingCount = 0;
-"82
-[e = _cargoWorkingCount -> -> -> 0 `i `l `ul ]
-[; ;normal_mode.c: 83: cargoData.cargoLength = 0xFFFF;
+[; ;normal_mode.c: 83: cargoLengthnuf = 0;
 "83
-[e = . _cargoData 0 -> 65535 `ui ]
-[; ;normal_mode.c: 84: countabuf = 0;
+[e = _cargoLengthnuf -> -> 0 `i `ui ]
+[; ;normal_mode.c: 84: cargoWorkingCount = 0;
 "84
-[e = _countabuf -> -> 0 `i `ui ]
-[; ;normal_mode.c: 85: isMycargo = 1;
+[e = _cargoWorkingCount -> -> -> 0 `i `l `ul ]
+[; ;normal_mode.c: 85: cargoData.cargoLength = 0xFFFF;
 "85
-[e = _isMycargo -> -> 1 `i `b ]
+[e = . _cargoData 0 -> 65535 `ui ]
+[; ;normal_mode.c: 86: countabuf = 0;
 "86
+[e = _countabuf -> -> 0 `i `ui ]
+[; ;normal_mode.c: 87: isMycargo = 1;
+"87
+[e = _isMycargo -> -> 1 `i `b ]
+"88
 }
 [e :U 985 ]
-[; ;normal_mode.c: 86: }
-[; ;normal_mode.c: 87: };
-"87
+[; ;normal_mode.c: 88: }
+[; ;normal_mode.c: 89: };
+"89
 [e :UE 963 ]
 }

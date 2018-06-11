@@ -10139,6 +10139,8 @@ extern void setSPI1sendDataManual(unsigned char data);
 # 72 "D:/programdata/16F18346_Link_IC.X/util_header.h"
 extern bit writeEEPROM(unsigned char *data);
 extern void clear(void);
+extern long TransLong256To255(long data);
+extern int TransInt256To255(int data);
 
 # 72 "D:/programdata/16F18346_Link_IC.X/command_header.h"
 extern unsigned char command[18];
@@ -10154,6 +10156,7 @@ extern bit isMycargo;
 # 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
+extern unsigned char SPI_OFFSET_BYTE = 0x01;
 typedef struct {
 unsigned int cargoLength;
 unsigned char command;
@@ -10233,34 +10236,29 @@ bit ra3condision = 0;
 void interrupt InterMSSP( void )
 {
 if (PIR1bits.SSP1IF == 1) {
-spi1_buffer_data[count1] = SSP1BUF;
+
+spi1_buffer_data[count1] = SSP1BUF -SPI_OFFSET_BYTE;
 setSPI1sendData();
 count1++;
 if(count1 == 256){
 count1 = 0;
 }
-}
+}else if (PIR2bits.SSP2IF == 1) {
 
-if (PIR2bits.SSP2IF == 1) {
 spi2_buffer_data[count2] = SSP2BUF;
-LATAbits.LATA0 = ~LATAbits.LATA0;
 count2++;
 if(count2 == 256){
 count2 = 0;
 }
-}
+}else if(IOCAFbits.IOCAF3 == 1){
 
-
-if(IOCAFbits.IOCAF3 == 1){
 addAngle();
-IOCAFbits.IOCAF3 = 0;
 }
-
-
 PIR1bits.SSP1IF = 0 ;
 PIR2bits.SSP2IF = 0 ;
-PIR0bits.INTF = 0;
+IOCAFbits.IOCAF3 = 0;
 PIR0bits.IOCIF = 0;
+PIR0bits.INTF = 0;
 }
 void initbuffer(void){
 for(int i = 0; i < 256; i++){
@@ -10354,7 +10352,7 @@ restartCargo();
 }
 unsigned long startTrainBytes = 0;
 bit isTrainSt(unsigned char buf){
-startTrainBytes = startTrainBytes << 8 | buf;
+startTrainBytes = startTrainBytes << 8 | (buf +SPI_OFFSET_BYTE);
 if(startTrainBytes == 0xFFFFFFFF){
 return 1;
 }else{

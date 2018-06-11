@@ -10092,6 +10092,7 @@ extern void readCargo(unsigned char spi1_Read_data);
 # 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
+extern unsigned char SPI_OFFSET_BYTE = 0x01;
 typedef struct {
 unsigned int cargoLength;
 unsigned char command;
@@ -10183,7 +10184,13 @@ extern void setOffClutch(void);
 extern void addAngle(void);
 extern void setDirection(int m_direction);
 
-# 10 "D:/programdata/16F18346_Link_IC.X/normal_mode.c"
+# 72 "D:/programdata/16F18346_Link_IC.X/util_header.h"
+extern bit writeEEPROM(unsigned char *data);
+extern void clear(void);
+extern long TransLong256To255(long data);
+extern int TransInt256To255(int data);
+
+# 12 "D:/programdata/16F18346_Link_IC.X/normal_mode.c"
 CargoData cargoData;
 
 unsigned int cargoLengthnuf = 0;
@@ -10239,16 +10246,16 @@ clutchaction(cargoData.clutchMode);
 break;
 case 12:
 cargoData.WorkingCount++;
-spi2_Send_data = (cargoData.WorkingCount >> 24 & 0x000000ff);
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 24 & 0x000000ff);
 break;
 case 13:
-spi2_Send_data = (cargoData.WorkingCount >> 16 & 0x000000ff);
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 16 & 0x000000ff);
 break;
 case 14:
-spi2_Send_data = (cargoData.WorkingCount >> 8 & 0x000000ff);
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 8 & 0x000000ff);
 break;
 case 15:
-spi2_Send_data = (cargoData.WorkingCount & 0x000000ff);
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) & 0x000000ff);
 break;
 }
 }

@@ -11,15 +11,25 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _spi2_buffer_data `uc ~T0 @X0 -> 0 `x e ]
 "97
 [v _setSPI1sendDataManual `(v ~T0 @X0 0 ef1`uc ]
-"76 D:/programdata/16F18346_Link_IC.X/struct_header.h
+"77 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [s S962 `ui 1 `uc 1 `uc 1 `uc 1 `i 1 `i 1 `ui 1 `uc 1 `ul 1 ]
 [n S962 . cargoLength command index address linkAngleTo linkAngleBack passedTime clutchMode WorkingCount ]
-"89
+"90
 [v _getCargoData `(S962 ~T0 @X0 0 ef ]
 "79 D:/programdata/16F18346_Link_IC.X/command_header.h
 [v _countabuf `ui ~T0 @X0 0 e ]
 "90 D:/programdata/16F18346_Link_IC.X/spi_header.h
 [v _spi2_Send_data `uc ~T0 @X0 0 e ]
+"74 D:/programdata/16F18346_Link_IC.X/util_header.h
+[v _TransLong256To255 `(l ~T0 @X0 0 ef1`l ]
+"2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2296
+[u S113 `S114 1 ]
+[n S113 . . ]
+"2306
+[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7716,89 +7726,99 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
-[; ;struct_header.h: 76: typedef struct {
-[; ;struct_header.h: 77: unsigned int cargoLength;
-[; ;struct_header.h: 78: unsigned char command;
-[; ;struct_header.h: 79: unsigned char index;
-[; ;struct_header.h: 80: unsigned char address;
-[; ;struct_header.h: 81: int linkAngleTo;
-[; ;struct_header.h: 82: int linkAngleBack;
-[; ;struct_header.h: 83: unsigned int passedTime;
-[; ;struct_header.h: 84: unsigned char clutchMode;
-[; ;struct_header.h: 85: unsigned long WorkingCount;
-[; ;struct_header.h: 86: } CargoData;
-[; ;struct_header.h: 87: extern CargoData cargoData;
-[; ;struct_header.h: 88: extern bit isMycargo;
-[; ;struct_header.h: 89: extern CargoData getCargoData(void);
-[; ;struct_header.h: 90: extern void setCargoData(CargoData m_cargoData);
-[; ;struct_header.h: 91: extern void initCargo(void);
-[; ;struct_header.h: 92: extern void resetCargo(void);
-[; ;struct_header.h: 93: extern void restartCargo(void);
-[; ;struct_header.h: 94: extern void setCargoAngle(int m_linkAngleTo);
-"9 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
+"76
+[v _SPI_OFFSET_BYTE `uc ~T0 @X0 1 e ]
+[i _SPI_OFFSET_BYTE
+-> -> 1 `i `uc
+]
+[; ;struct_header.h: 76: extern unsigned char SPI_OFFSET_BYTE = 0x01;
+[; ;struct_header.h: 77: typedef struct {
+[; ;struct_header.h: 78: unsigned int cargoLength;
+[; ;struct_header.h: 79: unsigned char command;
+[; ;struct_header.h: 80: unsigned char index;
+[; ;struct_header.h: 81: unsigned char address;
+[; ;struct_header.h: 82: int linkAngleTo;
+[; ;struct_header.h: 83: int linkAngleBack;
+[; ;struct_header.h: 84: unsigned int passedTime;
+[; ;struct_header.h: 85: unsigned char clutchMode;
+[; ;struct_header.h: 86: unsigned long WorkingCount;
+[; ;struct_header.h: 87: } CargoData;
+[; ;struct_header.h: 88: extern CargoData cargoData;
+[; ;struct_header.h: 89: extern bit isMycargo;
+[; ;struct_header.h: 90: extern CargoData getCargoData(void);
+[; ;struct_header.h: 91: extern void setCargoData(CargoData m_cargoData);
+[; ;struct_header.h: 92: extern void initCargo(void);
+[; ;struct_header.h: 93: extern void resetCargo(void);
+[; ;struct_header.h: 94: extern void restartCargo(void);
+[; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
+[; ;util_header.h: 72: extern bit writeEEPROM(unsigned char *data);
+[; ;util_header.h: 73: extern void clear(void);
+[; ;util_header.h: 74: extern long TransLong256To255(long data);
+[; ;util_header.h: 75: extern int TransInt256To255(int data);
+"10 D:/programdata/16F18346_Link_IC.X/calibrate_mode.c
 [v _VENDER_ID `Cui ~T0 @X0 1 e ]
 [i _VENDER_ID
 -> -> 1 `i `ui
 ]
-[; ;calibrate_mode.c: 9: const unsigned int VENDER_ID = 0x01;
-"10
+[; ;calibrate_mode.c: 10: const unsigned int VENDER_ID = 0x01;
+"11
 [v _MACHINE_ID `Cui ~T0 @X0 1 e ]
 [i _MACHINE_ID
 -> -> 1 `i `ui
 ]
-[; ;calibrate_mode.c: 10: const unsigned int MACHINE_ID = 0x01;
-[; ;calibrate_mode.c: 11: typedef struct {
-[; ;calibrate_mode.c: 12: unsigned char My_address;
-[; ;calibrate_mode.c: 13: unsigned long WorkingCount;
-[; ;calibrate_mode.c: 14: unsigned char endpoint;
-[; ;calibrate_mode.c: 15: }LinkInfo;
-[; ;calibrate_mode.c: 17: typedef struct {
-[; ;calibrate_mode.c: 18: unsigned int cargoLength;
-[; ;calibrate_mode.c: 19: unsigned char command;
-[; ;calibrate_mode.c: 20: unsigned char index;
-[; ;calibrate_mode.c: 21: unsigned long WorkingCount;
-[; ;calibrate_mode.c: 22: }Clalibdata;
-"24
-[v _linkInfo `S960 ~T0 @X0 1 e ]
-[; ;calibrate_mode.c: 24: LinkInfo linkInfo;
+[; ;calibrate_mode.c: 11: const unsigned int MACHINE_ID = 0x01;
+[; ;calibrate_mode.c: 12: typedef struct {
+[; ;calibrate_mode.c: 13: unsigned char My_address;
+[; ;calibrate_mode.c: 14: unsigned long WorkingCount;
+[; ;calibrate_mode.c: 15: unsigned char endpoint;
+[; ;calibrate_mode.c: 16: }LinkInfo;
+[; ;calibrate_mode.c: 18: typedef struct {
+[; ;calibrate_mode.c: 19: unsigned int cargoLength;
+[; ;calibrate_mode.c: 20: unsigned char command;
+[; ;calibrate_mode.c: 21: unsigned char index;
+[; ;calibrate_mode.c: 22: unsigned long WorkingCount;
+[; ;calibrate_mode.c: 23: }Clalibdata;
 "25
+[v _linkInfo `S960 ~T0 @X0 1 e ]
+[; ;calibrate_mode.c: 25: LinkInfo linkInfo;
+"26
 [v _calibdata `S961 ~T0 @X0 1 e ]
-[; ;calibrate_mode.c: 25: Clalibdata calibdata;
-"27
+[; ;calibrate_mode.c: 26: Clalibdata calibdata;
+"28
 [v _isEndPointTrig `b ~T0 @X0 1 e ]
-[; ;calibrate_mode.c: 27: bit isEndPointTrig;
-"30
+[; ;calibrate_mode.c: 28: bit isEndPointTrig;
+"31
 [v _isEndpoint `(b ~T0 @X0 1 ef ]
 {
-[; ;calibrate_mode.c: 30: bit isEndpoint(void){
+[; ;calibrate_mode.c: 31: bit isEndpoint(void){
 [e :U _isEndpoint ]
 [f ]
-"31
-[v _spi2data `uc ~T0 @X0 1 a ]
-[; ;calibrate_mode.c: 31: unsigned char spi2data = 0;
-[e = _spi2data -> -> 0 `i `uc ]
-[; ;calibrate_mode.c: 32: if(count2 > 1){
 "32
+[v _spi2data `uc ~T0 @X0 1 a ]
+[; ;calibrate_mode.c: 32: unsigned char spi2data = 0;
+[e = _spi2data -> -> 0 `i `uc ]
+[; ;calibrate_mode.c: 33: if(count2 > 1){
+"33
 [e $ ! > _count2 -> -> 1 `i `ui 966  ]
 {
-[; ;calibrate_mode.c: 33: spi2data = spi2_buffer_data[count2 -1];
-"33
-[e = _spi2data *U + &U _spi2_buffer_data * -> - _count2 -> -> 1 `i `ui `ux -> -> # *U &U _spi2_buffer_data `ui `ux ]
+[; ;calibrate_mode.c: 34: spi2data = spi2_buffer_data[count2 -1];
 "34
+[e = _spi2data *U + &U _spi2_buffer_data * -> - _count2 -> -> 1 `i `ui `ux -> -> # *U &U _spi2_buffer_data `ui `ux ]
+"35
 }
-[; ;calibrate_mode.c: 34: }else{
+[; ;calibrate_mode.c: 35: }else{
 [e $U 967  ]
 [e :U 966 ]
 {
-[; ;calibrate_mode.c: 35: spi2data = spi2_buffer_data[count2];
-"35
-[e = _spi2data *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux ]
+[; ;calibrate_mode.c: 36: spi2data = spi2_buffer_data[count2];
 "36
+[e = _spi2data *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux ]
+"37
 }
 [e :U 967 ]
-[; ;calibrate_mode.c: 36: }
-[; ;calibrate_mode.c: 37: if(spi2data < 255){
-"37
+[; ;calibrate_mode.c: 37: }
+[; ;calibrate_mode.c: 38: if(spi2data < 255){
+"38
 [e $ ! < -> _spi2data `i -> 255 `i 968  ]
 {
 [; ;calibrate_mode.c: 39: isEndPointTrig = 0;
@@ -7810,217 +7830,220 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 969  ]
 [e :U 968 ]
 {
-[; ;calibrate_mode.c: 42: setSPI1sendDataManual(0x00);
-"42
+[; ;calibrate_mode.c: 41: setSPI1sendDataManual(0x00);
+"41
 [e ( _setSPI1sendDataManual (1 -> -> 0 `i `uc ]
-"43
+"42
 }
 [e :U 969 ]
-[; ;calibrate_mode.c: 43: }
-[; ;calibrate_mode.c: 45: return isEndPointTrig;
-"45
+[; ;calibrate_mode.c: 42: }
+[; ;calibrate_mode.c: 44: return isEndPointTrig;
+"44
 [e ) -> -> _isEndPointTrig `i `b ]
 [e $UE 965  ]
-[; ;calibrate_mode.c: 46: }
-"46
+[; ;calibrate_mode.c: 45: }
+"45
 [e :UE 965 ]
 }
-"50
+"49
 [v _workingcounta0 `b ~T0 @X0 1 e ]
 [i _workingcounta0
 -> 0 `i
 ]
-[; ;calibrate_mode.c: 50: bit workingcounta0 = 0;
-"51
+[; ;calibrate_mode.c: 49: bit workingcounta0 = 0;
+"50
 [v _workingcounta1 `b ~T0 @X0 1 e ]
 [i _workingcounta1
 -> 0 `i
 ]
-[; ;calibrate_mode.c: 51: bit workingcounta1 = 0;
-"52
+[; ;calibrate_mode.c: 50: bit workingcounta1 = 0;
+"51
 [v _workingcounta2 `b ~T0 @X0 1 e ]
 [i _workingcounta2
 -> 0 `i
 ]
-[; ;calibrate_mode.c: 52: bit workingcounta2 = 0;
-"53
+[; ;calibrate_mode.c: 51: bit workingcounta2 = 0;
+"52
 [v _workingcounta3 `b ~T0 @X0 1 e ]
 [i _workingcounta3
 -> 0 `i
 ]
-[; ;calibrate_mode.c: 53: bit workingcounta3 = 0;
-"54
+[; ;calibrate_mode.c: 52: bit workingcounta3 = 0;
+"53
 [v _InitCalibrate `(v ~T0 @X0 1 ef ]
 {
-[; ;calibrate_mode.c: 54: void InitCalibrate(void){
+[; ;calibrate_mode.c: 53: void InitCalibrate(void){
 [e :U _InitCalibrate ]
 [f ]
-[; ;calibrate_mode.c: 55: isEndPointTrig = 1;
-"55
+[; ;calibrate_mode.c: 54: isEndPointTrig = 1;
+"54
 [e = _isEndPointTrig -> -> 1 `i `b ]
-[; ;calibrate_mode.c: 56: calibdata.cargoLength = 0xFFFF;
-"56
+[; ;calibrate_mode.c: 55: calibdata.cargoLength = 0xFFFF;
+"55
 [e = . _calibdata 0 -> 65535 `ui ]
-[; ;calibrate_mode.c: 57: calibdata.index = 0x00;
-"57
+[; ;calibrate_mode.c: 56: calibdata.index = 0x00;
+"56
 [e = . _calibdata 2 -> -> 0 `i `uc ]
-[; ;calibrate_mode.c: 58: calibdata.command =0x00;
-"58
+[; ;calibrate_mode.c: 57: calibdata.command =0x00;
+"57
 [e = . _calibdata 1 -> -> 0 `i `uc ]
-[; ;calibrate_mode.c: 59: calibdata.WorkingCount = 0;
-"59
+[; ;calibrate_mode.c: 58: calibdata.WorkingCount = 0;
+"58
 [e = . _calibdata 3 -> -> -> 0 `i `l `ul ]
 [v _cargoData `S962 ~T0 @X0 1 a ]
-[; ;calibrate_mode.c: 60: CargoData cargoData = getCargoData();
-"60
+[; ;calibrate_mode.c: 59: CargoData cargoData = getCargoData();
+"59
 [e = _cargoData ( _getCargoData ..  ]
-[; ;calibrate_mode.c: 61: cargoData.linkAngleTo = 0;
-"61
+[; ;calibrate_mode.c: 60: cargoData.linkAngleTo = 0;
+"60
 [e = . _cargoData 4 -> 0 `i ]
-[; ;calibrate_mode.c: 62: linkInfo.endpoint = 0;
-"62
+[; ;calibrate_mode.c: 61: linkInfo.endpoint = 0;
+"61
 [e = . _linkInfo 2 -> -> 0 `i `uc ]
-[; ;calibrate_mode.c: 63: linkInfo.My_address = 0;
-"63
+[; ;calibrate_mode.c: 62: linkInfo.My_address = 0;
+"62
 [e = . _linkInfo 0 -> -> 0 `i `uc ]
-[; ;calibrate_mode.c: 64: countabuf = 0;
-"64
+[; ;calibrate_mode.c: 63: countabuf = 0;
+"63
 [e = _countabuf -> -> 0 `i `ui ]
-[; ;calibrate_mode.c: 65: }
-"65
+[; ;calibrate_mode.c: 64: }
+"64
 [e :UE 970 ]
 }
-"66
+"65
 [v _Calibrate_download `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;calibrate_mode.c: 66: void Calibrate_download(unsigned char spi_Read_data){
+[; ;calibrate_mode.c: 65: void Calibrate_download(unsigned char spi_Read_data){
 [e :U _Calibrate_download ]
 [v _spi_Read_data `uc ~T0 @X0 1 r1 ]
 [f ]
-"68
+"67
 [v _bufint `ui ~T0 @X0 1 a ]
-[; ;calibrate_mode.c: 68: unsigned int bufint = spi_Read_data;
+[; ;calibrate_mode.c: 67: unsigned int bufint = spi_Read_data;
 [e = _bufint -> _spi_Read_data `ui ]
-"69
+"68
 [v _buflong `ul ~T0 @X0 1 a ]
-[; ;calibrate_mode.c: 69: unsigned long buflong = spi_Read_data;
+[; ;calibrate_mode.c: 68: unsigned long buflong = spi_Read_data;
 [e = _buflong -> _spi_Read_data `ul ]
-[; ;calibrate_mode.c: 70: isEndpoint();
-"70
+[; ;calibrate_mode.c: 69: isEndpoint();
+"69
 [e ( _isEndpoint ..  ]
-[; ;calibrate_mode.c: 71: switch(countabuf){
-"71
+[; ;calibrate_mode.c: 70: switch(countabuf){
+"70
 [e $U 973  ]
 {
-[; ;calibrate_mode.c: 72: case 0:
-"72
+[; ;calibrate_mode.c: 71: case 0:
+"71
 [e :U 974 ]
-[; ;calibrate_mode.c: 73: InitCalibrate();
-"73
+[; ;calibrate_mode.c: 72: InitCalibrate();
+"72
 [e ( _InitCalibrate ..  ]
-[; ;calibrate_mode.c: 74: calibdata.cargoLength = (bufint << 8 | 0x00FF);
-"74
+[; ;calibrate_mode.c: 73: calibdata.cargoLength = (bufint << 8 | 0x00FF);
+"73
 [e = . _calibdata 0 | << _bufint -> 8 `i -> -> 255 `i `ui ]
-[; ;calibrate_mode.c: 75: spi2_Send_data = spi_Read_data;
+[; ;calibrate_mode.c: 74: spi2_Send_data = spi_Read_data;
+"74
+[e = _spi2_Send_data _spi_Read_data ]
+[; ;calibrate_mode.c: 75: break;
 "75
-[e = _spi2_Send_data _spi_Read_data ]
-[; ;calibrate_mode.c: 76: break;
+[e $U 972  ]
+[; ;calibrate_mode.c: 76: case 1:
 "76
-[e $U 972  ]
-[; ;calibrate_mode.c: 77: case 1:
-"77
 [e :U 975 ]
-[; ;calibrate_mode.c: 78: calibdata.cargoLength = calibdata.cargoLength & (bufint | 0xFF00);
-"78
+[; ;calibrate_mode.c: 77: calibdata.cargoLength = calibdata.cargoLength & (bufint | 0xFF00);
+"77
 [e = . _calibdata 0 & . _calibdata 0 | _bufint -> 65280 `ui ]
-[; ;calibrate_mode.c: 79: spi2_Send_data = spi_Read_data;
+[; ;calibrate_mode.c: 78: spi2_Send_data = spi_Read_data;
+"78
+[e = _spi2_Send_data _spi_Read_data ]
+[; ;calibrate_mode.c: 79: break;
 "79
-[e = _spi2_Send_data _spi_Read_data ]
-[; ;calibrate_mode.c: 80: break;
+[e $U 972  ]
+[; ;calibrate_mode.c: 80: case 2:
 "80
-[e $U 972  ]
-[; ;calibrate_mode.c: 81: case 2:
-"81
 [e :U 976 ]
-[; ;calibrate_mode.c: 82: calibdata.command = spi_Read_data;
-"82
+[; ;calibrate_mode.c: 81: calibdata.command = spi_Read_data;
+"81
 [e = . _calibdata 1 _spi_Read_data ]
-[; ;calibrate_mode.c: 83: spi2_Send_data = spi_Read_data;
+[; ;calibrate_mode.c: 82: spi2_Send_data = spi_Read_data;
+"82
+[e = _spi2_Send_data _spi_Read_data ]
+[; ;calibrate_mode.c: 83: break;
 "83
-[e = _spi2_Send_data _spi_Read_data ]
-[; ;calibrate_mode.c: 84: break;
+[e $U 972  ]
+[; ;calibrate_mode.c: 84: case 3:
 "84
-[e $U 972  ]
-[; ;calibrate_mode.c: 85: case 3:
-"85
 [e :U 977 ]
-[; ;calibrate_mode.c: 86: calibdata.index = spi_Read_data;
-"86
+[; ;calibrate_mode.c: 85: calibdata.index = spi_Read_data;
+"85
 [e = . _calibdata 2 _spi_Read_data ]
-[; ;calibrate_mode.c: 87: spi2_Send_data = spi_Read_data;
-"87
+[; ;calibrate_mode.c: 86: spi2_Send_data = spi_Read_data;
+"86
 [e = _spi2_Send_data _spi_Read_data ]
-[; ;calibrate_mode.c: 88: break;
+[; ;calibrate_mode.c: 87: break;
+"87
+[e $U 972  ]
+[; ;calibrate_mode.c: 88: case 4:
 "88
-[e $U 972  ]
-[; ;calibrate_mode.c: 89: case 4:
-"89
 [e :U 978 ]
-[; ;calibrate_mode.c: 90: linkInfo.My_address = spi_Read_data +1;
-"90
+[; ;calibrate_mode.c: 89: linkInfo.My_address = spi_Read_data +1;
+"89
 [e = . _linkInfo 0 -> + -> _spi_Read_data `i -> 1 `i `uc ]
-[; ;calibrate_mode.c: 91: spi2_Send_data = linkInfo.My_address;
-"91
+[; ;calibrate_mode.c: 90: spi2_Send_data = linkInfo.My_address;
+"90
 [e = _spi2_Send_data . _linkInfo 0 ]
-[; ;calibrate_mode.c: 92: break;
+[; ;calibrate_mode.c: 91: break;
+"91
+[e $U 972  ]
+[; ;calibrate_mode.c: 92: case 5:
 "92
-[e $U 972  ]
-[; ;calibrate_mode.c: 93: case 5:
-"93
 [e :U 979 ]
-[; ;calibrate_mode.c: 94: calibdata.WorkingCount++;
-"94
+[; ;calibrate_mode.c: 93: calibdata.WorkingCount++;
+"93
 [e ++ . _calibdata 3 -> -> -> 1 `i `l `ul ]
-[; ;calibrate_mode.c: 95: spi2_Send_data = (calibdata.WorkingCount >> 24 & 0x000000ff);
+[; ;calibrate_mode.c: 94: spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 24 & 0x000000ff);
+"94
+[e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _calibdata 3 `l -> 24 `i -> -> 255 `i `l `uc ]
+[; ;calibrate_mode.c: 95: break;
 "95
-[e = _spi2_Send_data -> & >> . _calibdata 3 -> 24 `i -> -> -> 255 `i `l `ul `uc ]
-[; ;calibrate_mode.c: 96: break;
+[e $U 972  ]
+[; ;calibrate_mode.c: 96: case 6:
 "96
-[e $U 972  ]
-[; ;calibrate_mode.c: 97: case 6:
-"97
 [e :U 980 ]
-[; ;calibrate_mode.c: 98: spi2_Send_data = (calibdata.WorkingCount >> 16 & 0x000000ff);
+[; ;calibrate_mode.c: 97: spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 16 & 0x000000ff);
+"97
+[e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _calibdata 3 `l -> 16 `i -> -> 255 `i `l `uc ]
+[; ;calibrate_mode.c: 98: break;
 "98
-[e = _spi2_Send_data -> & >> . _calibdata 3 -> 16 `i -> -> -> 255 `i `l `ul `uc ]
-[; ;calibrate_mode.c: 99: break;
+[e $U 972  ]
+[; ;calibrate_mode.c: 99: case 7:
 "99
-[e $U 972  ]
-[; ;calibrate_mode.c: 100: case 7:
-"100
 [e :U 981 ]
-[; ;calibrate_mode.c: 101: spi2_Send_data = (calibdata.WorkingCount >> 8 & 0x000000ff);
+[; ;calibrate_mode.c: 100: spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 8 & 0x000000ff);
+"100
+[e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _calibdata 3 `l -> 8 `i -> -> 255 `i `l `uc ]
+[; ;calibrate_mode.c: 101: break;
 "101
-[e = _spi2_Send_data -> & >> . _calibdata 3 -> 8 `i -> -> -> 255 `i `l `ul `uc ]
-[; ;calibrate_mode.c: 102: break;
+[e $U 972  ]
+[; ;calibrate_mode.c: 102: case 8:
 "102
-[e $U 972  ]
-[; ;calibrate_mode.c: 103: case 8:
-"103
 [e :U 982 ]
-[; ;calibrate_mode.c: 104: spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
+[; ;calibrate_mode.c: 103: spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) & 0x000000ff);
+"103
+[e = _spi2_Send_data -> & ( _TransLong256To255 (1 -> . _calibdata 3 `l -> -> 255 `i `l `uc ]
+[; ;calibrate_mode.c: 104: break;
 "104
-[e = _spi2_Send_data -> & . _calibdata 3 -> -> -> 255 `i `l `ul `uc ]
-[; ;calibrate_mode.c: 105: break;
-"105
 [e $U 972  ]
-[; ;calibrate_mode.c: 106: case 9:
-"106
+[; ;calibrate_mode.c: 105: case 9:
+"105
 [e :U 983 ]
-[; ;calibrate_mode.c: 108: if(isEndPointTrig == 1){
-"108
+[; ;calibrate_mode.c: 107: if(isEndPointTrig == 1){
+"107
 [e $ ! == -> _isEndPointTrig `i -> 1 `i 984  ]
 {
+[; ;calibrate_mode.c: 108: LATAbits.LATA0 = 1;
+"108
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
 [; ;calibrate_mode.c: 109: linkInfo.endpoint = 1;
 "109
 [e = . _linkInfo 2 -> -> 1 `i `uc ]
@@ -8030,27 +8053,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 985  ]
 [e :U 984 ]
 {
-[; ;calibrate_mode.c: 111: linkInfo.endpoint = 0;
+[; ;calibrate_mode.c: 111: LATAbits.LATA0 = 0;
 "111
-[e = . _linkInfo 2 -> -> 0 `i `uc ]
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;calibrate_mode.c: 112: linkInfo.endpoint = 0;
 "112
+[e = . _linkInfo 2 -> -> 0 `i `uc ]
+"113
 }
 [e :U 985 ]
-[; ;calibrate_mode.c: 112: }
-[; ;calibrate_mode.c: 113: spi2_Send_data = linkInfo.My_address;
-"113
-[e = _spi2_Send_data . _linkInfo 0 ]
-[; ;calibrate_mode.c: 114: isEndPointTrig = 0;
+[; ;calibrate_mode.c: 113: }
+[; ;calibrate_mode.c: 114: spi2_Send_data = linkInfo.My_address;
 "114
-[e = _isEndPointTrig -> -> 0 `i `b ]
-[; ;calibrate_mode.c: 115: break;
+[e = _spi2_Send_data . _linkInfo 0 ]
+[; ;calibrate_mode.c: 115: isEndPointTrig = 0;
 "115
-[e $U 972  ]
+[e = _isEndPointTrig -> -> 0 `i `b ]
+[; ;calibrate_mode.c: 116: break;
 "116
-}
-[; ;calibrate_mode.c: 116: }
 [e $U 972  ]
-"71
+"117
+}
+[; ;calibrate_mode.c: 117: }
+[e $U 972  ]
+"70
 [e :U 973 ]
 [e [\ _countabuf , $ -> -> 0 `i `ui 974
  , $ -> -> 1 `i `ui 975
@@ -8063,88 +8089,88 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> -> 8 `i `ui 982
  , $ -> -> 9 `i `ui 983
  972 ]
-"116
-[e :U 972 ]
-[; ;calibrate_mode.c: 117: if(isEndPointTrig){
 "117
+[e :U 972 ]
+[; ;calibrate_mode.c: 118: if(isEndPointTrig){
+"118
 [e $ ! _isEndPointTrig 986  ]
 {
-[; ;calibrate_mode.c: 118: spi2_Send_data = 0x00;
-"118
-[e = _spi2_Send_data -> -> 0 `i `uc ]
+[; ;calibrate_mode.c: 119: spi2_Send_data = 0x00;
 "119
+[e = _spi2_Send_data -> -> 0 `i `uc ]
+"120
 }
 [e :U 986 ]
-[; ;calibrate_mode.c: 119: }
-[; ;calibrate_mode.c: 123: countabuf++;
-"123
-[e ++ _countabuf -> -> 1 `i `ui ]
-[; ;calibrate_mode.c: 124: if(calibdata.cargoLength <= countabuf){
+[; ;calibrate_mode.c: 120: }
+[; ;calibrate_mode.c: 124: countabuf++;
 "124
+[e ++ _countabuf -> -> 1 `i `ui ]
+[; ;calibrate_mode.c: 125: if(calibdata.cargoLength <= countabuf){
+"125
 [e $ ! <= . _calibdata 0 _countabuf 987  ]
 {
-[; ;calibrate_mode.c: 125: calibdata.cargoLength = 0xFFFF;
-"125
-[e = . _calibdata 0 -> 65535 `ui ]
-[; ;calibrate_mode.c: 126: countabuf = 0;
+[; ;calibrate_mode.c: 126: calibdata.cargoLength = 0xFFFF;
 "126
-[e = _countabuf -> -> 0 `i `ui ]
+[e = . _calibdata 0 -> 65535 `ui ]
+[; ;calibrate_mode.c: 127: countabuf = 0;
 "127
+[e = _countabuf -> -> 0 `i `ui ]
+"128
 }
 [e :U 987 ]
-[; ;calibrate_mode.c: 127: }
-[; ;calibrate_mode.c: 129: }
-"129
+[; ;calibrate_mode.c: 128: }
+[; ;calibrate_mode.c: 130: }
+"130
 [e :UE 971 ]
 }
-"131
+"132
 [v _setLinkNo `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;calibrate_mode.c: 131: void setLinkNo(unsigned char workingCounta){
+[; ;calibrate_mode.c: 132: void setLinkNo(unsigned char workingCounta){
 [e :U _setLinkNo ]
 [v _workingCounta `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;calibrate_mode.c: 132: linkInfo.My_address = 0;
-"132
-[e = . _linkInfo 0 -> -> 0 `i `uc ]
-[; ;calibrate_mode.c: 133: linkInfo.WorkingCount = 0;
+[; ;calibrate_mode.c: 133: linkInfo.My_address = 0;
 "133
-[e = . _linkInfo 1 -> -> -> 0 `i `l `ul ]
-[; ;calibrate_mode.c: 134: linkInfo.My_address += workingCounta;
+[e = . _linkInfo 0 -> -> 0 `i `uc ]
+[; ;calibrate_mode.c: 134: linkInfo.WorkingCount = 0;
 "134
-[e =+ . _linkInfo 0 _workingCounta ]
-[; ;calibrate_mode.c: 135: linkInfo.WorkingCount++;
+[e = . _linkInfo 1 -> -> -> 0 `i `l `ul ]
+[; ;calibrate_mode.c: 135: linkInfo.My_address += workingCounta;
 "135
-[e ++ . _linkInfo 1 -> -> -> 1 `i `l `ul ]
-[; ;calibrate_mode.c: 136: }
+[e =+ . _linkInfo 0 _workingCounta ]
+[; ;calibrate_mode.c: 136: linkInfo.WorkingCount++;
 "136
+[e ++ . _linkInfo 1 -> -> -> 1 `i `l `ul ]
+[; ;calibrate_mode.c: 137: }
+"137
 [e :UE 988 ]
 }
-"137
+"138
 [v _getVENDER_ID `(ui ~T0 @X0 1 ef ]
 {
-[; ;calibrate_mode.c: 137: unsigned int getVENDER_ID(void){
+[; ;calibrate_mode.c: 138: unsigned int getVENDER_ID(void){
 [e :U _getVENDER_ID ]
 [f ]
-[; ;calibrate_mode.c: 138: return VENDER_ID;
-"138
+[; ;calibrate_mode.c: 139: return VENDER_ID;
+"139
 [e ) _VENDER_ID ]
 [e $UE 989  ]
-[; ;calibrate_mode.c: 139: };
-"139
+[; ;calibrate_mode.c: 140: };
+"140
 [e :UE 989 ]
 }
-"140
+"141
 [v _getMACHINE_ID `(ui ~T0 @X0 1 ef ]
 {
-[; ;calibrate_mode.c: 140: unsigned int getMACHINE_ID(void){
+[; ;calibrate_mode.c: 141: unsigned int getMACHINE_ID(void){
 [e :U _getMACHINE_ID ]
 [f ]
-[; ;calibrate_mode.c: 141: return MACHINE_ID;
-"141
+[; ;calibrate_mode.c: 142: return MACHINE_ID;
+"142
 [e ) _MACHINE_ID ]
 [e $UE 990  ]
-[; ;calibrate_mode.c: 142: };
-"142
+[; ;calibrate_mode.c: 143: };
+"143
 [e :UE 990 ]
 }

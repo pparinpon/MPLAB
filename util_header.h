@@ -71,7 +71,8 @@ extern "C" {
     // linkage so the functions can be used by the c code. 
     GLOBAL bit writeEEPROM(unsigned char *data);
     GLOBAL void clear(void);
-    
+    GLOBAL long TransLong256To255(long data);
+    GLOBAL int  TransInt256To255(int data);
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */

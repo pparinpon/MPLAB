@@ -7648,6 +7648,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
 [; ;util_header.h: 72: extern bit writeEEPROM(unsigned char *data);
 [; ;util_header.h: 73: extern void clear(void);
+[; ;util_header.h: 74: extern long TransLong256To255(long data);
+[; ;util_header.h: 75: extern int TransInt256To255(int data);
 "9 D:/programdata/16F18346_Link_IC.X/util.c
 [v _clear `(v ~T0 @X0 1 ef ]
 {
@@ -7685,18 +7687,262 @@ Version 3.2 HI-TECH Software Intermediate Code
 "19
 [e :UE 960 ]
 }
+"20
+[v _TransLong256To255 `(l ~T0 @X0 1 ef1`l ]
 "21
+{
+[; ;util.c: 20: long TransLong256To255(long data)
+[; ;util.c: 21: {
+[e :U _TransLong256To255 ]
+"20
+[v _data `l ~T0 @X0 1 r1 ]
+"21
+[f ]
+"22
+[v _buf `l ~T0 @X0 1 a ]
+[; ;util.c: 22: long buf = 0;
+[e = _buf -> -> 0 `i `l ]
+[; ;util.c: 23: buf = data;
+"23
+[e = _buf _data ]
+"24
+[v _TransData `l ~T0 @X0 1 a ]
+[; ;util.c: 24: long TransData = 0;
+[e = _TransData -> -> 0 `i `l ]
+"25
+[v _mod `l ~T0 @X0 1 a ]
+[; ;util.c: 25: long mod = 0;
+[e = _mod -> -> 0 `i `l ]
+"26
+[v _i `i ~T0 @X0 1 a ]
+[; ;util.c: 26: int i = 0;
+[e = _i -> 0 `i ]
+[; ;util.c: 27: while(1){
+"27
+[e :U 963 ]
+{
+[; ;util.c: 28: if(buf <= 255){
+"28
+[e $ ! <= _buf -> -> 255 `i `l 965  ]
+{
+[; ;util.c: 29: mod = buf;
+"29
+[e = _mod _buf ]
+"30
+}
+[; ;util.c: 30: }else{
+[e $U 966  ]
+[e :U 965 ]
+{
+[; ;util.c: 31: mod = buf % 255;
+"31
+[e = _mod % _buf -> -> 255 `i `l ]
+"32
+}
+[e :U 966 ]
+[; ;util.c: 32: }
+[; ;util.c: 33: buf = (int)(buf / 255);
+"33
+[e = _buf -> -> / _buf -> -> 255 `i `l `i `l ]
+"34
+[v _pow `l ~T0 @X0 1 a ]
+[; ;util.c: 34: long pow = 1;
+[e = _pow -> -> 1 `i `l ]
+[; ;util.c: 35: if(i > 0){
+"35
+[e $ ! > _i -> 0 `i 967  ]
+{
+[; ;util.c: 36: for(int j = 0; j < i; j++){
+"36
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $U 971  ]
+[e :U 968 ]
+{
+[; ;util.c: 37: pow = pow * 256;
+"37
+[e = _pow * _pow -> -> 256 `i `l ]
+"38
+}
+"36
+[e ++ _j -> 1 `i ]
+[e :U 971 ]
+[e $ < _j _i 968  ]
+[e :U 969 ]
+"38
+}
+"39
+}
+[e :U 967 ]
+[; ;util.c: 38: }
+[; ;util.c: 39: }
+[; ;util.c: 40: TransData += mod * pow;
+"40
+[e =+ _TransData * _mod _pow ]
+[; ;util.c: 41: if(buf <= 255){
+"41
+[e $ ! <= _buf -> -> 255 `i `l 972  ]
+{
+[; ;util.c: 42: break;
+"42
+[e $U 964  ]
+"43
+}
+[e :U 972 ]
+[; ;util.c: 43: }
+[; ;util.c: 44: i++;
+"44
+[e ++ _i -> 1 `i ]
+"45
+}
+[e :U 962 ]
+"27
+[e $U 963  ]
+[e :U 964 ]
+[; ;util.c: 45: }
+[; ;util.c: 46: return TransData;
+"46
+[e ) _TransData ]
+[e $UE 961  ]
+[; ;util.c: 47: };
+"47
+[e :UE 961 ]
+}
+"48
+[v _TransInt256To255 `(i ~T0 @X0 1 ef1`i ]
+"49
+{
+[; ;util.c: 48: int TransInt256To255(int data)
+[; ;util.c: 49: {
+[e :U _TransInt256To255 ]
+"48
+[v _data `i ~T0 @X0 1 r1 ]
+"49
+[f ]
+"50
+[v _buf `i ~T0 @X0 1 a ]
+[; ;util.c: 50: int buf = 0;
+[e = _buf -> 0 `i ]
+[; ;util.c: 51: buf = data;
+"51
+[e = _buf _data ]
+"52
+[v _TransData `i ~T0 @X0 1 a ]
+[; ;util.c: 52: int TransData = 0;
+[e = _TransData -> 0 `i ]
+"53
+[v _mod `i ~T0 @X0 1 a ]
+[; ;util.c: 53: int mod = 0;
+[e = _mod -> 0 `i ]
+"54
+[v _i `i ~T0 @X0 1 a ]
+[; ;util.c: 54: int i = 0;
+[e = _i -> 0 `i ]
+[; ;util.c: 55: while(1){
+"55
+[e :U 975 ]
+{
+[; ;util.c: 56: if(buf <= 255){
+"56
+[e $ ! <= _buf -> 255 `i 977  ]
+{
+[; ;util.c: 57: mod = buf;
+"57
+[e = _mod _buf ]
+"58
+}
+[; ;util.c: 58: }else{
+[e $U 978  ]
+[e :U 977 ]
+{
+[; ;util.c: 59: mod = buf % 255;
+"59
+[e = _mod % _buf -> 255 `i ]
+"60
+}
+[e :U 978 ]
+[; ;util.c: 60: }
+[; ;util.c: 61: buf = (int)(buf / 255);
+"61
+[e = _buf / _buf -> 255 `i ]
+"62
+[v _pow `l ~T0 @X0 1 a ]
+[; ;util.c: 62: long pow = 1;
+[e = _pow -> -> 1 `i `l ]
+[; ;util.c: 63: if(i > 0){
+"63
+[e $ ! > _i -> 0 `i 979  ]
+{
+[; ;util.c: 64: for(int j = 0; j < i; j++){
+"64
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> 0 `i ]
+[e $U 983  ]
+[e :U 980 ]
+{
+[; ;util.c: 65: pow = pow * 256;
+"65
+[e = _pow * _pow -> -> 256 `i `l ]
+"66
+}
+"64
+[e ++ _j -> 1 `i ]
+[e :U 983 ]
+[e $ < _j _i 980  ]
+[e :U 981 ]
+"66
+}
+"67
+}
+[e :U 979 ]
+[; ;util.c: 66: }
+[; ;util.c: 67: }
+[; ;util.c: 68: TransData += mod * pow;
+"68
+[e =+ _TransData -> * -> _mod `l _pow `i ]
+[; ;util.c: 69: if(buf <= 255){
+"69
+[e $ ! <= _buf -> 255 `i 984  ]
+{
+[; ;util.c: 70: break;
+"70
+[e $U 976  ]
+"71
+}
+[e :U 984 ]
+[; ;util.c: 71: }
+[; ;util.c: 72: i++;
+"72
+[e ++ _i -> 1 `i ]
+"73
+}
+[e :U 974 ]
+"55
+[e $U 975  ]
+[e :U 976 ]
+[; ;util.c: 73: }
+[; ;util.c: 74: return TransData;
+"74
+[e ) _TransData ]
+[e $UE 973  ]
+[; ;util.c: 75: };
+"75
+[e :UE 973 ]
+}
+"77
 [v _writeEEPROM `(b ~T0 @X0 1 ef1`*uc ]
 {
-[; ;util.c: 21: bit writeEEPROM(unsigned char *data){
+[; ;util.c: 77: bit writeEEPROM(unsigned char *data){
 [e :U _writeEEPROM ]
 [v _data `*uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;util.c: 23: return 1;
-"23
+[; ;util.c: 79: return 1;
+"79
 [e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;util.c: 24: }
-"24
-[e :UE 961 ]
+[e $UE 985  ]
+[; ;util.c: 80: }
+"80
+[e :UE 985 ]
 }

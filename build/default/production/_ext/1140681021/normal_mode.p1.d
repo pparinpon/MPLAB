@@ -7,4 +7,5 @@ D:/programdata/16F18346_Link_IC.X/spi_header.h  \
 D:/programdata/16F18346_Link_IC.X/IO_control_header.h  \
 D:/programdata/16F18346_Link_IC.X/command_header.h  \
 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h  \
+D:/programdata/16F18346_Link_IC.X/util_header.h  \
 D:/programdata/16F18346_Link_IC.X/global_header.h 

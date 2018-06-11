@@ -29,9 +29,11 @@ void resetCargo(void){
     cargoData.clutchMode = 0;
     cargoData.command = 0;
     cargoData.index = 0;
+    cargoData.linkAngleTo = 0;
+    cargoData.passedTime = 0;
+
 };
 void restartCargo(void){
-    cargoData.WorkingCount = 0;
     cargoData.address = 0;
     cargoData.command = 0;
     cargoData.index = 0;

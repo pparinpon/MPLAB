@@ -10149,6 +10149,7 @@ extern bit isMycargo;
 # 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
+extern unsigned char SPI_OFFSET_BYTE = 0x01;
 typedef struct {
 unsigned int cargoLength;
 unsigned char command;
@@ -10169,7 +10170,13 @@ extern void resetCargo(void);
 extern void restartCargo(void);
 extern void setCargoAngle(int m_linkAngleTo);
 
-# 9 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
+# 72 "D:/programdata/16F18346_Link_IC.X/util_header.h"
+extern bit writeEEPROM(unsigned char *data);
+extern void clear(void);
+extern long TransLong256To255(long data);
+extern int TransInt256To255(int data);
+
+# 10 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
 const unsigned int VENDER_ID = 0x01;
 const unsigned int MACHINE_ID = 0x01;
 typedef struct {
@@ -10199,10 +10206,8 @@ spi2data = spi2_buffer_data[count2 -1];
 spi2data = spi2_buffer_data[count2];
 }
 if(spi2data < 255){
-
 isEndPointTrig = 0;
 }else{
-
 setSPI1sendDataManual(0x00);
 }
 
@@ -10256,22 +10261,24 @@ spi2_Send_data = linkInfo.My_address;
 break;
 case 5:
 calibdata.WorkingCount++;
-spi2_Send_data = (calibdata.WorkingCount >> 24 & 0x000000ff);
+spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 24 & 0x000000ff);
 break;
 case 6:
-spi2_Send_data = (calibdata.WorkingCount >> 16 & 0x000000ff);
+spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 16 & 0x000000ff);
 break;
 case 7:
-spi2_Send_data = (calibdata.WorkingCount >> 8 & 0x000000ff);
+spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 8 & 0x000000ff);
 break;
 case 8:
-spi2_Send_data = (calibdata.WorkingCount & 0x000000ff);
+spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) & 0x000000ff);
 break;
 case 9:
 
 if(isEndPointTrig == 1){
+LATAbits.LATA0 = 1;
 linkInfo.endpoint = 1;
 }else{
+LATAbits.LATA0 = 0;
 linkInfo.endpoint = 0;
 }
 spi2_Send_data = linkInfo.My_address;

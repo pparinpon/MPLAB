@@ -3,7 +3,7 @@
 #include <pic.h>
 #include "spi_header.h"
 #include "calibrate_mode.h"
-
+#include "struct_header.h"
 
 unsigned char spi1_buffer_data[256];  // SPI_data_read_byte
 unsigned char spi2_buffer_data[256];  // SPI_data_read_byte
@@ -95,18 +95,20 @@ void setSPI1sendData(void){
         read_count2++;
         if(read_count2 == 256){
             read_count2 = 0;
+//        LATAbits.LATA0 = ~LATAbits.LATA0; 
         }
     }else{
 //        LATAbits.LATA0 = ~LATAbits.LATA0; 
-        SSP1BUF = 0xC8;    
+        SSP1BUF = 0x01;//link2 and link3 is 0xC8   
     }
 }
 void setSPI1sendDataManual(unsigned char data){
     SSP1BUF = data;
 }
 void setSPI2sendData(void){
+    spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
     if(linkInfo.endpoint == 0){
-        LATAbits.LATA0 = ~LATAbits.LATA0; 
+//        LATAbits.LATA0 = ~LATAbits.LATA0;
         SSP2BUF = spi2_Send_data;
     }else{
         spi2_buffer_data[count2] = spi2_Send_data;

@@ -29,14 +29,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _count2 `ui ~T0 @X0 0 e ]
 "5491 E:\microchip\xc8\v1.45\include\pic16f18346.h
 [v _SSP2BUF `Vuc ~T0 @X0 0 e@537 ]
-"2297
-[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
-"2296
-[u S113 `S114 1 ]
-[n S113 . . ]
-"2306
-[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 "7494
 [s S352 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S352 . IOCAF0 IOCAF1 IOCAF2 IOCAF3 IOCAF4 IOCAF5 ]
@@ -176,8 +168,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _InitCalibrate `(v ~T0 @X0 0 ef ]
 "77 D:/programdata/16F18346_Link_IC.X/spi_header.h
 [v _spi_init `(v ~T0 @X0 0 ef ]
-"91 D:/programdata/16F18346_Link_IC.X/struct_header.h
+"92 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _initCargo `(v ~T0 @X0 0 ef ]
+"2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2296
+[u S113 `S114 1 ]
+[n S113 . . ]
+"2306
+[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 "92 D:/programdata/16F18346_Link_IC.X/spi_header.h
 [v _isSPI1read `(b ~T0 @X0 0 ef ]
 "74 D:/programdata/16F18346_Link_IC.X/comu_type.h
@@ -186,7 +186,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _read_train `(v ~T0 @X0 0 ef ]
 "96 D:/programdata/16F18346_Link_IC.X/spi_header.h
 [v _setSPI2sendData `(v ~T0 @X0 0 ef ]
-"93 D:/programdata/16F18346_Link_IC.X/struct_header.h
+"94 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _restartCargo `(v ~T0 @X0 0 ef ]
 "14 D:/programdata/16F18346_Link_IC.X/main.c
 [p x FEXTOSC=OFF ]
@@ -7875,6 +7875,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;spi_header.h: 97: extern void setSPI1sendDataManual(unsigned char data);
 [; ;util_header.h: 72: extern bit writeEEPROM(unsigned char *data);
 [; ;util_header.h: 73: extern void clear(void);
+[; ;util_header.h: 74: extern long TransLong256To255(long data);
+[; ;util_header.h: 75: extern int TransInt256To255(int data);
 [; ;command_header.h: 72: extern unsigned char command[18];
 [; ;command_header.h: 73: extern void initComand(void);
 [; ;command_header.h: 74: extern bit setCommandMode(unsigned char m_command);
@@ -7896,25 +7898,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
-[; ;struct_header.h: 76: typedef struct {
-[; ;struct_header.h: 77: unsigned int cargoLength;
-[; ;struct_header.h: 78: unsigned char command;
-[; ;struct_header.h: 79: unsigned char index;
-[; ;struct_header.h: 80: unsigned char address;
-[; ;struct_header.h: 81: int linkAngleTo;
-[; ;struct_header.h: 82: int linkAngleBack;
-[; ;struct_header.h: 83: unsigned int passedTime;
-[; ;struct_header.h: 84: unsigned char clutchMode;
-[; ;struct_header.h: 85: unsigned long WorkingCount;
-[; ;struct_header.h: 86: } CargoData;
-[; ;struct_header.h: 87: extern CargoData cargoData;
-[; ;struct_header.h: 88: extern bit isMycargo;
-[; ;struct_header.h: 89: extern CargoData getCargoData(void);
-[; ;struct_header.h: 90: extern void setCargoData(CargoData m_cargoData);
-[; ;struct_header.h: 91: extern void initCargo(void);
-[; ;struct_header.h: 92: extern void resetCargo(void);
-[; ;struct_header.h: 93: extern void restartCargo(void);
-[; ;struct_header.h: 94: extern void setCargoAngle(int m_linkAngleTo);
+"76
+[v _SPI_OFFSET_BYTE `uc ~T0 @X0 1 e ]
+[i _SPI_OFFSET_BYTE
+-> -> 1 `i `uc
+]
+[; ;struct_header.h: 76: extern unsigned char SPI_OFFSET_BYTE = 0x01;
+[; ;struct_header.h: 77: typedef struct {
+[; ;struct_header.h: 78: unsigned int cargoLength;
+[; ;struct_header.h: 79: unsigned char command;
+[; ;struct_header.h: 80: unsigned char index;
+[; ;struct_header.h: 81: unsigned char address;
+[; ;struct_header.h: 82: int linkAngleTo;
+[; ;struct_header.h: 83: int linkAngleBack;
+[; ;struct_header.h: 84: unsigned int passedTime;
+[; ;struct_header.h: 85: unsigned char clutchMode;
+[; ;struct_header.h: 86: unsigned long WorkingCount;
+[; ;struct_header.h: 87: } CargoData;
+[; ;struct_header.h: 88: extern CargoData cargoData;
+[; ;struct_header.h: 89: extern bit isMycargo;
+[; ;struct_header.h: 90: extern CargoData getCargoData(void);
+[; ;struct_header.h: 91: extern void setCargoData(CargoData m_cargoData);
+[; ;struct_header.h: 92: extern void initCargo(void);
+[; ;struct_header.h: 93: extern void resetCargo(void);
+[; ;struct_header.h: 94: extern void restartCargo(void);
+[; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
 "72 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h
 [v _isCalibrated `b ~T0 @X0 1 e ]
 [i _isCalibrated
@@ -7984,9 +7992,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;main.c: 67: bit ra3condision = 0;
 [v $root$_InterMSSP `(v ~T0 @X0 0 e ]
-[v F8115 `(v ~T0 @X0 1 tf ]
+[v F8120 `(v ~T0 @X0 1 tf ]
 "68
-[v _InterMSSP `IF8115 ~T0 @X0 1 e ]
+[v _InterMSSP `IF8120 ~T0 @X0 1 e ]
 "69
 {
 [; ;main.c: 68: void interrupt InterMSSP( void )
@@ -7997,518 +8005,515 @@ Version 3.2 HI-TECH Software Intermediate Code
 "70
 [e $ ! == -> . . _PIR1bits 0 3 `i -> 1 `i 964  ]
 {
-[; ;main.c: 71: spi1_buffer_data[count1] = SSP1BUF;
-"71
-[e = *U + &U _spi1_buffer_data * -> _count1 `ux -> -> # *U &U _spi1_buffer_data `ui `ux _SSP1BUF ]
-[; ;main.c: 72: setSPI1sendData();
+[; ;main.c: 72: spi1_buffer_data[count1] = SSP1BUF -SPI_OFFSET_BYTE;
 "72
-[e ( _setSPI1sendData ..  ]
-[; ;main.c: 73: count1++;
+[e = *U + &U _spi1_buffer_data * -> _count1 `ux -> -> # *U &U _spi1_buffer_data `ui `ux -> - -> _SSP1BUF `i -> _SPI_OFFSET_BYTE `i `uc ]
+[; ;main.c: 73: setSPI1sendData();
 "73
-[e ++ _count1 -> -> 1 `i `ui ]
-[; ;main.c: 74: if(count1 == 256){
+[e ( _setSPI1sendData ..  ]
+[; ;main.c: 74: count1++;
 "74
+[e ++ _count1 -> -> 1 `i `ui ]
+[; ;main.c: 75: if(count1 == 256){
+"75
 [e $ ! == _count1 -> -> 256 `i `ui 965  ]
 {
-[; ;main.c: 75: count1 = 0;
-"75
-[e = _count1 -> -> 0 `i `ui ]
+[; ;main.c: 76: count1 = 0;
 "76
-}
-[e :U 965 ]
+[e = _count1 -> -> 0 `i `ui ]
 "77
 }
-[e :U 964 ]
-[; ;main.c: 76: }
+[e :U 965 ]
+"78
+}
 [; ;main.c: 77: }
-[; ;main.c: 79: if (PIR2bits.SSP2IF == 1) {
-"79
-[e $ ! == -> . . _PIR2bits 0 3 `i -> 1 `i 966  ]
+[; ;main.c: 78: }else if (PIR2bits.SSP2IF == 1) {
+[e $U 966  ]
+[e :U 964 ]
+[e $ ! == -> . . _PIR2bits 0 3 `i -> 1 `i 967  ]
 {
 [; ;main.c: 80: spi2_buffer_data[count2] = SSP2BUF;
 "80
 [e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _SSP2BUF ]
-[; ;main.c: 81: LATAbits.LATA0 = ~LATAbits.LATA0;
+[; ;main.c: 81: count2++;
 "81
-[e = . . _LATAbits 0 0 -> ~ -> . . _LATAbits 0 0 `i `uc ]
-[; ;main.c: 82: count2++;
-"82
 [e ++ _count2 -> -> 1 `i `ui ]
-[; ;main.c: 83: if(count2 == 256){
-"83
-[e $ ! == _count2 -> -> 256 `i `ui 967  ]
+[; ;main.c: 82: if(count2 == 256){
+"82
+[e $ ! == _count2 -> -> 256 `i `ui 968  ]
 {
-[; ;main.c: 84: count2 = 0;
-"84
+[; ;main.c: 83: count2 = 0;
+"83
 [e = _count2 -> -> 0 `i `ui ]
+"84
+}
+[e :U 968 ]
 "85
 }
+[; ;main.c: 84: }
+[; ;main.c: 85: }else if(IOCAFbits.IOCAF3 == 1){
+[e $U 969  ]
 [e :U 967 ]
-"86
-}
-[e :U 966 ]
-[; ;main.c: 85: }
-[; ;main.c: 86: }
-[; ;main.c: 89: if(IOCAFbits.IOCAF3 == 1){
-"89
-[e $ ! == -> . . _IOCAFbits 0 3 `i -> 1 `i 968  ]
+[e $ ! == -> . . _IOCAFbits 0 3 `i -> 1 `i 970  ]
 {
-[; ;main.c: 90: addAngle();
-"90
+[; ;main.c: 87: addAngle();
+"87
 [e ( _addAngle ..  ]
+"88
+}
+[e :U 970 ]
+"89
+[e :U 969 ]
+[e :U 966 ]
+[; ;main.c: 88: }
+[; ;main.c: 89: PIR1bits.SSP1IF = 0 ;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 90: PIR2bits.SSP2IF = 0 ;
+"90
+[e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]
 [; ;main.c: 91: IOCAFbits.IOCAF3 = 0;
 "91
 [e = . . _IOCAFbits 0 3 -> -> 0 `i `uc ]
+[; ;main.c: 92: PIR0bits.IOCIF = 0;
 "92
-}
-[e :U 968 ]
-[; ;main.c: 92: }
-[; ;main.c: 95: PIR1bits.SSP1IF = 0 ;
-"95
-[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 96: PIR2bits.SSP2IF = 0 ;
-"96
-[e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 97: PIR0bits.INTF = 0;
-"97
-[e = . . _PIR0bits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 98: PIR0bits.IOCIF = 0;
-"98
 [e = . . _PIR0bits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 99: }
-"99
+[; ;main.c: 93: PIR0bits.INTF = 0;
+"93
+[e = . . _PIR0bits 0 0 -> -> 0 `i `uc ]
+[; ;main.c: 94: }
+"94
 [e :UE 963 ]
 }
-"100
+"95
 [v _initbuffer `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 100: void initbuffer(void){
+[; ;main.c: 95: void initbuffer(void){
 [e :U _initbuffer ]
 [f ]
-[; ;main.c: 101: for(int i = 0; i < 256; i++){
-"101
+[; ;main.c: 96: for(int i = 0; i < 256; i++){
+"96
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 256 `i 970  ]
-[e $U 971  ]
-[e :U 970 ]
+[e $ < _i -> 256 `i 972  ]
+[e $U 973  ]
+[e :U 972 ]
 {
-[; ;main.c: 102: spi1_buffer_data[i] = 0;
-"102
+[; ;main.c: 97: spi1_buffer_data[i] = 0;
+"97
 [e = *U + &U _spi1_buffer_data * -> -> _i `ui `ux -> -> # *U &U _spi1_buffer_data `ui `ux -> -> 0 `i `uc ]
-[; ;main.c: 103: spi2_buffer_data[i] = 0;
-"103
+[; ;main.c: 98: spi2_buffer_data[i] = 0;
+"98
 [e = *U + &U _spi2_buffer_data * -> -> _i `ui `ux -> -> # *U &U _spi2_buffer_data `ui `ux -> -> 0 `i `uc ]
-"104
+"99
+}
+"96
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 256 `i 972  ]
+[e :U 973 ]
+"99
+}
+[; ;main.c: 99: }
+[; ;main.c: 100: }
+"100
+[e :UE 971 ]
 }
 "101
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 256 `i 970  ]
-[e :U 971 ]
-"104
-}
-[; ;main.c: 104: }
-[; ;main.c: 105: }
-"105
-[e :UE 969 ]
-}
-"106
 [v _init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 106: void init(){
+[; ;main.c: 101: void init(){
 [e :U _init ]
 [f ]
-[; ;main.c: 107: count1 = 0;
-"107
+[; ;main.c: 102: count1 = 0;
+"102
 [e = _count1 -> -> 0 `i `ui ]
-[; ;main.c: 108: count2 = 0;
-"108
+[; ;main.c: 103: count2 = 0;
+"103
 [e = _count2 -> -> 0 `i `ui ]
-[; ;main.c: 109: initbuffer();
-"109
+[; ;main.c: 104: initbuffer();
+"104
 [e ( _initbuffer ..  ]
-[; ;main.c: 111: OSCFRQbits.HFFRQ = 0b0111;
-"111
+[; ;main.c: 106: OSCFRQbits.HFFRQ = 0b0111;
+"106
 [e = . . _OSCFRQbits 0 0 -> -> 7 `i `uc ]
-[; ;main.c: 112: OSCTUNEbits.HFTUN = 0b000000;
-"112
+[; ;main.c: 107: OSCTUNEbits.HFTUN = 0b000000;
+"107
 [e = . . _OSCTUNEbits 0 0 -> -> 0 `i `uc ]
-[; ;main.c: 113: clear();
-"113
+[; ;main.c: 108: clear();
+"108
 [e ( _clear ..  ]
-[; ;main.c: 114: WPUC = 0b11111111;
-"114
+[; ;main.c: 109: WPUC = 0b11111111;
+"109
 [e = _WPUC -> -> 255 `i `uc ]
-[; ;main.c: 115: WPUB = 0b11111111;
-"115
+[; ;main.c: 110: WPUB = 0b11111111;
+"110
 [e = _WPUB -> -> 255 `i `uc ]
-[; ;main.c: 116: WPUA = 0b11111111;
-"116
+[; ;main.c: 111: WPUA = 0b11111111;
+"111
 [e = _WPUA -> -> 255 `i `uc ]
-[; ;main.c: 117: TRISBbits.TRISB6 = 1;
-"117
+[; ;main.c: 112: TRISBbits.TRISB6 = 1;
+"112
 [e = . . _TRISBbits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 118: TRISBbits.TRISB4 = 1;
-"118
+[; ;main.c: 113: TRISBbits.TRISB4 = 1;
+"113
 [e = . . _TRISBbits 0 1 -> -> 1 `i `uc ]
-[; ;main.c: 119: TRISCbits.TRISC6 = 1;
-"119
+[; ;main.c: 114: TRISCbits.TRISC6 = 1;
+"114
 [e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
-[; ;main.c: 120: INLVLBbits.INLVLB4 = 0;
-"120
+[; ;main.c: 115: INLVLBbits.INLVLB4 = 0;
+"115
 [e = . . _INLVLBbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 121: INLVLBbits.INLVLB6 = 0;
-"121
+[; ;main.c: 116: INLVLBbits.INLVLB6 = 0;
+"116
 [e = . . _INLVLBbits 0 3 -> -> 0 `i `uc ]
-[; ;main.c: 122: INLVLCbits.INLVLC5 = 0;
-"122
+[; ;main.c: 117: INLVLCbits.INLVLC5 = 0;
+"117
 [e = . . _INLVLCbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 124: TRISBbits.TRISB5 = 1;
-"124
+[; ;main.c: 119: TRISBbits.TRISB5 = 1;
+"119
 [e = . . _TRISBbits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 125: INLVLBbits.INLVLB5 = 0;
-"125
+[; ;main.c: 120: INLVLBbits.INLVLB5 = 0;
+"120
 [e = . . _INLVLBbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 126: INLVLBbits.INLVLB7 = 0;
-"126
+[; ;main.c: 121: INLVLBbits.INLVLB7 = 0;
+"121
 [e = . . _INLVLBbits 0 4 -> -> 0 `i `uc ]
-[; ;main.c: 127: INLVLAbits.INLVLA1 = 0;
-"127
+[; ;main.c: 122: INLVLAbits.INLVLA1 = 0;
+"122
 [e = . . _INLVLAbits 0 1 -> -> 0 `i `uc ]
-[; ;main.c: 128: INLVLAbits.INLVLA2 = 0;
-"128
+[; ;main.c: 123: INLVLAbits.INLVLA2 = 0;
+"123
 [e = . . _INLVLAbits 0 2 -> -> 0 `i `uc ]
-[; ;main.c: 130: return;
-"130
-[e $UE 973  ]
-[; ;main.c: 131: }
-"131
-[e :UE 973 ]
+[; ;main.c: 125: return;
+"125
+[e $UE 975  ]
+[; ;main.c: 126: }
+"126
+[e :UE 975 ]
 }
-"133
+"128
 [v _io_init `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 133: void io_init(){
+[; ;main.c: 128: void io_init(){
 [e :U _io_init ]
 [f ]
-[; ;main.c: 134: PIE0bits.IOCIE = 1;
-"134
+[; ;main.c: 129: PIE0bits.IOCIE = 1;
+"129
 [e = . . _PIE0bits 0 2 -> -> 1 `i `uc ]
-[; ;main.c: 135: IOCAPbits.IOCAP3 = 1;
-"135
+[; ;main.c: 130: IOCAPbits.IOCAP3 = 1;
+"130
 [e = . . _IOCAPbits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 136: IOCANbits.IOCAN3 = 1;
-"136
+[; ;main.c: 131: IOCANbits.IOCAN3 = 1;
+"131
 [e = . . _IOCANbits 0 3 -> -> 1 `i `uc ]
-[; ;main.c: 137: PIE0bits.INTE = 1;
-"137
+[; ;main.c: 132: PIE0bits.INTE = 1;
+"132
 [e = . . _PIE0bits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 138: INTCONbits.INTEDG = 1;
-"138
+[; ;main.c: 133: INTCONbits.INTEDG = 1;
+"133
 [e = . . _INTCONbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 139: }
-"139
-[e :UE 974 ]
+[; ;main.c: 134: }
+"134
+[e :UE 976 ]
 }
-"140
+"135
 [v _trainPos `i ~T0 @X0 1 e ]
 [i _trainPos
 -> 0 `i
 ]
-[; ;main.c: 140: int trainPos = 0;
-"141
+[; ;main.c: 135: int trainPos = 0;
+"136
 [v _initTrain `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 141: void initTrain(void){
+[; ;main.c: 136: void initTrain(void){
 [e :U _initTrain ]
 [f ]
-[; ;main.c: 142: spi1_Read_data = spi1_buffer_data[read_count1];
-"142
+[; ;main.c: 137: spi1_Read_data = spi1_buffer_data[read_count1];
+"137
 [e = _spi1_Read_data *U + &U _spi1_buffer_data * -> _read_count1 `ux -> -> # *U &U _spi1_buffer_data `ui `ux ]
-[; ;main.c: 143: spi2_Send_data = spi1_Read_data;
-"143
+[; ;main.c: 138: spi2_Send_data = spi1_Read_data;
+"138
 [e = _spi2_Send_data _spi1_Read_data ]
-[; ;main.c: 144: read_count1++;
-"144
+[; ;main.c: 139: read_count1++;
+"139
 [e ++ _read_count1 -> -> 1 `i `ui ]
-[; ;main.c: 145: if(read_count1 == 256){
-"145
-[e $ ! == _read_count1 -> -> 256 `i `ui 976  ]
+[; ;main.c: 140: if(read_count1 == 256){
+"140
+[e $ ! == _read_count1 -> -> 256 `i `ui 978  ]
 {
-[; ;main.c: 146: read_count1 = 0;
-"146
+[; ;main.c: 141: read_count1 = 0;
+"141
 [e = _read_count1 -> -> 0 `i `ui ]
-"147
-}
-[e :U 976 ]
-[; ;main.c: 147: }
-[; ;main.c: 148: if(isTrainSt(spi1_Read_data)){
-"148
-[e $ ! ( _isTrainSt (1 _spi1_Read_data 977  ]
-{
-[; ;main.c: 149: trainPos = 0;
-"149
-[e = _trainPos -> 0 `i ]
-[; ;main.c: 150: resetTrainData();
-"150
-[e ( _resetTrainData ..  ]
-[; ;main.c: 151: isreadTrain = 0;
-"151
-[e = _isreadTrain -> -> 0 `i `b ]
-[; ;main.c: 152: countabuf = 0;
-"152
-[e = _countabuf -> -> 0 `i `ui ]
-"153
-}
-[; ;main.c: 153: }else{
-[e $U 978  ]
-[e :U 977 ]
-{
-[; ;main.c: 154: trainPos++;
-"154
-[e ++ _trainPos -> 1 `i ]
-"155
+"142
 }
 [e :U 978 ]
-[; ;main.c: 155: }
-[; ;main.c: 156: if(st_dataLength < trainPos){
-"156
-[e $ ! < _st_dataLength -> _trainPos `ui 979  ]
+[; ;main.c: 142: }
+[; ;main.c: 143: if(isTrainSt(spi1_Read_data)){
+"143
+[e $ ! ( _isTrainSt (1 _spi1_Read_data 979  ]
 {
-[; ;main.c: 157: trainPos = 0;
-"157
+[; ;main.c: 144: trainPos = 0;
+"144
 [e = _trainPos -> 0 `i ]
-[; ;main.c: 158: resetTrainData();
-"158
+[; ;main.c: 145: resetTrainData();
+"145
 [e ( _resetTrainData ..  ]
-[; ;main.c: 159: isreadTrain = 0;
-"159
+[; ;main.c: 146: isreadTrain = 0;
+"146
 [e = _isreadTrain -> -> 0 `i `b ]
-[; ;main.c: 160: countabuf = 0;
-"160
+[; ;main.c: 147: countabuf = 0;
+"147
 [e = _countabuf -> -> 0 `i `ui ]
-"161
+"148
 }
+[; ;main.c: 148: }else{
+[e $U 980  ]
 [e :U 979 ]
-[; ;main.c: 161: }
-[; ;main.c: 162: }
-"162
-[e :UE 975 ]
+{
+[; ;main.c: 149: trainPos++;
+"149
+[e ++ _trainPos -> 1 `i ]
+"150
 }
-[v $root$_main `(v ~T0 @X0 0 e ]
-"163
-[v _main `(v ~T0 @X0 1 ef ]
+[e :U 980 ]
+[; ;main.c: 150: }
+[; ;main.c: 151: if(st_dataLength < trainPos){
+"151
+[e $ ! < _st_dataLength -> _trainPos `ui 981  ]
 {
-[; ;main.c: 163: void main(void) {
-[e :U _main ]
-[f ]
-[; ;main.c: 164: initComand();
-"164
-[e ( _initComand ..  ]
-[; ;main.c: 165: initComu_types();
-"165
-[e ( _initComu_types ..  ]
-[; ;main.c: 166: InitCalibrate();
-"166
-[e ( _InitCalibrate ..  ]
-[; ;main.c: 167: init();
-"167
-[e ( _init ..  ]
-[; ;main.c: 168: io_init();
-"168
-[e ( _io_init ..  ]
-[; ;main.c: 169: spi_init();
-"169
-[e ( _spi_init ..  ]
-[; ;main.c: 170: initCargo();
-"170
-[e ( _initCargo ..  ]
-[; ;main.c: 171: LATAbits.LATA0 = 1;
-"171
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-[; ;main.c: 172: while(1){
-"172
-[e :U 982 ]
-{
-[; ;main.c: 173: if(!isSPI1read()){
-"173
-[e $ ! ! ( _isSPI1read ..  984  ]
-{
-[; ;main.c: 174: initTrain();
-"174
-[e ( _initTrain ..  ]
-[; ;main.c: 175: if(isreadTrain){
-"175
-[e $ ! _isreadTrain 985  ]
-{
-[; ;main.c: 176: setComunicateMode(st_type);
-"176
-[e ( _setComunicateMode (1 _st_type ]
-"177
-}
-[; ;main.c: 177: }else{
-[e $U 986  ]
-[e :U 985 ]
-{
-[; ;main.c: 178: read_train();
-"178
-[e ( _read_train ..  ]
-"179
-}
-[e :U 986 ]
-[; ;main.c: 179: }
-[; ;main.c: 180: setSPI2sendData();
-"180
-[e ( _setSPI2sendData ..  ]
-"181
-}
-[e :U 984 ]
-"182
+[; ;main.c: 152: trainPos = 0;
+"152
+[e = _trainPos -> 0 `i ]
+[; ;main.c: 153: resetTrainData();
+"153
+[e ( _resetTrainData ..  ]
+[; ;main.c: 154: isreadTrain = 0;
+"154
+[e = _isreadTrain -> -> 0 `i `b ]
+[; ;main.c: 155: countabuf = 0;
+"155
+[e = _countabuf -> -> 0 `i `ui ]
+"156
 }
 [e :U 981 ]
-"172
-[e $U 982  ]
-[e :U 983 ]
-[; ;main.c: 181: }
-[; ;main.c: 182: };
-[; ;main.c: 183: return;
-"183
-[e $UE 980  ]
-[; ;main.c: 184: }
-"184
-[e :UE 980 ]
+[; ;main.c: 156: }
+[; ;main.c: 157: }
+"157
+[e :UE 977 ]
 }
-"185
+[v $root$_main `(v ~T0 @X0 0 e ]
+"158
+[v _main `(v ~T0 @X0 1 ef ]
+{
+[; ;main.c: 158: void main(void) {
+[e :U _main ]
+[f ]
+[; ;main.c: 159: initComand();
+"159
+[e ( _initComand ..  ]
+[; ;main.c: 160: initComu_types();
+"160
+[e ( _initComu_types ..  ]
+[; ;main.c: 161: InitCalibrate();
+"161
+[e ( _InitCalibrate ..  ]
+[; ;main.c: 162: init();
+"162
+[e ( _init ..  ]
+[; ;main.c: 163: io_init();
+"163
+[e ( _io_init ..  ]
+[; ;main.c: 164: spi_init();
+"164
+[e ( _spi_init ..  ]
+[; ;main.c: 165: initCargo();
+"165
+[e ( _initCargo ..  ]
+[; ;main.c: 166: LATAbits.LATA0 = 1;
+"166
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+[; ;main.c: 167: while(1){
+"167
+[e :U 984 ]
+{
+[; ;main.c: 168: if(!isSPI1read()){
+"168
+[e $ ! ! ( _isSPI1read ..  986  ]
+{
+[; ;main.c: 169: initTrain();
+"169
+[e ( _initTrain ..  ]
+[; ;main.c: 170: if(isreadTrain){
+"170
+[e $ ! _isreadTrain 987  ]
+{
+[; ;main.c: 171: setComunicateMode(st_type);
+"171
+[e ( _setComunicateMode (1 _st_type ]
+"172
+}
+[; ;main.c: 172: }else{
+[e $U 988  ]
+[e :U 987 ]
+{
+[; ;main.c: 173: read_train();
+"173
+[e ( _read_train ..  ]
+"174
+}
+[e :U 988 ]
+[; ;main.c: 174: }
+[; ;main.c: 175: setSPI2sendData();
+"175
+[e ( _setSPI2sendData ..  ]
+"176
+}
+[e :U 986 ]
+"177
+}
+[e :U 983 ]
+"167
+[e $U 984  ]
+[e :U 985 ]
+[; ;main.c: 176: }
+[; ;main.c: 177: };
+[; ;main.c: 178: return;
+"178
+[e $UE 982  ]
+[; ;main.c: 179: }
+"179
+[e :UE 982 ]
+}
+"180
 [v _resetTrainData `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 185: void resetTrainData(void){
+[; ;main.c: 180: void resetTrainData(void){
 [e :U _resetTrainData ]
 [f ]
-[; ;main.c: 186: st_dataLength = 0xFFFF;
-"186
+[; ;main.c: 181: st_dataLength = 0xFFFF;
+"181
 [e = _st_dataLength -> 65535 `ui ]
-[; ;main.c: 187: st_type = 0;
-"187
+[; ;main.c: 182: st_type = 0;
+"182
 [e = _st_type -> -> 0 `i `uc ]
-[; ;main.c: 188: restartCargo();
-"188
+[; ;main.c: 183: restartCargo();
+"183
 [e ( _restartCargo ..  ]
-[; ;main.c: 189: }
-"189
-[e :UE 987 ]
+[; ;main.c: 184: }
+"184
+[e :UE 989 ]
 }
-"190
+"185
 [v _startTrainBytes `ul ~T0 @X0 1 e ]
 [i _startTrainBytes
 -> -> -> 0 `i `l `ul
 ]
-[; ;main.c: 190: unsigned long startTrainBytes = 0;
-"191
+[; ;main.c: 185: unsigned long startTrainBytes = 0;
+"186
 [v _isTrainSt `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;main.c: 191: bit isTrainSt(unsigned char buf){
+[; ;main.c: 186: bit isTrainSt(unsigned char buf){
 [e :U _isTrainSt ]
 [v _buf `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;main.c: 192: startTrainBytes = startTrainBytes << 8 | buf;
-"192
-[e = _startTrainBytes | << _startTrainBytes -> 8 `i -> _buf `ul ]
-[; ;main.c: 193: if(startTrainBytes == 0xFFFFFFFF){
-"193
-[e $ ! == _startTrainBytes -> -1 `ul 989  ]
+[; ;main.c: 187: startTrainBytes = startTrainBytes << 8 | (buf +SPI_OFFSET_BYTE);
+"187
+[e = _startTrainBytes | << _startTrainBytes -> 8 `i -> -> + -> _buf `i -> _SPI_OFFSET_BYTE `i `l `ul ]
+[; ;main.c: 188: if(startTrainBytes == 0xFFFFFFFF){
+"188
+[e $ ! == _startTrainBytes -> -1 `ul 991  ]
 {
-[; ;main.c: 194: return 1;
-"194
+[; ;main.c: 189: return 1;
+"189
 [e ) -> -> 1 `i `b ]
-[e $UE 988  ]
-"195
+[e $UE 990  ]
+"190
 }
-[; ;main.c: 195: }else{
-[e $U 990  ]
-[e :U 989 ]
+[; ;main.c: 190: }else{
+[e $U 992  ]
+[e :U 991 ]
 {
-[; ;main.c: 196: return 0;
-"196
+[; ;main.c: 191: return 0;
+"191
 [e ) -> -> 0 `i `b ]
-[e $UE 988  ]
-"197
+[e $UE 990  ]
+"192
 }
-[e :U 990 ]
-[; ;main.c: 197: }
-[; ;main.c: 198: }
-"198
-[e :UE 988 ]
+[e :U 992 ]
+[; ;main.c: 192: }
+[; ;main.c: 193: }
+"193
+[e :UE 990 ]
 }
-"201
+"196
 [v _counta2 `i ~T0 @X0 1 e ]
 [i _counta2
 -> 0 `i
 ]
-[; ;main.c: 201: int counta2 = 0;
-"203
+[; ;main.c: 196: int counta2 = 0;
+"198
 [v _read_train `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 203: void read_train(void){
+[; ;main.c: 198: void read_train(void){
 [e :U _read_train ]
 [f ]
-"204
+"199
 [v _bufint `ui ~T0 @X0 1 a ]
-[; ;main.c: 204: unsigned int bufint = spi1_Read_data;
+[; ;main.c: 199: unsigned int bufint = spi1_Read_data;
 [e = _bufint -> _spi1_Read_data `ui ]
-[; ;main.c: 205: switch(trainPos){
-"205
-[e $U 993  ]
+[; ;main.c: 200: switch(trainPos){
+"200
+[e $U 995  ]
 {
-[; ;main.c: 206: case 1:
-"206
-[e :U 994 ]
-[; ;main.c: 207: st_dataLength = (bufint << 8 | 0x00FF);
-"207
-[e = _st_dataLength | << _bufint -> 8 `i -> -> 255 `i `ui ]
-[; ;main.c: 208: break;
-"208
-[e $U 992  ]
-[; ;main.c: 209: case 2:
-"209
-[e :U 995 ]
-[; ;main.c: 210: st_dataLength = st_dataLength & (bufint | 0xFF00);
-"210
-[e = _st_dataLength & _st_dataLength | _bufint -> 65280 `ui ]
-[; ;main.c: 211: break;
-"211
-[e $U 992  ]
-[; ;main.c: 212: case 3:
-"212
+[; ;main.c: 201: case 1:
+"201
 [e :U 996 ]
-[; ;main.c: 213: st_type = spi1_Read_data;
-"213
-[e = _st_type _spi1_Read_data ]
-[; ;main.c: 214: isreadTrain = 1;
-"214
-[e = _isreadTrain -> -> 1 `i `b ]
-[; ;main.c: 215: break;
-"215
-[e $U 992  ]
-[; ;main.c: 216: default :
-"216
+[; ;main.c: 202: st_dataLength = (bufint << 8 | 0x00FF);
+"202
+[e = _st_dataLength | << _bufint -> 8 `i -> -> 255 `i `ui ]
+[; ;main.c: 203: break;
+"203
+[e $U 994  ]
+[; ;main.c: 204: case 2:
+"204
 [e :U 997 ]
-[; ;main.c: 217: break;
-"217
-[e $U 992  ]
-"218
-}
-[; ;main.c: 218: }
-[e $U 992  ]
+[; ;main.c: 205: st_dataLength = st_dataLength & (bufint | 0xFF00);
 "205
-[e :U 993 ]
-[e [\ _trainPos , $ -> 1 `i 994
- , $ -> 2 `i 995
- , $ -> 3 `i 996
- 997 ]
-"218
-[e :U 992 ]
-[; ;main.c: 219: }
-"219
-[e :UE 991 ]
+[e = _st_dataLength & _st_dataLength | _bufint -> 65280 `ui ]
+[; ;main.c: 206: break;
+"206
+[e $U 994  ]
+[; ;main.c: 207: case 3:
+"207
+[e :U 998 ]
+[; ;main.c: 208: st_type = spi1_Read_data;
+"208
+[e = _st_type _spi1_Read_data ]
+[; ;main.c: 209: isreadTrain = 1;
+"209
+[e = _isreadTrain -> -> 1 `i `b ]
+[; ;main.c: 210: break;
+"210
+[e $U 994  ]
+[; ;main.c: 211: default :
+"211
+[e :U 999 ]
+[; ;main.c: 212: break;
+"212
+[e $U 994  ]
+"213
+}
+[; ;main.c: 213: }
+[e $U 994  ]
+"200
+[e :U 995 ]
+[e [\ _trainPos , $ -> 1 `i 996
+ , $ -> 2 `i 997
+ , $ -> 3 `i 998
+ 999 ]
+"213
+[e :U 994 ]
+[; ;main.c: 214: }
+"214
+[e :UE 993 ]
 }

@@ -134,14 +134,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S960 . My_address WorkingCount endpoint ]
 "94
 [v _linkInfo `S960 ~T0 @X0 0 e ]
-"2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
-[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
-"2296
-[u S113 `S114 1 ]
-[n S113 . . ]
-"2306
-[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7817,6 +7809,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;calibrate_mode.h: 93: extern unsigned int getMACHINE_ID(void);
 [; ;calibrate_mode.h: 94: extern LinkInfo linkInfo;
 [; ;calibrate_mode.h: 95: extern Clalibdata calibdata;
+"74 D:/programdata/16F18346_Link_IC.X/struct_header.h
+[v _st_dataLength `ui ~T0 @X0 1 e ]
+[i _st_dataLength
+-> 65535 `ui
+]
+[; ;struct_header.h: 74: extern unsigned int st_dataLength = 0xFFFF;
+"75
+[v _st_type `uc ~T0 @X0 1 e ]
+[i _st_type
+-> -> 0 `i `uc
+]
+[; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
+"76
+[v _SPI_OFFSET_BYTE `uc ~T0 @X0 1 e ]
+[i _SPI_OFFSET_BYTE
+-> -> 1 `i `uc
+]
+[; ;struct_header.h: 76: extern unsigned char SPI_OFFSET_BYTE = 0x01;
+[; ;struct_header.h: 77: typedef struct {
+[; ;struct_header.h: 78: unsigned int cargoLength;
+[; ;struct_header.h: 79: unsigned char command;
+[; ;struct_header.h: 80: unsigned char index;
+[; ;struct_header.h: 81: unsigned char address;
+[; ;struct_header.h: 82: int linkAngleTo;
+[; ;struct_header.h: 83: int linkAngleBack;
+[; ;struct_header.h: 84: unsigned int passedTime;
+[; ;struct_header.h: 85: unsigned char clutchMode;
+[; ;struct_header.h: 86: unsigned long WorkingCount;
+[; ;struct_header.h: 87: } CargoData;
+[; ;struct_header.h: 88: extern CargoData cargoData;
+[; ;struct_header.h: 89: extern bit isMycargo;
+[; ;struct_header.h: 90: extern CargoData getCargoData(void);
+[; ;struct_header.h: 91: extern void setCargoData(CargoData m_cargoData);
+[; ;struct_header.h: 92: extern void initCargo(void);
+[; ;struct_header.h: 93: extern void resetCargo(void);
+[; ;struct_header.h: 94: extern void restartCargo(void);
+[; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
 "8 D:/programdata/16F18346_Link_IC.X/spiControl.c
 [v _spi1_buffer_data `uc ~T0 @X0 -> 256 `i e ]
 [; ;spiControl.c: 8: unsigned char spi1_buffer_data[256];
@@ -7888,7 +7917,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
 [; ;spiControl.c: 30: }
 "30
-[e :UE 962 ]
+[e :UE 963 ]
 }
 "33
 [v _spi1_init `(v ~T0 @X0 1 ef ]
@@ -7940,7 +7969,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _dummy _SSP1BUF ]
 [; ;spiControl.c: 48: }
 "48
-[e :UE 963 ]
+[e :UE 964 ]
 }
 "49
 [v _spi2_init `(v ~T0 @X0 1 ef ]
@@ -7995,7 +8024,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _dummy _SSP2BUF ]
 [; ;spiControl.c: 65: }
 "65
-[e :UE 964 ]
+[e :UE 965 ]
 }
 "67
 [v _isSPI1read `(b ~T0 @X0 1 ef ]
@@ -8005,29 +8034,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 68: if(read_count1 == count1){
 "68
-[e $ ! == _read_count1 _count1 966  ]
+[e $ ! == _read_count1 _count1 967  ]
 {
 [; ;spiControl.c: 69: return 1;
 "69
 [e ) -> -> 1 `i `b ]
-[e $UE 965  ]
+[e $UE 966  ]
 "70
 }
 [; ;spiControl.c: 70: }else{
-[e $U 967  ]
-[e :U 966 ]
+[e $U 968  ]
+[e :U 967 ]
 {
 [; ;spiControl.c: 71: return 0;
 "71
 [e ) -> -> 0 `i `b ]
-[e $UE 965  ]
+[e $UE 966  ]
 "72
 }
-[e :U 967 ]
+[e :U 968 ]
 [; ;spiControl.c: 72: }
 [; ;spiControl.c: 74: }
 "74
-[e :UE 965 ]
+[e :UE 966 ]
 }
 "76
 [v _isSPI2read `(b ~T0 @X0 1 ef ]
@@ -8037,29 +8066,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 77: if(read_count2 == count2){
 "77
-[e $ ! == _read_count2 _count2 969  ]
+[e $ ! == _read_count2 _count2 970  ]
 {
 [; ;spiControl.c: 78: return 1;
 "78
 [e ) -> -> 1 `i `b ]
-[e $UE 968  ]
+[e $UE 969  ]
 "79
 }
 [; ;spiControl.c: 79: }else{
-[e $U 970  ]
-[e :U 969 ]
+[e $U 971  ]
+[e :U 970 ]
 {
 [; ;spiControl.c: 80: return 0;
 "80
 [e ) -> -> 0 `i `b ]
-[e $UE 968  ]
+[e $UE 969  ]
 "81
 }
-[e :U 970 ]
+[e :U 971 ]
 [; ;spiControl.c: 81: }
 [; ;spiControl.c: 82: }
 "82
-[e :UE 968 ]
+[e :UE 969 ]
 }
 "84
 [v _isSPI1send `(b ~T0 @X0 1 ef ]
@@ -8069,29 +8098,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 85: if(send_count1 == spi1_send_count){
 "85
-[e $ ! == _send_count1 _spi1_send_count 972  ]
+[e $ ! == _send_count1 _spi1_send_count 973  ]
 {
 [; ;spiControl.c: 86: return 1;
 "86
 [e ) -> -> 1 `i `b ]
-[e $UE 971  ]
+[e $UE 972  ]
 "87
 }
 [; ;spiControl.c: 87: }else{
-[e $U 973  ]
-[e :U 972 ]
+[e $U 974  ]
+[e :U 973 ]
 {
 [; ;spiControl.c: 88: return 0;
 "88
 [e ) -> -> 0 `i `b ]
-[e $UE 971  ]
+[e $UE 972  ]
 "89
 }
-[e :U 973 ]
+[e :U 974 ]
 [; ;spiControl.c: 89: }
 [; ;spiControl.c: 90: }
 "90
-[e :UE 971 ]
+[e :UE 972 ]
 }
 "92
 [v _setSPI1sendData `(v ~T0 @X0 1 ef ]
@@ -8101,7 +8130,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 93: if(!(isSPI2read() == 1)){
 "93
-[e $ ! ! == -> ( _isSPI2read ..  `i -> 1 `i 975  ]
+[e $ ! ! == -> ( _isSPI2read ..  `i -> 1 `i 976  ]
 {
 [; ;spiControl.c: 94: SSP1BUF = spi2_buffer_data[read_count2];
 "94
@@ -8111,90 +8140,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _read_count2 -> -> 1 `i `ui ]
 [; ;spiControl.c: 96: if(read_count2 == 256){
 "96
-[e $ ! == _read_count2 -> -> 256 `i `ui 976  ]
+[e $ ! == _read_count2 -> -> 256 `i `ui 977  ]
 {
 [; ;spiControl.c: 97: read_count2 = 0;
 "97
 [e = _read_count2 -> -> 0 `i `ui ]
-"98
-}
-[e :U 976 ]
 "99
 }
-[; ;spiControl.c: 98: }
-[; ;spiControl.c: 99: }else{
-[e $U 977  ]
-[e :U 975 ]
-{
-[; ;spiControl.c: 101: SSP1BUF = 0xC8;
-"101
-[e = _SSP1BUF -> -> 200 `i `uc ]
-"102
-}
 [e :U 977 ]
-[; ;spiControl.c: 102: }
-[; ;spiControl.c: 103: }
-"103
-[e :UE 974 ]
+"100
 }
+[; ;spiControl.c: 99: }
+[; ;spiControl.c: 100: }else{
+[e $U 978  ]
+[e :U 976 ]
+{
+[; ;spiControl.c: 102: SSP1BUF = 0x01;
+"102
+[e = _SSP1BUF -> -> 1 `i `uc ]
+"103
+}
+[e :U 978 ]
+[; ;spiControl.c: 103: }
+[; ;spiControl.c: 104: }
 "104
+[e :UE 975 ]
+}
+"105
 [v _setSPI1sendDataManual `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;spiControl.c: 104: void setSPI1sendDataManual(unsigned char data){
+[; ;spiControl.c: 105: void setSPI1sendDataManual(unsigned char data){
 [e :U _setSPI1sendDataManual ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;spiControl.c: 105: SSP1BUF = data;
-"105
-[e = _SSP1BUF _data ]
-[; ;spiControl.c: 106: }
+[; ;spiControl.c: 106: SSP1BUF = data;
 "106
-[e :UE 978 ]
-}
+[e = _SSP1BUF _data ]
+[; ;spiControl.c: 107: }
 "107
+[e :UE 979 ]
+}
+"108
 [v _setSPI2sendData `(v ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 107: void setSPI2sendData(void){
+[; ;spiControl.c: 108: void setSPI2sendData(void){
 [e :U _setSPI2sendData ]
 [f ]
-[; ;spiControl.c: 108: if(linkInfo.endpoint == 0){
-"108
-[e $ ! == -> . _linkInfo 2 `i -> 0 `i 980  ]
-{
-[; ;spiControl.c: 109: LATAbits.LATA0 = ~LATAbits.LATA0;
+[; ;spiControl.c: 109: spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
 "109
-[e = . . _LATAbits 0 0 -> ~ -> . . _LATAbits 0 0 `i `uc ]
-[; ;spiControl.c: 110: SSP2BUF = spi2_Send_data;
+[e = _spi2_Send_data -> + -> _spi2_Send_data `i -> _SPI_OFFSET_BYTE `i `uc ]
+[; ;spiControl.c: 110: if(linkInfo.endpoint == 0){
 "110
-[e = _SSP2BUF _spi2_Send_data ]
-"111
-}
-[; ;spiControl.c: 111: }else{
-[e $U 981  ]
-[e :U 980 ]
+[e $ ! == -> . _linkInfo 2 `i -> 0 `i 981  ]
 {
-[; ;spiControl.c: 112: spi2_buffer_data[count2] = spi2_Send_data;
+[; ;spiControl.c: 112: SSP2BUF = spi2_Send_data;
 "112
-[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _spi2_Send_data ]
-[; ;spiControl.c: 113: count2++;
+[e = _SSP2BUF _spi2_Send_data ]
 "113
-[e ++ _count2 -> -> 1 `i `ui ]
-[; ;spiControl.c: 114: if(count2 == 256){
-"114
-[e $ ! == _count2 -> -> 256 `i `ui 982  ]
+}
+[; ;spiControl.c: 113: }else{
+[e $U 982  ]
+[e :U 981 ]
 {
-[; ;spiControl.c: 115: count2 = 0;
+[; ;spiControl.c: 114: spi2_buffer_data[count2] = spi2_Send_data;
+"114
+[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _spi2_Send_data ]
+[; ;spiControl.c: 115: count2++;
 "115
-[e = _count2 -> -> 0 `i `ui ]
+[e ++ _count2 -> -> 1 `i `ui ]
+[; ;spiControl.c: 116: if(count2 == 256){
 "116
+[e $ ! == _count2 -> -> 256 `i `ui 983  ]
+{
+[; ;spiControl.c: 117: count2 = 0;
+"117
+[e = _count2 -> -> 0 `i `ui ]
+"118
+}
+[e :U 983 ]
+"119
 }
 [e :U 982 ]
-"117
-}
-[e :U 981 ]
-[; ;spiControl.c: 116: }
-[; ;spiControl.c: 117: }
 [; ;spiControl.c: 118: }
-"118
-[e :UE 979 ]
+[; ;spiControl.c: 119: }
+[; ;spiControl.c: 120: }
+"120
+[e :UE 980 ]
 }

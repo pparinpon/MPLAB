@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"76 struct_header.h
+"77 struct_header.h
 [s S960 `ui 1 `uc 1 `uc 1 `uc 1 `i 1 `i 1 `ui 1 `uc 1 `ul 1 ]
 [n S960 . cargoLength command index address linkAngleTo linkAngleBack passedTime clutchMode WorkingCount ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -7643,25 +7643,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
-[; ;struct_header.h: 76: typedef struct {
-[; ;struct_header.h: 77: unsigned int cargoLength;
-[; ;struct_header.h: 78: unsigned char command;
-[; ;struct_header.h: 79: unsigned char index;
-[; ;struct_header.h: 80: unsigned char address;
-[; ;struct_header.h: 81: int linkAngleTo;
-[; ;struct_header.h: 82: int linkAngleBack;
-[; ;struct_header.h: 83: unsigned int passedTime;
-[; ;struct_header.h: 84: unsigned char clutchMode;
-[; ;struct_header.h: 85: unsigned long WorkingCount;
-[; ;struct_header.h: 86: } CargoData;
-[; ;struct_header.h: 87: extern CargoData cargoData;
-[; ;struct_header.h: 88: extern bit isMycargo;
-[; ;struct_header.h: 89: extern CargoData getCargoData(void);
-[; ;struct_header.h: 90: extern void setCargoData(CargoData m_cargoData);
-[; ;struct_header.h: 91: extern void initCargo(void);
-[; ;struct_header.h: 92: extern void resetCargo(void);
-[; ;struct_header.h: 93: extern void restartCargo(void);
-[; ;struct_header.h: 94: extern void setCargoAngle(int m_linkAngleTo);
+"76
+[v _SPI_OFFSET_BYTE `uc ~T0 @X0 1 e ]
+[i _SPI_OFFSET_BYTE
+-> -> 1 `i `uc
+]
+[; ;struct_header.h: 76: extern unsigned char SPI_OFFSET_BYTE = 0x01;
+[; ;struct_header.h: 77: typedef struct {
+[; ;struct_header.h: 78: unsigned int cargoLength;
+[; ;struct_header.h: 79: unsigned char command;
+[; ;struct_header.h: 80: unsigned char index;
+[; ;struct_header.h: 81: unsigned char address;
+[; ;struct_header.h: 82: int linkAngleTo;
+[; ;struct_header.h: 83: int linkAngleBack;
+[; ;struct_header.h: 84: unsigned int passedTime;
+[; ;struct_header.h: 85: unsigned char clutchMode;
+[; ;struct_header.h: 86: unsigned long WorkingCount;
+[; ;struct_header.h: 87: } CargoData;
+[; ;struct_header.h: 88: extern CargoData cargoData;
+[; ;struct_header.h: 89: extern bit isMycargo;
+[; ;struct_header.h: 90: extern CargoData getCargoData(void);
+[; ;struct_header.h: 91: extern void setCargoData(CargoData m_cargoData);
+[; ;struct_header.h: 92: extern void initCargo(void);
+[; ;struct_header.h: 93: extern void resetCargo(void);
+[; ;struct_header.h: 94: extern void restartCargo(void);
+[; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
 "5 struct.c
 [v _isMycargo `b ~T0 @X0 1 e ]
 [; ;struct.c: 5: bit isMycargo;
@@ -7757,43 +7763,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;struct.c: 31: cargoData.index = 0;
 "31
 [e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 32: };
+[; ;struct.c: 32: cargoData.linkAngleTo = 0;
 "32
+[e = . _cargoData 4 -> 0 `i ]
+[; ;struct.c: 33: cargoData.passedTime = 0;
+"33
+[e = . _cargoData 6 -> -> 0 `i `ui ]
+[; ;struct.c: 35: };
+"35
 [e :UE 964 ]
 }
-"33
+"36
 [v _restartCargo `(v ~T0 @X0 1 ef ]
 {
-[; ;struct.c: 33: void restartCargo(void){
+[; ;struct.c: 36: void restartCargo(void){
 [e :U _restartCargo ]
 [f ]
-[; ;struct.c: 34: cargoData.WorkingCount = 0;
-"34
-[e = . _cargoData 8 -> -> -> 0 `i `l `ul ]
-[; ;struct.c: 35: cargoData.address = 0;
-"35
-[e = . _cargoData 3 -> -> 0 `i `uc ]
-[; ;struct.c: 36: cargoData.command = 0;
-"36
-[e = . _cargoData 1 -> -> 0 `i `uc ]
-[; ;struct.c: 37: cargoData.index = 0;
+[; ;struct.c: 37: cargoData.address = 0;
 "37
-[e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 38: };
+[e = . _cargoData 3 -> -> 0 `i `uc ]
+[; ;struct.c: 38: cargoData.command = 0;
 "38
+[e = . _cargoData 1 -> -> 0 `i `uc ]
+[; ;struct.c: 39: cargoData.index = 0;
+"39
+[e = . _cargoData 2 -> -> 0 `i `uc ]
+[; ;struct.c: 40: };
+"40
 [e :UE 965 ]
 }
-"39
+"41
 [v _setCargoAngle `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;struct.c: 39: void setCargoAngle(int m_linkAngleTo){
+[; ;struct.c: 41: void setCargoAngle(int m_linkAngleTo){
 [e :U _setCargoAngle ]
 [v _m_linkAngleTo `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;struct.c: 40: cargoData.linkAngleTo = m_linkAngleTo;
-"40
+[; ;struct.c: 42: cargoData.linkAngleTo = m_linkAngleTo;
+"42
 [e = . _cargoData 4 _m_linkAngleTo ]
-[; ;struct.c: 41: };
-"41
+[; ;struct.c: 43: };
+"43
 [e :UE 966 ]
 }
