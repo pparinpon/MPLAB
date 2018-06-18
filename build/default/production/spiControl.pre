@@ -1,5 +1,5 @@
 
-# 1 "struct.c"
+# 1 "spiControl.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10086,6 +10086,55 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
+# 77 "spi_header.h"
+extern void spi_init();
+extern void spi1_init(void);
+extern void spi2_init(void);
+extern unsigned char spi1_buffer_data[256];
+extern unsigned char spi2_buffer_data[256];
+extern unsigned char spi1_send_buffer_data[256];
+extern unsigned int read_count1;
+extern unsigned int count1;
+extern unsigned int read_count2;
+extern unsigned int count2;
+extern unsigned int spi1_send_count;
+extern unsigned int send_count1;
+extern unsigned char spi1_Read_data;
+extern unsigned char spi2_Send_data;
+
+extern bit isSPI1read(void);
+extern bit isSPI2read(void);
+extern bit isSPI1send(void);
+extern void setSPI1sendData(void);
+extern void setSPI2sendData(void);
+extern void setSPI1sendDataManual(unsigned char data);
+
+# 72 "calibrate_mode.h"
+extern bit isCalibrated = 0;
+typedef struct {
+unsigned char My_address;
+unsigned long WorkingCount;
+unsigned char endpoint;
+}LinkInfo;
+
+typedef struct {
+unsigned int cargoLength;
+unsigned char command;
+unsigned char index;
+unsigned long WorkingCount;
+unsigned char endpoint;
+}Clalibdata;
+
+
+extern void Calibrate_download(unsigned char spi_Read_data);
+extern void InitCalibrate(void);
+bit isEndpoint(void);
+extern void setLinkNo(unsigned char workingCounta);
+extern unsigned int getVENDER_ID(void);
+extern unsigned int getMACHINE_ID(void);
+extern LinkInfo linkInfo;
+extern Clalibdata calibdata;
+
 # 74 "struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
@@ -10110,43 +10159,117 @@ extern void resetCargo(void);
 extern void restartCargo(void);
 extern void setCargoAngle(int m_linkAngleTo);
 
-# 5 "struct.c"
-bit isMycargo;
+# 8 "spiControl.c"
+unsigned char spi1_buffer_data[256];
+unsigned char spi2_buffer_data[256];
+unsigned char spi1_send_buffer_data[256];
+unsigned int read_count1;
+unsigned int count1;
+unsigned int read_count2;
+unsigned int count2;
+unsigned int spi1_send_count = 0;
+unsigned int send_count1 = 0;
+unsigned char spi1_Read_data = 0;
+unsigned char spi2_Send_data = 0;
 
-CargoData cargoData;
-CargoData getCargoData(void){
-return cargoData;
-}
-void setCargoData(CargoData m_cargoData){
-cargoData = m_cargoData;
-};
-void initCargo(void){
-isMycargo = 1;
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
-}
-void resetCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
 
-};
-void restartCargo(void){
-cargoData.address = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-};
-void setCargoAngle(int m_linkAngleTo){
-cargoData.linkAngleTo = m_linkAngleTo;
-};
+
+void spi_init(void){
+INTCONbits.PEIE = 0;
+INTCONbits.GIE = 0;
+spi1_init();
+spi2_init();
+INTCONbits.PEIE = 1;
+INTCONbits.GIE = 1;
+
+}
+
+
+void spi1_init(){
+unsigned char dummy;
+SSP1CON3bits.PCIE = 0;
+RC2PPS = 0b11001;
+SSP1SSPPSbits.SSP1SSPPS = 0b10110;
+SSP1CON1bits.SSPOV = 1;
+SSP1CON1bits.SSPEN = 1;
+SSP1CON1bits.SSPM = 0b0100;
+SSP1CON3bits.BOEN = 1;
+SSP1STATbits.SMP = 0;
+SSP1STATbits.CKE = 0;
+SSP1CON1bits.CKP = 0;
+PIE1bits.SSP1IE = 1;
+PIR1bits.SSP1IF = 0;
+dummy = SSP1BUF;
+}
+void spi2_init(){
+unsigned char dummy;
+SSP2CON3bits.PCIE = 0;
+RA2PPS = 0b11011;
+RB7PPS = 0b11010;
+SSP2SSPPSbits.SSP2SSPPS = 0b01111;
+SSP2CON1bits.SSPOV = 1;
+SSP2CON1bits.SSPEN = 1;
+SSP2CON1bits.SSPM = 0b0001;
+SSP2CON3bits.BOEN = 1;
+SSP2STATbits.SMP = 0;
+SSP2STATbits.CKE = 0;
+SSP2CON1bits.CKP = 0;
+PIE2bits.SSP2IE = 1;
+PIR2bits.SSP2IF = 0;
+dummy = SSP2BUF;
+}
+
+bit isSPI1read(void){
+if(read_count1 == count1){
+return 1;
+}else{
+return 0;
+}
+
+}
+
+bit isSPI2read(void){
+if(read_count2 == count2){
+return 1;
+}else{
+return 0;
+}
+}
+
+bit isSPI1send(void){
+if(send_count1 == spi1_send_count){
+return 1;
+}else{
+return 0;
+}
+}
+
+void setSPI1sendData(void){
+if(!(isSPI2read() == 1)){
+SSP1BUF = spi2_buffer_data[read_count2];
+read_count2++;
+if(read_count2 == 256){
+read_count2 = 0;
+
+}
+}else{
+
+SSP1BUF = 0x01;
+}
+}
+void setSPI1sendDataManual(unsigned char data){
+SSP1BUF = data;
+}
+void setSPI2sendData(void){
+spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
+if(linkInfo.endpoint == 0){
+
+SSP2BUF = spi2_Send_data;
+}else{
+spi2_buffer_data[count2] = spi2_Send_data;
+count2++;
+if(count2 == 256){
+count2 = 0;
+}
+}
+}

@@ -66,9 +66,13 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif /* __cplusplus */
+#include "global_header.h"
 
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code. 
+GLOBAL void EEPROM_download(unsigned char spi_Read_data);
+unsigned char eeprom_address;
+void ReadEEPROM (int addr);
 
 #ifdef	__cplusplus
 }

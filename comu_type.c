@@ -11,6 +11,7 @@
 #define Theory_Addr 0b10101111
 #define Calibrate_Mode 0b10111111
 #define Emergency_Stop 0b10111111
+#define EEPROM_Mode 0b11001111 
 
 unsigned char comu_types[18];
 
@@ -21,7 +22,7 @@ comu_types[1] = Auto_Increment; // Normal
 comu_types[2] = Static_Addr; //for mail box
 comu_types[3] = Theory_Addr; //for mail box
 comu_types[4] = Emergency_Stop;
-comu_types[5] = 0b11001111;
+comu_types[5] = EEPROM_Mode;
 comu_types[6] = 0b11010111;
 comu_types[7] = 0b11011111;
 comu_types[8] = 0b11100111;
@@ -49,6 +50,12 @@ bit setComunicateMode(unsigned char m_type){
                     return 1;
                 case 3:
                     return 1;   
+                case 4:
+                    return 1;   
+                case 5:
+                    // It is EEPRIM mode
+                    return 1;   
+                    
             }
         }
     }

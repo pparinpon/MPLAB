@@ -1,5 +1,5 @@
 
-# 1 "struct.c"
+# 1 "util.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10086,67 +10086,82 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 74 "struct_header.h"
-extern unsigned int st_dataLength = 0xFFFF;
-extern unsigned char st_type = 0x00;
-extern unsigned char SPI_OFFSET_BYTE = 0x01;
-typedef struct {
-unsigned int cargoLength;
-unsigned char command;
-unsigned char index;
-unsigned char address;
-int linkAngleTo;
-int linkAngleBack;
-unsigned int passedTime;
-unsigned char clutchMode;
-unsigned long WorkingCount;
-} CargoData;
-extern CargoData cargoData;
-extern bit isMycargo;
-extern CargoData getCargoData(void);
-extern void setCargoData(CargoData m_cargoData);
-extern void initCargo(void);
-extern void resetCargo(void);
-extern void restartCargo(void);
-extern void setCargoAngle(int m_linkAngleTo);
+# 72 "util_header.h"
+extern bit writeEEPROM(unsigned char *data);
+extern void clear(void);
+extern long TransLong256To255(long data);
+extern int TransInt256To255(int data);
 
-# 5 "struct.c"
-bit isMycargo;
-
-CargoData cargoData;
-CargoData getCargoData(void){
-return cargoData;
+# 9 "util.c"
+void clear(void){
+ANSELA = 0x00;
+ANSELB = 0x00;
+ANSELC = 0x00;
+PORTA = 0x00;
+PORTB = 0x00;
+PORTC = 0x00;
+TRISA = 0x00;
+TRISB = 0x00;
+TRISC = 0x00;
 }
-void setCargoData(CargoData m_cargoData){
-cargoData = m_cargoData;
-};
-void initCargo(void){
-isMycargo = 1;
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
+long TransLong256To255(long data)
+{
+long buf = 0;
+buf = data;
+long TransData = 0;
+long mod = 0;
+int i = 0;
+while(1){
+if(buf <= 255){
+mod = buf;
+}else{
+mod = buf % 255;
 }
-void resetCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
+buf = (int)(buf / 255);
+long pow = 1;
+if(i > 0){
+for(int j = 0; j < i; j++){
+pow = pow * 256;
+}
+}
+TransData += mod * pow;
+if(buf <= 255){
+break;
+}
+i++;
+}
+return TransData;
+};
+int TransInt256To255(int data)
+{
+int buf = 0;
+buf = data;
+int TransData = 0;
+int mod = 0;
+int i = 0;
+while(1){
+if(buf <= 255){
+mod = buf;
+}else{
+mod = buf % 255;
+}
+buf = (int)(buf / 255);
+long pow = 1;
+if(i > 0){
+for(int j = 0; j < i; j++){
+pow = pow * 256;
+}
+}
+TransData += mod * pow;
+if(buf <= 255){
+break;
+}
+i++;
+}
+return TransData;
+};
 
-};
-void restartCargo(void){
-cargoData.address = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-};
-void setCargoAngle(int m_linkAngleTo){
-cargoData.linkAngleTo = m_linkAngleTo;
-};
+bit writeEEPROM(unsigned char *data){
+
+return 1;
+}

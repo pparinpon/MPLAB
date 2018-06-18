@@ -1,6 +1,10 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"81 IO_control_header.h
-[v _setDirection `(v ~T0 @X0 0 ef1`i ]
+"88 calibrate_mode.h
+[v _Calibrate_download `(v ~T0 @X0 0 ef1`uc ]
+"89 spi_header.h
+[v _spi1_Read_data `uc ~T0 @X0 0 e ]
+"77 normal_mode_header.h
+[v _readCargo `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7630,176 +7634,227 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;cargo_index_header.h: 73: extern void initCargo_index(void);
-[; ;cargo_index_header.h: 74: extern bit setCargo_indexMode(unsigned char m_cargo_index);
-[; ;IO_control_header.h: 73: extern int linkAngle;
-[; ;IO_control_header.h: 74: extern int direction;
-[; ;IO_control_header.h: 75: extern void setCargo_Angle(void);
-[; ;IO_control_header.h: 76: extern void resetAngle(void);
-[; ;IO_control_header.h: 77: extern bit isOnClutch(void);
-[; ;IO_control_header.h: 78: extern void setOnClutch(void);
-[; ;IO_control_header.h: 79: extern void setOffClutch(void);
-[; ;IO_control_header.h: 80: extern void addAngle(void);
-[; ;IO_control_header.h: 81: extern void setDirection(int m_direction);
-"9 cargo_index.c
-[v _countabuf `ui ~T0 @X0 1 e ]
-[; ;cargo_index.c: 9: unsigned int countabuf;
-"10
-[v _cargo_index `uc ~T0 @X0 -> 18 `i e ]
-[; ;cargo_index.c: 10: unsigned char cargo_index[18];
-"11
-[v _initCargo_index `(v ~T0 @X0 1 ef ]
-{
-[; ;cargo_index.c: 11: void initCargo_index(void){
-[e :U _initCargo_index ]
-[f ]
-[; ;cargo_index.c: 12: cargo_index[0] = 0b00111111;
-"12
-[e = *U + &U _cargo_index * -> -> -> 0 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 63 `i `uc ]
-[; ;cargo_index.c: 13: cargo_index[1] = 0b01111111;
-"13
-[e = *U + &U _cargo_index * -> -> -> 1 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 127 `i `uc ]
-[; ;cargo_index.c: 14: cargo_index[2] = 0b10011111;
-"14
-[e = *U + &U _cargo_index * -> -> -> 2 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 159 `i `uc ]
-[; ;cargo_index.c: 15: cargo_index[3] = 0b10101111;
-"15
-[e = *U + &U _cargo_index * -> -> -> 3 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 175 `i `uc ]
-[; ;cargo_index.c: 16: cargo_index[4] = 0b10111111;
-"16
-[e = *U + &U _cargo_index * -> -> -> 4 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 191 `i `uc ]
-[; ;cargo_index.c: 17: cargo_index[5] = 0b11001111;
-"17
-[e = *U + &U _cargo_index * -> -> -> 5 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 207 `i `uc ]
-[; ;cargo_index.c: 18: cargo_index[6] = 0b11010111;
-"18
-[e = *U + &U _cargo_index * -> -> -> 6 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 215 `i `uc ]
-[; ;cargo_index.c: 19: cargo_index[7] = 0b11011111;
+[; ;comu_type.h: 74: extern bit setComunicateMode(unsigned char m_type);
+[; ;comu_type.h: 75: extern void initComu_types(void);
+[; ;normal_mode_header.h: 77: extern void readCargo(unsigned char spi1_Read_data);
+[; ;spi_header.h: 77: extern void spi_init();
+[; ;spi_header.h: 78: extern void spi1_init(void);
+[; ;spi_header.h: 79: extern void spi2_init(void);
+[; ;spi_header.h: 80: extern unsigned char spi1_buffer_data[256];
+[; ;spi_header.h: 81: extern unsigned char spi2_buffer_data[256];
+[; ;spi_header.h: 82: extern unsigned char spi1_send_buffer_data[256];
+[; ;spi_header.h: 83: extern unsigned int read_count1;
+[; ;spi_header.h: 84: extern unsigned int count1;
+[; ;spi_header.h: 85: extern unsigned int read_count2;
+[; ;spi_header.h: 86: extern unsigned int count2;
+[; ;spi_header.h: 87: extern unsigned int spi1_send_count;
+[; ;spi_header.h: 88: extern unsigned int send_count1;
+[; ;spi_header.h: 89: extern unsigned char spi1_Read_data;
+[; ;spi_header.h: 90: extern unsigned char spi2_Send_data;
+[; ;spi_header.h: 92: extern bit isSPI1read(void);
+[; ;spi_header.h: 93: extern bit isSPI2read(void);
+[; ;spi_header.h: 94: extern bit isSPI1send(void);
+[; ;spi_header.h: 95: extern void setSPI1sendData(void);
+[; ;spi_header.h: 96: extern void setSPI2sendData(void);
+[; ;spi_header.h: 97: extern void setSPI1sendDataManual(unsigned char data);
+"72 calibrate_mode.h
+[v _isCalibrated `b ~T0 @X0 1 e ]
+[i _isCalibrated
+-> 0 `i
+]
+[; ;calibrate_mode.h: 72: extern bit isCalibrated = 0;
+[; ;calibrate_mode.h: 73: typedef struct {
+[; ;calibrate_mode.h: 74: unsigned char My_address;
+[; ;calibrate_mode.h: 75: unsigned long WorkingCount;
+[; ;calibrate_mode.h: 76: unsigned char endpoint;
+[; ;calibrate_mode.h: 77: }LinkInfo;
+[; ;calibrate_mode.h: 79: typedef struct {
+[; ;calibrate_mode.h: 80: unsigned int cargoLength;
+[; ;calibrate_mode.h: 81: unsigned char command;
+[; ;calibrate_mode.h: 82: unsigned char index;
+[; ;calibrate_mode.h: 83: unsigned long WorkingCount;
+[; ;calibrate_mode.h: 84: unsigned char endpoint;
+[; ;calibrate_mode.h: 85: }Clalibdata;
+[; ;calibrate_mode.h: 88: extern void Calibrate_download(unsigned char spi_Read_data);
+[; ;calibrate_mode.h: 89: extern void InitCalibrate(void);
+[; ;calibrate_mode.h: 90: bit isEndpoint(void);
+[; ;calibrate_mode.h: 91: extern void setLinkNo(unsigned char workingCounta);
+[; ;calibrate_mode.h: 92: extern unsigned int getVENDER_ID(void);
+[; ;calibrate_mode.h: 93: extern unsigned int getMACHINE_ID(void);
+[; ;calibrate_mode.h: 94: extern LinkInfo linkInfo;
+[; ;calibrate_mode.h: 95: extern Clalibdata calibdata;
+"16 comu_type.c
+[v _comu_types `uc ~T0 @X0 -> 18 `i e ]
+[; ;comu_type.c: 16: unsigned char comu_types[18];
 "19
-[e = *U + &U _cargo_index * -> -> -> 7 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 223 `i `uc ]
-[; ;cargo_index.c: 20: cargo_index[8] = 0b11100111;
-"20
-[e = *U + &U _cargo_index * -> -> -> 8 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 231 `i `uc ]
-[; ;cargo_index.c: 21: cargo_index[9] = 0b11101011;
-"21
-[e = *U + &U _cargo_index * -> -> -> 9 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 235 `i `uc ]
-[; ;cargo_index.c: 22: cargo_index[10] = 0b11101111;
-"22
-[e = *U + &U _cargo_index * -> -> -> 10 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 239 `i `uc ]
-[; ;cargo_index.c: 23: cargo_index[11] = 0b11110001;
-"23
-[e = *U + &U _cargo_index * -> -> -> 11 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 241 `i `uc ]
-[; ;cargo_index.c: 24: cargo_index[12] = 0b11110011;
-"24
-[e = *U + &U _cargo_index * -> -> -> 12 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 243 `i `uc ]
-[; ;cargo_index.c: 25: cargo_index[13] = 0b11110101;
-"25
-[e = *U + &U _cargo_index * -> -> -> 13 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 245 `i `uc ]
-[; ;cargo_index.c: 26: cargo_index[14] = 0b11110111;
-"26
-[e = *U + &U _cargo_index * -> -> -> 14 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 247 `i `uc ]
-[; ;cargo_index.c: 27: cargo_index[15] = 0b11111000;
-"27
-[e = *U + &U _cargo_index * -> -> -> 15 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 248 `i `uc ]
-[; ;cargo_index.c: 28: cargo_index[16] = 0b11111001;
-"28
-[e = *U + &U _cargo_index * -> -> -> 16 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 249 `i `uc ]
-[; ;cargo_index.c: 29: cargo_index[17] = 0b11111010;
-"29
-[e = *U + &U _cargo_index * -> -> -> 17 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 250 `i `uc ]
-[; ;cargo_index.c: 30: }
-"30
-[e :UE 960 ]
-}
-"32
-[v _setCargo_indexMode `(b ~T0 @X0 1 ef1`uc ]
+[v _initComu_types `(v ~T0 @X0 1 ef ]
 {
-[; ;cargo_index.c: 32: bit setCargo_indexMode(unsigned char m_cargo_index){
-[e :U _setCargo_indexMode ]
-[v _m_cargo_index `uc ~T0 @X0 1 r1 ]
+[; ;comu_type.c: 19: void initComu_types(void){
+[e :U _initComu_types ]
 [f ]
-[; ;cargo_index.c: 33: for(int i = 0; i < 18; i++){
+[; ;comu_type.c: 20: comu_types[0] = 0b00111111;
+"20
+[e = *U + &U _comu_types * -> -> -> 0 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 63 `i `uc ]
+[; ;comu_type.c: 21: comu_types[1] = 0b01111111;
+"21
+[e = *U + &U _comu_types * -> -> -> 1 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 127 `i `uc ]
+[; ;comu_type.c: 22: comu_types[2] = 0b10011111;
+"22
+[e = *U + &U _comu_types * -> -> -> 2 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 159 `i `uc ]
+[; ;comu_type.c: 23: comu_types[3] = 0b10101111;
+"23
+[e = *U + &U _comu_types * -> -> -> 3 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 175 `i `uc ]
+[; ;comu_type.c: 24: comu_types[4] = 0b10111111;
+"24
+[e = *U + &U _comu_types * -> -> -> 4 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 191 `i `uc ]
+[; ;comu_type.c: 25: comu_types[5] = 0b11001111;
+"25
+[e = *U + &U _comu_types * -> -> -> 5 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 207 `i `uc ]
+[; ;comu_type.c: 26: comu_types[6] = 0b11010111;
+"26
+[e = *U + &U _comu_types * -> -> -> 6 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 215 `i `uc ]
+[; ;comu_type.c: 27: comu_types[7] = 0b11011111;
+"27
+[e = *U + &U _comu_types * -> -> -> 7 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 223 `i `uc ]
+[; ;comu_type.c: 28: comu_types[8] = 0b11100111;
+"28
+[e = *U + &U _comu_types * -> -> -> 8 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 231 `i `uc ]
+[; ;comu_type.c: 29: comu_types[9] = 0b11101011;
+"29
+[e = *U + &U _comu_types * -> -> -> 9 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 235 `i `uc ]
+[; ;comu_type.c: 30: comu_types[10] = 0b11101111;
+"30
+[e = *U + &U _comu_types * -> -> -> 10 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 239 `i `uc ]
+[; ;comu_type.c: 31: comu_types[11] = 0b11110001;
+"31
+[e = *U + &U _comu_types * -> -> -> 11 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 241 `i `uc ]
+[; ;comu_type.c: 32: comu_types[12] = 0b11110011;
+"32
+[e = *U + &U _comu_types * -> -> -> 12 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 243 `i `uc ]
+[; ;comu_type.c: 33: comu_types[13] = 0b11110101;
 "33
+[e = *U + &U _comu_types * -> -> -> 13 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 245 `i `uc ]
+[; ;comu_type.c: 34: comu_types[14] = 0b11110111;
+"34
+[e = *U + &U _comu_types * -> -> -> 14 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 247 `i `uc ]
+[; ;comu_type.c: 35: comu_types[15] = 0b11111000;
+"35
+[e = *U + &U _comu_types * -> -> -> 15 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 248 `i `uc ]
+[; ;comu_type.c: 36: comu_types[16] = 0b11111001;
+"36
+[e = *U + &U _comu_types * -> -> -> 16 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 249 `i `uc ]
+[; ;comu_type.c: 37: comu_types[17] = 0b11111010;
+"37
+[e = *U + &U _comu_types * -> -> -> 17 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 250 `i `uc ]
+[; ;comu_type.c: 38: }
+"38
+[e :UE 962 ]
+}
+"39
+[v _setComunicateMode `(b ~T0 @X0 1 ef1`uc ]
+{
+[; ;comu_type.c: 39: bit setComunicateMode(unsigned char m_type){
+[e :U _setComunicateMode ]
+[v _m_type `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;comu_type.c: 40: for(int i = 0; i < 18; i++){
+"40
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 18 `i 962  ]
-[e $U 963  ]
-[e :U 962 ]
+[e $ < _i -> 18 `i 964  ]
+[e $U 965  ]
+[e :U 964 ]
 {
-[; ;cargo_index.c: 34: if(cargo_index[i] == m_cargo_index){
-"34
-[e $ ! == -> *U + &U _cargo_index * -> -> _i `ui `ux -> -> # *U &U _cargo_index `ui `ux `i -> _m_cargo_index `i 965  ]
-{
-[; ;cargo_index.c: 35: switch(i){
-"35
-[e $U 967  ]
-{
-[; ;cargo_index.c: 36: case 0:
-"36
-[e :U 968 ]
-[; ;cargo_index.c: 38: setDirection(1);
-"38
-[e ( _setDirection (1 -> 1 `i ]
-[; ;cargo_index.c: 39: return 1;
-"39
-[e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;cargo_index.c: 40: case 1:
-"40
-[e :U 969 ]
-[; ;cargo_index.c: 41: setDirection(-1);
+[; ;comu_type.c: 41: if(comu_types[i] == m_type){
 "41
-[e ( _setDirection (1 -U -> 1 `i ]
-[; ;cargo_index.c: 42: return 1;
+[e $ ! == -> *U + &U _comu_types * -> -> _i `ui `ux -> -> # *U &U _comu_types `ui `ux `i -> _m_type `i 967  ]
+{
+[; ;comu_type.c: 42: switch(i){
 "42
-[e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;cargo_index.c: 43: case 2:
+[e $U 969  ]
+{
+[; ;comu_type.c: 43: case 0:
 "43
 [e :U 970 ]
-[; ;cargo_index.c: 44: return 1;
+[; ;comu_type.c: 44: Calibrate_download(spi1_Read_data);
 "44
-[e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;cargo_index.c: 45: case 3:
+[e ( _Calibrate_download (1 _spi1_Read_data ]
+[; ;comu_type.c: 45: return 1;
 "45
-[e :U 971 ]
-[; ;cargo_index.c: 46: return 1;
-"46
 [e ) -> -> 1 `i `b ]
-[e $UE 961  ]
+[e $UE 963  ]
+[; ;comu_type.c: 46: case 1:
+"46
+[e :U 971 ]
+[; ;comu_type.c: 47: readCargo(spi1_Read_data);
 "47
-}
-[; ;cargo_index.c: 47: }
-[e $U 966  ]
-"35
-[e :U 967 ]
-[e [\ _i , $ -> 0 `i 968
- , $ -> 1 `i 969
- , $ -> 2 `i 970
- , $ -> 3 `i 971
- 966 ]
-"47
-[e :U 966 ]
+[e ( _readCargo (1 _spi1_Read_data ]
+[; ;comu_type.c: 48: return 1;
 "48
-}
-[e :U 965 ]
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 49: case 2:
 "49
-}
-"33
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 18 `i 962  ]
-[e :U 963 ]
-"49
-}
-[; ;cargo_index.c: 48: }
-[; ;cargo_index.c: 49: }
-[; ;cargo_index.c: 50: return 0;
+[e :U 972 ]
+[; ;comu_type.c: 50: return 1;
 "50
-[e ) -> -> 0 `i `b ]
-[e $UE 961  ]
-[; ;cargo_index.c: 51: }
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 51: case 3:
 "51
-[e :UE 961 ]
+[e :U 973 ]
+[; ;comu_type.c: 52: return 1;
+"52
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 53: case 4:
+"53
+[e :U 974 ]
+[; ;comu_type.c: 54: return 1;
+"54
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 55: case 5:
+"55
+[e :U 975 ]
+[; ;comu_type.c: 57: return 1;
+"57
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+"59
+}
+[; ;comu_type.c: 59: }
+[e $U 968  ]
+"42
+[e :U 969 ]
+[e [\ _i , $ -> 0 `i 970
+ , $ -> 1 `i 971
+ , $ -> 2 `i 972
+ , $ -> 3 `i 973
+ , $ -> 4 `i 974
+ , $ -> 5 `i 975
+ 968 ]
+"59
+[e :U 968 ]
+"60
+}
+[e :U 967 ]
+"61
+}
+"40
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 18 `i 964  ]
+[e :U 965 ]
+"61
+}
+[; ;comu_type.c: 60: }
+[; ;comu_type.c: 61: }
+[; ;comu_type.c: 62: return 0;
+"62
+[e ) -> -> 0 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 63: }
+"63
+[e :UE 963 ]
 }

@@ -1,5 +1,5 @@
 
-# 1 "struct.c"
+# 1 "normal_mode.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10086,6 +10086,9 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
+# 77 "normal_mode_header.h"
+extern void readCargo(unsigned char spi1_Read_data);
+
 # 74 "struct_header.h"
 extern unsigned int st_dataLength = 0xFFFF;
 extern unsigned char st_type = 0x00;
@@ -10110,43 +10113,155 @@ extern void resetCargo(void);
 extern void restartCargo(void);
 extern void setCargoAngle(int m_linkAngleTo);
 
-# 5 "struct.c"
-bit isMycargo;
+# 72 "command_header.h"
+extern unsigned char command[18];
+extern void initComand(void);
+extern bit setCommandMode(unsigned char m_command);
+extern bit action(unsigned char comannd);
+extern bit clutchaction(unsigned char comannd);
+extern unsigned char readOK;
+extern unsigned char readNG;
+extern unsigned int countabuf;
+extern bit isMycargo;
 
+# 72 "calibrate_mode.h"
+extern bit isCalibrated = 0;
+typedef struct {
+unsigned char My_address;
+unsigned long WorkingCount;
+unsigned char endpoint;
+}LinkInfo;
+
+typedef struct {
+unsigned int cargoLength;
+unsigned char command;
+unsigned char index;
+unsigned long WorkingCount;
+unsigned char endpoint;
+}Clalibdata;
+
+
+extern void Calibrate_download(unsigned char spi_Read_data);
+extern void InitCalibrate(void);
+bit isEndpoint(void);
+extern void setLinkNo(unsigned char workingCounta);
+extern unsigned int getVENDER_ID(void);
+extern unsigned int getMACHINE_ID(void);
+extern LinkInfo linkInfo;
+extern Clalibdata calibdata;
+
+# 77 "spi_header.h"
+extern void spi_init();
+extern void spi1_init(void);
+extern void spi2_init(void);
+extern unsigned char spi1_buffer_data[256];
+extern unsigned char spi2_buffer_data[256];
+extern unsigned char spi1_send_buffer_data[256];
+extern unsigned int read_count1;
+extern unsigned int count1;
+extern unsigned int read_count2;
+extern unsigned int count2;
+extern unsigned int spi1_send_count;
+extern unsigned int send_count1;
+extern unsigned char spi1_Read_data;
+extern unsigned char spi2_Send_data;
+
+extern bit isSPI1read(void);
+extern bit isSPI2read(void);
+extern bit isSPI1send(void);
+extern void setSPI1sendData(void);
+extern void setSPI2sendData(void);
+extern void setSPI1sendDataManual(unsigned char data);
+
+# 73 "IO_control_header.h"
+extern int linkAngle;
+extern int direction;
+extern void setCargo_Angle(void);
+extern void resetAngle(void);
+extern bit isOnClutch(void);
+extern void setOnClutch(void);
+extern void setOffClutch(void);
+extern void addAngle(void);
+extern void setDirection(int m_direction);
+
+# 72 "util_header.h"
+extern bit writeEEPROM(unsigned char *data);
+extern void clear(void);
+extern long TransLong256To255(long data);
+extern int TransInt256To255(int data);
+
+# 12 "normal_mode.c"
 CargoData cargoData;
-CargoData getCargoData(void){
-return cargoData;
-}
-void setCargoData(CargoData m_cargoData){
-cargoData = m_cargoData;
-};
-void initCargo(void){
-isMycargo = 1;
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
-}
-void resetCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
 
+void readCargo(unsigned char spi1_Read_data){
+unsigned int bufint = spi1_Read_data;
+unsigned long buflong = spi1_Read_data;
+cargoData = getCargoData();
+if(isMycargo){
+switch(countabuf){
+case 0:
+cargoData.cargoLength = (bufint << 8 | 0x00FF);
+break;
+case 1:
+cargoData.cargoLength = cargoData.cargoLength & (bufint | 0xFF00);
+break;
+case 2:
+cargoData.command = spi1_Read_data;
+break;
+case 3:
+cargoData.index = spi1_Read_data;
+break;
+case 4:
+cargoData.address = spi1_Read_data;
+if(cargoData.address != linkInfo.My_address){
+restartCargo();
+isMycargo = 0;
+}else{
+}
+break;
+case 5:
+spi2_Send_data = (cargoData.linkAngleTo >> 8 & 0x00ff);
+break;
+case 6:
+spi2_Send_data = (cargoData.linkAngleTo & 0x00ff);
+break;
+case 7:
+spi2_Send_data = (cargoData.linkAngleBack >> 8 & 0x00ff);
+break;
+case 8:
+spi2_Send_data = (cargoData.linkAngleBack & 0x00ff);
+break;
+case 9:
+spi2_Send_data = (cargoData.passedTime >> 8 & 0x00ff);
+break;
+case 10:
+spi2_Send_data = (cargoData.passedTime & 0x00ff);
+break;
+case 11:
+cargoData.clutchMode = spi1_Read_data;
+clutchaction(cargoData.clutchMode);
+break;
+case 12:
+cargoData.WorkingCount++;
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 24 & 0x000000ff);
+break;
+case 13:
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 16 & 0x000000ff);
+break;
+case 14:
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) >> 8 & 0x000000ff);
+break;
+case 15:
+spi2_Send_data = (TransLong256To255(cargoData.WorkingCount) & 0x000000ff);
+break;
+}
+}
+
+countabuf++;
+if(cargoData.cargoLength <= countabuf){
+cargoData.cargoLength = 0xFFFF;
+countabuf = 0;
+isMycargo = 1;
+}
 };
-void restartCargo(void){
-cargoData.address = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-};
-void setCargoAngle(int m_linkAngleTo){
-cargoData.linkAngleTo = m_linkAngleTo;
-};
+

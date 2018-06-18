@@ -1,6 +1,14 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"81 IO_control_header.h
-[v _setDirection `(v ~T0 @X0 0 ef1`i ]
+"73 IO_control_header.h
+[v _linkAngle `i ~T0 @X0 0 e ]
+"2297 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18346.h
+[s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S114 . LATA0 LATA1 LATA2 . LATA4 LATA5 ]
+"2296
+[u S113 `S114 1 ]
+[n S113 . . ]
+"2306
+[v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7630,8 +7638,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;cargo_index_header.h: 73: extern void initCargo_index(void);
-[; ;cargo_index_header.h: 74: extern bit setCargo_indexMode(unsigned char m_cargo_index);
+[; ;command_header.h: 72: extern unsigned char command[18];
+[; ;command_header.h: 73: extern void initComand(void);
+[; ;command_header.h: 74: extern bit setCommandMode(unsigned char m_command);
+[; ;command_header.h: 75: extern bit action(unsigned char comannd);
+[; ;command_header.h: 76: extern bit clutchaction(unsigned char comannd);
+[; ;command_header.h: 77: extern unsigned char readOK;
+[; ;command_header.h: 78: extern unsigned char readNG;
+[; ;command_header.h: 79: extern unsigned int countabuf;
+[; ;command_header.h: 80: extern bit isMycargo;
 [; ;IO_control_header.h: 73: extern int linkAngle;
 [; ;IO_control_header.h: 74: extern int direction;
 [; ;IO_control_header.h: 75: extern void setCargo_Angle(void);
@@ -7641,84 +7656,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IO_control_header.h: 79: extern void setOffClutch(void);
 [; ;IO_control_header.h: 80: extern void addAngle(void);
 [; ;IO_control_header.h: 81: extern void setDirection(int m_direction);
-"9 cargo_index.c
+"8 command.c
 [v _countabuf `ui ~T0 @X0 1 e ]
-[; ;cargo_index.c: 9: unsigned int countabuf;
+[; ;command.c: 8: unsigned int countabuf;
+"9
+[v _command `uc ~T0 @X0 -> 18 `i e ]
+[; ;command.c: 9: unsigned char command[18];
 "10
-[v _cargo_index `uc ~T0 @X0 -> 18 `i e ]
-[; ;cargo_index.c: 10: unsigned char cargo_index[18];
+[v _readOK `uc ~T0 @X0 1 e ]
+[; ;command.c: 10: unsigned char readOK ;
 "11
-[v _initCargo_index `(v ~T0 @X0 1 ef ]
-{
-[; ;cargo_index.c: 11: void initCargo_index(void){
-[e :U _initCargo_index ]
-[f ]
-[; ;cargo_index.c: 12: cargo_index[0] = 0b00111111;
+[v _readNG `uc ~T0 @X0 1 e ]
+[; ;command.c: 11: unsigned char readNG ;
 "12
-[e = *U + &U _cargo_index * -> -> -> 0 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 63 `i `uc ]
-[; ;cargo_index.c: 13: cargo_index[1] = 0b01111111;
+[v _initComand `(v ~T0 @X0 1 ef ]
+{
+[; ;command.c: 12: void initComand(void){
+[e :U _initComand ]
+[f ]
+[; ;command.c: 13: command[0] = 0b00111111;
 "13
-[e = *U + &U _cargo_index * -> -> -> 1 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 127 `i `uc ]
-[; ;cargo_index.c: 14: cargo_index[2] = 0b10011111;
+[e = *U + &U _command * -> -> -> 0 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 63 `i `uc ]
+[; ;command.c: 14: command[1] = 0b01111111;
 "14
-[e = *U + &U _cargo_index * -> -> -> 2 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 159 `i `uc ]
-[; ;cargo_index.c: 15: cargo_index[3] = 0b10101111;
+[e = *U + &U _command * -> -> -> 1 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 127 `i `uc ]
+[; ;command.c: 15: command[2] = 0b10011111;
 "15
-[e = *U + &U _cargo_index * -> -> -> 3 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 175 `i `uc ]
-[; ;cargo_index.c: 16: cargo_index[4] = 0b10111111;
+[e = *U + &U _command * -> -> -> 2 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 159 `i `uc ]
+[; ;command.c: 16: command[3] = 0b10101111;
 "16
-[e = *U + &U _cargo_index * -> -> -> 4 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 191 `i `uc ]
-[; ;cargo_index.c: 17: cargo_index[5] = 0b11001111;
+[e = *U + &U _command * -> -> -> 3 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 175 `i `uc ]
+[; ;command.c: 17: command[4] = 0b10111111;
 "17
-[e = *U + &U _cargo_index * -> -> -> 5 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 207 `i `uc ]
-[; ;cargo_index.c: 18: cargo_index[6] = 0b11010111;
+[e = *U + &U _command * -> -> -> 4 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 191 `i `uc ]
+[; ;command.c: 18: command[5] = 0b11001111;
 "18
-[e = *U + &U _cargo_index * -> -> -> 6 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 215 `i `uc ]
-[; ;cargo_index.c: 19: cargo_index[7] = 0b11011111;
+[e = *U + &U _command * -> -> -> 5 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 207 `i `uc ]
+[; ;command.c: 19: command[6] = 0b11010111;
 "19
-[e = *U + &U _cargo_index * -> -> -> 7 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 223 `i `uc ]
-[; ;cargo_index.c: 20: cargo_index[8] = 0b11100111;
+[e = *U + &U _command * -> -> -> 6 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 215 `i `uc ]
+[; ;command.c: 20: command[7] = 0b11011111;
 "20
-[e = *U + &U _cargo_index * -> -> -> 8 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 231 `i `uc ]
-[; ;cargo_index.c: 21: cargo_index[9] = 0b11101011;
+[e = *U + &U _command * -> -> -> 7 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 223 `i `uc ]
+[; ;command.c: 21: command[8] = 0b11100111;
 "21
-[e = *U + &U _cargo_index * -> -> -> 9 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 235 `i `uc ]
-[; ;cargo_index.c: 22: cargo_index[10] = 0b11101111;
+[e = *U + &U _command * -> -> -> 8 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 231 `i `uc ]
+[; ;command.c: 22: command[9] = 0b11101011;
 "22
-[e = *U + &U _cargo_index * -> -> -> 10 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 239 `i `uc ]
-[; ;cargo_index.c: 23: cargo_index[11] = 0b11110001;
+[e = *U + &U _command * -> -> -> 9 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 235 `i `uc ]
+[; ;command.c: 23: command[10] = 0b11101111;
 "23
-[e = *U + &U _cargo_index * -> -> -> 11 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 241 `i `uc ]
-[; ;cargo_index.c: 24: cargo_index[12] = 0b11110011;
+[e = *U + &U _command * -> -> -> 10 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 239 `i `uc ]
+[; ;command.c: 24: command[11] = 0b11110001;
 "24
-[e = *U + &U _cargo_index * -> -> -> 12 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 243 `i `uc ]
-[; ;cargo_index.c: 25: cargo_index[13] = 0b11110101;
+[e = *U + &U _command * -> -> -> 11 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 241 `i `uc ]
+[; ;command.c: 25: command[12] = 0b11110011;
 "25
-[e = *U + &U _cargo_index * -> -> -> 13 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 245 `i `uc ]
-[; ;cargo_index.c: 26: cargo_index[14] = 0b11110111;
+[e = *U + &U _command * -> -> -> 12 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 243 `i `uc ]
+[; ;command.c: 26: command[13] = 0b11110101;
 "26
-[e = *U + &U _cargo_index * -> -> -> 14 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 247 `i `uc ]
-[; ;cargo_index.c: 27: cargo_index[15] = 0b11111000;
+[e = *U + &U _command * -> -> -> 13 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 245 `i `uc ]
+[; ;command.c: 27: command[14] = 0b11110111;
 "27
-[e = *U + &U _cargo_index * -> -> -> 15 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 248 `i `uc ]
-[; ;cargo_index.c: 28: cargo_index[16] = 0b11111001;
+[e = *U + &U _command * -> -> -> 14 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 247 `i `uc ]
+[; ;command.c: 28: command[15] = 0b11111000;
 "28
-[e = *U + &U _cargo_index * -> -> -> 16 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 249 `i `uc ]
-[; ;cargo_index.c: 29: cargo_index[17] = 0b11111010;
+[e = *U + &U _command * -> -> -> 15 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 248 `i `uc ]
+[; ;command.c: 29: command[16] = 0b11111001;
 "29
-[e = *U + &U _cargo_index * -> -> -> 17 `i `ui `ux -> -> # *U &U _cargo_index `ui `ux -> -> 250 `i `uc ]
-[; ;cargo_index.c: 30: }
+[e = *U + &U _command * -> -> -> 16 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 249 `i `uc ]
+[; ;command.c: 30: command[17] = 0b11111010;
 "30
+[e = *U + &U _command * -> -> -> 17 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 250 `i `uc ]
+[; ;command.c: 31: }
+"31
 [e :UE 960 ]
 }
 "32
-[v _setCargo_indexMode `(b ~T0 @X0 1 ef1`uc ]
+[v _setCommandMode `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;cargo_index.c: 32: bit setCargo_indexMode(unsigned char m_cargo_index){
-[e :U _setCargo_indexMode ]
-[v _m_cargo_index `uc ~T0 @X0 1 r1 ]
+[; ;command.c: 32: bit setCommandMode(unsigned char m_command){
+[e :U _setCommandMode ]
+[v _m_command `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;cargo_index.c: 33: for(int i = 0; i < 18; i++){
+[; ;command.c: 33: for(int i = 0; i < 18; i++){
 "33
 {
 [v _i `i ~T0 @X0 1 a ]
@@ -7727,51 +7748,55 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 963  ]
 [e :U 962 ]
 {
-[; ;cargo_index.c: 34: if(cargo_index[i] == m_cargo_index){
+[; ;command.c: 34: if(command[i] == m_command){
 "34
-[e $ ! == -> *U + &U _cargo_index * -> -> _i `ui `ux -> -> # *U &U _cargo_index `ui `ux `i -> _m_cargo_index `i 965  ]
+[e $ ! == -> *U + &U _command * -> -> _i `ui `ux -> -> # *U &U _command `ui `ux `i -> _m_command `i 965  ]
 {
-[; ;cargo_index.c: 35: switch(i){
+[; ;command.c: 35: switch(i){
 "35
 [e $U 967  ]
 {
-[; ;cargo_index.c: 36: case 0:
+[; ;command.c: 36: case 0:
 "36
 [e :U 968 ]
-[; ;cargo_index.c: 38: setDirection(1);
+[; ;command.c: 38: return 1;
 "38
-[e ( _setDirection (1 -> 1 `i ]
-[; ;cargo_index.c: 39: return 1;
-"39
 [e ) -> -> 1 `i `b ]
 [e $UE 961  ]
-[; ;cargo_index.c: 40: case 1:
-"40
+[; ;command.c: 39: case 1:
+"39
 [e :U 969 ]
-[; ;cargo_index.c: 41: setDirection(-1);
+[; ;command.c: 40: return 1;
+"40
+[e ) -> -> 1 `i `b ]
+[e $UE 961  ]
+[; ;command.c: 41: case 2:
 "41
-[e ( _setDirection (1 -U -> 1 `i ]
-[; ;cargo_index.c: 42: return 1;
+[e :U 970 ]
+[; ;command.c: 42: return 1;
 "42
 [e ) -> -> 1 `i `b ]
 [e $UE 961  ]
-[; ;cargo_index.c: 43: case 2:
+[; ;command.c: 43: case 3:
 "43
-[e :U 970 ]
-[; ;cargo_index.c: 44: return 1;
+[e :U 971 ]
+[; ;command.c: 44: return 1;
 "44
 [e ) -> -> 1 `i `b ]
 [e $UE 961  ]
-[; ;cargo_index.c: 45: case 3:
+[; ;command.c: 45: case 6:
 "45
-[e :U 971 ]
-[; ;cargo_index.c: 46: return 1;
+[e :U 972 ]
+[; ;command.c: 46: linkAngle = 0;
 "46
+[e = _linkAngle -> 0 `i ]
+[; ;command.c: 47: return 1;
+"47
 [e ) -> -> 1 `i `b ]
 [e $UE 961  ]
-"47
+"48
 }
-[; ;cargo_index.c: 47: }
+[; ;command.c: 48: }
 [e $U 966  ]
 "35
 [e :U 967 ]
@@ -7779,27 +7804,135 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> 1 `i 969
  , $ -> 2 `i 970
  , $ -> 3 `i 971
+ , $ -> 6 `i 972
  966 ]
-"47
-[e :U 966 ]
 "48
+[e :U 966 ]
+"49
 }
 [e :U 965 ]
-"49
+"50
 }
 "33
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 18 `i 962  ]
 [e :U 963 ]
-"49
-}
-[; ;cargo_index.c: 48: }
-[; ;cargo_index.c: 49: }
-[; ;cargo_index.c: 50: return 0;
 "50
+}
+[; ;command.c: 49: }
+[; ;command.c: 50: }
+[; ;command.c: 51: return 0;
+"51
 [e ) -> -> 0 `i `b ]
 [e $UE 961  ]
-[; ;cargo_index.c: 51: }
-"51
+[; ;command.c: 52: }
+"52
 [e :UE 961 ]
+}
+"53
+[v _action `(b ~T0 @X0 1 ef1`uc ]
+{
+[; ;command.c: 53: bit action(unsigned char inputComannd){
+[e :U _action ]
+[v _inputComannd `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;command.c: 54: for(int i = 0; i < 18; i++){
+"54
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 18 `i 974  ]
+[e $U 975  ]
+[e :U 974 ]
+{
+[; ;command.c: 55: if(command[i] == inputComannd){
+"55
+[e $ ! == -> *U + &U _command * -> -> _i `ui `ux -> -> # *U &U _command `ui `ux `i -> _inputComannd `i 977  ]
+{
+[; ;command.c: 56: switch(i){
+"56
+[e $U 979  ]
+{
+[; ;command.c: 57: case 2:
+"57
+[e :U 980 ]
+[; ;command.c: 58: LATAbits.LATA0 = 1;
+"58
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+[; ;command.c: 59: return 1;
+"59
+[e ) -> -> 1 `i `b ]
+[e $UE 973  ]
+[; ;command.c: 60: case 3:
+"60
+[e :U 981 ]
+[; ;command.c: 61: LATAbits.LATA0 = 0;
+"61
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;command.c: 62: return 1;
+"62
+[e ) -> -> 1 `i `b ]
+[e $UE 973  ]
+"63
+}
+[; ;command.c: 63: }
+[e $U 978  ]
+"56
+[e :U 979 ]
+[e [\ _i , $ -> 2 `i 980
+ , $ -> 3 `i 981
+ 978 ]
+"63
+[e :U 978 ]
+"64
+}
+[e :U 977 ]
+"65
+}
+"54
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 18 `i 974  ]
+[e :U 975 ]
+"65
+}
+[; ;command.c: 64: }
+[; ;command.c: 65: }
+[; ;command.c: 66: return 0;
+"66
+[e ) -> -> 0 `i `b ]
+[e $UE 973  ]
+[; ;command.c: 67: }
+"67
+[e :UE 973 ]
+}
+"68
+[v _clutchaction `(b ~T0 @X0 1 ef1`uc ]
+{
+[; ;command.c: 68: bit clutchaction(unsigned char comannd){
+[e :U _clutchaction ]
+[v _comannd `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;command.c: 69: if(comannd == 1){
+"69
+[e $ ! == -> _comannd `i -> 1 `i 983  ]
+{
+[; ;command.c: 70: LATAbits.LATA0 = 1;
+"70
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+"71
+}
+[; ;command.c: 71: }else{
+[e $U 984  ]
+[e :U 983 ]
+{
+[; ;command.c: 72: LATAbits.LATA0 = 0;
+"72
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+"73
+}
+[e :U 984 ]
+[; ;command.c: 73: }
+[; ;command.c: 74: };
+"74
+[e :UE 982 ]
 }

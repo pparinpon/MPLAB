@@ -1,5 +1,5 @@
 
-# 1 "struct.c"
+# 1 "command.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10086,67 +10086,93 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 74 "struct_header.h"
-extern unsigned int st_dataLength = 0xFFFF;
-extern unsigned char st_type = 0x00;
-extern unsigned char SPI_OFFSET_BYTE = 0x01;
-typedef struct {
-unsigned int cargoLength;
-unsigned char command;
-unsigned char index;
-unsigned char address;
-int linkAngleTo;
-int linkAngleBack;
-unsigned int passedTime;
-unsigned char clutchMode;
-unsigned long WorkingCount;
-} CargoData;
-extern CargoData cargoData;
+# 72 "command_header.h"
+extern unsigned char command[18];
+extern void initComand(void);
+extern bit setCommandMode(unsigned char m_command);
+extern bit action(unsigned char comannd);
+extern bit clutchaction(unsigned char comannd);
+extern unsigned char readOK;
+extern unsigned char readNG;
+extern unsigned int countabuf;
 extern bit isMycargo;
-extern CargoData getCargoData(void);
-extern void setCargoData(CargoData m_cargoData);
-extern void initCargo(void);
-extern void resetCargo(void);
-extern void restartCargo(void);
-extern void setCargoAngle(int m_linkAngleTo);
 
-# 5 "struct.c"
-bit isMycargo;
+# 73 "IO_control_header.h"
+extern int linkAngle;
+extern int direction;
+extern void setCargo_Angle(void);
+extern void resetAngle(void);
+extern bit isOnClutch(void);
+extern void setOnClutch(void);
+extern void setOffClutch(void);
+extern void addAngle(void);
+extern void setDirection(int m_direction);
 
-CargoData cargoData;
-CargoData getCargoData(void){
-return cargoData;
+# 8 "command.c"
+unsigned int countabuf;
+unsigned char command[18];
+unsigned char readOK ;
+unsigned char readNG ;
+void initComand(void){
+command[0] = 0b00111111;
+command[1] = 0b01111111;
+command[2] = 0b10011111;
+command[3] = 0b10101111;
+command[4] = 0b10111111;
+command[5] = 0b11001111;
+command[6] = 0b11010111;
+command[7] = 0b11011111;
+command[8] = 0b11100111;
+command[9] = 0b11101011;
+command[10] = 0b11101111;
+command[11] = 0b11110001;
+command[12] = 0b11110011;
+command[13] = 0b11110101;
+command[14] = 0b11110111;
+command[15] = 0b11111000;
+command[16] = 0b11111001;
+command[17] = 0b11111010;
 }
-void setCargoData(CargoData m_cargoData){
-cargoData = m_cargoData;
-};
-void initCargo(void){
-isMycargo = 1;
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
-}
-void resetCargo(void){
-cargoData.WorkingCount = 0;
-cargoData.address = 0;
-cargoData.cargoLength = 0xFFFF;
-cargoData.clutchMode = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-cargoData.linkAngleTo = 0;
-cargoData.passedTime = 0;
+bit setCommandMode(unsigned char m_command){
+for(int i = 0; i < 18; i++){
+if(command[i] == m_command){
+switch(i){
+case 0:
 
-};
-void restartCargo(void){
-cargoData.address = 0;
-cargoData.command = 0;
-cargoData.index = 0;
-};
-void setCargoAngle(int m_linkAngleTo){
-cargoData.linkAngleTo = m_linkAngleTo;
+return 1;
+case 1:
+return 1;
+case 2:
+return 1;
+case 3:
+return 1;
+case 6:
+linkAngle = 0;
+return 1;
+}
+}
+}
+return 0;
+}
+bit action(unsigned char inputComannd){
+for(int i = 0; i < 18; i++){
+if(command[i] == inputComannd){
+switch(i){
+case 2:
+LATAbits.LATA0 = 1;
+return 1;
+case 3:
+LATAbits.LATA0 = 0;
+return 1;
+}
+}
+}
+return 0;
+}
+bit clutchaction(unsigned char comannd){
+if(comannd == 1){
+LATAbits.LATA0 = 1;
+}else{
+LATAbits.LATA0 = 0;
+}
 };
