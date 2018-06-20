@@ -5,6 +5,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _spi1_Read_data `uc ~T0 @X0 0 e ]
 "77 D:/programdata/16F18346_Link_IC.X/normal_mode_header.h
 [v _readCargo `(v ~T0 @X0 0 ef1`uc ]
+"73 D:/programdata/16F18346_Link_IC.X/eeprom_header.h
+[v _EEPROM_download `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7651,6 +7653,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;spi_header.h: 88: extern unsigned int send_count1;
 [; ;spi_header.h: 89: extern unsigned char spi1_Read_data;
 [; ;spi_header.h: 90: extern unsigned char spi2_Send_data;
+[; ;spi_header.h: 91: extern bit isSendSPI2;
 [; ;spi_header.h: 92: extern bit isSPI1read(void);
 [; ;spi_header.h: 93: extern bit isSPI2read(void);
 [; ;spi_header.h: 94: extern bit isSPI1send(void);
@@ -7683,82 +7686,87 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;calibrate_mode.h: 93: extern unsigned int getMACHINE_ID(void);
 [; ;calibrate_mode.h: 94: extern LinkInfo linkInfo;
 [; ;calibrate_mode.h: 95: extern Clalibdata calibdata;
-"15 D:/programdata/16F18346_Link_IC.X/comu_type.c
+[; ;eeprom_header.h: 73: extern void EEPROM_download(unsigned char spi_Read_data);
+"74 D:/programdata/16F18346_Link_IC.X/eeprom_header.h
+[v _eeprom_address `uc ~T0 @X0 1 e ]
+[; ;eeprom_header.h: 74: unsigned char eeprom_address;
+[; ;eeprom_header.h: 75: void ReadEEPROM (int addr);
+"17 D:/programdata/16F18346_Link_IC.X/comu_type.c
 [v _comu_types `uc ~T0 @X0 -> 18 `i e ]
-[; ;comu_type.c: 15: unsigned char comu_types[18];
-"18
+[; ;comu_type.c: 17: unsigned char comu_types[18];
+"20
 [v _initComu_types `(v ~T0 @X0 1 ef ]
 {
-[; ;comu_type.c: 18: void initComu_types(void){
+[; ;comu_type.c: 20: void initComu_types(void){
 [e :U _initComu_types ]
 [f ]
-[; ;comu_type.c: 19: comu_types[0] = 0b00111111;
-"19
-[e = *U + &U _comu_types * -> -> -> 0 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 63 `i `uc ]
-[; ;comu_type.c: 20: comu_types[1] = 0b01111111;
-"20
-[e = *U + &U _comu_types * -> -> -> 1 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 127 `i `uc ]
-[; ;comu_type.c: 21: comu_types[2] = 0b10011111;
+[; ;comu_type.c: 21: comu_types[0] = 0b00111111;
 "21
-[e = *U + &U _comu_types * -> -> -> 2 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 159 `i `uc ]
-[; ;comu_type.c: 22: comu_types[3] = 0b10101111;
+[e = *U + &U _comu_types * -> -> -> 0 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 63 `i `uc ]
+[; ;comu_type.c: 22: comu_types[1] = 0b01111111;
 "22
-[e = *U + &U _comu_types * -> -> -> 3 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 175 `i `uc ]
-[; ;comu_type.c: 23: comu_types[4] = 0b10111111;
+[e = *U + &U _comu_types * -> -> -> 1 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 127 `i `uc ]
+[; ;comu_type.c: 23: comu_types[2] = 0b10011111;
 "23
-[e = *U + &U _comu_types * -> -> -> 4 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 191 `i `uc ]
-[; ;comu_type.c: 24: comu_types[5] = 0b11001111;
+[e = *U + &U _comu_types * -> -> -> 2 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 159 `i `uc ]
+[; ;comu_type.c: 24: comu_types[3] = 0b10101111;
 "24
-[e = *U + &U _comu_types * -> -> -> 5 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 207 `i `uc ]
-[; ;comu_type.c: 25: comu_types[6] = 0b11010111;
+[e = *U + &U _comu_types * -> -> -> 3 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 175 `i `uc ]
+[; ;comu_type.c: 25: comu_types[4] = 0b10111111;
 "25
-[e = *U + &U _comu_types * -> -> -> 6 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 215 `i `uc ]
-[; ;comu_type.c: 26: comu_types[7] = 0b11011111;
+[e = *U + &U _comu_types * -> -> -> 4 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 191 `i `uc ]
+[; ;comu_type.c: 26: comu_types[5] = 0b11001111;
 "26
-[e = *U + &U _comu_types * -> -> -> 7 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 223 `i `uc ]
-[; ;comu_type.c: 27: comu_types[8] = 0b11100111;
+[e = *U + &U _comu_types * -> -> -> 5 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 207 `i `uc ]
+[; ;comu_type.c: 27: comu_types[6] = 0b11010111;
 "27
-[e = *U + &U _comu_types * -> -> -> 8 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 231 `i `uc ]
-[; ;comu_type.c: 28: comu_types[9] = 0b11101011;
+[e = *U + &U _comu_types * -> -> -> 6 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 215 `i `uc ]
+[; ;comu_type.c: 28: comu_types[7] = 0b11011111;
 "28
-[e = *U + &U _comu_types * -> -> -> 9 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 235 `i `uc ]
-[; ;comu_type.c: 29: comu_types[10] = 0b11101111;
+[e = *U + &U _comu_types * -> -> -> 7 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 223 `i `uc ]
+[; ;comu_type.c: 29: comu_types[8] = 0b11100111;
 "29
-[e = *U + &U _comu_types * -> -> -> 10 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 239 `i `uc ]
-[; ;comu_type.c: 30: comu_types[11] = 0b11110001;
+[e = *U + &U _comu_types * -> -> -> 8 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 231 `i `uc ]
+[; ;comu_type.c: 30: comu_types[9] = 0b11101011;
 "30
-[e = *U + &U _comu_types * -> -> -> 11 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 241 `i `uc ]
-[; ;comu_type.c: 31: comu_types[12] = 0b11110011;
+[e = *U + &U _comu_types * -> -> -> 9 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 235 `i `uc ]
+[; ;comu_type.c: 31: comu_types[10] = 0b11101111;
 "31
-[e = *U + &U _comu_types * -> -> -> 12 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 243 `i `uc ]
-[; ;comu_type.c: 32: comu_types[13] = 0b11110101;
+[e = *U + &U _comu_types * -> -> -> 10 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 239 `i `uc ]
+[; ;comu_type.c: 32: comu_types[11] = 0b11110001;
 "32
-[e = *U + &U _comu_types * -> -> -> 13 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 245 `i `uc ]
-[; ;comu_type.c: 33: comu_types[14] = 0b11110111;
+[e = *U + &U _comu_types * -> -> -> 11 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 241 `i `uc ]
+[; ;comu_type.c: 33: comu_types[12] = 0b11110011;
 "33
-[e = *U + &U _comu_types * -> -> -> 14 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 247 `i `uc ]
-[; ;comu_type.c: 34: comu_types[15] = 0b11111000;
+[e = *U + &U _comu_types * -> -> -> 12 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 243 `i `uc ]
+[; ;comu_type.c: 34: comu_types[13] = 0b11110101;
 "34
-[e = *U + &U _comu_types * -> -> -> 15 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 248 `i `uc ]
-[; ;comu_type.c: 35: comu_types[16] = 0b11111001;
+[e = *U + &U _comu_types * -> -> -> 13 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 245 `i `uc ]
+[; ;comu_type.c: 35: comu_types[14] = 0b11110111;
 "35
-[e = *U + &U _comu_types * -> -> -> 16 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 249 `i `uc ]
-[; ;comu_type.c: 36: comu_types[17] = 0b11111010;
+[e = *U + &U _comu_types * -> -> -> 14 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 247 `i `uc ]
+[; ;comu_type.c: 36: comu_types[15] = 0b11111000;
 "36
-[e = *U + &U _comu_types * -> -> -> 17 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 250 `i `uc ]
-[; ;comu_type.c: 37: }
+[e = *U + &U _comu_types * -> -> -> 15 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 248 `i `uc ]
+[; ;comu_type.c: 37: comu_types[16] = 0b11111001;
 "37
+[e = *U + &U _comu_types * -> -> -> 16 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 249 `i `uc ]
+[; ;comu_type.c: 38: comu_types[17] = 0b11111010;
+"38
+[e = *U + &U _comu_types * -> -> -> 17 `i `ui `ux -> -> # *U &U _comu_types `ui `ux -> -> 250 `i `uc ]
+[; ;comu_type.c: 39: }
+"39
 [e :UE 962 ]
 }
-"38
+"40
 [v _setComunicateMode `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;comu_type.c: 38: bit setComunicateMode(unsigned char m_type){
+[; ;comu_type.c: 40: bit setComunicateMode(unsigned char m_type){
 [e :U _setComunicateMode ]
 [v _m_type `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;comu_type.c: 39: for(int i = 0; i < 18; i++){
-"39
+[; ;comu_type.c: 41: for(int i = 0; i < 18; i++){
+"41
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
@@ -7766,79 +7774,98 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 965  ]
 [e :U 964 ]
 {
-[; ;comu_type.c: 40: if(comu_types[i] == m_type){
-"40
+[; ;comu_type.c: 42: if(comu_types[i] == m_type){
+"42
 [e $ ! == -> *U + &U _comu_types * -> -> _i `ui `ux -> -> # *U &U _comu_types `ui `ux `i -> _m_type `i 967  ]
 {
-[; ;comu_type.c: 41: switch(i){
-"41
+[; ;comu_type.c: 43: switch(i){
+"43
 [e $U 969  ]
 {
-[; ;comu_type.c: 42: case 0:
-"42
-[e :U 970 ]
-[; ;comu_type.c: 43: Calibrate_download(spi1_Read_data);
-"43
-[e ( _Calibrate_download (1 _spi1_Read_data ]
-[; ;comu_type.c: 44: return 1;
+[; ;comu_type.c: 44: case 0:
 "44
-[e ) -> -> 1 `i `b ]
-[e $UE 963  ]
-[; ;comu_type.c: 45: case 1:
+[e :U 970 ]
+[; ;comu_type.c: 45: Calibrate_download(spi1_Read_data);
 "45
-[e :U 971 ]
-[; ;comu_type.c: 46: readCargo(spi1_Read_data);
+[e ( _Calibrate_download (1 _spi1_Read_data ]
+[; ;comu_type.c: 46: return 1;
 "46
-[e ( _readCargo (1 _spi1_Read_data ]
-[; ;comu_type.c: 47: return 1;
-"47
 [e ) -> -> 1 `i `b ]
 [e $UE 963  ]
-[; ;comu_type.c: 48: case 2:
+[; ;comu_type.c: 47: case 1:
+"47
+[e :U 971 ]
+[; ;comu_type.c: 48: readCargo(spi1_Read_data);
 "48
-[e :U 972 ]
+[e ( _readCargo (1 _spi1_Read_data ]
 [; ;comu_type.c: 49: return 1;
 "49
 [e ) -> -> 1 `i `b ]
 [e $UE 963  ]
-[; ;comu_type.c: 50: case 3:
+[; ;comu_type.c: 50: case 2:
 "50
-[e :U 973 ]
+[e :U 972 ]
 [; ;comu_type.c: 51: return 1;
 "51
 [e ) -> -> 1 `i `b ]
 [e $UE 963  ]
+[; ;comu_type.c: 52: case 3:
 "52
+[e :U 973 ]
+[; ;comu_type.c: 53: return 1;
+"53
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 54: case 4:
+"54
+[e :U 974 ]
+[; ;comu_type.c: 55: return 1;
+"55
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+[; ;comu_type.c: 56: case 5:
+"56
+[e :U 975 ]
+[; ;comu_type.c: 57: EEPROM_download(spi1_Read_data);
+"57
+[e ( _EEPROM_download (1 _spi1_Read_data ]
+[; ;comu_type.c: 58: return 1;
+"58
+[e ) -> -> 1 `i `b ]
+[e $UE 963  ]
+"60
 }
-[; ;comu_type.c: 52: }
+[; ;comu_type.c: 60: }
 [e $U 968  ]
-"41
+"43
 [e :U 969 ]
 [e [\ _i , $ -> 0 `i 970
  , $ -> 1 `i 971
  , $ -> 2 `i 972
  , $ -> 3 `i 973
+ , $ -> 4 `i 974
+ , $ -> 5 `i 975
  968 ]
-"52
+"60
 [e :U 968 ]
-"53
+"61
 }
 [e :U 967 ]
-"54
+"62
 }
-"39
+"41
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 18 `i 964  ]
 [e :U 965 ]
-"54
+"62
 }
-[; ;comu_type.c: 53: }
-[; ;comu_type.c: 54: }
-[; ;comu_type.c: 55: return 0;
-"55
+[; ;comu_type.c: 61: }
+[; ;comu_type.c: 62: }
+[; ;comu_type.c: 63: return 0;
+"63
 [e ) -> -> 0 `i `b ]
 [e $UE 963  ]
-[; ;comu_type.c: 56: }
-"56
+[; ;comu_type.c: 64: }
+"64
 [e :UE 963 ]
 }

@@ -1,9 +1,50 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"12124 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18346.h
+[s S585 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S585 . RD WR WREN WRERR FREE LWLO NVMREGS ]
+"12133
+[s S586 :6 `uc 1 :1 `uc 1 ]
+[n S586 . . CFGS ]
+"12123
+[u S584 `S585 1 `S586 1 ]
+[n S584 . . . ]
+"12138
+[v _NVMCON1bits `VS584 ~T0 @X0 0 e@2197 ]
+"11139
+[v _NVMADRL `Vuc ~T0 @X0 0 e@2193 ]
+"11391
+[v _NVMADRH `Vuc ~T0 @X0 0 e@2194 ]
+"22125
+[v _RD `Vb ~T0 @X0 0 e@17576 ]
+"11641
+[v _NVMDATL `Vuc ~T0 @X0 0 e@2195 ]
+"11893
+[v _NVMDATH `Vuc ~T0 @X0 0 e@2196 ]
+"77 struct_header.h
+[s S960 `ui 1 `uc 1 `uc 1 `uc 1 `i 1 `i 1 `ui 1 `uc 1 `ul 1 ]
+[n S960 . cargoLength command index address linkAngleTo linkAngleBack passedTime clutchMode WorkingCount ]
+"88
+[v _cargoData `S960 ~T0 @X0 0 e ]
+"90
+[v _getCargoData `(S960 ~T0 @X0 0 ef ]
+"89
+[v _isMycargo `b ~T0 @X0 0 e ]
+"73 calibrate_mode.h
+[s S961 `uc 1 `ul 1 `uc 1 ]
+[n S961 . My_address WorkingCount endpoint ]
+"94
+[v _linkInfo `S961 ~T0 @X0 0 e ]
+"94 struct_header.h
+[v _restartCargo `(v ~T0 @X0 0 ef ]
+"90 spi_header.h
+[v _spi2_Send_data `uc ~T0 @X0 0 e ]
+"79 command_header.h
+[v _countabuf `ui ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic16f18346.h: 50: extern volatile unsigned char INDF0 @ 0x000;
-"52 E:\microchip\xc8\v1.45\include\pic16f18346.h
+"52 C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18346.h
 [; ;pic16f18346.h: 52: asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
 [; ;pic16f18346.h: 55: typedef union {
@@ -7628,84 +7669,165 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-"7 eeprom.c
-[; ;eeprom.c: 7: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom_header.h: 73: extern void EEPROM_download(unsigned char spi_Read_data);
+"74 eeprom_header.h
+[v _eeprom_address `uc ~T0 @X0 1 e ]
+[; ;eeprom_header.h: 74: unsigned char eeprom_address;
+[; ;eeprom_header.h: 75: void ReadEEPROM (int addr);
+"74 struct_header.h
+[v _st_dataLength `ui ~T0 @X0 1 e ]
+[i _st_dataLength
+-> 65535 `ui
+]
+[; ;struct_header.h: 74: extern unsigned int st_dataLength = 0xFFFF;
+"75
+[v _st_type `uc ~T0 @X0 1 e ]
+[i _st_type
+-> -> 0 `i `uc
+]
+[; ;struct_header.h: 75: extern unsigned char st_type = 0x00;
+"76
+[v _SPI_OFFSET_BYTE `uc ~T0 @X0 1 e ]
+[i _SPI_OFFSET_BYTE
+-> -> 1 `i `uc
+]
+[; ;struct_header.h: 76: extern unsigned char SPI_OFFSET_BYTE = 0x01;
+[; ;struct_header.h: 77: typedef struct {
+[; ;struct_header.h: 78: unsigned int cargoLength;
+[; ;struct_header.h: 79: unsigned char command;
+[; ;struct_header.h: 80: unsigned char index;
+[; ;struct_header.h: 81: unsigned char address;
+[; ;struct_header.h: 82: int linkAngleTo;
+[; ;struct_header.h: 83: int linkAngleBack;
+[; ;struct_header.h: 84: unsigned int passedTime;
+[; ;struct_header.h: 85: unsigned char clutchMode;
+[; ;struct_header.h: 86: unsigned long WorkingCount;
+[; ;struct_header.h: 87: } CargoData;
+[; ;struct_header.h: 88: extern CargoData cargoData;
+[; ;struct_header.h: 89: extern bit isMycargo;
+[; ;struct_header.h: 90: extern CargoData getCargoData(void);
+[; ;struct_header.h: 91: extern void setCargoData(CargoData m_cargoData);
+[; ;struct_header.h: 92: extern void initCargo(void);
+[; ;struct_header.h: 93: extern void resetCargo(void);
+[; ;struct_header.h: 94: extern void restartCargo(void);
+[; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
+[; ;command_header.h: 72: extern unsigned char command[18];
+[; ;command_header.h: 73: extern void initComand(void);
+[; ;command_header.h: 74: extern bit setCommandMode(unsigned char m_command);
+[; ;command_header.h: 75: extern bit action(unsigned char comannd);
+[; ;command_header.h: 76: extern bit clutchaction(unsigned char comannd);
+[; ;command_header.h: 77: extern unsigned char readOK;
+[; ;command_header.h: 78: extern unsigned char readNG;
+[; ;command_header.h: 79: extern unsigned int countabuf;
+[; ;command_header.h: 80: extern bit isMycargo;
+"72 calibrate_mode.h
+[v _isCalibrated `b ~T0 @X0 1 e ]
+[i _isCalibrated
+-> 0 `i
+]
+[; ;calibrate_mode.h: 72: extern bit isCalibrated = 0;
+[; ;calibrate_mode.h: 73: typedef struct {
+[; ;calibrate_mode.h: 74: unsigned char My_address;
+[; ;calibrate_mode.h: 75: unsigned long WorkingCount;
+[; ;calibrate_mode.h: 76: unsigned char endpoint;
+[; ;calibrate_mode.h: 77: }LinkInfo;
+[; ;calibrate_mode.h: 79: typedef struct {
+[; ;calibrate_mode.h: 80: unsigned int cargoLength;
+[; ;calibrate_mode.h: 81: unsigned char command;
+[; ;calibrate_mode.h: 82: unsigned char index;
+[; ;calibrate_mode.h: 83: unsigned long WorkingCount;
+[; ;calibrate_mode.h: 84: unsigned char endpoint;
+[; ;calibrate_mode.h: 85: }Clalibdata;
+[; ;calibrate_mode.h: 88: extern void Calibrate_download(unsigned char spi_Read_data);
+[; ;calibrate_mode.h: 89: extern void InitCalibrate(void);
+[; ;calibrate_mode.h: 90: bit isEndpoint(void);
+[; ;calibrate_mode.h: 91: extern void setLinkNo(unsigned char workingCounta);
+[; ;calibrate_mode.h: 92: extern unsigned int getVENDER_ID(void);
+[; ;calibrate_mode.h: 93: extern unsigned int getMACHINE_ID(void);
+[; ;calibrate_mode.h: 94: extern LinkInfo linkInfo;
+[; ;calibrate_mode.h: 95: extern Clalibdata calibdata;
+[; ;spi_header.h: 77: extern void spi_init();
+[; ;spi_header.h: 78: extern void spi1_init(void);
+[; ;spi_header.h: 79: extern void spi2_init(void);
+[; ;spi_header.h: 80: extern unsigned char spi1_buffer_data[256];
+[; ;spi_header.h: 81: extern unsigned char spi2_buffer_data[256];
+[; ;spi_header.h: 82: extern unsigned char spi1_send_buffer_data[256];
+[; ;spi_header.h: 83: extern unsigned int read_count1;
+[; ;spi_header.h: 84: extern unsigned int count1;
+[; ;spi_header.h: 85: extern unsigned int read_count2;
+[; ;spi_header.h: 86: extern unsigned int count2;
+[; ;spi_header.h: 87: extern unsigned int spi1_send_count;
+[; ;spi_header.h: 88: extern unsigned int send_count1;
+[; ;spi_header.h: 89: extern unsigned char spi1_Read_data;
+[; ;spi_header.h: 90: extern unsigned char spi2_Send_data;
+[; ;spi_header.h: 92: extern bit isSPI1read(void);
+[; ;spi_header.h: 93: extern bit isSPI2read(void);
+[; ;spi_header.h: 94: extern bit isSPI1send(void);
+[; ;spi_header.h: 95: extern void setSPI1sendData(void);
+[; ;spi_header.h: 96: extern void setSPI2sendData(void);
+[; ;spi_header.h: 97: extern void setSPI1sendDataManual(unsigned char data);
+"11 eeprom.c
+[; ;eeprom.c: 11: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x01" "," "0x45" "," "0x43" "," "0x4F");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
-"8
-[; ;eeprom.c: 8: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
-[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
-"9
-[; ;eeprom.c: 9: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
-[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
-"10
-[; ;eeprom.c: 10: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
-[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
-"11
-[; ;eeprom.c: 11: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
-[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0xFF,0xFF,0xFF,0xFF,0x01,0x45,0x43,0x4F ;# ">
 "12
-[; ;eeprom.c: 12: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 12: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x42" "," "0x4F" "," "0x54" "," "0x20" "," "0x4C" "," "0x43" "," "0x43" "," "0x2E");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x42,0x4F,0x54,0x20,0x4C,0x43,0x43,0x2E ;# ">
 "13
-[; ;eeprom.c: 13: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 13: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x02" "," "0x00" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0xFF,0xFF,0xFF,0xFF,0x02,0x00,0x00,0x00 ;# ">
 "14
-[; ;eeprom.c: 14: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 14: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x01" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x02" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x01,0xFF,0xFF,0xFF,0xFF,0x02,0x00,0x00 ;# ">
+"15
+[; ;eeprom.c: 15: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x01" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x03" "," "0x03");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	0x00,0x01,0xFF,0xFF,0xFF,0xFF,0x03,0x03 ;# ">
 "16
-[; ;eeprom.c: 16: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 16: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x01" "," "0x00" "," "0x28" "," "0x03" "," "0x02" "," "0x00" "," "0x64" "," "0x03");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x01,0x00,0x28,0x03,0x02,0x00,0x64,0x03 ;# ">
 "17
-[; ;eeprom.c: 17: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 17: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x00" "," "0x48" "," "0x03" "," "0x04" "," "0x00" "," "0xC8" "," "0x03");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x03,0x00,0x48,0x03,0x04,0x00,0xC8,0x03 ;# ">
 "18
-[; ;eeprom.c: 18: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 18: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x05" "," "0x00" "," "0x00" "," "0x03" "," "0x06" "," "0x00" "," "0x52" "," "0x03");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
-"19
-[; ;eeprom.c: 19: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
-[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x05,0x00,0x00,0x03,0x06,0x00,0x52,0x03 ;# ">
 "20
-[; ;eeprom.c: 20: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 20: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x07" "," "0x00" "," "0x00" "," "0x02" "," "0x08" "," "0x00" "," "0x02" "," "0x09");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x07,0x00,0x00,0x02,0x08,0x00,0x02,0x09 ;# ">
 "21
-[; ;eeprom.c: 21: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 21: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x02" "," "0x0A" "," "0x01" "," "0x03" "," "0x0B" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x00,0x02,0x0A,0x01,0x03,0x0B,0x00,0x00 ;# ">
 "22
-[; ;eeprom.c: 22: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 22: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x0C" "," "0x00" "," "0x00" "," "0x03" "," "0x0D" "," "0x00" "," "0xB4");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x03,0x0C,0x00,0x00,0x03,0x0D,0x00,0xB4 ;# ">
 "23
-[; ;eeprom.c: 23: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 23: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x0E" "," "0x00" "," "0x00" "," "0x03" "," "0x0F" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x03,0x0E,0x00,0x00,0x03,0x0F,0x00,0x00 ;# ">
+"24
+[; ;eeprom.c: 24: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x10" "," "0x00" "," "0x00" "," "0x03" "," "0x11" "," "0x00" "," "0x00");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	0x03,0x10,0x00,0x00,0x03,0x11,0x00,0x00 ;# ">
 "25
-[; ;eeprom.c: 25: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 25: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x12" "," "0x00" "," "0x00" "," "0x03" "," "0x13" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0x03,0x12,0x00,0x00,0x03,0x13,0x00,0x00 ;# ">
 "26
-[; ;eeprom.c: 26: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; ;eeprom.c: 26: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFE" "," "0x00" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; <" 	db	0xFF,0xFF,0xFF,0xFF,0xFE,0x00,0x00,0x00 ;# ">
 "27
 [; ;eeprom.c: 27: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
-[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
-"28
-[; ;eeprom.c: 28: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
 "29
@@ -7724,6 +7846,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 32: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+"33
+[; ;eeprom.c: 33: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
 "34
 [; ;eeprom.c: 34: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
@@ -7734,10 +7860,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
 "36
 [; ;eeprom.c: 36: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
-[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
-[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
-"37
-[; ;eeprom.c: 37: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
 "38
@@ -7756,3 +7878,270 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eeprom.c: 41: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 [; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
 [; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+"42
+[; ;eeprom.c: 42: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+"43
+[; ;eeprom.c: 43: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+"44
+[; ;eeprom.c: 44: asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
+[; <" 	psect eeprom_data,class=EEDATA,delta=2,space=3,noexec ;# ">
+[; <" 	db	0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00 ;# ">
+[; ;eeprom.c: 50: unsigned char eeprom_address;
+"51
+[v _RaadData `uc ~T0 @X0 -> 2 `i e ]
+[; ;eeprom.c: 51: unsigned char RaadData[2];
+"52
+[v _EEPROM_ADDR_buf `i ~T0 @X0 1 e ]
+[i _EEPROM_ADDR_buf
+-> 0 `i
+]
+[; ;eeprom.c: 52: int EEPROM_ADDR_buf = 0;
+"53
+[v _SIZE_COUNT `i ~T0 @X0 1 e ]
+[; ;eeprom.c: 53: int SIZE_COUNT;
+"54
+[v _ReadEEPROM `(v ~T0 @X0 1 ef1`i ]
+"55
+{
+[; ;eeprom.c: 54: void ReadEEPROM (int addr)
+[; ;eeprom.c: 55: {
+[e :U _ReadEEPROM ]
+"54
+[v _addr `i ~T0 @X0 1 r1 ]
+"55
+[f ]
+"56
+[v _Hiadr `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 56: unsigned char Hiadr = addr >> 8 & 0xFF;
+[e = _Hiadr -> & >> _addr -> 8 `i -> 255 `i `uc ]
+"57
+[v _Loadr `uc ~T0 @X0 1 a ]
+[; ;eeprom.c: 57: unsigned char Loadr = addr & 0xFF;
+[e = _Loadr -> & _addr -> 255 `i `uc ]
+[; ;eeprom.c: 58: NVMCON1bits.NVMREGS = 1;
+"58
+[e = . . _NVMCON1bits 0 6 -> -> 1 `i `uc ]
+[; ;eeprom.c: 59: NVMADRL = Loadr;
+"59
+[e = _NVMADRL _Loadr ]
+[; ;eeprom.c: 60: NVMADRH = Hiadr;
+"60
+[e = _NVMADRH _Hiadr ]
+[; ;eeprom.c: 61: NVMCON1bits.RD = 1;
+"61
+[e = . . _NVMCON1bits 0 0 -> -> 1 `i `uc ]
+[; ;eeprom.c: 62: RD = 1;
+"62
+[e = _RD -> -> 1 `i `b ]
+[; ;eeprom.c: 64: RaadData[0] = NVMDATL;
+"64
+[e = *U + &U _RaadData * -> -> -> 0 `i `ui `ux -> -> # *U &U _RaadData `ui `ux _NVMDATL ]
+[; ;eeprom.c: 65: RaadData[1] = NVMDATH;
+"65
+[e = *U + &U _RaadData * -> -> -> 1 `i `ui `ux -> -> # *U &U _RaadData `ui `ux _NVMDATH ]
+[; ;eeprom.c: 66: }
+"66
+[e :UE 963 ]
+}
+"70
+[v _EEPROM_download `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;eeprom.c: 70: void EEPROM_download(unsigned char spi1_Read_data){
+[e :U _EEPROM_download ]
+[v _spi1_Read_data `uc ~T0 @X0 1 r1 ]
+[f ]
+"71
+[v _bufint `ui ~T0 @X0 1 a ]
+[; ;eeprom.c: 71: unsigned int bufint = spi1_Read_data;
+[e = _bufint -> _spi1_Read_data `ui ]
+"72
+[v _buflong `ul ~T0 @X0 1 a ]
+[; ;eeprom.c: 72: unsigned long buflong = spi1_Read_data;
+[e = _buflong -> _spi1_Read_data `ul ]
+[; ;eeprom.c: 73: cargoData = getCargoData();
+"73
+[e = _cargoData ( _getCargoData ..  ]
+[; ;eeprom.c: 74: if(isMycargo){
+"74
+[e $ ! _isMycargo 965  ]
+{
+[; ;eeprom.c: 75: switch(countabuf){
+"75
+[e $U 967  ]
+{
+[; ;eeprom.c: 76: case 0:
+"76
+[e :U 968 ]
+[; ;eeprom.c: 77: cargoData.cargoLength = (bufint << 8 | 0x00FF);
+"77
+[e = . _cargoData 0 | << _bufint -> 8 `i -> -> 255 `i `ui ]
+[; ;eeprom.c: 78: break;
+"78
+[e $U 966  ]
+[; ;eeprom.c: 79: case 1:
+"79
+[e :U 969 ]
+[; ;eeprom.c: 80: cargoData.cargoLength = cargoData.cargoLength & (bufint | 0xFF00);
+"80
+[e = . _cargoData 0 & . _cargoData 0 | _bufint -> 65280 `ui ]
+[; ;eeprom.c: 81: break;
+"81
+[e $U 966  ]
+[; ;eeprom.c: 82: case 2:
+"82
+[e :U 970 ]
+[; ;eeprom.c: 83: cargoData.command = spi1_Read_data;
+"83
+[e = . _cargoData 1 _spi1_Read_data ]
+[; ;eeprom.c: 84: break;
+"84
+[e $U 966  ]
+[; ;eeprom.c: 85: case 3:
+"85
+[e :U 971 ]
+[; ;eeprom.c: 86: cargoData.index = spi1_Read_data;
+"86
+[e = . _cargoData 2 _spi1_Read_data ]
+[; ;eeprom.c: 87: break;
+"87
+[e $U 966  ]
+[; ;eeprom.c: 88: case 4:
+"88
+[e :U 972 ]
+[; ;eeprom.c: 89: cargoData.address = spi1_Read_data;
+"89
+[e = . _cargoData 3 _spi1_Read_data ]
+[; ;eeprom.c: 90: if(cargoData.address != linkInfo.My_address){
+"90
+[e $ ! != -> . _cargoData 3 `i -> . _linkInfo 0 `i 973  ]
+{
+[; ;eeprom.c: 91: restartCargo();
+"91
+[e ( _restartCargo ..  ]
+[; ;eeprom.c: 92: isMycargo = 0;
+"92
+[e = _isMycargo -> -> 0 `i `b ]
+"93
+}
+[; ;eeprom.c: 93: }else{
+[e $U 974  ]
+[e :U 973 ]
+{
+[; ;eeprom.c: 94: eeprom_address = 0;
+"94
+[e = _eeprom_address -> -> 0 `i `uc ]
+"95
+}
+[e :U 974 ]
+[; ;eeprom.c: 95: }
+[; ;eeprom.c: 96: break;
+"96
+[e $U 966  ]
+[; ;eeprom.c: 97: case 5:
+"97
+[e :U 975 ]
+[; ;eeprom.c: 98: EEPROM_ADDR_buf = 0xF000;
+"98
+[e = _EEPROM_ADDR_buf -> -> 61440 `ui `i ]
+[; ;eeprom.c: 99: SIZE_COUNT = 0;
+"99
+[e = _SIZE_COUNT -> 0 `i ]
+[; ;eeprom.c: 100: ReadEEPROM (EEPROM_ADDR_buf);
+"100
+[e ( _ReadEEPROM (1 _EEPROM_ADDR_buf ]
+[; ;eeprom.c: 101: spi2_Send_data = RaadData[0];
+"101
+[e = _spi2_Send_data *U + &U _RaadData * -> -> -> 0 `i `ui `ux -> -> # *U &U _RaadData `ui `ux ]
+[; ;eeprom.c: 102: break;
+"102
+[e $U 966  ]
+[; ;eeprom.c: 103: case 6:
+"103
+[e :U 976 ]
+[; ;eeprom.c: 104: spi2_Send_data = RaadData[1];
+"104
+[e = _spi2_Send_data *U + &U _RaadData * -> -> -> 1 `i `ui `ux -> -> # *U &U _RaadData `ui `ux ]
+[; ;eeprom.c: 105: break;
+"105
+[e $U 966  ]
+[; ;eeprom.c: 106: case 7:
+"106
+[e :U 977 ]
+[; ;eeprom.c: 107: EEPROM_ADDR_buf++;
+"107
+[e ++ _EEPROM_ADDR_buf -> 1 `i ]
+[; ;eeprom.c: 108: SIZE_COUNT = 0;
+"108
+[e = _SIZE_COUNT -> 0 `i ]
+[; ;eeprom.c: 109: ReadEEPROM (EEPROM_ADDR_buf);
+"109
+[e ( _ReadEEPROM (1 _EEPROM_ADDR_buf ]
+[; ;eeprom.c: 110: spi2_Send_data = RaadData[0];
+"110
+[e = _spi2_Send_data *U + &U _RaadData * -> -> -> 0 `i `ui `ux -> -> # *U &U _RaadData `ui `ux ]
+[; ;eeprom.c: 111: break;
+"111
+[e $U 966  ]
+"113
+}
+[; ;eeprom.c: 113: }
+[e $U 966  ]
+"75
+[e :U 967 ]
+[e [\ _countabuf , $ -> -> 0 `i `ui 968
+ , $ -> -> 1 `i `ui 969
+ , $ -> -> 2 `i `ui 970
+ , $ -> -> 3 `i `ui 971
+ , $ -> -> 4 `i `ui 972
+ , $ -> -> 5 `i `ui 975
+ , $ -> -> 6 `i `ui 976
+ , $ -> -> 7 `i `ui 977
+ 966 ]
+"113
+[e :U 966 ]
+"114
+}
+[e :U 965 ]
+[; ;eeprom.c: 114: }
+[; ;eeprom.c: 115: if(countabuf >= 7 ){
+"115
+[e $ ! >= _countabuf -> -> 7 `i `ui 978  ]
+{
+[; ;eeprom.c: 116: countabuf--;
+"116
+[e -- _countabuf -> -> 1 `i `ui ]
+"117
+}
+[; ;eeprom.c: 117: }else{
+[e $U 979  ]
+[e :U 978 ]
+{
+[; ;eeprom.c: 118: countabuf++;
+"118
+[e ++ _countabuf -> -> 1 `i `ui ]
+"119
+}
+[e :U 979 ]
+[; ;eeprom.c: 119: }
+[; ;eeprom.c: 120: if(0xF0FF <= EEPROM_ADDR_buf){
+"120
+[e $ ! <= -> 61695 `ui -> _EEPROM_ADDR_buf `ui 980  ]
+{
+[; ;eeprom.c: 121: countabuf = 0;
+"121
+[e = _countabuf -> -> 0 `i `ui ]
+[; ;eeprom.c: 122: isMycargo = 1;
+"122
+[e = _isMycargo -> -> 1 `i `b ]
+"123
+}
+[e :U 980 ]
+[; ;eeprom.c: 123: }
+[; ;eeprom.c: 124: }
+"124
+[e :UE 964 ]
+}

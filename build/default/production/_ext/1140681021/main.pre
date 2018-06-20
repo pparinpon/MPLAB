@@ -10113,6 +10113,11 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
+# 73 "D:/programdata/16F18346_Link_IC.X/eeprom_header.h"
+extern void EEPROM_download(unsigned char spi_Read_data);
+unsigned char eeprom_address;
+void ReadEEPROM (int addr);
+
 # 77 "D:/programdata/16F18346_Link_IC.X/spi_header.h"
 extern void spi_init();
 extern void spi1_init(void);
@@ -10128,7 +10133,7 @@ extern unsigned int spi1_send_count;
 extern unsigned int send_count1;
 extern unsigned char spi1_Read_data;
 extern unsigned char spi2_Send_data;
-
+extern bit isSendSPI2;
 extern bit isSPI1read(void);
 extern bit isSPI2read(void);
 extern bit isSPI1send(void);
@@ -10235,27 +10240,30 @@ bit isTrainSt(unsigned char buf);
 bit ra3condision = 0;
 void interrupt InterMSSP( void )
 {
-if (PIR1bits.SSP1IF == 1) {
+if (PIR1bits.SSP1IF) {
 
-spi1_buffer_data[count1] = SSP1BUF -SPI_OFFSET_BYTE;
+unsigned char buf = SSP1BUF;
+if(buf > 0){
+spi1_buffer_data[count1] = buf -SPI_OFFSET_BYTE;
 setSPI1sendData();
 count1++;
+}
 if(count1 == 256){
 count1 = 0;
 }
-}else if (PIR2bits.SSP2IF == 1) {
-
-spi2_buffer_data[count2] = SSP2BUF;
-count2++;
-if(count2 == 256){
-count2 = 0;
 }
-}else if(IOCAFbits.IOCAF3 == 1){
+if (PIR2bits.SSP2IF) {
+isSendSPI2 = 0;
+
+# 90
+PIR2bits.SSP2IF = 0 ;
+}
+if(IOCAFbits.IOCAF3 == 1){
 
 addAngle();
 }
 PIR1bits.SSP1IF = 0 ;
-PIR2bits.SSP2IF = 0 ;
+
 IOCAFbits.IOCAF3 = 0;
 PIR0bits.IOCIF = 0;
 PIR0bits.INTF = 0;

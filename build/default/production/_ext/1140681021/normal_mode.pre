@@ -10165,7 +10165,7 @@ extern unsigned int spi1_send_count;
 extern unsigned int send_count1;
 extern unsigned char spi1_Read_data;
 extern unsigned char spi2_Send_data;
-
+extern bit isSendSPI2;
 extern bit isSPI1read(void);
 extern bit isSPI2read(void);
 extern bit isSPI1send(void);
@@ -10192,9 +10192,6 @@ extern int TransInt256To255(int data);
 
 # 12 "D:/programdata/16F18346_Link_IC.X/normal_mode.c"
 CargoData cargoData;
-
-unsigned int cargoLengthnuf = 0;
-unsigned long cargoWorkingCount = 0;
 
 void readCargo(unsigned char spi1_Read_data){
 unsigned int bufint = spi1_Read_data;
@@ -10262,8 +10259,6 @@ break;
 
 countabuf++;
 if(cargoData.cargoLength <= countabuf){
-cargoLengthnuf = 0;
-cargoWorkingCount = 0;
 cargoData.cargoLength = 0xFFFF;
 countabuf = 0;
 isMycargo = 1;

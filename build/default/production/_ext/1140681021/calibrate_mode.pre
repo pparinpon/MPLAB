@@ -10101,7 +10101,7 @@ extern unsigned int spi1_send_count;
 extern unsigned int send_count1;
 extern unsigned char spi1_Read_data;
 extern unsigned char spi2_Send_data;
-
+extern bit isSendSPI2;
 extern bit isSPI1read(void);
 extern bit isSPI2read(void);
 extern bit isSPI1send(void);
@@ -10208,7 +10208,7 @@ spi2data = spi2_buffer_data[count2];
 if(spi2data < 255){
 isEndPointTrig = 0;
 }else{
-setSPI1sendDataManual(0x00);
+setSPI1sendDataManual(0x01);
 }
 
 return isEndPointTrig;
@@ -10283,10 +10283,11 @@ linkInfo.endpoint = 0;
 }
 spi2_Send_data = linkInfo.My_address;
 isEndPointTrig = 0;
+resetCargo();
 break;
 }
 if(isEndPointTrig){
-spi2_Send_data = 0x00;
+spi2_Send_data = 0x01;
 }
 
 

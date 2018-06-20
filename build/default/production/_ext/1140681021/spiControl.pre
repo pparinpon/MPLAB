@@ -10101,7 +10101,7 @@ extern unsigned int spi1_send_count;
 extern unsigned int send_count1;
 extern unsigned char spi1_Read_data;
 extern unsigned char spi2_Send_data;
-
+extern bit isSendSPI2;
 extern bit isSPI1read(void);
 extern bit isSPI2read(void);
 extern bit isSPI1send(void);
@@ -10171,8 +10171,7 @@ unsigned int spi1_send_count = 0;
 unsigned int send_count1 = 0;
 unsigned char spi1_Read_data = 0;
 unsigned char spi2_Send_data = 0;
-
-
+bit isSendSPI2;
 
 void spi_init(void){
 INTCONbits.PEIE = 0;
@@ -10207,7 +10206,7 @@ SSP2CON3bits.PCIE = 0;
 RA2PPS = 0b11011;
 RB7PPS = 0b11010;
 SSP2SSPPSbits.SSP2SSPPS = 0b01111;
-SSP2CON1bits.SSPOV = 1;
+SSP2CON1bits.SSPOV = 0;
 SSP2CON1bits.SSPEN = 1;
 SSP2CON1bits.SSPM = 0b0001;
 SSP2CON3bits.BOEN = 1;
@@ -10245,16 +10244,14 @@ return 0;
 }
 
 void setSPI1sendData(void){
-if(!(isSPI2read() == 1)){
+if(!isSPI2read() == 1){
 SSP1BUF = spi2_buffer_data[read_count2];
 read_count2++;
 if(read_count2 == 256){
 read_count2 = 0;
-
 }
 }else{
-
-SSP1BUF = 0x01;
+SSP1BUF = 0x00;
 }
 }
 void setSPI1sendDataManual(unsigned char data){
@@ -10263,8 +10260,15 @@ SSP1BUF = data;
 void setSPI2sendData(void){
 spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
 if(linkInfo.endpoint == 0){
-
 SSP2BUF = spi2_Send_data;
+
+isSendSPI2 = 1;
+while(isSendSPI2);
+spi2_buffer_data[count2] = SSP2BUF;
+count2++;
+if(count2 == 256){
+count2 = 0;
+}
 }else{
 spi2_buffer_data[count2] = spi2_Send_data;
 count2++;

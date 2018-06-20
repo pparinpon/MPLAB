@@ -11,9 +11,6 @@
 
 CargoData cargoData;
 
-unsigned int cargoLengthnuf = 0;
-unsigned long cargoWorkingCount = 0;
-
 void readCargo(unsigned char spi1_Read_data){
     unsigned int bufint  = spi1_Read_data;
     unsigned long buflong = spi1_Read_data;
@@ -80,8 +77,6 @@ void readCargo(unsigned char spi1_Read_data){
 
     countabuf++;  
     if(cargoData.cargoLength <= countabuf){
-        cargoLengthnuf = 0;
-        cargoWorkingCount = 0;
         cargoData.cargoLength = 0xFFFF;
         countabuf = 0;
         isMycargo = 1;

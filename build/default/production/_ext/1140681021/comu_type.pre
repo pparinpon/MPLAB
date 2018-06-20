@@ -10108,7 +10108,7 @@ extern unsigned int spi1_send_count;
 extern unsigned int send_count1;
 extern unsigned char spi1_Read_data;
 extern unsigned char spi2_Send_data;
-
+extern bit isSendSPI2;
 extern bit isSPI1read(void);
 extern bit isSPI2read(void);
 extern bit isSPI1send(void);
@@ -10142,7 +10142,12 @@ extern unsigned int getMACHINE_ID(void);
 extern LinkInfo linkInfo;
 extern Clalibdata calibdata;
 
-# 15 "D:/programdata/16F18346_Link_IC.X/comu_type.c"
+# 73 "D:/programdata/16F18346_Link_IC.X/eeprom_header.h"
+extern void EEPROM_download(unsigned char spi_Read_data);
+unsigned char eeprom_address;
+void ReadEEPROM (int addr);
+
+# 17 "D:/programdata/16F18346_Link_IC.X/comu_type.c"
 unsigned char comu_types[18];
 
 
@@ -10180,6 +10185,12 @@ case 2:
 return 1;
 case 3:
 return 1;
+case 4:
+return 1;
+case 5:
+EEPROM_download(spi1_Read_data);
+return 1;
+
 }
 }
 }

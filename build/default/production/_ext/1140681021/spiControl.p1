@@ -7777,6 +7777,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;spi_header.h: 88: extern unsigned int send_count1;
 [; ;spi_header.h: 89: extern unsigned char spi1_Read_data;
 [; ;spi_header.h: 90: extern unsigned char spi2_Send_data;
+[; ;spi_header.h: 91: extern bit isSendSPI2;
 [; ;spi_header.h: 92: extern bit isSPI1read(void);
 [; ;spi_header.h: 93: extern bit isSPI2read(void);
 [; ;spi_header.h: 94: extern bit isSPI1send(void);
@@ -7891,339 +7892,369 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 [; ;spiControl.c: 18: unsigned char spi2_Send_data = 0;
-"22
+"19
+[v _isSendSPI2 `b ~T0 @X0 1 e ]
+[; ;spiControl.c: 19: bit isSendSPI2;
+"21
 [v _spi_init `(v ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 22: void spi_init(void){
+[; ;spiControl.c: 21: void spi_init(void){
 [e :U _spi_init ]
 [f ]
-[; ;spiControl.c: 23: INTCONbits.PEIE = 0;
-"23
+[; ;spiControl.c: 22: INTCONbits.PEIE = 0;
+"22
 [e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-[; ;spiControl.c: 24: INTCONbits.GIE = 0;
-"24
+[; ;spiControl.c: 23: INTCONbits.GIE = 0;
+"23
 [e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-[; ;spiControl.c: 25: spi1_init();
-"25
+[; ;spiControl.c: 24: spi1_init();
+"24
 [e ( _spi1_init ..  ]
-[; ;spiControl.c: 26: spi2_init();
-"26
+[; ;spiControl.c: 25: spi2_init();
+"25
 [e ( _spi2_init ..  ]
-[; ;spiControl.c: 27: INTCONbits.PEIE = 1;
-"27
+[; ;spiControl.c: 26: INTCONbits.PEIE = 1;
+"26
 [e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
-[; ;spiControl.c: 28: INTCONbits.GIE = 1;
-"28
+[; ;spiControl.c: 27: INTCONbits.GIE = 1;
+"27
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-[; ;spiControl.c: 30: }
-"30
+[; ;spiControl.c: 29: }
+"29
 [e :UE 963 ]
 }
-"33
+"32
 [v _spi1_init `(v ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 33: void spi1_init(){
+[; ;spiControl.c: 32: void spi1_init(){
 [e :U _spi1_init ]
 [f ]
-"34
+"33
 [v _dummy `uc ~T0 @X0 1 a ]
-[; ;spiControl.c: 34: unsigned char dummy;
-[; ;spiControl.c: 35: SSP1CON3bits.PCIE = 0;
-"35
+[; ;spiControl.c: 33: unsigned char dummy;
+[; ;spiControl.c: 34: SSP1CON3bits.PCIE = 0;
+"34
 [e = . . _SSP1CON3bits 0 6 -> -> 0 `i `uc ]
-[; ;spiControl.c: 36: RC2PPS = 0b11001;
-"36
+[; ;spiControl.c: 35: RC2PPS = 0b11001;
+"35
 [e = _RC2PPS -> -> 25 `i `uc ]
-[; ;spiControl.c: 37: SSP1SSPPSbits.SSP1SSPPS = 0b10110;
-"37
+[; ;spiControl.c: 36: SSP1SSPPSbits.SSP1SSPPS = 0b10110;
+"36
 [e = . . _SSP1SSPPSbits 0 0 -> -> 22 `i `uc ]
-[; ;spiControl.c: 38: SSP1CON1bits.SSPOV = 1;
-"38
+[; ;spiControl.c: 37: SSP1CON1bits.SSPOV = 1;
+"37
 [e = . . _SSP1CON1bits 0 3 -> -> 1 `i `uc ]
-[; ;spiControl.c: 39: SSP1CON1bits.SSPEN = 1;
-"39
+[; ;spiControl.c: 38: SSP1CON1bits.SSPEN = 1;
+"38
 [e = . . _SSP1CON1bits 0 2 -> -> 1 `i `uc ]
-[; ;spiControl.c: 40: SSP1CON1bits.SSPM = 0b0100;
-"40
+[; ;spiControl.c: 39: SSP1CON1bits.SSPM = 0b0100;
+"39
 [e = . . _SSP1CON1bits 0 0 -> -> 4 `i `uc ]
-[; ;spiControl.c: 41: SSP1CON3bits.BOEN = 1;
-"41
+[; ;spiControl.c: 40: SSP1CON3bits.BOEN = 1;
+"40
 [e = . . _SSP1CON3bits 0 4 -> -> 1 `i `uc ]
-[; ;spiControl.c: 42: SSP1STATbits.SMP = 0;
-"42
+[; ;spiControl.c: 41: SSP1STATbits.SMP = 0;
+"41
 [e = . . _SSP1STATbits 0 7 -> -> 0 `i `uc ]
-[; ;spiControl.c: 43: SSP1STATbits.CKE = 0;
-"43
+[; ;spiControl.c: 42: SSP1STATbits.CKE = 0;
+"42
 [e = . . _SSP1STATbits 0 6 -> -> 0 `i `uc ]
-[; ;spiControl.c: 44: SSP1CON1bits.CKP = 0;
-"44
+[; ;spiControl.c: 43: SSP1CON1bits.CKP = 0;
+"43
 [e = . . _SSP1CON1bits 0 1 -> -> 0 `i `uc ]
-[; ;spiControl.c: 45: PIE1bits.SSP1IE = 1;
-"45
+[; ;spiControl.c: 44: PIE1bits.SSP1IE = 1;
+"44
 [e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
-[; ;spiControl.c: 46: PIR1bits.SSP1IF = 0;
-"46
+[; ;spiControl.c: 45: PIR1bits.SSP1IF = 0;
+"45
 [e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
-[; ;spiControl.c: 47: dummy = SSP1BUF;
-"47
+[; ;spiControl.c: 46: dummy = SSP1BUF;
+"46
 [e = _dummy _SSP1BUF ]
-[; ;spiControl.c: 48: }
-"48
+[; ;spiControl.c: 47: }
+"47
 [e :UE 964 ]
 }
-"49
+"48
 [v _spi2_init `(v ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 49: void spi2_init(){
+[; ;spiControl.c: 48: void spi2_init(){
 [e :U _spi2_init ]
 [f ]
-"50
+"49
 [v _dummy `uc ~T0 @X0 1 a ]
-[; ;spiControl.c: 50: unsigned char dummy;
-[; ;spiControl.c: 51: SSP2CON3bits.PCIE = 0;
-"51
+[; ;spiControl.c: 49: unsigned char dummy;
+[; ;spiControl.c: 50: SSP2CON3bits.PCIE = 0;
+"50
 [e = . . _SSP2CON3bits 0 6 -> -> 0 `i `uc ]
-[; ;spiControl.c: 52: RA2PPS = 0b11011;
-"52
+[; ;spiControl.c: 51: RA2PPS = 0b11011;
+"51
 [e = _RA2PPS -> -> 27 `i `uc ]
-[; ;spiControl.c: 53: RB7PPS = 0b11010;
-"53
+[; ;spiControl.c: 52: RB7PPS = 0b11010;
+"52
 [e = _RB7PPS -> -> 26 `i `uc ]
-[; ;spiControl.c: 54: SSP2SSPPSbits.SSP2SSPPS = 0b01111;
-"54
+[; ;spiControl.c: 53: SSP2SSPPSbits.SSP2SSPPS = 0b01111;
+"53
 [e = . . _SSP2SSPPSbits 0 0 -> -> 15 `i `uc ]
-[; ;spiControl.c: 55: SSP2CON1bits.SSPOV = 1;
+[; ;spiControl.c: 54: SSP2CON1bits.SSPOV = 0;
+"54
+[e = . . _SSP2CON1bits 0 3 -> -> 0 `i `uc ]
+[; ;spiControl.c: 55: SSP2CON1bits.SSPEN = 1;
 "55
-[e = . . _SSP2CON1bits 0 3 -> -> 1 `i `uc ]
-[; ;spiControl.c: 56: SSP2CON1bits.SSPEN = 1;
-"56
 [e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
-[; ;spiControl.c: 57: SSP2CON1bits.SSPM = 0b0001;
-"57
+[; ;spiControl.c: 56: SSP2CON1bits.SSPM = 0b0001;
+"56
 [e = . . _SSP2CON1bits 0 0 -> -> 1 `i `uc ]
-[; ;spiControl.c: 58: SSP2CON3bits.BOEN = 1;
-"58
+[; ;spiControl.c: 57: SSP2CON3bits.BOEN = 1;
+"57
 [e = . . _SSP2CON3bits 0 4 -> -> 1 `i `uc ]
-[; ;spiControl.c: 59: SSP2STATbits.SMP = 0;
-"59
+[; ;spiControl.c: 58: SSP2STATbits.SMP = 0;
+"58
 [e = . . _SSP2STATbits 0 7 -> -> 0 `i `uc ]
-[; ;spiControl.c: 60: SSP2STATbits.CKE = 0;
-"60
+[; ;spiControl.c: 59: SSP2STATbits.CKE = 0;
+"59
 [e = . . _SSP2STATbits 0 6 -> -> 0 `i `uc ]
-[; ;spiControl.c: 61: SSP2CON1bits.CKP = 0;
-"61
+[; ;spiControl.c: 60: SSP2CON1bits.CKP = 0;
+"60
 [e = . . _SSP2CON1bits 0 1 -> -> 0 `i `uc ]
-[; ;spiControl.c: 62: PIE2bits.SSP2IE = 1;
-"62
+[; ;spiControl.c: 61: PIE2bits.SSP2IE = 1;
+"61
 [e = . . _PIE2bits 0 3 -> -> 1 `i `uc ]
-[; ;spiControl.c: 63: PIR2bits.SSP2IF = 0;
-"63
+[; ;spiControl.c: 62: PIR2bits.SSP2IF = 0;
+"62
 [e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]
-[; ;spiControl.c: 64: dummy = SSP2BUF;
-"64
+[; ;spiControl.c: 63: dummy = SSP2BUF;
+"63
 [e = _dummy _SSP2BUF ]
-[; ;spiControl.c: 65: }
-"65
+[; ;spiControl.c: 64: }
+"64
 [e :UE 965 ]
 }
-"67
+"66
 [v _isSPI1read `(b ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 67: bit isSPI1read(void){
+[; ;spiControl.c: 66: bit isSPI1read(void){
 [e :U _isSPI1read ]
 [f ]
-[; ;spiControl.c: 68: if(read_count1 == count1){
-"68
+[; ;spiControl.c: 67: if(read_count1 == count1){
+"67
 [e $ ! == _read_count1 _count1 967  ]
 {
-[; ;spiControl.c: 69: return 1;
-"69
+[; ;spiControl.c: 68: return 1;
+"68
 [e ) -> -> 1 `i `b ]
 [e $UE 966  ]
-"70
+"69
 }
-[; ;spiControl.c: 70: }else{
+[; ;spiControl.c: 69: }else{
 [e $U 968  ]
 [e :U 967 ]
 {
-[; ;spiControl.c: 71: return 0;
-"71
+[; ;spiControl.c: 70: return 0;
+"70
 [e ) -> -> 0 `i `b ]
 [e $UE 966  ]
-"72
+"71
 }
 [e :U 968 ]
-[; ;spiControl.c: 72: }
-[; ;spiControl.c: 74: }
-"74
+[; ;spiControl.c: 71: }
+[; ;spiControl.c: 73: }
+"73
 [e :UE 966 ]
 }
-"76
+"75
 [v _isSPI2read `(b ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 76: bit isSPI2read(void){
+[; ;spiControl.c: 75: bit isSPI2read(void){
 [e :U _isSPI2read ]
 [f ]
-[; ;spiControl.c: 77: if(read_count2 == count2){
-"77
+[; ;spiControl.c: 76: if(read_count2 == count2){
+"76
 [e $ ! == _read_count2 _count2 970  ]
 {
-[; ;spiControl.c: 78: return 1;
-"78
+[; ;spiControl.c: 77: return 1;
+"77
 [e ) -> -> 1 `i `b ]
 [e $UE 969  ]
-"79
+"78
 }
-[; ;spiControl.c: 79: }else{
+[; ;spiControl.c: 78: }else{
 [e $U 971  ]
 [e :U 970 ]
 {
-[; ;spiControl.c: 80: return 0;
-"80
+[; ;spiControl.c: 79: return 0;
+"79
 [e ) -> -> 0 `i `b ]
 [e $UE 969  ]
-"81
+"80
 }
 [e :U 971 ]
+[; ;spiControl.c: 80: }
 [; ;spiControl.c: 81: }
-[; ;spiControl.c: 82: }
-"82
+"81
 [e :UE 969 ]
 }
-"84
+"83
 [v _isSPI1send `(b ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 84: bit isSPI1send(void){
+[; ;spiControl.c: 83: bit isSPI1send(void){
 [e :U _isSPI1send ]
 [f ]
-[; ;spiControl.c: 85: if(send_count1 == spi1_send_count){
-"85
+[; ;spiControl.c: 84: if(send_count1 == spi1_send_count){
+"84
 [e $ ! == _send_count1 _spi1_send_count 973  ]
 {
-[; ;spiControl.c: 86: return 1;
-"86
+[; ;spiControl.c: 85: return 1;
+"85
 [e ) -> -> 1 `i `b ]
 [e $UE 972  ]
-"87
+"86
 }
-[; ;spiControl.c: 87: }else{
+[; ;spiControl.c: 86: }else{
 [e $U 974  ]
 [e :U 973 ]
 {
-[; ;spiControl.c: 88: return 0;
-"88
+[; ;spiControl.c: 87: return 0;
+"87
 [e ) -> -> 0 `i `b ]
 [e $UE 972  ]
-"89
+"88
 }
 [e :U 974 ]
+[; ;spiControl.c: 88: }
 [; ;spiControl.c: 89: }
-[; ;spiControl.c: 90: }
-"90
+"89
 [e :UE 972 ]
 }
-"92
+"91
 [v _setSPI1sendData `(v ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 92: void setSPI1sendData(void){
+[; ;spiControl.c: 91: void setSPI1sendData(void){
 [e :U _setSPI1sendData ]
 [f ]
-[; ;spiControl.c: 93: if(!(isSPI2read() == 1)){
-"93
-[e $ ! ! == -> ( _isSPI2read ..  `i -> 1 `i 976  ]
+[; ;spiControl.c: 92: if(!isSPI2read() == 1){
+"92
+[e $ ! == -> ! ( _isSPI2read ..  `i -> 1 `i 976  ]
 {
-[; ;spiControl.c: 94: SSP1BUF = spi2_buffer_data[read_count2];
-"94
+[; ;spiControl.c: 93: SSP1BUF = spi2_buffer_data[read_count2];
+"93
 [e = _SSP1BUF *U + &U _spi2_buffer_data * -> _read_count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux ]
-[; ;spiControl.c: 95: read_count2++;
-"95
+[; ;spiControl.c: 94: read_count2++;
+"94
 [e ++ _read_count2 -> -> 1 `i `ui ]
-[; ;spiControl.c: 96: if(read_count2 == 256){
-"96
+[; ;spiControl.c: 95: if(read_count2 == 256){
+"95
 [e $ ! == _read_count2 -> -> 256 `i `ui 977  ]
 {
-[; ;spiControl.c: 97: read_count2 = 0;
-"97
+[; ;spiControl.c: 96: read_count2 = 0;
+"96
 [e = _read_count2 -> -> 0 `i `ui ]
-"99
+"97
 }
 [e :U 977 ]
-"100
+"98
 }
-[; ;spiControl.c: 99: }
-[; ;spiControl.c: 100: }else{
+[; ;spiControl.c: 97: }
+[; ;spiControl.c: 98: }else{
 [e $U 978  ]
 [e :U 976 ]
 {
-[; ;spiControl.c: 102: SSP1BUF = 0x01;
-"102
-[e = _SSP1BUF -> -> 1 `i `uc ]
-"103
+[; ;spiControl.c: 99: SSP1BUF = 0x00;
+"99
+[e = _SSP1BUF -> -> 0 `i `uc ]
+"100
 }
 [e :U 978 ]
-[; ;spiControl.c: 103: }
-[; ;spiControl.c: 104: }
-"104
+[; ;spiControl.c: 100: }
+[; ;spiControl.c: 101: }
+"101
 [e :UE 975 ]
 }
-"105
+"102
 [v _setSPI1sendDataManual `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;spiControl.c: 105: void setSPI1sendDataManual(unsigned char data){
+[; ;spiControl.c: 102: void setSPI1sendDataManual(unsigned char data){
 [e :U _setSPI1sendDataManual ]
 [v _data `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;spiControl.c: 106: SSP1BUF = data;
-"106
+[; ;spiControl.c: 103: SSP1BUF = data;
+"103
 [e = _SSP1BUF _data ]
-[; ;spiControl.c: 107: }
-"107
+[; ;spiControl.c: 104: }
+"104
 [e :UE 979 ]
 }
-"108
+"105
 [v _setSPI2sendData `(v ~T0 @X0 1 ef ]
 {
-[; ;spiControl.c: 108: void setSPI2sendData(void){
+[; ;spiControl.c: 105: void setSPI2sendData(void){
 [e :U _setSPI2sendData ]
 [f ]
-[; ;spiControl.c: 109: spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
-"109
+[; ;spiControl.c: 106: spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
+"106
 [e = _spi2_Send_data -> + -> _spi2_Send_data `i -> _SPI_OFFSET_BYTE `i `uc ]
-[; ;spiControl.c: 110: if(linkInfo.endpoint == 0){
-"110
+[; ;spiControl.c: 107: if(linkInfo.endpoint == 0){
+"107
 [e $ ! == -> . _linkInfo 2 `i -> 0 `i 981  ]
 {
-[; ;spiControl.c: 112: SSP2BUF = spi2_Send_data;
-"112
+[; ;spiControl.c: 108: SSP2BUF = spi2_Send_data;
+"108
 [e = _SSP2BUF _spi2_Send_data ]
-"113
-}
-[; ;spiControl.c: 113: }else{
+[; ;spiControl.c: 110: isSendSPI2 = 1;
+"110
+[e = _isSendSPI2 -> -> 1 `i `b ]
+[; ;spiControl.c: 111: while(isSendSPI2);
+"111
 [e $U 982  ]
+[e :U 983 ]
+[e :U 982 ]
+[e $ _isSendSPI2 983  ]
+[e :U 984 ]
+[; ;spiControl.c: 112: spi2_buffer_data[count2] = SSP2BUF;
+"112
+[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _SSP2BUF ]
+[; ;spiControl.c: 113: count2++;
+"113
+[e ++ _count2 -> -> 1 `i `ui ]
+[; ;spiControl.c: 114: if(count2 == 256){
+"114
+[e $ ! == _count2 -> -> 256 `i `ui 985  ]
+{
+[; ;spiControl.c: 115: count2 = 0;
+"115
+[e = _count2 -> -> 0 `i `ui ]
+"116
+}
+[e :U 985 ]
+"117
+}
+[; ;spiControl.c: 116: }
+[; ;spiControl.c: 117: }else{
+[e $U 986  ]
 [e :U 981 ]
 {
-[; ;spiControl.c: 114: spi2_buffer_data[count2] = spi2_Send_data;
-"114
-[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _spi2_Send_data ]
-[; ;spiControl.c: 115: count2++;
-"115
-[e ++ _count2 -> -> 1 `i `ui ]
-[; ;spiControl.c: 116: if(count2 == 256){
-"116
-[e $ ! == _count2 -> -> 256 `i `ui 983  ]
-{
-[; ;spiControl.c: 117: count2 = 0;
-"117
-[e = _count2 -> -> 0 `i `ui ]
+[; ;spiControl.c: 118: spi2_buffer_data[count2] = spi2_Send_data;
 "118
-}
-[e :U 983 ]
+[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _spi2_Send_data ]
+[; ;spiControl.c: 119: count2++;
 "119
-}
-[e :U 982 ]
-[; ;spiControl.c: 118: }
-[; ;spiControl.c: 119: }
-[; ;spiControl.c: 120: }
+[e ++ _count2 -> -> 1 `i `ui ]
+[; ;spiControl.c: 120: if(count2 == 256){
 "120
+[e $ ! == _count2 -> -> 256 `i `ui 987  ]
+{
+[; ;spiControl.c: 121: count2 = 0;
+"121
+[e = _count2 -> -> 0 `i `ui ]
+"122
+}
+[e :U 987 ]
+"123
+}
+[e :U 986 ]
+[; ;spiControl.c: 122: }
+[; ;spiControl.c: 123: }
+[; ;spiControl.c: 124: }
+"124
 [e :UE 980 ]
 }
