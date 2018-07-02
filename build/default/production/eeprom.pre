@@ -1,17 +1,17 @@
 
 # 1 "eeprom.c"
 
-# 26 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\htc.h"
+# 26 "E:\microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\xc8debug.h"
+# 13 "E:\microchip\xc8\v1.45\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 50 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic16f18346.h"
+# 50 "E:\microchip\xc8\v1.45\include\pic16f18346.h"
 extern volatile unsigned char INDF0 @ 0x000;
 
 asm("INDF0 equ 00h");
@@ -10061,18 +10061,18 @@ extern volatile __bit nRWDT @ (((unsigned) &PCON0)*8) + 4;
 extern volatile __bit nTO @ (((unsigned) &STATUS)*8) + 4;
 
 
-# 28 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h"
+# 28 "E:\microchip\xc8\v1.45\include\pic.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
-# 114 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\eeprom_routines.h"
+# 114 "E:\microchip\xc8\v1.45\include\eeprom_routines.h"
 extern void eeprom_write(unsigned char addr, unsigned char value);
 extern unsigned char eeprom_read(unsigned char addr);
 extern void eecpymem(volatile unsigned char *to, __eeprom unsigned char *from, unsigned char size);
 extern void memcpyee(__eeprom unsigned char *to, const unsigned char *from, unsigned char size);
 
 
-# 152 "C:\Program Files (x86)\Microchip\xc8\v1.45\include\pic.h"
+# 152 "E:\microchip\xc8\v1.45\include\pic.h"
 #pragma intrinsic(_delay)
 extern __nonreentrant void _delay(unsigned long);
 #pragma intrinsic(_delaywdt)
@@ -10167,7 +10167,7 @@ extern unsigned int spi1_send_count;
 extern unsigned int send_count1;
 extern unsigned char spi1_Read_data;
 extern unsigned char spi2_Send_data;
-
+extern bit isSendSPI2;
 extern bit isSPI1read(void);
 extern bit isSPI2read(void);
 extern bit isSPI1send(void);
@@ -10176,11 +10176,11 @@ extern void setSPI2sendData(void);
 extern void setSPI1sendDataManual(unsigned char data);
 
 # 11 "eeprom.c"
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x01" "," "0x45" "," "0x43" "," "0x4F");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x01" "," "0x45" "," "0x43" "," "0x4F");
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x42" "," "0x4F" "," "0x54" "," "0x20" "," "0x4C" "," "0x43" "," "0x43" "," "0x2E");
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x02" "," "0x00" "," "0x00" "," "0x00");
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x01" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x02" "," "0x00" "," "0x00");
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x01" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0x03" "," "0x03");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x02" "," "0x00" "," "0x00" "," "0x00");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x01" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x02" "," "0x00" "," "0x00");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x01" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x03" "," "0x03");
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x01" "," "0x00" "," "0x28" "," "0x03" "," "0x02" "," "0x00" "," "0x64" "," "0x03");
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x00" "," "0x48" "," "0x03" "," "0x04" "," "0x00" "," "0xC8" "," "0x03");
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x05" "," "0x00" "," "0x00" "," "0x03" "," "0x06" "," "0x00" "," "0x52" "," "0x03");
@@ -10191,7 +10191,7 @@ asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x0E" "," "0x00" "," "0x00" "," "0x03" "," "0x0F" "," "0x00" "," "0x00");
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x10" "," "0x00" "," "0x00" "," "0x03" "," "0x11" "," "0x00" "," "0x00");
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x03" "," "0x12" "," "0x00" "," "0x00" "," "0x03" "," "0x13" "," "0x00" "," "0x00");
-asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0xFF" "," "0xFF" "," "0xFF" "," "0xFF" "," "0xFE" "," "0x00" "," "0x00" "," "0x00");
+asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0xFE" "," "0x00" "," "0x00" "," "0x00");
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
@@ -10212,10 +10212,10 @@ asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x
 asm("\tpsect eeprom_data,class=EEDATA,delta=2,space=3,noexec"); asm("\tdb\t" "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00" "," "0x00");
 
 # 50
-unsigned char eeprom_address;
 unsigned char RaadData[2];
 int EEPROM_ADDR_buf = 0;
 int SIZE_COUNT;
+bit isMyAddr = 0;
 void ReadEEPROM (int addr)
 {
 unsigned char Hiadr = addr >> 8 & 0xFF;
@@ -10256,32 +10256,30 @@ if(cargoData.address != linkInfo.My_address){
 restartCargo();
 isMycargo = 0;
 }else{
-eeprom_address = 0;
+LATAbits.LATA0 = ~LATAbits.LATA0;
+isMyAddr = 1;
+EEPROM_ADDR_buf = 0xF000;
 }
 break;
-case 5:
-EEPROM_ADDR_buf = 0xF000;
-SIZE_COUNT = 0;
+}
+}
+if(isMyAddr && countabuf > 4){
+
 ReadEEPROM (EEPROM_ADDR_buf);
 spi2_Send_data = RaadData[0];
-break;
-case 6:
-spi2_Send_data = RaadData[1];
-break;
-case 7:
-EEPROM_ADDR_buf++;
-SIZE_COUNT = 0;
-ReadEEPROM (EEPROM_ADDR_buf);
-spi2_Send_data = RaadData[0];
-break;
+
+
+EEPROM_ADDR_buf += 1;
 
 }
-}
-if(countabuf >= 7 ){
-countabuf--;
-}else{
 countabuf++;
+if(calibdata.cargoLength <= countabuf){
+calibdata.cargoLength = 0xFFFF;
+countabuf = 0;
+isMycargo = 1;
+isMyAddr = 0;
 }
+
 if(0xF0FF <= EEPROM_ADDR_buf){
 countabuf = 0;
 isMycargo = 1;

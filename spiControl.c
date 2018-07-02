@@ -16,8 +16,7 @@ unsigned int spi1_send_count = 0;
 unsigned int send_count1 = 0;
 unsigned char spi1_Read_data = 0;
 unsigned char spi2_Send_data = 0;
-
-
+bit isSendSPI2;
 
 void spi_init(void){
     INTCONbits.PEIE = 0;
@@ -52,14 +51,14 @@ void spi2_init(){
     RA2PPS = 0b11011;//RA2 is SDO2
     RB7PPS = 0b11010;//RB7 is SCK2
     SSP2SSPPSbits.SSP2SSPPS = 0b01111; //RB7
-    SSP2CON1bits.SSPOV = 1;
+    SSP2CON1bits.SSPOV = 0;
     SSP2CON1bits.SSPEN = 1;
     SSP2CON1bits.SSPM = 0b0001;
     SSP2CON3bits.BOEN = 1;
     SSP2STATbits.SMP = 0;
     SSP2STATbits.CKE = 0;
     SSP2CON1bits.CKP = 0;
-    PIE2bits.SSP2IE = 1;
+    PIE2bits.SSP2IE = 1;//1
     PIR2bits.SSP2IF = 0;
     dummy = SSP2BUF;
 }
@@ -90,16 +89,14 @@ bit isSPI1send(void){
 }
 
 void setSPI1sendData(void){
-    if(!(isSPI2read() == 1)){
+    if(!isSPI2read() == 1){
         SSP1BUF = spi2_buffer_data[read_count2];
         read_count2++;
         if(read_count2 == 256){
             read_count2 = 0;
-//        LATAbits.LATA0 = ~LATAbits.LATA0; 
         }
     }else{
-//        LATAbits.LATA0 = ~LATAbits.LATA0; 
-        SSP1BUF = 0x01;//link2 and link3 is 0xC8   
+        SSP1BUF = 0x00;//set must 0x01
     }
 }
 void setSPI1sendDataManual(unsigned char data){
@@ -108,8 +105,15 @@ void setSPI1sendDataManual(unsigned char data){
 void setSPI2sendData(void){
     spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
     if(linkInfo.endpoint == 0){
-//        LATAbits.LATA0 = ~LATAbits.LATA0;
         SSP2BUF = spi2_Send_data;
+                // SPI_recieve
+        isSendSPI2 = 1;
+        while(isSendSPI2);
+        spi2_buffer_data[count2] = SSP2BUF;
+        count2++;
+        if(count2 == 256){
+            count2 = 0;
+        }
     }else{
         spi2_buffer_data[count2] = spi2_Send_data;
         count2++;

@@ -38,7 +38,7 @@ bit isEndpoint(void){
     if(spi2data < 255){
         isEndPointTrig = 0;
     }else{
-        setSPI1sendDataManual(0x00);
+        setSPI1sendDataManual(0x01);//0x00
     }
 
     return isEndPointTrig; 
@@ -113,10 +113,11 @@ void Calibrate_download(unsigned char spi_Read_data){
             }
             spi2_Send_data = linkInfo.My_address;
             isEndPointTrig = 0;
+            resetCargo();           
             break;       
     }
     if(isEndPointTrig){
-        spi2_Send_data = 0x00;
+        spi2_Send_data = 0x01;
     }
     
     

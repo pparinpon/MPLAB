@@ -5,6 +5,7 @@
 #include "normal_mode_header.h"
 #include "spi_header.h"
 #include "calibrate_mode.h"
+#include "eeprom_header.h"
 #define Broad_Cast 0b00111111
 #define Auto_Increment 0b01111111
 #define Static_Addr 0b10011111
@@ -53,7 +54,7 @@ bit setComunicateMode(unsigned char m_type){
                 case 4:
                     return 1;   
                 case 5:
-                    // It is EEPRIM mode
+                    EEPROM_download(spi1_Read_data);
                     return 1;   
                     
             }

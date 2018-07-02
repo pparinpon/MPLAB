@@ -67,27 +67,29 @@ bit isTrainSt(unsigned char buf);
 bit ra3condision = 0;
 void interrupt InterMSSP( void )
 {
-    if (PIR1bits.SSP1IF == 1) {
+    if (PIR1bits.SSP1IF) {
         // SPI_recieve
-        spi1_buffer_data[count1] = SSP1BUF -SPI_OFFSET_BYTE;
-        setSPI1sendData();
+        unsigned char buf = SSP1BUF;
+        if(buf > 0){
+            spi1_buffer_data[count1] = buf -SPI_OFFSET_BYTE;
+            setSPI1sendData();
         count1++;
+        }
         if(count1 == 256){
             count1 = 0;
         }
-    }else if (PIR2bits.SSP2IF == 1) {
+    }
+    if (PIR2bits.SSP2IF) {
+        isSendSPI2 = 0;
         // SPI_recieve
-        spi2_buffer_data[count2] = SSP2BUF;
-        count2++;
-        if(count2 == 256){
-            count2 = 0;
-        }
-    }else if(IOCAFbits.IOCAF3 == 1){
+        PIR2bits.SSP2IF = 0;
+    }
+    if(IOCAFbits.IOCAF3 == 1){
         //interruptIO
         addAngle();
     }
         PIR1bits.SSP1IF = 0 ;
-        PIR2bits.SSP2IF = 0 ;
+
         IOCAFbits.IOCAF3 = 0;
         PIR0bits.IOCIF = 0;
         PIR0bits.INTF = 0;

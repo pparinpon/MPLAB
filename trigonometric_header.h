@@ -28,8 +28,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef XC_HEADER_SPI_H
-#define	XC_HEADER_SPI_H
+#ifndef XC_HEADER_TEMPLATE_H
+#define	XC_HEADER_TEMPLATE_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
@@ -43,12 +43,7 @@
 /**
     <p><b>Function prototype:</b></p>
   
-    <p><b>Summary:
- * spi1 is slave setting.
- * spi2 is master setting.
- * 
- * 
- * </b></p>
+    <p><b>Summary:</b></p>
 
     <p><b>Description:</b></p>
 
@@ -72,32 +67,21 @@
 extern "C" {
 #endif /* __cplusplus */
 #include "global_header.h"
+    GLOBAL float getSin(float data);
+    GLOBAL float getCos(float data);
+    typedef struct{
+        float data;
+        int digit;
+    }Number; 
+    Number calMultiplication(Number data);
+    Number setNumber(float data);
+    
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code. 
-    GLOBAL void spi_init();
-    GLOBAL void spi1_init(void);
-    GLOBAL void spi2_init(void);
-    GLOBAL unsigned char spi1_buffer_data[256];  // SPI_data_byte
-    GLOBAL unsigned char spi2_buffer_data[256];  // SPI_data_byte
-    GLOBAL unsigned char spi1_send_buffer_data[256];  // SPI1_send_data_byte
-    GLOBAL unsigned int read_count1;
-    GLOBAL unsigned int count1;
-    GLOBAL unsigned int read_count2;
-    GLOBAL unsigned int count2;
-    GLOBAL unsigned int spi1_send_count; // this is in data pointa;
-    GLOBAL unsigned int send_count1; // this is now in data pointa;
-    GLOBAL unsigned char spi1_Read_data;
-    GLOBAL unsigned char spi2_Send_data;
-    GLOBAL bit isSendSPI2; 
-    GLOBAL bit isSPI1read(void);
-    GLOBAL bit isSPI2read(void);
-    GLOBAL bit isSPI1send(void);
-    GLOBAL void setSPI1sendData(void);
-    GLOBAL void setSPI2sendData(void);
-    GLOBAL void setSPI1sendDataManual(unsigned char data);
+
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
 
-#endif	/* XC_HEADER_SPI_H */
+#endif	/* XC_HEADER_TEMPLATE_H */
 
