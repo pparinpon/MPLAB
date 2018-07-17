@@ -9,6 +9,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS25 ~T0 @X0 0 e@11 ]
 "78 D:/programdata/16F18346_Link_IC.X/spi_header.h
 [v _spi1_init `(v ~T0 @X0 0 ef ]
+"79
+[v _spi2_init `(v ~T0 @X0 0 ef ]
 "5380 E:\microchip\xc8\v1.45\include\pic16f18346.h
 [s S255 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S255 . DHEN AHEN SBCDE SDAHT BOEN SCIE PCIE ACKTIM ]
@@ -67,6 +69,71 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS35 ~T0 @X0 0 e@17 ]
 "4093
 [v _SSP1BUF `Vuc ~T0 @X0 0 e@529 ]
+"6143
+[s S284 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S284 . DHEN AHEN SBCDE SDAHT BOEN SCIE PCIE ACKTIM ]
+"6142
+[u S283 `S284 1 ]
+[n S283 . . ]
+"6154
+[v _SSP2CON3bits `VS283 ~T0 @X0 0 e@543 ]
+"14700
+[v _RA2PPS `Vuc ~T0 @X0 0 e@3730 ]
+"15012
+[v _RB7PPS `Vuc ~T0 @X0 0 e@3743 ]
+"14002
+[s S688 :5 `uc 1 ]
+[n S688 . SSP2SSPPS ]
+"14005
+[s S689 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S689 . SSP2SSPPS0 SSP2SSPPS1 SSP2SSPPS2 SSP2SSPPS3 SSP2SSPPS4 ]
+"14001
+[u S687 `S688 1 `S689 1 ]
+[n S687 . . . ]
+"14013
+[v _SSP2SSPPSbits `VS687 ~T0 @X0 0 e@3615 ]
+"5948
+[s S276 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S276 . SSPM CKP SSPEN SSPOV WCOL ]
+"5955
+[s S277 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S277 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"5947
+[u S275 `S276 1 `S277 1 ]
+[n S275 . . . ]
+"5962
+[v _SSP2CON1bits `VS275 ~T0 @X0 0 e@541 ]
+"5881
+[s S274 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S274 . BF UA R_nW S P D_nA CKE SMP ]
+"5880
+[u S273 `S274 1 ]
+[n S273 . . ]
+"5892
+[v _SSP2STATbits `VS273 ~T0 @X0 0 e@540 ]
+"1795
+[s S91 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S91 . NCO1IE TMR4IE BCL2IE SSP2IE NVMIE C1IE C2IE TMR6IE ]
+"1794
+[u S90 `S91 1 ]
+[n S90 . . ]
+"1806
+[v _PIE2bits `VS90 ~T0 @X0 0 e@146 ]
+"634
+[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S38 . NCO1IF TMR4IF BCL2IF SSP2IF NVMIF C1IF C2IF TMR6IF ]
+"633
+[u S37 `S38 1 ]
+[n S37 . . ]
+"645
+[v _PIR2bits `VS37 ~T0 @X0 0 e@18 ]
+"5491
+[v _SSP2BUF `Vuc ~T0 @X0 0 e@537 ]
+"73 D:/programdata/16F18346_Link_IC.X/calibrate_mode.h
+[s S960 `uc 1 `ul 1 `uc 1 ]
+[n S960 . My_address WorkingCount endpoint ]
+"94
+[v _linkInfo `S960 ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7843,6 +7910,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;spiControl.c: 24: spi1_init();
 "24
 [e ( _spi1_init ..  ]
+[; ;spiControl.c: 25: spi2_init();
+"25
+[e ( _spi2_init ..  ]
 [; ;spiControl.c: 26: INTCONbits.PEIE = 1;
 "26
 [e = . . _INTCONbits 0 2 -> -> 1 `i `uc ]
@@ -7905,6 +7975,61 @@ Version 3.2 HI-TECH Software Intermediate Code
 "47
 [e :UE 964 ]
 }
+"48
+[v _spi2_init `(v ~T0 @X0 1 ef ]
+{
+[; ;spiControl.c: 48: void spi2_init(){
+[e :U _spi2_init ]
+[f ]
+"49
+[v _dummy `uc ~T0 @X0 1 a ]
+[; ;spiControl.c: 49: unsigned char dummy;
+[; ;spiControl.c: 50: SSP2CON3bits.PCIE = 0;
+"50
+[e = . . _SSP2CON3bits 0 6 -> -> 0 `i `uc ]
+[; ;spiControl.c: 51: RA2PPS = 0b11011;
+"51
+[e = _RA2PPS -> -> 27 `i `uc ]
+[; ;spiControl.c: 52: RB7PPS = 0b11010;
+"52
+[e = _RB7PPS -> -> 26 `i `uc ]
+[; ;spiControl.c: 53: SSP2SSPPSbits.SSP2SSPPS = 0b01111;
+"53
+[e = . . _SSP2SSPPSbits 0 0 -> -> 15 `i `uc ]
+[; ;spiControl.c: 54: SSP2CON1bits.SSPOV = 0;
+"54
+[e = . . _SSP2CON1bits 0 3 -> -> 0 `i `uc ]
+[; ;spiControl.c: 55: SSP2CON1bits.SSPEN = 1;
+"55
+[e = . . _SSP2CON1bits 0 2 -> -> 1 `i `uc ]
+[; ;spiControl.c: 56: SSP2CON1bits.SSPM = 0b0001;
+"56
+[e = . . _SSP2CON1bits 0 0 -> -> 1 `i `uc ]
+[; ;spiControl.c: 57: SSP2CON3bits.BOEN = 1;
+"57
+[e = . . _SSP2CON3bits 0 4 -> -> 1 `i `uc ]
+[; ;spiControl.c: 58: SSP2STATbits.SMP = 0;
+"58
+[e = . . _SSP2STATbits 0 7 -> -> 0 `i `uc ]
+[; ;spiControl.c: 59: SSP2STATbits.CKE = 0;
+"59
+[e = . . _SSP2STATbits 0 6 -> -> 0 `i `uc ]
+[; ;spiControl.c: 60: SSP2CON1bits.CKP = 0;
+"60
+[e = . . _SSP2CON1bits 0 1 -> -> 0 `i `uc ]
+[; ;spiControl.c: 61: PIE2bits.SSP2IE = 1;
+"61
+[e = . . _PIE2bits 0 3 -> -> 1 `i `uc ]
+[; ;spiControl.c: 62: PIR2bits.SSP2IF = 0;
+"62
+[e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]
+[; ;spiControl.c: 63: dummy = SSP2BUF;
+"63
+[e = _dummy _SSP2BUF ]
+[; ;spiControl.c: 64: }
+"64
+[e :UE 965 ]
+}
 "66
 [v _isSPI1read `(b ~T0 @X0 1 ef ]
 {
@@ -7913,29 +8038,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 67: if(read_count1 == count1){
 "67
-[e $ ! == _read_count1 _count1 966  ]
+[e $ ! == _read_count1 _count1 967  ]
 {
 [; ;spiControl.c: 68: return 1;
 "68
 [e ) -> -> 1 `i `b ]
-[e $UE 965  ]
+[e $UE 966  ]
 "69
 }
 [; ;spiControl.c: 69: }else{
-[e $U 967  ]
-[e :U 966 ]
+[e $U 968  ]
+[e :U 967 ]
 {
 [; ;spiControl.c: 70: return 0;
 "70
 [e ) -> -> 0 `i `b ]
-[e $UE 965  ]
+[e $UE 966  ]
 "71
 }
-[e :U 967 ]
+[e :U 968 ]
 [; ;spiControl.c: 71: }
 [; ;spiControl.c: 73: }
 "73
-[e :UE 965 ]
+[e :UE 966 ]
 }
 "75
 [v _isSPI2read `(b ~T0 @X0 1 ef ]
@@ -7945,29 +8070,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 76: if(read_count2 == count2){
 "76
-[e $ ! == _read_count2 _count2 969  ]
+[e $ ! == _read_count2 _count2 970  ]
 {
 [; ;spiControl.c: 77: return 1;
 "77
 [e ) -> -> 1 `i `b ]
-[e $UE 968  ]
+[e $UE 969  ]
 "78
 }
 [; ;spiControl.c: 78: }else{
-[e $U 970  ]
-[e :U 969 ]
+[e $U 971  ]
+[e :U 970 ]
 {
 [; ;spiControl.c: 79: return 0;
 "79
 [e ) -> -> 0 `i `b ]
-[e $UE 968  ]
+[e $UE 969  ]
 "80
 }
-[e :U 970 ]
+[e :U 971 ]
 [; ;spiControl.c: 80: }
 [; ;spiControl.c: 81: }
 "81
-[e :UE 968 ]
+[e :UE 969 ]
 }
 "83
 [v _isSPI1send `(b ~T0 @X0 1 ef ]
@@ -7977,29 +8102,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 84: if(send_count1 == spi1_send_count){
 "84
-[e $ ! == _send_count1 _spi1_send_count 972  ]
+[e $ ! == _send_count1 _spi1_send_count 973  ]
 {
 [; ;spiControl.c: 85: return 1;
 "85
 [e ) -> -> 1 `i `b ]
-[e $UE 971  ]
+[e $UE 972  ]
 "86
 }
 [; ;spiControl.c: 86: }else{
-[e $U 973  ]
-[e :U 972 ]
+[e $U 974  ]
+[e :U 973 ]
 {
 [; ;spiControl.c: 87: return 0;
 "87
 [e ) -> -> 0 `i `b ]
-[e $UE 971  ]
+[e $UE 972  ]
 "88
 }
-[e :U 973 ]
+[e :U 974 ]
 [; ;spiControl.c: 88: }
 [; ;spiControl.c: 89: }
 "89
-[e :UE 971 ]
+[e :UE 972 ]
 }
 "91
 [v _setSPI1sendData `(v ~T0 @X0 1 ef ]
@@ -8009,7 +8134,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;spiControl.c: 92: if(!isSPI2read() == 1){
 "92
-[e $ ! == -> ! ( _isSPI2read ..  `i -> 1 `i 975  ]
+[e $ ! == -> ! ( _isSPI2read ..  `i -> 1 `i 976  ]
 {
 [; ;spiControl.c: 93: SSP1BUF = spi2_buffer_data[read_count2];
 "93
@@ -8019,31 +8144,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _read_count2 -> -> 1 `i `ui ]
 [; ;spiControl.c: 95: if(read_count2 == 256){
 "95
-[e $ ! == _read_count2 -> -> 256 `i `ui 976  ]
+[e $ ! == _read_count2 -> -> 256 `i `ui 977  ]
 {
 [; ;spiControl.c: 96: read_count2 = 0;
 "96
 [e = _read_count2 -> -> 0 `i `ui ]
 "97
 }
-[e :U 976 ]
+[e :U 977 ]
 "98
 }
 [; ;spiControl.c: 97: }
 [; ;spiControl.c: 98: }else{
-[e $U 977  ]
-[e :U 975 ]
+[e $U 978  ]
+[e :U 976 ]
 {
 [; ;spiControl.c: 99: SSP1BUF = 0x00;
 "99
 [e = _SSP1BUF -> -> 0 `i `uc ]
 "100
 }
-[e :U 977 ]
+[e :U 978 ]
 [; ;spiControl.c: 100: }
 [; ;spiControl.c: 101: }
 "101
-[e :UE 974 ]
+[e :UE 975 ]
 }
 "102
 [v _setSPI1sendDataManual `(v ~T0 @X0 1 ef1`uc ]
@@ -8057,7 +8182,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _SSP1BUF _data ]
 [; ;spiControl.c: 104: }
 "104
-[e :UE 978 ]
+[e :UE 979 ]
 }
 "105
 [v _setSPI2sendData `(v ~T0 @X0 1 ef ]
@@ -8068,6 +8193,46 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;spiControl.c: 106: spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
 "106
 [e = _spi2_Send_data -> + -> _spi2_Send_data `i -> _SPI_OFFSET_BYTE `i `uc ]
+[; ;spiControl.c: 107: if(linkInfo.endpoint == 0){
+"107
+[e $ ! == -> . _linkInfo 2 `i -> 0 `i 981  ]
+{
+[; ;spiControl.c: 108: SSP2BUF = spi2_Send_data;
+"108
+[e = _SSP2BUF _spi2_Send_data ]
+[; ;spiControl.c: 110: isSendSPI2 = 1;
+"110
+[e = _isSendSPI2 -> -> 1 `i `b ]
+[; ;spiControl.c: 111: while(isSendSPI2);
+"111
+[e $U 982  ]
+[e :U 983 ]
+[e :U 982 ]
+[e $ _isSendSPI2 983  ]
+[e :U 984 ]
+[; ;spiControl.c: 112: spi2_buffer_data[count2] = SSP2BUF;
+"112
+[e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _SSP2BUF ]
+[; ;spiControl.c: 113: count2++;
+"113
+[e ++ _count2 -> -> 1 `i `ui ]
+[; ;spiControl.c: 114: if(count2 == 256){
+"114
+[e $ ! == _count2 -> -> 256 `i `ui 985  ]
+{
+[; ;spiControl.c: 115: count2 = 0;
+"115
+[e = _count2 -> -> 0 `i `ui ]
+"116
+}
+[e :U 985 ]
+"117
+}
+[; ;spiControl.c: 116: }
+[; ;spiControl.c: 117: }else{
+[e $U 986  ]
+[e :U 981 ]
+{
 [; ;spiControl.c: 118: spi2_buffer_data[count2] = spi2_Send_data;
 "118
 [e = *U + &U _spi2_buffer_data * -> _count2 `ux -> -> # *U &U _spi2_buffer_data `ui `ux _spi2_Send_data ]
@@ -8076,16 +8241,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _count2 -> -> 1 `i `ui ]
 [; ;spiControl.c: 120: if(count2 == 256){
 "120
-[e $ ! == _count2 -> -> 256 `i `ui 980  ]
+[e $ ! == _count2 -> -> 256 `i `ui 987  ]
 {
 [; ;spiControl.c: 121: count2 = 0;
 "121
 [e = _count2 -> -> 0 `i `ui ]
 "122
 }
-[e :U 980 ]
+[e :U 987 ]
+"123
+}
+[e :U 986 ]
 [; ;spiControl.c: 122: }
+[; ;spiControl.c: 123: }
 [; ;spiControl.c: 124: }
 "124
-[e :UE 979 ]
+[e :UE 980 ]
 }

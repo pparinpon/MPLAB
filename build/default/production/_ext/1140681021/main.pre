@@ -10277,8 +10277,11 @@ if(count1 == 256){
 count1 = 0;
 }
 }
+if (PIR2bits.SSP2IF) {
+isSendSPI2 = 0;
 
-# 89
+PIR2bits.SSP2IF = 0;
+}
 if(IOCAFbits.IOCAF3 == 1){
 
 addAngle();

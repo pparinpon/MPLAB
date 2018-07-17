@@ -7,19 +7,19 @@
 
 #define ClutchOff_all_code 0b00111111;
 #define LinkClutch_code 0b01111111;
-#define Hand_Clutch_code 0b10011111;
-#define Hand_Arm_Clutch_code 0b10101111;
-#define link_Clutch LATA.RA0;
-#define Hand_Clutch LATB.RB7;
-#define Hand_Arm_Clutch LATB.RB5;
+//#define Hand_Clutch_code 0b10011111;
+//#define Hand_Arm_Clutch_code 0b10101111;
+#define link_Clutch LATAbits.RA0;
+//#define Hand_Clutch LATBbits.RB7;
+//#define Hand_Arm_Clutch LATBbits.RB5;
 
 
 unsigned char IOCode[18];
 void initIOCode(void){
 IOCode[0] = ClutchOff_all_code; 
 IOCode[1] = LinkClutch_code; // link
-IOCode[2] = Hand_Clutch_code;// hand_up_down
-IOCode[3] = Hand_Arm_Clutch_code; //arm
+IOCode[2] = 0b10011111;
+IOCode[3] = 0b10101111; 
 IOCode[4] = 0b10111111;
 IOCode[5] = 0b11001111;
 IOCode[6] = 0b11010111;
@@ -54,10 +54,10 @@ bit isOnClutch(void){
     return 0;
 };
 void setOnClutch(void){
-    LATAbits.LATA0 = 1;  
+    LATAbits.LATA0 = 1;
 };
 void setOffClutch(void){
-    LATAbits.LATA0 = 0;    
+    LATAbits.LATA0 = 0;
 };
 void addAngle(void){
     linkAngle += getMoter_lotate();

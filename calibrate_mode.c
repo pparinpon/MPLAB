@@ -35,11 +35,11 @@ bit isEndpoint(void){
     }else{
         spi2data =  spi2_buffer_data[count2];
     }
-//    if(spi2data < 255){
-//        isEndPointTrig = 0;
-//    }else{
+    if(spi2data < 255){
+        isEndPointTrig = 0;
+    }else{
         setSPI1sendDataManual(0x01);//0x00
-//    }
+    }
 
     return isEndPointTrig; 
 }

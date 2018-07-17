@@ -15,6 +15,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _count1 `ui ~T0 @X0 0 e ]
 "95
 [v _setSPI1sendData `(v ~T0 @X0 0 ef ]
+"634 E:\microchip\xc8\v1.45\include\pic16f18346.h
+[s S38 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S38 . NCO1IF TMR4IF BCL2IF SSP2IF NVMIF C1IF C2IF TMR6IF ]
+"633
+[u S37 `S38 1 ]
+[n S37 . . ]
+"645
+[v _PIR2bits `VS37 ~T0 @X0 0 e@18 ]
+"91 D:/programdata/16F18346_Link_IC.X/spi_header.h
+[v _isSendSPI2 `b ~T0 @X0 0 e ]
 "7494 E:\microchip\xc8\v1.45\include\pic16f18346.h
 [s S352 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S352 . IOCAF0 IOCAF1 IOCAF2 IOCAF3 IOCAF4 IOCAF5 ]
@@ -8060,16 +8070,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 965 ]
 [; ;main.c: 82: }
 [; ;main.c: 83: }
+[; ;main.c: 84: if (PIR2bits.SSP2IF) {
+"84
+[e $ ! != -> . . _PIR2bits 0 3 `i -> -> -> 0 `i `Vuc `i 968  ]
+{
+[; ;main.c: 85: isSendSPI2 = 0;
+"85
+[e = _isSendSPI2 -> -> 0 `i `b ]
+[; ;main.c: 87: PIR2bits.SSP2IF = 0;
+"87
+[e = . . _PIR2bits 0 3 -> -> 0 `i `uc ]
+"88
+}
+[e :U 968 ]
+[; ;main.c: 88: }
 [; ;main.c: 89: if(IOCAFbits.IOCAF3 == 1){
 "89
-[e $ ! == -> . . _IOCAFbits 0 3 `i -> 1 `i 968  ]
+[e $ ! == -> . . _IOCAFbits 0 3 `i -> 1 `i 969  ]
 {
 [; ;main.c: 91: addAngle();
 "91
 [e ( _addAngle ..  ]
 "92
 }
-[e :U 968 ]
+[e :U 969 ]
 [; ;main.c: 92: }
 [; ;main.c: 93: PIR1bits.SSP1IF = 0 ;
 "93
@@ -8098,9 +8122,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 256 `i 970  ]
-[e $U 971  ]
-[e :U 970 ]
+[e $ < _i -> 256 `i 971  ]
+[e $U 972  ]
+[e :U 971 ]
 {
 [; ;main.c: 101: spi1_buffer_data[i] = 0;
 "101
@@ -8112,14 +8136,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "100
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 256 `i 970  ]
-[e :U 971 ]
+[e $ < _i -> 256 `i 971  ]
+[e :U 972 ]
 "103
 }
 [; ;main.c: 103: }
 [; ;main.c: 104: }
 "104
-[e :UE 969 ]
+[e :UE 970 ]
 }
 "105
 [v _init `(v ~T0 @X0 1 ef ]
@@ -8189,10 +8213,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _INLVLAbits 0 2 -> -> 0 `i `uc ]
 [; ;main.c: 129: return;
 "129
-[e $UE 973  ]
+[e $UE 974  ]
 [; ;main.c: 130: }
 "130
-[e :UE 973 ]
+[e :UE 974 ]
 }
 "132
 [v _io_init `(v ~T0 @X0 1 ef ]
@@ -8217,7 +8241,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _INTCONbits 0 0 -> -> 1 `i `uc ]
 [; ;main.c: 138: }
 "138
-[e :UE 974 ]
+[e :UE 975 ]
 }
 "139
 [v _trainPos `i ~T0 @X0 1 e ]
@@ -8242,18 +8266,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ _read_count1 -> -> 1 `i `ui ]
 [; ;main.c: 144: if(read_count1 == 256){
 "144
-[e $ ! == _read_count1 -> -> 256 `i `ui 976  ]
+[e $ ! == _read_count1 -> -> 256 `i `ui 977  ]
 {
 [; ;main.c: 145: read_count1 = 0;
 "145
 [e = _read_count1 -> -> 0 `i `ui ]
 "146
 }
-[e :U 976 ]
+[e :U 977 ]
 [; ;main.c: 146: }
 [; ;main.c: 147: if(isTrainSt(spi1_Read_data)){
 "147
-[e $ ! ( _isTrainSt (1 _spi1_Read_data 977  ]
+[e $ ! ( _isTrainSt (1 _spi1_Read_data 978  ]
 {
 [; ;main.c: 148: trainPos = 0;
 "148
@@ -8270,19 +8294,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 "152
 }
 [; ;main.c: 152: }else{
-[e $U 978  ]
-[e :U 977 ]
+[e $U 979  ]
+[e :U 978 ]
 {
 [; ;main.c: 153: trainPos++;
 "153
 [e ++ _trainPos -> 1 `i ]
 "154
 }
-[e :U 978 ]
+[e :U 979 ]
 [; ;main.c: 154: }
 [; ;main.c: 155: if(st_dataLength < trainPos){
 "155
-[e $ ! < _st_dataLength -> _trainPos `ui 979  ]
+[e $ ! < _st_dataLength -> _trainPos `ui 980  ]
 {
 [; ;main.c: 156: trainPos = 0;
 "156
@@ -8298,11 +8322,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _countabuf -> -> 0 `i `ui ]
 "160
 }
-[e :U 979 ]
+[e :U 980 ]
 [; ;main.c: 160: }
 [; ;main.c: 161: }
 "161
-[e :UE 975 ]
+[e :UE 976 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
 "162
@@ -8343,18 +8367,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
 [; ;main.c: 173: while(1){
 "173
-[e :U 982 ]
+[e :U 983 ]
 {
 [; ;main.c: 174: if(!isSPI1read()){
 "174
-[e $ ! ! ( _isSPI1read ..  984  ]
+[e $ ! ! ( _isSPI1read ..  985  ]
 {
 [; ;main.c: 175: initTrain();
 "175
 [e ( _initTrain ..  ]
 [; ;main.c: 176: if(isreadTrain){
 "176
-[e $ ! _isreadTrain 985  ]
+[e $ ! _isreadTrain 986  ]
 {
 [; ;main.c: 177: setComunicateMode(st_type);
 "177
@@ -8362,36 +8386,36 @@ Version 3.2 HI-TECH Software Intermediate Code
 "178
 }
 [; ;main.c: 178: }else{
-[e $U 986  ]
-[e :U 985 ]
+[e $U 987  ]
+[e :U 986 ]
 {
 [; ;main.c: 179: read_train();
 "179
 [e ( _read_train ..  ]
 "180
 }
-[e :U 986 ]
+[e :U 987 ]
 [; ;main.c: 180: }
 [; ;main.c: 181: setSPI2sendData();
 "181
 [e ( _setSPI2sendData ..  ]
 "182
 }
-[e :U 984 ]
+[e :U 985 ]
 "183
 }
-[e :U 981 ]
+[e :U 982 ]
 "173
-[e $U 982  ]
-[e :U 983 ]
+[e $U 983  ]
+[e :U 984 ]
 [; ;main.c: 182: }
 [; ;main.c: 183: };
 [; ;main.c: 184: return;
 "184
-[e $UE 980  ]
+[e $UE 981  ]
 [; ;main.c: 185: }
 "185
-[e :UE 980 ]
+[e :UE 981 ]
 }
 "186
 [v _resetTrainData `(v ~T0 @X0 1 ef ]
@@ -8410,7 +8434,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _restartCargo ..  ]
 [; ;main.c: 190: }
 "190
-[e :UE 987 ]
+[e :UE 988 ]
 }
 "191
 [v _startTrainBytes `ul ~T0 @X0 1 e ]
@@ -8430,29 +8454,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _startTrainBytes | << _startTrainBytes -> 8 `i -> -> + -> _buf `i -> _SPI_OFFSET_BYTE `i `l `ul ]
 [; ;main.c: 194: if(startTrainBytes == 0xFFFFFFFF){
 "194
-[e $ ! == _startTrainBytes -> -1 `ul 989  ]
+[e $ ! == _startTrainBytes -> -1 `ul 990  ]
 {
 [; ;main.c: 195: return 1;
 "195
 [e ) -> -> 1 `i `b ]
-[e $UE 988  ]
+[e $UE 989  ]
 "196
 }
 [; ;main.c: 196: }else{
-[e $U 990  ]
-[e :U 989 ]
+[e $U 991  ]
+[e :U 990 ]
 {
 [; ;main.c: 197: return 0;
 "197
 [e ) -> -> 0 `i `b ]
-[e $UE 988  ]
+[e $UE 989  ]
 "198
 }
-[e :U 990 ]
+[e :U 991 ]
 [; ;main.c: 198: }
 [; ;main.c: 199: }
 "199
-[e :UE 988 ]
+[e :UE 989 ]
 }
 "202
 [v _counta2 `i ~T0 @X0 1 e ]
@@ -8472,29 +8496,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _bufint -> _spi1_Read_data `ui ]
 [; ;main.c: 206: switch(trainPos){
 "206
-[e $U 993  ]
+[e $U 994  ]
 {
 [; ;main.c: 207: case 1:
 "207
-[e :U 994 ]
+[e :U 995 ]
 [; ;main.c: 208: st_dataLength = (bufint << 8 | 0x00FF);
 "208
 [e = _st_dataLength | << _bufint -> 8 `i -> -> 255 `i `ui ]
 [; ;main.c: 209: break;
 "209
-[e $U 992  ]
+[e $U 993  ]
 [; ;main.c: 210: case 2:
 "210
-[e :U 995 ]
+[e :U 996 ]
 [; ;main.c: 211: st_dataLength = st_dataLength & (bufint | 0xFF00);
 "211
 [e = _st_dataLength & _st_dataLength | _bufint -> 65280 `ui ]
 [; ;main.c: 212: break;
 "212
-[e $U 992  ]
+[e $U 993  ]
 [; ;main.c: 213: case 3:
 "213
-[e :U 996 ]
+[e :U 997 ]
 [; ;main.c: 214: st_type = spi1_Read_data;
 "214
 [e = _st_type _spi1_Read_data ]
@@ -8503,26 +8527,26 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _isreadTrain -> -> 1 `i `b ]
 [; ;main.c: 216: break;
 "216
-[e $U 992  ]
+[e $U 993  ]
 [; ;main.c: 217: default :
 "217
-[e :U 997 ]
+[e :U 998 ]
 [; ;main.c: 218: break;
 "218
-[e $U 992  ]
+[e $U 993  ]
 "219
 }
 [; ;main.c: 219: }
-[e $U 992  ]
+[e $U 993  ]
 "206
-[e :U 993 ]
-[e [\ _trainPos , $ -> 1 `i 994
- , $ -> 2 `i 995
- , $ -> 3 `i 996
- 997 ]
+[e :U 994 ]
+[e [\ _trainPos , $ -> 1 `i 995
+ , $ -> 2 `i 996
+ , $ -> 3 `i 997
+ 998 ]
 "219
-[e :U 992 ]
+[e :U 993 ]
 [; ;main.c: 220: }
 "220
-[e :UE 991 ]
+[e :UE 992 ]
 }

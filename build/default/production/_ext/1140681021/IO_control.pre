@@ -10143,8 +10143,8 @@ unsigned char IOCode[18];
 void initIOCode(void){
 IOCode[0] = 0b00111111;;
 IOCode[1] = 0b01111111;;
-IOCode[2] = 0b10011111;;
-IOCode[3] = 0b10101111;;
+IOCode[2] = 0b10011111;
+IOCode[3] = 0b10101111;
 IOCode[4] = 0b10111111;
 IOCode[5] = 0b11001111;
 IOCode[6] = 0b11010111;

@@ -81,11 +81,11 @@ void interrupt InterMSSP( void )
             count1 = 0;
         }
     }
-//    if (PIR2bits.SSP2IF) {
-//        isSendSPI2 = 0;
-//        // SPI_recieve
-//        PIR2bits.SSP2IF = 0;
-//    }
+    if (PIR2bits.SSP2IF) {
+        isSendSPI2 = 0;
+        // SPI_recieve
+        PIR2bits.SSP2IF = 0;
+    }
     if(IOCAFbits.IOCAF3 == 1){
         //interruptIO
         addAngle();

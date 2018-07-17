@@ -7723,10 +7723,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IO_control.c: 20: IOCode[1] = 0b01111111;;
 "20
 [e = *U + &U _IOCode * -> -> -> 1 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 127 `i `uc ]
-[; ;IO_control.c: 21: IOCode[2] = 0b10011111;;
+[; ;IO_control.c: 21: IOCode[2] = 0b10011111;
 "21
 [e = *U + &U _IOCode * -> -> -> 2 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 159 `i `uc ]
-[; ;IO_control.c: 22: IOCode[3] = 0b10101111;;
+[; ;IO_control.c: 22: IOCode[3] = 0b10101111;
 "22
 [e = *U + &U _IOCode * -> -> -> 3 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 175 `i `uc ]
 [; ;IO_control.c: 23: IOCode[4] = 0b10111111;

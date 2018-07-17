@@ -10209,11 +10209,11 @@ spi2data = spi2_buffer_data[count2 -1];
 }else{
 spi2data = spi2_buffer_data[count2];
 }
-
-
-
+if(spi2data < 255){
+isEndPointTrig = 0;
+}else{
 setSPI1sendDataManual(0x01);
-
+}
 
 return isEndPointTrig;
 }
