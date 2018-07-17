@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=E:\microchip\xc8\v1.45\dat\en_msgs.txt -cs \
   -h+dist/default/production\16F18346_Link_IC.X.production.sym \
   --cmf=dist/default/production\16F18346_Link_IC.X.production.cmf -z \
-  -Q16F18346 -oE:\temp\s40rg.2 \
+  -Q16F18346 -oE:\temp\s44p0.2 \
   -Mdist/default/production/16F18346_Link_IC.X.production.map -E1 -ver=XC8 \
   -ASTACK=02102h-024efh -pstack=STACK -ACODE=00h-07FFhx8 \
   -ASTRCODE=00h-03FFFh -ASTRING=00h-0FFhx64 -ACONST=00h-0FFhx64 \
@@ -35,7 +35,7 @@ Linker command line:
   -ppowerup=CODE -pcinit=CODE -pfunctab=ENTRY -ACONFIG=08007h-0800Ah \
   -pconfig=CONFIG -DCONFIG=2 -AIDLOC=08000h-08003h -pidloc=IDLOC -DIDLOC=2 \
   -AEEDATA=00h-0FFh/0F000h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
-  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k E:\temp\s40rg.obj \
+  -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k E:\temp\s44p0.obj \
   dist/default/production\16F18346_Link_IC.X.production.obj 
 
 Object code version is 3.11
@@ -45,7 +45,7 @@ Machine type is 16F18346
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-E:\temp\s40rg.obj
+E:\temp\s44p0.obj
                 end_init                             4C       4C        2        8       0
                 reset_vec                             0        0        2        0       0
                 config                             8007     8007        4    1000E       0

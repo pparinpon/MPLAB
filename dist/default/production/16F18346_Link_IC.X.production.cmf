@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$E:\temp\s40rg.obj
+$E:\temp\s44p0.obj
 reset_vec CODE 0 0 0 2 2
 end_init CODE 0 4C 4C 2 2
 config CONFIG 0 8007 8007 4 2
@@ -185,79 +185,79 @@ STRING 1004-3FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\16F18346_Link_IC.X.production.obj
-4E cinit CODE >10335:E:\temp\s40rg.
-4E cinit CODE >10338:E:\temp\s40rg.
-4E cinit CODE >10513:E:\temp\s40rg.
-51 cinit CODE >10514:E:\temp\s40rg.
-52 cinit CODE >10518:E:\temp\s40rg.
-53 cinit CODE >10519:E:\temp\s40rg.
-54 cinit CODE >10520:E:\temp\s40rg.
-55 cinit CODE >10521:E:\temp\s40rg.
-56 cinit CODE >10522:E:\temp\s40rg.
-57 cinit CODE >10523:E:\temp\s40rg.
-58 cinit CODE >10524:E:\temp\s40rg.
-59 cinit CODE >10525:E:\temp\s40rg.
-5A cinit CODE >10526:E:\temp\s40rg.
-5B cinit CODE >10527:E:\temp\s40rg.
-5C cinit CODE >10528:E:\temp\s40rg.
-5D cinit CODE >10529:E:\temp\s40rg.
-5E cinit CODE >10530:E:\temp\s40rg.
-5F cinit CODE >10531:E:\temp\s40rg.
-60 cinit CODE >10532:E:\temp\s40rg.
-61 cinit CODE >10533:E:\temp\s40rg.
-62 cinit CODE >10534:E:\temp\s40rg.
-63 cinit CODE >10557:E:\temp\s40rg.
-64 cinit CODE >10558:E:\temp\s40rg.
-65 cinit CODE >10559:E:\temp\s40rg.
-66 cinit CODE >10560:E:\temp\s40rg.
-67 cinit CODE >10561:E:\temp\s40rg.
-68 cinit CODE >10562:E:\temp\s40rg.
-69 cinit CODE >10563:E:\temp\s40rg.
-6A cinit CODE >10564:E:\temp\s40rg.
-6B cinit CODE >10565:E:\temp\s40rg.
-6E cinit CODE >10569:E:\temp\s40rg.
-6F cinit CODE >10570:E:\temp\s40rg.
-70 cinit CODE >10574:E:\temp\s40rg.
-71 cinit CODE >10578:E:\temp\s40rg.
-72 cinit CODE >10579:E:\temp\s40rg.
-73 cinit CODE >10580:E:\temp\s40rg.
-74 cinit CODE >10581:E:\temp\s40rg.
-75 cinit CODE >10582:E:\temp\s40rg.
-76 cinit CODE >10583:E:\temp\s40rg.
-77 cinit CODE >10584:E:\temp\s40rg.
-78 cinit CODE >10585:E:\temp\s40rg.
-79 cinit CODE >10586:E:\temp\s40rg.
-7C cinit CODE >10590:E:\temp\s40rg.
-7D cinit CODE >10591:E:\temp\s40rg.
-7E cinit CODE >10592:E:\temp\s40rg.
-7F cinit CODE >10593:E:\temp\s40rg.
-80 cinit CODE >10594:E:\temp\s40rg.
-81 cinit CODE >10595:E:\temp\s40rg.
-82 cinit CODE >10596:E:\temp\s40rg.
-83 cinit CODE >10597:E:\temp\s40rg.
-84 cinit CODE >10598:E:\temp\s40rg.
-87 cinit CODE >10602:E:\temp\s40rg.
-88 cinit CODE >10603:E:\temp\s40rg.
-89 cinit CODE >10604:E:\temp\s40rg.
-8A cinit CODE >10605:E:\temp\s40rg.
-8B cinit CODE >10606:E:\temp\s40rg.
-8C cinit CODE >10607:E:\temp\s40rg.
-8D cinit CODE >10608:E:\temp\s40rg.
-8E cinit CODE >10609:E:\temp\s40rg.
-8F cinit CODE >10610:E:\temp\s40rg.
-92 cinit CODE >10614:E:\temp\s40rg.
-93 cinit CODE >10615:E:\temp\s40rg.
-94 cinit CODE >10616:E:\temp\s40rg.
-95 cinit CODE >10617:E:\temp\s40rg.
-96 cinit CODE >10618:E:\temp\s40rg.
-97 cinit CODE >10619:E:\temp\s40rg.
-98 cinit CODE >10620:E:\temp\s40rg.
-99 cinit CODE >10621:E:\temp\s40rg.
-9A cinit CODE >10622:E:\temp\s40rg.
-9C cinit CODE >10628:E:\temp\s40rg.
-9C cinit CODE >10630:E:\temp\s40rg.
-9D cinit CODE >10631:E:\temp\s40rg.
-9E cinit CODE >10632:E:\temp\s40rg.
+4E cinit CODE >10335:E:\temp\s44p0.
+4E cinit CODE >10338:E:\temp\s44p0.
+4E cinit CODE >10513:E:\temp\s44p0.
+51 cinit CODE >10514:E:\temp\s44p0.
+52 cinit CODE >10518:E:\temp\s44p0.
+53 cinit CODE >10519:E:\temp\s44p0.
+54 cinit CODE >10520:E:\temp\s44p0.
+55 cinit CODE >10521:E:\temp\s44p0.
+56 cinit CODE >10522:E:\temp\s44p0.
+57 cinit CODE >10523:E:\temp\s44p0.
+58 cinit CODE >10524:E:\temp\s44p0.
+59 cinit CODE >10525:E:\temp\s44p0.
+5A cinit CODE >10526:E:\temp\s44p0.
+5B cinit CODE >10527:E:\temp\s44p0.
+5C cinit CODE >10528:E:\temp\s44p0.
+5D cinit CODE >10529:E:\temp\s44p0.
+5E cinit CODE >10530:E:\temp\s44p0.
+5F cinit CODE >10531:E:\temp\s44p0.
+60 cinit CODE >10532:E:\temp\s44p0.
+61 cinit CODE >10533:E:\temp\s44p0.
+62 cinit CODE >10534:E:\temp\s44p0.
+63 cinit CODE >10557:E:\temp\s44p0.
+64 cinit CODE >10558:E:\temp\s44p0.
+65 cinit CODE >10559:E:\temp\s44p0.
+66 cinit CODE >10560:E:\temp\s44p0.
+67 cinit CODE >10561:E:\temp\s44p0.
+68 cinit CODE >10562:E:\temp\s44p0.
+69 cinit CODE >10563:E:\temp\s44p0.
+6A cinit CODE >10564:E:\temp\s44p0.
+6B cinit CODE >10565:E:\temp\s44p0.
+6E cinit CODE >10569:E:\temp\s44p0.
+6F cinit CODE >10570:E:\temp\s44p0.
+70 cinit CODE >10574:E:\temp\s44p0.
+71 cinit CODE >10578:E:\temp\s44p0.
+72 cinit CODE >10579:E:\temp\s44p0.
+73 cinit CODE >10580:E:\temp\s44p0.
+74 cinit CODE >10581:E:\temp\s44p0.
+75 cinit CODE >10582:E:\temp\s44p0.
+76 cinit CODE >10583:E:\temp\s44p0.
+77 cinit CODE >10584:E:\temp\s44p0.
+78 cinit CODE >10585:E:\temp\s44p0.
+79 cinit CODE >10586:E:\temp\s44p0.
+7C cinit CODE >10590:E:\temp\s44p0.
+7D cinit CODE >10591:E:\temp\s44p0.
+7E cinit CODE >10592:E:\temp\s44p0.
+7F cinit CODE >10593:E:\temp\s44p0.
+80 cinit CODE >10594:E:\temp\s44p0.
+81 cinit CODE >10595:E:\temp\s44p0.
+82 cinit CODE >10596:E:\temp\s44p0.
+83 cinit CODE >10597:E:\temp\s44p0.
+84 cinit CODE >10598:E:\temp\s44p0.
+87 cinit CODE >10602:E:\temp\s44p0.
+88 cinit CODE >10603:E:\temp\s44p0.
+89 cinit CODE >10604:E:\temp\s44p0.
+8A cinit CODE >10605:E:\temp\s44p0.
+8B cinit CODE >10606:E:\temp\s44p0.
+8C cinit CODE >10607:E:\temp\s44p0.
+8D cinit CODE >10608:E:\temp\s44p0.
+8E cinit CODE >10609:E:\temp\s44p0.
+8F cinit CODE >10610:E:\temp\s44p0.
+92 cinit CODE >10614:E:\temp\s44p0.
+93 cinit CODE >10615:E:\temp\s44p0.
+94 cinit CODE >10616:E:\temp\s44p0.
+95 cinit CODE >10617:E:\temp\s44p0.
+96 cinit CODE >10618:E:\temp\s44p0.
+97 cinit CODE >10619:E:\temp\s44p0.
+98 cinit CODE >10620:E:\temp\s44p0.
+99 cinit CODE >10621:E:\temp\s44p0.
+9A cinit CODE >10622:E:\temp\s44p0.
+9C cinit CODE >10628:E:\temp\s44p0.
+9C cinit CODE >10630:E:\temp\s44p0.
+9D cinit CODE >10631:E:\temp\s44p0.
+9E cinit CODE >10632:E:\temp\s44p0.
 4 intentry CODE >70:D:/programdata/16F18346_Link_IC.X/main.c
 9 intentry CODE >72:D:/programdata/16F18346_Link_IC.X/main.c
 B intentry CODE >74:D:/programdata/16F18346_Link_IC.X/main.c
@@ -825,20 +825,20 @@ F79 maintext CODE >178:D:/programdata/16F18346_Link_IC.X/main.c
 F7A maintext CODE >179:D:/programdata/16F18346_Link_IC.X/main.c
 F7D maintext CODE >181:D:/programdata/16F18346_Link_IC.X/main.c
 F80 maintext CODE >173:D:/programdata/16F18346_Link_IC.X/main.c
-D39 clrtext CODE >10540:E:\temp\s40rg.
-D39 clrtext CODE >10541:E:\temp\s40rg.
-D3A clrtext CODE >10542:E:\temp\s40rg.
-D3A clrtext CODE >10543:E:\temp\s40rg.
-D3B clrtext CODE >10544:E:\temp\s40rg.
-D3C clrtext CODE >10545:E:\temp\s40rg.
-D3D clrtext CODE >10546:E:\temp\s40rg.
-D3E clrtext CODE >10547:E:\temp\s40rg.
-D3F clrtext CODE >10548:E:\temp\s40rg.
-D40 clrtext CODE >10549:E:\temp\s40rg.
-D41 clrtext CODE >10550:E:\temp\s40rg.
-D42 clrtext CODE >10551:E:\temp\s40rg.
-D43 clrtext CODE >10553:E:\temp\s40rg.
-D44 clrtext CODE >10552:E:\temp\s40rg.
+D39 clrtext CODE >10540:E:\temp\s44p0.
+D39 clrtext CODE >10541:E:\temp\s44p0.
+D3A clrtext CODE >10542:E:\temp\s44p0.
+D3A clrtext CODE >10543:E:\temp\s44p0.
+D3B clrtext CODE >10544:E:\temp\s44p0.
+D3C clrtext CODE >10545:E:\temp\s44p0.
+D3D clrtext CODE >10546:E:\temp\s44p0.
+D3E clrtext CODE >10547:E:\temp\s44p0.
+D3F clrtext CODE >10548:E:\temp\s44p0.
+D40 clrtext CODE >10549:E:\temp\s44p0.
+D41 clrtext CODE >10550:E:\temp\s44p0.
+D42 clrtext CODE >10551:E:\temp\s44p0.
+D43 clrtext CODE >10553:E:\temp\s44p0.
+D44 clrtext CODE >10552:E:\temp\s44p0.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -876,11 +876,11 @@ ReadEEPROM@addr 20 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_I
 _WPUA 20C 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _WPUB 20D 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 _WPUC 20E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-___sp 0 0 STACK 2 stack E:\temp\s40rg.obj
+___sp 0 0 STACK 2 stack E:\temp\s44p0.obj
 _init 1CD6 0 CODE 0 text34 dist/default/production\16F18346_Link_IC.X.production.obj
 _main 1E9A 0 CODE 0 maintext dist/default/production\16F18346_Link_IC.X.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-start 98 0 CODE 0 init E:\temp\s40rg.obj
+start 98 0 CODE 0 init E:\temp\s44p0.obj
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of___almod 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_init 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
@@ -903,12 +903,12 @@ _EEPROM_download 77C 0 CODE 0 text10 dist/default/production\16F18346_Link_IC.X.
 __end_of_setCargoAngle 1A0A 0 CODE 0 text41 dist/default/production\16F18346_Link_IC.X.production.obj
 __HdataCOMMON 1F0 1E000 ABS 0 dataCOMMON -
 __size_of_setSPI2sendData 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
-intlevel0 0 0 ENTRY 0 functab E:\temp\s40rg.obj
-intlevel1 0 0 ENTRY 0 functab E:\temp\s40rg.obj
-intlevel2 0 0 ENTRY 0 functab E:\temp\s40rg.obj
-intlevel3 0 0 ENTRY 0 functab E:\temp\s40rg.obj
-intlevel4 0 0 ENTRY 0 functab E:\temp\s40rg.obj
-intlevel5 0 0 ENTRY 0 functab E:\temp\s40rg.obj
+intlevel0 0 0 ENTRY 0 functab E:\temp\s44p0.obj
+intlevel1 0 0 ENTRY 0 functab E:\temp\s44p0.obj
+intlevel2 0 0 ENTRY 0 functab E:\temp\s44p0.obj
+intlevel3 0 0 ENTRY 0 functab E:\temp\s44p0.obj
+intlevel4 0 0 ENTRY 0 functab E:\temp\s44p0.obj
+intlevel5 0 0 ENTRY 0 functab E:\temp\s44p0.obj
 __LbssCOMMON 1F0 1E000 ABS 0 bssCOMMON -
 ___aldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 __end_of_initPosition 1CD6 0 CODE 0 text29 dist/default/production\16F18346_Link_IC.X.production.obj
@@ -1033,7 +1033,7 @@ _isSendSPI2 389 -310 COMMON 1 bitbssCOMMON dist/default/production\16F18346_Link
 __end_of_spi2_init 1000 0 CODE 0 text2 dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_spi1_init 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 TransLong256To255@data 2F 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
-___int_sp 0 0 STACK 2 stack E:\temp\s40rg.obj
+___int_sp 0 0 STACK 2 stack E:\temp\s44p0.obj
 __size_of_setSPI1sendDataManual 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __end_of_io_init 1A34 0 CODE 0 text24 dist/default/production\16F18346_Link_IC.X.production.obj
 __Hbank0 1F0 1E000 ABS 0 bank0 -
@@ -1227,7 +1227,7 @@ _initComand C96 0 CODE 0 text32 dist/default/production\16F18346_Link_IC.X.produ
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __Lintentry 8 0 CODE 0 intentry -
 __end_of_VENDER_ID 2008 0 STRCODE 0 stringtext2 dist/default/production\16F18346_Link_IC.X.production.obj
-reset_vec 0 0 CODE 0 reset_vec E:\temp\s40rg.obj
+reset_vec 0 0 CODE 0 reset_vec E:\temp\s44p0.obj
 __BcstackBANK0 1E1F0 1E000 ABS 0 cstackBANK0 -
 __BcstackBANK1 1E1F0 1E000 ABS 0 cstackBANK1 -
 __size_of_addAngle 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
@@ -1353,8 +1353,8 @@ readCargo@bufint 55 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_
 _isEndPointTrig 3D8 -35D COMMON 1 bitnvCOMMON dist/default/production\16F18346_Link_IC.X.production.obj
 __size_of_setSPI1sendData 0 0 ABS 0 - dist/default/production\16F18346_Link_IC.X.production.obj
 __end_of_initComand D70 0 CODE 0 text32 dist/default/production\16F18346_Link_IC.X.production.obj
-stackhi 24EF 0 ABS 0 - E:\temp\s40rg.obj
-stacklo 2102 0 ABS 0 - E:\temp\s40rg.obj
+stackhi 24EF 0 ABS 0 - E:\temp\s44p0.obj
+stacklo 2102 0 ABS 0 - E:\temp\s44p0.obj
 __Bmaintext 1E1F0 1E000 ABS 0 maintext -
 EEPROM_download@bufint 39 0 BANK0 1 cstackBANK0 dist/default/production\16F18346_Link_IC.X.production.obj
 _addAngle 1ABE 0 CODE 0 text40 dist/default/production\16F18346_Link_IC.X.production.obj
