@@ -10128,7 +10128,7 @@ cargoData.cargoLength = 0xFFFF;
 cargoData.clutchMode = 0;
 cargoData.command = 0;
 cargoData.index = 0;
-cargoData.linkAngleTo = 0;
+cargoData.linkAngleTo = 360;
 cargoData.passedTime = 0;
 }
 void resetCargo(void){
@@ -10138,7 +10138,7 @@ cargoData.cargoLength = 0xFFFF;
 cargoData.clutchMode = 0;
 cargoData.command = 0;
 cargoData.index = 0;
-cargoData.linkAngleTo = 0;
+cargoData.linkAngleTo = 360;
 cargoData.passedTime = 0;
 
 };

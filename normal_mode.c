@@ -8,6 +8,7 @@
 #include "spi_header.h"
 #include "IO_control_header.h"
 #include "util_header.h"
+#include "index_header.h"
 
 CargoData cargoData;
 
@@ -28,6 +29,7 @@ void readCargo(unsigned char spi1_Read_data){
                 break;
             case 3:
                 cargoData.index = spi1_Read_data;
+                setIndexMode(spi1_Read_data);
                 break;
             case 4:
                 cargoData.address = spi1_Read_data;

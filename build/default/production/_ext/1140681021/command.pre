@@ -10097,7 +10097,14 @@ extern unsigned char readNG;
 extern unsigned int countabuf;
 extern bit isMycargo;
 
+
+extern bit Hand_arm_clutchaction(unsigned char comannd);
+extern bit Hand_clutchaction(unsigned char comannd);
+
 # 73 "D:/programdata/16F18346_Link_IC.X/IO_control_header.h"
+extern unsigned char IOCode[18];
+extern void initIOCode(void);
+extern bit IOCode_Command(unsigned char m_IOCode);
 extern int linkAngle;
 extern int direction;
 extern void setCargo_Angle(void);
@@ -10108,7 +10115,21 @@ extern void setOffClutch(void);
 extern void addAngle(void);
 extern void setDirection(int m_direction);
 
-# 8 "D:/programdata/16F18346_Link_IC.X/command.c"
+# 71 "D:/programdata/16F18346_Link_IC.X/cal_position_header.h"
+typedef struct {
+int moter_lotate;
+float pos_x;
+float pos_y;
+float pos_z;
+float rotate_x;
+float rotate_y;
+float rotate_z;
+}Position;
+extern void initPosition(void);
+extern void setMoter_lotate(unsigned char lotatepos);
+extern int getMoter_lotate(void);
+
+# 11 "D:/programdata/16F18346_Link_IC.X/command.c"
 unsigned int countabuf;
 unsigned char command[18];
 unsigned char readOK ;
@@ -10116,7 +10137,7 @@ unsigned char readNG ;
 void initComand(void){
 command[0] = 0b00111111;
 command[1] = 0b01111111;
-command[2] = 0b10011111;
+command[2] = 0b10011111;;
 command[3] = 0b10101111;
 command[4] = 0b10111111;
 command[5] = 0b11001111;
@@ -10141,8 +10162,10 @@ case 0:
 
 return 1;
 case 1:
+setMoter_lotate(0x01);
 return 1;
 case 2:
+setMoter_lotate(0x02);
 return 1;
 case 3:
 return 1;
@@ -10172,7 +10195,24 @@ return 0;
 bit clutchaction(unsigned char comannd){
 if(comannd == 1){
 LATAbits.LATA0 = 1;
+}
+else{
+LATAbits.LATA0 = 0;
+}
+};
+
+bit Hand_arm_clutchaction(unsigned char comannd){
+if(comannd == 1){
+LATAbits.LATA0 = 1;
 }else{
 LATAbits.LATA0 = 0;
 }
 };
+bit Hand_clutchaction(unsigned char comannd){
+if(comannd == 1){
+LATAbits.LATA0 = 1;
+}else{
+LATAbits.LATA0 = 0;
+}
+};
+

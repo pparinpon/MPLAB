@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"81 IO_control_header.h
+"84 IO_control_header.h
 [v _setDirection `(v ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
@@ -7632,15 +7632,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
 [; ;cargo_index_header.h: 73: extern void initCargo_index(void);
 [; ;cargo_index_header.h: 74: extern bit setCargo_indexMode(unsigned char m_cargo_index);
-[; ;IO_control_header.h: 73: extern int linkAngle;
-[; ;IO_control_header.h: 74: extern int direction;
-[; ;IO_control_header.h: 75: extern void setCargo_Angle(void);
-[; ;IO_control_header.h: 76: extern void resetAngle(void);
-[; ;IO_control_header.h: 77: extern bit isOnClutch(void);
-[; ;IO_control_header.h: 78: extern void setOnClutch(void);
-[; ;IO_control_header.h: 79: extern void setOffClutch(void);
-[; ;IO_control_header.h: 80: extern void addAngle(void);
-[; ;IO_control_header.h: 81: extern void setDirection(int m_direction);
+[; ;IO_control_header.h: 73: extern unsigned char IOCode[18];
+[; ;IO_control_header.h: 74: extern void initIOCode(void);
+[; ;IO_control_header.h: 75: extern bit IOCode_Command(unsigned char m_IOCode);
+[; ;IO_control_header.h: 76: extern int linkAngle;
+[; ;IO_control_header.h: 77: extern int direction;
+[; ;IO_control_header.h: 78: extern void setCargo_Angle(void);
+[; ;IO_control_header.h: 79: extern void resetAngle(void);
+[; ;IO_control_header.h: 80: extern bit isOnClutch(void);
+[; ;IO_control_header.h: 81: extern void setOnClutch(void);
+[; ;IO_control_header.h: 82: extern void setOffClutch(void);
+[; ;IO_control_header.h: 83: extern void addAngle(void);
+[; ;IO_control_header.h: 84: extern void setDirection(int m_direction);
 "9 cargo_index.c
 [v _countabuf `ui ~T0 @X0 1 e ]
 [; ;cargo_index.c: 9: unsigned int countabuf;

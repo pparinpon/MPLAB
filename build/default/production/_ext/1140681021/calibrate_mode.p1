@@ -7717,6 +7717,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;command_header.h: 78: extern unsigned char readNG;
 [; ;command_header.h: 79: extern unsigned int countabuf;
 [; ;command_header.h: 80: extern bit isMycargo;
+[; ;command_header.h: 83: extern bit Hand_arm_clutchaction(unsigned char comannd);
+[; ;command_header.h: 84: extern bit Hand_clutchaction(unsigned char comannd);
 "74 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _st_dataLength `ui ~T0 @X0 1 e ]
 [i _st_dataLength
@@ -7820,26 +7822,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 [e :U 967 ]
 [; ;calibrate_mode.c: 37: }
-[; ;calibrate_mode.c: 38: if(spi2data < 255){
-"38
-[e $ ! < -> _spi2data `i -> 255 `i 968  ]
-{
-[; ;calibrate_mode.c: 39: isEndPointTrig = 0;
-"39
-[e = _isEndPointTrig -> -> 0 `i `b ]
-"40
-}
-[; ;calibrate_mode.c: 40: }else{
-[e $U 969  ]
-[e :U 968 ]
-{
 [; ;calibrate_mode.c: 41: setSPI1sendDataManual(0x01);
 "41
 [e ( _setSPI1sendDataManual (1 -> -> 1 `i `uc ]
-"42
-}
-[e :U 969 ]
-[; ;calibrate_mode.c: 42: }
 [; ;calibrate_mode.c: 44: return isEndPointTrig;
 "44
 [e ) -> -> _isEndPointTrig `i `b ]
@@ -7911,7 +7896,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _countabuf -> -> 0 `i `ui ]
 [; ;calibrate_mode.c: 64: }
 "64
-[e :UE 970 ]
+[e :UE 968 ]
 }
 "65
 [v _Calibrate_download `(v ~T0 @X0 1 ef1`uc ]
@@ -7933,11 +7918,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _isEndpoint ..  ]
 [; ;calibrate_mode.c: 70: switch(countabuf){
 "70
-[e $U 973  ]
+[e $U 971  ]
 {
 [; ;calibrate_mode.c: 71: case 0:
 "71
-[e :U 974 ]
+[e :U 972 ]
 [; ;calibrate_mode.c: 72: InitCalibrate();
 "72
 [e ( _InitCalibrate ..  ]
@@ -7949,10 +7934,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _spi2_Send_data _spi_Read_data ]
 [; ;calibrate_mode.c: 75: break;
 "75
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 76: case 1:
 "76
-[e :U 975 ]
+[e :U 973 ]
 [; ;calibrate_mode.c: 77: calibdata.cargoLength = calibdata.cargoLength & (bufint | 0xFF00);
 "77
 [e = . _calibdata 0 & . _calibdata 0 | _bufint -> 65280 `ui ]
@@ -7961,10 +7946,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _spi2_Send_data _spi_Read_data ]
 [; ;calibrate_mode.c: 79: break;
 "79
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 80: case 2:
 "80
-[e :U 976 ]
+[e :U 974 ]
 [; ;calibrate_mode.c: 81: calibdata.command = spi_Read_data;
 "81
 [e = . _calibdata 1 _spi_Read_data ]
@@ -7973,10 +7958,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _spi2_Send_data _spi_Read_data ]
 [; ;calibrate_mode.c: 83: break;
 "83
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 84: case 3:
 "84
-[e :U 977 ]
+[e :U 975 ]
 [; ;calibrate_mode.c: 85: calibdata.index = spi_Read_data;
 "85
 [e = . _calibdata 2 _spi_Read_data ]
@@ -7985,10 +7970,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _spi2_Send_data _spi_Read_data ]
 [; ;calibrate_mode.c: 87: break;
 "87
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 88: case 4:
 "88
-[e :U 978 ]
+[e :U 976 ]
 [; ;calibrate_mode.c: 89: linkInfo.My_address = spi_Read_data +1;
 "89
 [e = . _linkInfo 0 -> + -> _spi_Read_data `i -> 1 `i `uc ]
@@ -7997,10 +7982,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _spi2_Send_data . _linkInfo 0 ]
 [; ;calibrate_mode.c: 91: break;
 "91
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 92: case 5:
 "92
-[e :U 979 ]
+[e :U 977 ]
 [; ;calibrate_mode.c: 93: calibdata.WorkingCount++;
 "93
 [e ++ . _calibdata 3 -> -> -> 1 `i `l `ul ]
@@ -8009,40 +7994,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _calibdata 3 `l -> 24 `i -> -> 255 `i `l `uc ]
 [; ;calibrate_mode.c: 95: break;
 "95
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 96: case 6:
 "96
-[e :U 980 ]
+[e :U 978 ]
 [; ;calibrate_mode.c: 97: spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 16 & 0x000000ff);
 "97
 [e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _calibdata 3 `l -> 16 `i -> -> 255 `i `l `uc ]
 [; ;calibrate_mode.c: 98: break;
 "98
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 99: case 7:
 "99
-[e :U 981 ]
+[e :U 979 ]
 [; ;calibrate_mode.c: 100: spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 8 & 0x000000ff);
 "100
 [e = _spi2_Send_data -> & >> ( _TransLong256To255 (1 -> . _calibdata 3 `l -> 8 `i -> -> 255 `i `l `uc ]
 [; ;calibrate_mode.c: 101: break;
 "101
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 102: case 8:
 "102
-[e :U 982 ]
+[e :U 980 ]
 [; ;calibrate_mode.c: 103: spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) & 0x000000ff);
 "103
 [e = _spi2_Send_data -> & ( _TransLong256To255 (1 -> . _calibdata 3 `l -> -> 255 `i `l `uc ]
 [; ;calibrate_mode.c: 104: break;
 "104
-[e $U 972  ]
+[e $U 970  ]
 [; ;calibrate_mode.c: 105: case 9:
 "105
-[e :U 983 ]
+[e :U 981 ]
 [; ;calibrate_mode.c: 107: if(isEndPointTrig == 1){
 "107
-[e $ ! == -> _isEndPointTrig `i -> 1 `i 984  ]
+[e $ ! == -> _isEndPointTrig `i -> 1 `i 982  ]
 {
 [; ;calibrate_mode.c: 108: LATAbits.LATA0 = 1;
 "108
@@ -8053,8 +8038,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 "110
 }
 [; ;calibrate_mode.c: 110: }else{
-[e $U 985  ]
-[e :U 984 ]
+[e $U 983  ]
+[e :U 982 ]
 {
 [; ;calibrate_mode.c: 111: LATAbits.LATA0 = 0;
 "111
@@ -8064,7 +8049,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = . _linkInfo 2 -> -> 0 `i `uc ]
 "113
 }
-[e :U 985 ]
+[e :U 983 ]
 [; ;calibrate_mode.c: 113: }
 [; ;calibrate_mode.c: 114: spi2_Send_data = linkInfo.My_address;
 "114
@@ -8077,43 +8062,43 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ( _resetCargo ..  ]
 [; ;calibrate_mode.c: 117: break;
 "117
-[e $U 972  ]
+[e $U 970  ]
 "118
 }
 [; ;calibrate_mode.c: 118: }
-[e $U 972  ]
+[e $U 970  ]
 "70
-[e :U 973 ]
-[e [\ _countabuf , $ -> -> 0 `i `ui 974
- , $ -> -> 1 `i `ui 975
- , $ -> -> 2 `i `ui 976
- , $ -> -> 3 `i `ui 977
- , $ -> -> 4 `i `ui 978
- , $ -> -> 5 `i `ui 979
- , $ -> -> 6 `i `ui 980
- , $ -> -> 7 `i `ui 981
- , $ -> -> 8 `i `ui 982
- , $ -> -> 9 `i `ui 983
- 972 ]
+[e :U 971 ]
+[e [\ _countabuf , $ -> -> 0 `i `ui 972
+ , $ -> -> 1 `i `ui 973
+ , $ -> -> 2 `i `ui 974
+ , $ -> -> 3 `i `ui 975
+ , $ -> -> 4 `i `ui 976
+ , $ -> -> 5 `i `ui 977
+ , $ -> -> 6 `i `ui 978
+ , $ -> -> 7 `i `ui 979
+ , $ -> -> 8 `i `ui 980
+ , $ -> -> 9 `i `ui 981
+ 970 ]
 "118
-[e :U 972 ]
+[e :U 970 ]
 [; ;calibrate_mode.c: 119: if(isEndPointTrig){
 "119
-[e $ ! _isEndPointTrig 986  ]
+[e $ ! _isEndPointTrig 984  ]
 {
 [; ;calibrate_mode.c: 120: spi2_Send_data = 0x01;
 "120
 [e = _spi2_Send_data -> -> 1 `i `uc ]
 "121
 }
-[e :U 986 ]
+[e :U 984 ]
 [; ;calibrate_mode.c: 121: }
 [; ;calibrate_mode.c: 125: countabuf++;
 "125
 [e ++ _countabuf -> -> 1 `i `ui ]
 [; ;calibrate_mode.c: 126: if(calibdata.cargoLength <= countabuf){
 "126
-[e $ ! <= . _calibdata 0 _countabuf 987  ]
+[e $ ! <= . _calibdata 0 _countabuf 985  ]
 {
 [; ;calibrate_mode.c: 127: calibdata.cargoLength = 0xFFFF;
 "127
@@ -8123,11 +8108,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _countabuf -> -> 0 `i `ui ]
 "129
 }
-[e :U 987 ]
+[e :U 985 ]
 [; ;calibrate_mode.c: 129: }
 [; ;calibrate_mode.c: 131: }
 "131
-[e :UE 971 ]
+[e :UE 969 ]
 }
 "133
 [v _setLinkNo `(v ~T0 @X0 1 ef1`uc ]
@@ -8150,7 +8135,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e ++ . _linkInfo 1 -> -> -> 1 `i `l `ul ]
 [; ;calibrate_mode.c: 138: }
 "138
-[e :UE 988 ]
+[e :UE 986 ]
 }
 "139
 [v _getVENDER_ID `(ui ~T0 @X0 1 ef ]
@@ -8161,10 +8146,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;calibrate_mode.c: 140: return VENDER_ID;
 "140
 [e ) _VENDER_ID ]
-[e $UE 989  ]
+[e $UE 987  ]
 [; ;calibrate_mode.c: 141: };
 "141
-[e :UE 989 ]
+[e :UE 987 ]
 }
 "142
 [v _getMACHINE_ID `(ui ~T0 @X0 1 ef ]
@@ -8175,8 +8160,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;calibrate_mode.c: 143: return MACHINE_ID;
 "143
 [e ) _MACHINE_ID ]
-[e $UE 990  ]
+[e $UE 988  ]
 [; ;calibrate_mode.c: 144: };
 "144
-[e :UE 990 ]
+[e :UE 988 ]
 }

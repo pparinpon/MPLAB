@@ -10124,6 +10124,10 @@ extern unsigned char readNG;
 extern unsigned int countabuf;
 extern bit isMycargo;
 
+
+extern bit Hand_arm_clutchaction(unsigned char comannd);
+extern bit Hand_clutchaction(unsigned char comannd);
+
 # 72 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.h"
 extern bit isCalibrated = 0;
 typedef struct {
@@ -10174,6 +10178,9 @@ extern void setSPI2sendData(void);
 extern void setSPI1sendDataManual(unsigned char data);
 
 # 73 "D:/programdata/16F18346_Link_IC.X/IO_control_header.h"
+extern unsigned char IOCode[18];
+extern void initIOCode(void);
+extern bit IOCode_Command(unsigned char m_IOCode);
 extern int linkAngle;
 extern int direction;
 extern void setCargo_Angle(void);
@@ -10190,7 +10197,11 @@ extern void clear(void);
 extern long TransLong256To255(long data);
 extern int TransInt256To255(int data);
 
-# 12 "D:/programdata/16F18346_Link_IC.X/normal_mode.c"
+# 70 "D:/programdata/16F18346_Link_IC.X/index_header.h"
+extern void initIndex(void);
+extern bit setIndexMode(unsigned char m_index);
+
+# 13 "D:/programdata/16F18346_Link_IC.X/normal_mode.c"
 CargoData cargoData;
 
 void readCargo(unsigned char spi1_Read_data){
@@ -10210,6 +10221,7 @@ cargoData.command = spi1_Read_data;
 break;
 case 3:
 cargoData.index = spi1_Read_data;
+setIndexMode(spi1_Read_data);
 break;
 case 4:
 cargoData.address = spi1_Read_data;

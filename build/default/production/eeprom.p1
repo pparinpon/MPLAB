@@ -7733,6 +7733,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;command_header.h: 78: extern unsigned char readNG;
 [; ;command_header.h: 79: extern unsigned int countabuf;
 [; ;command_header.h: 80: extern bit isMycargo;
+[; ;command_header.h: 83: extern bit Hand_arm_clutchaction(unsigned char comannd);
+[; ;command_header.h: 84: extern bit Hand_clutchaction(unsigned char comannd);
 "72 calibrate_mode.h
 [v _isCalibrated `b ~T0 @X0 1 e ]
 [i _isCalibrated

@@ -19,7 +19,7 @@ void initCargo(void){
     cargoData.clutchMode = 0;
     cargoData.command = 0;
     cargoData.index = 0;
-    cargoData.linkAngleTo = 0;
+    cargoData.linkAngleTo = 360;
     cargoData.passedTime = 0;
 }
 void resetCargo(void){
@@ -29,7 +29,7 @@ void resetCargo(void){
     cargoData.clutchMode = 0;
     cargoData.command = 0;
     cargoData.index = 0;
-    cargoData.linkAngleTo = 0;
+    cargoData.linkAngleTo = 360;
     cargoData.passedTime = 0;
 
 };

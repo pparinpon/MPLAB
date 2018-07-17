@@ -10126,6 +10126,10 @@ extern unsigned char readNG;
 extern unsigned int countabuf;
 extern bit isMycargo;
 
+
+extern bit Hand_arm_clutchaction(unsigned char comannd);
+extern bit Hand_clutchaction(unsigned char comannd);
+
 # 72 "calibrate_mode.h"
 extern bit isCalibrated = 0;
 typedef struct {

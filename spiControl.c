@@ -22,7 +22,7 @@ void spi_init(void){
     INTCONbits.PEIE = 0;
     INTCONbits.GIE = 0;
     spi1_init();
-    spi2_init();
+//    spi2_init();
     INTCONbits.PEIE = 1;
     INTCONbits.GIE = 1;
 
@@ -45,23 +45,23 @@ void spi1_init(){
     PIR1bits.SSP1IF = 0;
     dummy = SSP1BUF;
 }
-void spi2_init(){
-    unsigned char dummy;
-    SSP2CON3bits.PCIE = 0;
-    RA2PPS = 0b11011;//RA2 is SDO2
-    RB7PPS = 0b11010;//RB7 is SCK2
-    SSP2SSPPSbits.SSP2SSPPS = 0b01111; //RB7
-    SSP2CON1bits.SSPOV = 0;
-    SSP2CON1bits.SSPEN = 1;
-    SSP2CON1bits.SSPM = 0b0001;
-    SSP2CON3bits.BOEN = 1;
-    SSP2STATbits.SMP = 0;
-    SSP2STATbits.CKE = 0;
-    SSP2CON1bits.CKP = 0;
-    PIE2bits.SSP2IE = 1;//1
-    PIR2bits.SSP2IF = 0;
-    dummy = SSP2BUF;
-}
+//void spi2_init(){
+//    unsigned char dummy;
+//    SSP2CON3bits.PCIE = 0;
+//    RA2PPS = 0b11011;//RA2 is SDO2
+//    RB7PPS = 0b11010;//RB7 is SCK2
+//    SSP2SSPPSbits.SSP2SSPPS = 0b01111; //RB7
+//    SSP2CON1bits.SSPOV = 0;
+//    SSP2CON1bits.SSPEN = 1;
+//    SSP2CON1bits.SSPM = 0b0001;
+//    SSP2CON3bits.BOEN = 1;
+//    SSP2STATbits.SMP = 0;
+//    SSP2STATbits.CKE = 0;
+//    SSP2CON1bits.CKP = 0;
+//    PIE2bits.SSP2IE = 1;//1
+//    PIR2bits.SSP2IF = 0;
+//    dummy = SSP2BUF;
+//}
 
 bit isSPI1read(void){
     if(read_count1 == count1){
@@ -104,21 +104,21 @@ void setSPI1sendDataManual(unsigned char data){
 }
 void setSPI2sendData(void){
     spi2_Send_data = spi2_Send_data + SPI_OFFSET_BYTE;
-    if(linkInfo.endpoint == 0){
-        SSP2BUF = spi2_Send_data;
-                // SPI_recieve
-        isSendSPI2 = 1;
-        while(isSendSPI2);
-        spi2_buffer_data[count2] = SSP2BUF;
-        count2++;
-        if(count2 == 256){
-            count2 = 0;
-        }
-    }else{
+//    if(linkInfo.endpoint == 0){
+//        SSP2BUF = spi2_Send_data;
+//                // SPI_recieve
+//        isSendSPI2 = 1;
+//        while(isSendSPI2);
+//        spi2_buffer_data[count2] = SSP2BUF;
+//        count2++;
+//        if(count2 == 256){
+//            count2 = 0;
+//        }
+//    }else{
         spi2_buffer_data[count2] = spi2_Send_data;
         count2++;
         if(count2 == 256){
             count2 = 0;
         }
-    }   
+//    }   
 }

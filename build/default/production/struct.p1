@@ -7729,9 +7729,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;struct.c: 21: cargoData.index = 0;
 "21
 [e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 22: cargoData.linkAngleTo = 0;
+[; ;struct.c: 22: cargoData.linkAngleTo = 360;
 "22
-[e = . _cargoData 4 -> 0 `i ]
+[e = . _cargoData 4 -> 360 `i ]
 [; ;struct.c: 23: cargoData.passedTime = 0;
 "23
 [e = . _cargoData 6 -> -> 0 `i `ui ]
@@ -7763,9 +7763,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;struct.c: 31: cargoData.index = 0;
 "31
 [e = . _cargoData 2 -> -> 0 `i `uc ]
-[; ;struct.c: 32: cargoData.linkAngleTo = 0;
+[; ;struct.c: 32: cargoData.linkAngleTo = 360;
 "32
-[e = . _cargoData 4 -> 0 `i ]
+[e = . _cargoData 4 -> 360 `i ]
 [; ;struct.c: 33: cargoData.passedTime = 0;
 "33
 [e = . _cargoData 6 -> -> 0 `i `ui ]

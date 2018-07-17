@@ -20,6 +20,7 @@
       <itemPath>eeprom_header.h</itemPath>
       <itemPath>cargo_index_header.h</itemPath>
       <itemPath>D:/programdata/16F18346_Link_IC.X/trigonometric_header.h</itemPath>
+      <itemPath>D:/programdata/16F18346_Link_IC.X/index_header.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -44,6 +45,7 @@
       <itemPath>eeprom.c</itemPath>
       <itemPath>cargo_index.c</itemPath>
       <itemPath>D:/programdata/16F18346_Link_IC.X/trigonometric.c</itemPath>
+      <itemPath>D:/programdata/16F18346_Link_IC.X/index.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

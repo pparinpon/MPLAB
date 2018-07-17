@@ -53,6 +53,8 @@
 #include "normal_mode_header.h"
 #include "comu_type.h"
 #include "IO_control_header.h"
+#include "cal_position_header.h"
+#include "index_header.h"
 
 unsigned char send_data;
 
@@ -79,11 +81,11 @@ void interrupt InterMSSP( void )
             count1 = 0;
         }
     }
-    if (PIR2bits.SSP2IF) {
-        isSendSPI2 = 0;
-        // SPI_recieve
-        PIR2bits.SSP2IF = 0;
-    }
+//    if (PIR2bits.SSP2IF) {
+//        isSendSPI2 = 0;
+//        // SPI_recieve
+//        PIR2bits.SSP2IF = 0;
+//    }
     if(IOCAFbits.IOCAF3 == 1){
         //interruptIO
         addAngle();
@@ -159,12 +161,14 @@ void initTrain(void){
 }
 void main(void) {
     initComand();
+    initIndex();
     initComu_types();
     InitCalibrate();
     init();
     io_init();
     spi_init();
     initCargo();
+    initPosition();
     LATAbits.LATA0 = 1;
     while(1){
         if(!isSPI1read()){

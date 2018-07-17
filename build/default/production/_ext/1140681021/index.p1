@@ -1,7 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"71 D:/programdata/16F18346_Link_IC.X/cal_position_header.h
-[s S960 `i 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
-[n S960 . moter_lotate pos_x pos_y pos_z rotate_x rotate_y rotate_z ]
+"81 D:/programdata/16F18346_Link_IC.X/cal_position_header.h
+[v _setMoter_lotate `(v ~T0 @X0 0 ef1`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7631,6 +7630,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
+[; ;index_header.h: 70: extern void initIndex(void);
+[; ;index_header.h: 71: extern bit setIndexMode(unsigned char m_index);
 [; ;cal_position_header.h: 71: typedef struct {
 [; ;cal_position_header.h: 72: int moter_lotate;
 [; ;cal_position_header.h: 73: float pos_x;
@@ -7643,95 +7644,173 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;cal_position_header.h: 80: extern void initPosition(void);
 [; ;cal_position_header.h: 81: extern void setMoter_lotate(unsigned char lotatepos);
 [; ;cal_position_header.h: 82: extern int getMoter_lotate(void);
-"6 D:/programdata/16F18346_Link_IC.X/cal_position.c
-[v _position `S960 ~T0 @X0 1 e ]
-[; ;cal_position.c: 6: Position position;
-"8
-[v _initPosition `(v ~T0 @X0 1 ef ]
-{
-[; ;cal_position.c: 8: void initPosition(void){
-[e :U _initPosition ]
-[f ]
-[; ;cal_position.c: 9: position.moter_lotate = 0;
-"9
-[e = . _position 0 -> 0 `i ]
-[; ;cal_position.c: 10: position.pos_x = 0;
+"9 D:/programdata/16F18346_Link_IC.X/index.c
+[v _countabuf `ui ~T0 @X0 1 e ]
+[; ;index.c: 9: unsigned int countabuf;
 "10
-[e = . _position 1 -> -> 0 `i `f ]
-[; ;cal_position.c: 11: position.pos_y = 0;
+[v _index `uc ~T0 @X0 -> 18 `i e ]
+[; ;index.c: 10: unsigned char index[18];
 "11
-[e = . _position 2 -> -> 0 `i `f ]
-[; ;cal_position.c: 12: position.pos_z = 0;
+[v _initIndex `(v ~T0 @X0 1 ef ]
+{
+[; ;index.c: 11: void initIndex(void){
+[e :U _initIndex ]
+[f ]
+[; ;index.c: 12: index[0] = 0b00111111;
 "12
-[e = . _position 3 -> -> 0 `i `f ]
-[; ;cal_position.c: 13: position.rotate_x = 0;
+[e = *U + &U _index * -> -> -> 0 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 63 `i `uc ]
+[; ;index.c: 13: index[1] = 0b01111111;
 "13
-[e = . _position 4 -> -> 0 `i `f ]
-[; ;cal_position.c: 14: position.rotate_y = 0;
+[e = *U + &U _index * -> -> -> 1 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 127 `i `uc ]
+[; ;index.c: 14: index[2] = 0b10011111;;
 "14
-[e = . _position 5 -> -> 0 `i `f ]
-[; ;cal_position.c: 15: position.rotate_z = 0;
+[e = *U + &U _index * -> -> -> 2 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 159 `i `uc ]
+[; ;index.c: 15: index[3] = 0b10101111;
 "15
-[e = . _position 6 -> -> 0 `i `f ]
-[; ;cal_position.c: 16: };
+[e = *U + &U _index * -> -> -> 3 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 175 `i `uc ]
+[; ;index.c: 16: index[4] = 0b10111111;
 "16
+[e = *U + &U _index * -> -> -> 4 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 191 `i `uc ]
+[; ;index.c: 17: index[5] = 0b11001111;
+"17
+[e = *U + &U _index * -> -> -> 5 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 207 `i `uc ]
+[; ;index.c: 18: index[6] = 0b11010111;
+"18
+[e = *U + &U _index * -> -> -> 6 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 215 `i `uc ]
+[; ;index.c: 19: index[7] = 0b11011111;
+"19
+[e = *U + &U _index * -> -> -> 7 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 223 `i `uc ]
+[; ;index.c: 20: index[8] = 0b11100111;
+"20
+[e = *U + &U _index * -> -> -> 8 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 231 `i `uc ]
+[; ;index.c: 21: index[9] = 0b11101011;
+"21
+[e = *U + &U _index * -> -> -> 9 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 235 `i `uc ]
+[; ;index.c: 22: index[10] = 0b11101111;
+"22
+[e = *U + &U _index * -> -> -> 10 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 239 `i `uc ]
+[; ;index.c: 23: index[11] = 0b11110001;
+"23
+[e = *U + &U _index * -> -> -> 11 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 241 `i `uc ]
+[; ;index.c: 24: index[12] = 0b11110011;
+"24
+[e = *U + &U _index * -> -> -> 12 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 243 `i `uc ]
+[; ;index.c: 25: index[13] = 0b11110101;
+"25
+[e = *U + &U _index * -> -> -> 13 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 245 `i `uc ]
+[; ;index.c: 26: index[14] = 0b11110111;
+"26
+[e = *U + &U _index * -> -> -> 14 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 247 `i `uc ]
+[; ;index.c: 27: index[15] = 0b11111000;
+"27
+[e = *U + &U _index * -> -> -> 15 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 248 `i `uc ]
+[; ;index.c: 28: index[16] = 0b11111001;
+"28
+[e = *U + &U _index * -> -> -> 16 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 249 `i `uc ]
+[; ;index.c: 29: index[17] = 0b11111010;
+"29
+[e = *U + &U _index * -> -> -> 17 `i `ui `ux -> -> # *U &U _index `ui `ux -> -> 250 `i `uc ]
+[; ;index.c: 30: }
+"30
 [e :UE 961 ]
 }
-"17
-[v _setMoter_lotate `(v ~T0 @X0 1 ef1`uc ]
+"31
+[v _setIndexMode `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;cal_position.c: 17: void setMoter_lotate(unsigned char lotate){
-[e :U _setMoter_lotate ]
-[v _lotate `uc ~T0 @X0 1 r1 ]
+[; ;index.c: 31: bit setIndexMode(unsigned char m_index){
+[e :U _setIndexMode ]
+[v _m_index `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;cal_position.c: 18: if(lotate == 0x01){
-"18
-[e $ ! == -> _lotate `i -> 1 `i 963  ]
+[; ;index.c: 32: for(int i = 0; i < 18; i++){
+"32
 {
-[; ;cal_position.c: 20: position.moter_lotate = 1;
-"20
-[e = . _position 0 -> 1 `i ]
-"21
-}
-[; ;cal_position.c: 21: }else if(lotate == 0x02){
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 18 `i 963  ]
 [e $U 964  ]
 [e :U 963 ]
-[e $ ! == -> _lotate `i -> 2 `i 965  ]
 {
-[; ;cal_position.c: 23: position.moter_lotate = -1;
-"23
-[e = . _position 0 -U -> 1 `i ]
-"24
-}
-[; ;cal_position.c: 24: }else if(lotate == 0x03){
-[e $U 966  ]
-[e :U 965 ]
-[e $ ! == -> _lotate `i -> 3 `i 967  ]
+[; ;index.c: 33: if(index[i] == m_index){
+"33
+[e $ ! == -> *U + &U _index * -> -> _i `ui `ux -> -> # *U &U _index `ui `ux `i -> _m_index `i 966  ]
 {
-[; ;cal_position.c: 25: position.moter_lotate = 0;
-"25
-[e = . _position 0 -> 0 `i ]
-"27
+[; ;index.c: 34: switch(i){
+"34
+[e $U 968  ]
+{
+[; ;index.c: 35: case 0:
+"35
+[e :U 969 ]
+[; ;index.c: 37: return 1;
+"37
+[e ) -> -> 1 `i `b ]
+[e $UE 962  ]
+[; ;index.c: 38: case 1:
+"38
+[e :U 970 ]
+[; ;index.c: 39: setMoter_lotate(0x01);
+"39
+[e ( _setMoter_lotate (1 -> -> 1 `i `uc ]
+[; ;index.c: 40: return 1;
+"40
+[e ) -> -> 1 `i `b ]
+[e $UE 962  ]
+[; ;index.c: 41: case 2:
+"41
+[e :U 971 ]
+[; ;index.c: 42: setMoter_lotate(0x02);
+"42
+[e ( _setMoter_lotate (1 -> -> 2 `i `uc ]
+[; ;index.c: 43: return 1;
+"43
+[e ) -> -> 1 `i `b ]
+[e $UE 962  ]
+[; ;index.c: 44: case 3:
+"44
+[e :U 972 ]
+[; ;index.c: 45: return 1;
+"45
+[e ) -> -> 1 `i `b ]
+[e $UE 962  ]
+[; ;index.c: 46: case 6:
+"46
+[e :U 973 ]
+[; ;index.c: 47: return 1;
+"47
+[e ) -> -> 1 `i `b ]
+[e $UE 962  ]
+"48
 }
+[; ;index.c: 48: }
+[e $U 967  ]
+"34
+[e :U 968 ]
+[e [\ _i , $ -> 0 `i 969
+ , $ -> 1 `i 970
+ , $ -> 2 `i 971
+ , $ -> 3 `i 972
+ , $ -> 6 `i 973
+ 967 ]
+"48
 [e :U 967 ]
-[e :U 966 ]
-[e :U 964 ]
-[; ;cal_position.c: 27: };
-[; ;cal_position.c: 28: };
-"28
-[e :UE 962 ]
+"49
 }
-"29
-[v _getMoter_lotate `(i ~T0 @X0 1 ef ]
-{
-[; ;cal_position.c: 29: int getMoter_lotate(void){
-[e :U _getMoter_lotate ]
-[f ]
-[; ;cal_position.c: 30: return position.moter_lotate;
-"30
-[e ) . _position 0 ]
-[e $UE 968  ]
-[; ;cal_position.c: 31: };
-"31
-[e :UE 968 ]
+[e :U 966 ]
+"50
+}
+"32
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 18 `i 963  ]
+[e :U 964 ]
+"50
+}
+[; ;index.c: 49: }
+[; ;index.c: 50: }
+[; ;index.c: 51: return 0;
+"51
+[e ) -> -> 0 `i `b ]
+[e $UE 962  ]
+[; ;index.c: 52: }
+"52
+[e :UE 962 ]
 }

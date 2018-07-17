@@ -1,7 +1,4 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"71 D:/programdata/16F18346_Link_IC.X/cal_position_header.h
-[s S960 `i 1 `f 1 `f 1 `f 1 `f 1 `f 1 `f 1 ]
-[n S960 . moter_lotate pos_x pos_y pos_z rotate_x rotate_y rotate_z ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7631,107 +7628,33 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;cal_position_header.h: 71: typedef struct {
-[; ;cal_position_header.h: 72: int moter_lotate;
-[; ;cal_position_header.h: 73: float pos_x;
-[; ;cal_position_header.h: 74: float pos_y;
-[; ;cal_position_header.h: 75: float pos_z;
-[; ;cal_position_header.h: 76: float rotate_x;
-[; ;cal_position_header.h: 77: float rotate_y;
-[; ;cal_position_header.h: 78: float rotate_z;
-[; ;cal_position_header.h: 79: }Position;
-[; ;cal_position_header.h: 80: extern void initPosition(void);
-[; ;cal_position_header.h: 81: extern void setMoter_lotate(unsigned char lotatepos);
-[; ;cal_position_header.h: 82: extern int getMoter_lotate(void);
-"6 D:/programdata/16F18346_Link_IC.X/cal_position.c
-[v _position `S960 ~T0 @X0 1 e ]
-[; ;cal_position.c: 6: Position position;
+"6 D:/programdata/16F18346_Link_IC.X/trigonometric.c
+[v _getSin `(f ~T0 @X0 1 ef1`f ]
+{
+[; ;trigonometric.c: 6: float getSin(float data){
+[e :U _getSin ]
+[v _data `f ~T0 @X0 1 r1 ]
+[f ]
+[; ;trigonometric.c: 7: return data;
+"7
+[e ) _data ]
+[e $UE 960  ]
+[; ;trigonometric.c: 8: };
 "8
-[v _initPosition `(v ~T0 @X0 1 ef ]
-{
-[; ;cal_position.c: 8: void initPosition(void){
-[e :U _initPosition ]
-[f ]
-[; ;cal_position.c: 9: position.moter_lotate = 0;
+[e :UE 960 ]
+}
 "9
-[e = . _position 0 -> 0 `i ]
-[; ;cal_position.c: 10: position.pos_x = 0;
+[v _getCos `(f ~T0 @X0 1 ef1`f ]
+{
+[; ;trigonometric.c: 9: float getCos(float data){
+[e :U _getCos ]
+[v _data `f ~T0 @X0 1 r1 ]
+[f ]
+[; ;trigonometric.c: 10: return data;
 "10
-[e = . _position 1 -> -> 0 `i `f ]
-[; ;cal_position.c: 11: position.pos_y = 0;
+[e ) _data ]
+[e $UE 961  ]
+[; ;trigonometric.c: 11: };
 "11
-[e = . _position 2 -> -> 0 `i `f ]
-[; ;cal_position.c: 12: position.pos_z = 0;
-"12
-[e = . _position 3 -> -> 0 `i `f ]
-[; ;cal_position.c: 13: position.rotate_x = 0;
-"13
-[e = . _position 4 -> -> 0 `i `f ]
-[; ;cal_position.c: 14: position.rotate_y = 0;
-"14
-[e = . _position 5 -> -> 0 `i `f ]
-[; ;cal_position.c: 15: position.rotate_z = 0;
-"15
-[e = . _position 6 -> -> 0 `i `f ]
-[; ;cal_position.c: 16: };
-"16
 [e :UE 961 ]
-}
-"17
-[v _setMoter_lotate `(v ~T0 @X0 1 ef1`uc ]
-{
-[; ;cal_position.c: 17: void setMoter_lotate(unsigned char lotate){
-[e :U _setMoter_lotate ]
-[v _lotate `uc ~T0 @X0 1 r1 ]
-[f ]
-[; ;cal_position.c: 18: if(lotate == 0x01){
-"18
-[e $ ! == -> _lotate `i -> 1 `i 963  ]
-{
-[; ;cal_position.c: 20: position.moter_lotate = 1;
-"20
-[e = . _position 0 -> 1 `i ]
-"21
-}
-[; ;cal_position.c: 21: }else if(lotate == 0x02){
-[e $U 964  ]
-[e :U 963 ]
-[e $ ! == -> _lotate `i -> 2 `i 965  ]
-{
-[; ;cal_position.c: 23: position.moter_lotate = -1;
-"23
-[e = . _position 0 -U -> 1 `i ]
-"24
-}
-[; ;cal_position.c: 24: }else if(lotate == 0x03){
-[e $U 966  ]
-[e :U 965 ]
-[e $ ! == -> _lotate `i -> 3 `i 967  ]
-{
-[; ;cal_position.c: 25: position.moter_lotate = 0;
-"25
-[e = . _position 0 -> 0 `i ]
-"27
-}
-[e :U 967 ]
-[e :U 966 ]
-[e :U 964 ]
-[; ;cal_position.c: 27: };
-[; ;cal_position.c: 28: };
-"28
-[e :UE 962 ]
-}
-"29
-[v _getMoter_lotate `(i ~T0 @X0 1 ef ]
-{
-[; ;cal_position.c: 29: int getMoter_lotate(void){
-[e :U _getMoter_lotate ]
-[f ]
-[; ;cal_position.c: 30: return position.moter_lotate;
-"30
-[e ) . _position 0 ]
-[e $UE 968  ]
-[; ;cal_position.c: 31: };
-"31
-[e :UE 968 ]
 }

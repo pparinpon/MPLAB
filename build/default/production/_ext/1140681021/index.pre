@@ -1,5 +1,5 @@
 
-# 1 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
+# 1 "D:/programdata/16F18346_Link_IC.X/index.c"
 
 # 26 "E:\microchip\xc8\v1.45\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10086,233 +10086,67 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 
-# 77 "D:/programdata/16F18346_Link_IC.X/spi_header.h"
-extern void spi_init();
-extern void spi1_init(void);
-extern void spi2_init(void);
-extern unsigned char spi1_buffer_data[256];
-extern unsigned char spi2_buffer_data[256];
-extern unsigned char spi1_send_buffer_data[256];
-extern unsigned int read_count1;
-extern unsigned int count1;
-extern unsigned int read_count2;
-extern unsigned int count2;
-extern unsigned int spi1_send_count;
-extern unsigned int send_count1;
-extern unsigned char spi1_Read_data;
-extern unsigned char spi2_Send_data;
-extern bit isSendSPI2;
-extern bit isSPI1read(void);
-extern bit isSPI2read(void);
-extern bit isSPI1send(void);
-extern void setSPI1sendData(void);
-extern void setSPI2sendData(void);
-extern void setSPI1sendDataManual(unsigned char data);
+# 70 "D:/programdata/16F18346_Link_IC.X/index_header.h"
+extern void initIndex(void);
+extern bit setIndexMode(unsigned char m_index);
 
-# 72 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.h"
-extern bit isCalibrated = 0;
+# 71 "D:/programdata/16F18346_Link_IC.X/cal_position_header.h"
 typedef struct {
-unsigned char My_address;
-unsigned long WorkingCount;
-unsigned char endpoint;
-}LinkInfo;
+int moter_lotate;
+float pos_x;
+float pos_y;
+float pos_z;
+float rotate_x;
+float rotate_y;
+float rotate_z;
+}Position;
+extern void initPosition(void);
+extern void setMoter_lotate(unsigned char lotatepos);
+extern int getMoter_lotate(void);
 
-typedef struct {
-unsigned int cargoLength;
-unsigned char command;
-unsigned char index;
-unsigned long WorkingCount;
-unsigned char endpoint;
-}Clalibdata;
-
-
-extern void Calibrate_download(unsigned char spi_Read_data);
-extern void InitCalibrate(void);
-bit isEndpoint(void);
-extern void setLinkNo(unsigned char workingCounta);
-extern unsigned int getVENDER_ID(void);
-extern unsigned int getMACHINE_ID(void);
-extern LinkInfo linkInfo;
-extern Clalibdata calibdata;
-
-# 72 "D:/programdata/16F18346_Link_IC.X/command_header.h"
-extern unsigned char command[18];
-extern void initComand(void);
-extern bit setCommandMode(unsigned char m_command);
-extern bit action(unsigned char comannd);
-extern bit clutchaction(unsigned char comannd);
-extern unsigned char readOK;
-extern unsigned char readNG;
-extern unsigned int countabuf;
-extern bit isMycargo;
-
-
-extern bit Hand_arm_clutchaction(unsigned char comannd);
-extern bit Hand_clutchaction(unsigned char comannd);
-
-# 74 "D:/programdata/16F18346_Link_IC.X/struct_header.h"
-extern unsigned int st_dataLength = 0xFFFF;
-extern unsigned char st_type = 0x00;
-extern unsigned char SPI_OFFSET_BYTE = 0x01;
-typedef struct {
-unsigned int cargoLength;
-unsigned char command;
-unsigned char index;
-unsigned char address;
-int linkAngleTo;
-int linkAngleBack;
-unsigned int passedTime;
-unsigned char clutchMode;
-unsigned long WorkingCount;
-} CargoData;
-extern CargoData cargoData;
-extern bit isMycargo;
-extern CargoData getCargoData(void);
-extern void setCargoData(CargoData m_cargoData);
-extern void initCargo(void);
-extern void resetCargo(void);
-extern void restartCargo(void);
-extern void setCargoAngle(int m_linkAngleTo);
-
-# 72 "D:/programdata/16F18346_Link_IC.X/util_header.h"
-extern bit writeEEPROM(unsigned char *data);
-extern void clear(void);
-extern long TransLong256To255(long data);
-extern int TransInt256To255(int data);
-
-# 10 "D:/programdata/16F18346_Link_IC.X/calibrate_mode.c"
-const unsigned int VENDER_ID = 0x01;
-const unsigned int MACHINE_ID = 0x01;
-typedef struct {
-unsigned char My_address;
-unsigned long WorkingCount;
-unsigned char endpoint;
-}LinkInfo;
-
-typedef struct {
-unsigned int cargoLength;
-unsigned char command;
-unsigned char index;
-unsigned long WorkingCount;
-}Clalibdata;
-
-LinkInfo linkInfo;
-Clalibdata calibdata;
-
-bit isEndPointTrig;
-
-
-bit isEndpoint(void){
-unsigned char spi2data = 0;
-if(count2 > 1){
-spi2data = spi2_buffer_data[count2 -1];
-}else{
-spi2data = spi2_buffer_data[count2];
+# 9 "D:/programdata/16F18346_Link_IC.X/index.c"
+unsigned int countabuf;
+unsigned char index[18];
+void initIndex(void){
+index[0] = 0b00111111;
+index[1] = 0b01111111;
+index[2] = 0b10011111;;
+index[3] = 0b10101111;
+index[4] = 0b10111111;
+index[5] = 0b11001111;
+index[6] = 0b11010111;
+index[7] = 0b11011111;
+index[8] = 0b11100111;
+index[9] = 0b11101011;
+index[10] = 0b11101111;
+index[11] = 0b11110001;
+index[12] = 0b11110011;
+index[13] = 0b11110101;
+index[14] = 0b11110111;
+index[15] = 0b11111000;
+index[16] = 0b11111001;
+index[17] = 0b11111010;
 }
-
-
-
-setSPI1sendDataManual(0x01);
-
-
-return isEndPointTrig;
-}
-
-
-
-bit workingcounta0 = 0;
-bit workingcounta1 = 0;
-bit workingcounta2 = 0;
-bit workingcounta3 = 0;
-void InitCalibrate(void){
-isEndPointTrig = 1;
-calibdata.cargoLength = 0xFFFF;
-calibdata.index = 0x00;
-calibdata.command =0x00;
-calibdata.WorkingCount = 0;
-CargoData cargoData = getCargoData();
-cargoData.linkAngleTo = 0;
-linkInfo.endpoint = 0;
-linkInfo.My_address = 0;
-countabuf = 0;
-}
-void Calibrate_download(unsigned char spi_Read_data){
-
-unsigned int bufint = spi_Read_data;
-unsigned long buflong = spi_Read_data;
-isEndpoint();
-switch(countabuf){
+bit setIndexMode(unsigned char m_index){
+for(int i = 0; i < 18; i++){
+if(index[i] == m_index){
+switch(i){
 case 0:
-InitCalibrate();
-calibdata.cargoLength = (bufint << 8 | 0x00FF);
-spi2_Send_data = spi_Read_data;
-break;
+
+return 1;
 case 1:
-calibdata.cargoLength = calibdata.cargoLength & (bufint | 0xFF00);
-spi2_Send_data = spi_Read_data;
-break;
+setMoter_lotate(0x01);
+return 1;
 case 2:
-calibdata.command = spi_Read_data;
-spi2_Send_data = spi_Read_data;
-break;
+setMoter_lotate(0x02);
+return 1;
 case 3:
-calibdata.index = spi_Read_data;
-spi2_Send_data = spi_Read_data;
-break;
-case 4:
-linkInfo.My_address = spi_Read_data +1;
-spi2_Send_data = linkInfo.My_address;
-break;
-case 5:
-calibdata.WorkingCount++;
-spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 24 & 0x000000ff);
-break;
+return 1;
 case 6:
-spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 16 & 0x000000ff);
-break;
-case 7:
-spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) >> 8 & 0x000000ff);
-break;
-case 8:
-spi2_Send_data = (TransLong256To255(calibdata.WorkingCount) & 0x000000ff);
-break;
-case 9:
-
-if(isEndPointTrig == 1){
-LATAbits.LATA0 = 1;
-linkInfo.endpoint = 1;
-}else{
-LATAbits.LATA0 = 0;
-linkInfo.endpoint = 0;
+return 1;
 }
-spi2_Send_data = linkInfo.My_address;
-isEndPointTrig = 0;
-resetCargo();
-break;
 }
-if(isEndPointTrig){
-spi2_Send_data = 0x01;
+}
+return 0;
 }
 
-
-
-countabuf++;
-if(calibdata.cargoLength <= countabuf){
-calibdata.cargoLength = 0xFFFF;
-countabuf = 0;
-}
-
-}
-
-void setLinkNo(unsigned char workingCounta){
-linkInfo.My_address = 0;
-linkInfo.WorkingCount = 0;
-linkInfo.My_address += workingCounta;
-linkInfo.WorkingCount++;
-}
-unsigned int getVENDER_ID(void){
-return VENDER_ID;
-};
-unsigned int getMACHINE_ID(void){
-return MACHINE_ID;
-};

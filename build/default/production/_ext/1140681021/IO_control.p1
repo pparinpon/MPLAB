@@ -14,6 +14,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S113 . . ]
 "2306
 [v _LATAbits `VS113 ~T0 @X0 0 e@268 ]
+"82 D:/programdata/16F18346_Link_IC.X/cal_position_header.h
+[v _getMoter_lotate `(i ~T0 @X0 0 ef ]
 "95 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _setCargoAngle `(v ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -7645,15 +7647,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic.h: 193: extern __bank0 unsigned char __resetbits;
 [; ;pic.h: 194: extern __bank0 __bit __powerdown;
 [; ;pic.h: 195: extern __bank0 __bit __timeout;
-[; ;IO_control_header.h: 73: extern int linkAngle;
-[; ;IO_control_header.h: 74: extern int direction;
-[; ;IO_control_header.h: 75: extern void setCargo_Angle(void);
-[; ;IO_control_header.h: 76: extern void resetAngle(void);
-[; ;IO_control_header.h: 77: extern bit isOnClutch(void);
-[; ;IO_control_header.h: 78: extern void setOnClutch(void);
-[; ;IO_control_header.h: 79: extern void setOffClutch(void);
-[; ;IO_control_header.h: 80: extern void addAngle(void);
-[; ;IO_control_header.h: 81: extern void setDirection(int m_direction);
+[; ;IO_control_header.h: 73: extern unsigned char IOCode[18];
+[; ;IO_control_header.h: 74: extern void initIOCode(void);
+[; ;IO_control_header.h: 75: extern bit IOCode_Command(unsigned char m_IOCode);
+[; ;IO_control_header.h: 76: extern int linkAngle;
+[; ;IO_control_header.h: 77: extern int direction;
+[; ;IO_control_header.h: 78: extern void setCargo_Angle(void);
+[; ;IO_control_header.h: 79: extern void resetAngle(void);
+[; ;IO_control_header.h: 80: extern bit isOnClutch(void);
+[; ;IO_control_header.h: 81: extern void setOnClutch(void);
+[; ;IO_control_header.h: 82: extern void setOffClutch(void);
+[; ;IO_control_header.h: 83: extern void addAngle(void);
+[; ;IO_control_header.h: 84: extern void setDirection(int m_direction);
 "74 D:/programdata/16F18346_Link_IC.X/struct_header.h
 [v _st_dataLength `ui ~T0 @X0 1 e ]
 [i _st_dataLength
@@ -7691,132 +7696,297 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;struct_header.h: 93: extern void resetCargo(void);
 [; ;struct_header.h: 94: extern void restartCargo(void);
 [; ;struct_header.h: 95: extern void setCargoAngle(int m_linkAngleTo);
-"6 D:/programdata/16F18346_Link_IC.X/IO_control.c
+[; ;cal_position_header.h: 71: typedef struct {
+[; ;cal_position_header.h: 72: int moter_lotate;
+[; ;cal_position_header.h: 73: float pos_x;
+[; ;cal_position_header.h: 74: float pos_y;
+[; ;cal_position_header.h: 75: float pos_z;
+[; ;cal_position_header.h: 76: float rotate_x;
+[; ;cal_position_header.h: 77: float rotate_y;
+[; ;cal_position_header.h: 78: float rotate_z;
+[; ;cal_position_header.h: 79: }Position;
+[; ;cal_position_header.h: 80: extern void initPosition(void);
+[; ;cal_position_header.h: 81: extern void setMoter_lotate(unsigned char lotatepos);
+[; ;cal_position_header.h: 82: extern int getMoter_lotate(void);
+"17 D:/programdata/16F18346_Link_IC.X/IO_control.c
+[v _IOCode `uc ~T0 @X0 -> 18 `i e ]
+[; ;IO_control.c: 17: unsigned char IOCode[18];
+"18
+[v _initIOCode `(v ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 18: void initIOCode(void){
+[e :U _initIOCode ]
+[f ]
+[; ;IO_control.c: 19: IOCode[0] = 0b00111111;;
+"19
+[e = *U + &U _IOCode * -> -> -> 0 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 63 `i `uc ]
+[; ;IO_control.c: 20: IOCode[1] = 0b01111111;;
+"20
+[e = *U + &U _IOCode * -> -> -> 1 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 127 `i `uc ]
+[; ;IO_control.c: 21: IOCode[2] = 0b10011111;;
+"21
+[e = *U + &U _IOCode * -> -> -> 2 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 159 `i `uc ]
+[; ;IO_control.c: 22: IOCode[3] = 0b10101111;;
+"22
+[e = *U + &U _IOCode * -> -> -> 3 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 175 `i `uc ]
+[; ;IO_control.c: 23: IOCode[4] = 0b10111111;
+"23
+[e = *U + &U _IOCode * -> -> -> 4 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 191 `i `uc ]
+[; ;IO_control.c: 24: IOCode[5] = 0b11001111;
+"24
+[e = *U + &U _IOCode * -> -> -> 5 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 207 `i `uc ]
+[; ;IO_control.c: 25: IOCode[6] = 0b11010111;
+"25
+[e = *U + &U _IOCode * -> -> -> 6 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 215 `i `uc ]
+[; ;IO_control.c: 26: IOCode[7] = 0b11011111;
+"26
+[e = *U + &U _IOCode * -> -> -> 7 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 223 `i `uc ]
+[; ;IO_control.c: 27: IOCode[8] = 0b11100111;
+"27
+[e = *U + &U _IOCode * -> -> -> 8 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 231 `i `uc ]
+[; ;IO_control.c: 28: IOCode[9] = 0b11101011;
+"28
+[e = *U + &U _IOCode * -> -> -> 9 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 235 `i `uc ]
+[; ;IO_control.c: 29: IOCode[10] = 0b11101111;
+"29
+[e = *U + &U _IOCode * -> -> -> 10 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 239 `i `uc ]
+[; ;IO_control.c: 30: IOCode[11] = 0b11110001;
+"30
+[e = *U + &U _IOCode * -> -> -> 11 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 241 `i `uc ]
+[; ;IO_control.c: 31: IOCode[12] = 0b11110011;
+"31
+[e = *U + &U _IOCode * -> -> -> 12 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 243 `i `uc ]
+[; ;IO_control.c: 32: IOCode[13] = 0b11110101;
+"32
+[e = *U + &U _IOCode * -> -> -> 13 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 245 `i `uc ]
+[; ;IO_control.c: 33: IOCode[14] = 0b11110111;
+"33
+[e = *U + &U _IOCode * -> -> -> 14 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 247 `i `uc ]
+[; ;IO_control.c: 34: IOCode[15] = 0b11111000;
+"34
+[e = *U + &U _IOCode * -> -> -> 15 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 248 `i `uc ]
+[; ;IO_control.c: 35: IOCode[16] = 0b11111001;
+"35
+[e = *U + &U _IOCode * -> -> -> 16 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 249 `i `uc ]
+[; ;IO_control.c: 36: IOCode[17] = 0b11111010;
+"36
+[e = *U + &U _IOCode * -> -> -> 17 `i `ui `ux -> -> # *U &U _IOCode `ui `ux -> -> 250 `i `uc ]
+[; ;IO_control.c: 37: }
+"37
+[e :UE 962 ]
+}
+"39
 [v _linkAngle `i ~T0 @X0 1 e ]
 [i _linkAngle
--> 0 `i
+-> 360 `i
 ]
-[; ;IO_control.c: 6: int linkAngle = 0;
-"7
+[; ;IO_control.c: 39: int linkAngle = 360;
+"40
 [v _direction `i ~T0 @X0 1 e ]
 [i _direction
 -> 1 `i
 ]
-[; ;IO_control.c: 7: int direction = 1;
-"8
+[; ;IO_control.c: 40: int direction = 1;
+"41
 [v _cargoData `S960 ~T0 @X0 1 e ]
-[; ;IO_control.c: 8: CargoData cargoData;
-"9
+[; ;IO_control.c: 41: CargoData cargoData;
+"42
 [v _setCargo_Angle `(v ~T0 @X0 1 ef ]
 {
-[; ;IO_control.c: 9: void setCargo_Angle(void){
+[; ;IO_control.c: 42: void setCargo_Angle(void){
 [e :U _setCargo_Angle ]
 [f ]
-[; ;IO_control.c: 10: cargoData = getCargoData();
-"10
+[; ;IO_control.c: 43: cargoData = getCargoData();
+"43
 [e = _cargoData ( _getCargoData ..  ]
-[; ;IO_control.c: 11: cargoData.linkAngleTo = linkAngle;
-"11
+[; ;IO_control.c: 44: cargoData.linkAngleTo = linkAngle;
+"44
 [e = . _cargoData 4 _linkAngle ]
-[; ;IO_control.c: 12: setCargoData(cargoData);
-"12
+[; ;IO_control.c: 45: setCargoData(cargoData);
+"45
 [e ( _setCargoData (1 _cargoData ]
-[; ;IO_control.c: 13: };
-"13
-[e :UE 961 ]
-}
-"14
-[v _resetAngle `(v ~T0 @X0 1 ef ]
-{
-[; ;IO_control.c: 14: void resetAngle(void){
-[e :U _resetAngle ]
-[f ]
-[; ;IO_control.c: 15: linkAngle = 0;
-"15
-[e = _linkAngle -> 0 `i ]
-[; ;IO_control.c: 16: };
-"16
-[e :UE 962 ]
-}
-"17
-[v _isOnClutch `(b ~T0 @X0 1 ef ]
-{
-[; ;IO_control.c: 17: bit isOnClutch(void){
-[e :U _isOnClutch ]
-[f ]
-[; ;IO_control.c: 18: if(LATAbits.LATA0 == 1){
-"18
-[e $ ! == -> . . _LATAbits 0 0 `i -> 1 `i 964  ]
-{
-[; ;IO_control.c: 19: return 1;
-"19
-[e ) -> -> 1 `i `b ]
-[e $UE 963  ]
-"20
-}
-[e :U 964 ]
-[; ;IO_control.c: 20: };
-[; ;IO_control.c: 21: return 0;
-"21
-[e ) -> -> 0 `i `b ]
-[e $UE 963  ]
-[; ;IO_control.c: 22: };
-"22
+[; ;IO_control.c: 46: };
+"46
 [e :UE 963 ]
 }
-"23
-[v _setOnClutch `(v ~T0 @X0 1 ef ]
+"47
+[v _resetAngle `(v ~T0 @X0 1 ef ]
 {
-[; ;IO_control.c: 23: void setOnClutch(void){
-[e :U _setOnClutch ]
+[; ;IO_control.c: 47: void resetAngle(void){
+[e :U _resetAngle ]
 [f ]
-[; ;IO_control.c: 24: LATAbits.LATA0 = 1;
-"24
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-[; ;IO_control.c: 25: };
-"25
+[; ;IO_control.c: 48: linkAngle = 360;
+"48
+[e = _linkAngle -> 360 `i ]
+[; ;IO_control.c: 49: };
+"49
+[e :UE 964 ]
+}
+"50
+[v _isOnClutch `(b ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 50: bit isOnClutch(void){
+[e :U _isOnClutch ]
+[f ]
+[; ;IO_control.c: 51: if(LATAbits.LATA0 == 1){
+"51
+[e $ ! == -> . . _LATAbits 0 0 `i -> 1 `i 966  ]
+{
+[; ;IO_control.c: 52: return 1;
+"52
+[e ) -> -> 1 `i `b ]
+[e $UE 965  ]
+"53
+}
+[e :U 966 ]
+[; ;IO_control.c: 53: };
+[; ;IO_control.c: 54: return 0;
+"54
+[e ) -> -> 0 `i `b ]
+[e $UE 965  ]
+[; ;IO_control.c: 55: };
+"55
 [e :UE 965 ]
 }
-"26
-[v _setOffClutch `(v ~T0 @X0 1 ef ]
+"56
+[v _setOnClutch `(v ~T0 @X0 1 ef ]
 {
-[; ;IO_control.c: 26: void setOffClutch(void){
-[e :U _setOffClutch ]
+[; ;IO_control.c: 56: void setOnClutch(void){
+[e :U _setOnClutch ]
 [f ]
-[; ;IO_control.c: 27: LATAbits.LATA0 = 0;
-"27
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-[; ;IO_control.c: 28: };
-"28
-[e :UE 966 ]
-}
-"29
-[v _addAngle `(v ~T0 @X0 1 ef ]
-{
-[; ;IO_control.c: 29: void addAngle(void){
-[e :U _addAngle ]
-[f ]
-[; ;IO_control.c: 30: linkAngle += direction;
-"30
-[e =+ _linkAngle _direction ]
-[; ;IO_control.c: 31: setCargoAngle(linkAngle);
-"31
-[e ( _setCargoAngle (1 _linkAngle ]
-[; ;IO_control.c: 32: };
-"32
+[; ;IO_control.c: 57: LATAbits.LATA0 = 1;
+"57
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+[; ;IO_control.c: 58: };
+"58
 [e :UE 967 ]
 }
-"33
+"59
+[v _setOffClutch `(v ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 59: void setOffClutch(void){
+[e :U _setOffClutch ]
+[f ]
+[; ;IO_control.c: 60: LATAbits.LATA0 = 0;
+"60
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;IO_control.c: 61: };
+"61
+[e :UE 968 ]
+}
+"62
+[v _addAngle `(v ~T0 @X0 1 ef ]
+{
+[; ;IO_control.c: 62: void addAngle(void){
+[e :U _addAngle ]
+[f ]
+[; ;IO_control.c: 63: linkAngle += getMoter_lotate();
+"63
+[e =+ _linkAngle ( _getMoter_lotate ..  ]
+[; ;IO_control.c: 64: setCargoAngle(linkAngle);
+"64
+[e ( _setCargoAngle (1 _linkAngle ]
+[; ;IO_control.c: 65: };
+"65
+[e :UE 969 ]
+}
+"66
 [v _setDirection `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;IO_control.c: 33: void setDirection(int m_direction){
+[; ;IO_control.c: 66: void setDirection(int m_direction){
 [e :U _setDirection ]
 [v _m_direction `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;IO_control.c: 34: direction = m_direction;
-"34
+[; ;IO_control.c: 67: direction = m_direction;
+"67
 [e = _direction _m_direction ]
-[; ;IO_control.c: 35: }
-"35
-[e :UE 968 ]
+[; ;IO_control.c: 68: }
+"68
+[e :UE 970 ]
+}
+"69
+[v _IOCode_Command `(b ~T0 @X0 1 ef1`uc ]
+{
+[; ;IO_control.c: 69: bit IOCode_Command(unsigned char m_IOCode){
+[e :U _IOCode_Command ]
+[v _m_IOCode `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;IO_control.c: 70: for(int i = 0; i < 18; i++){
+"70
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 18 `i 972  ]
+[e $U 973  ]
+[e :U 972 ]
+{
+[; ;IO_control.c: 71: if(IOCode[i] == m_IOCode){
+"71
+[e $ ! == -> *U + &U _IOCode * -> -> _i `ui `ux -> -> # *U &U _IOCode `ui `ux `i -> _m_IOCode `i 975  ]
+{
+[; ;IO_control.c: 72: switch(i){
+"72
+[e $U 977  ]
+{
+[; ;IO_control.c: 73: case 0:
+"73
+[e :U 978 ]
+[; ;IO_control.c: 78: return 1;
+"78
+[e ) -> -> 1 `i `b ]
+[e $UE 971  ]
+[; ;IO_control.c: 79: case 1:
+"79
+[e :U 979 ]
+[; ;IO_control.c: 83: return 1;
+"83
+[e ) -> -> 1 `i `b ]
+[e $UE 971  ]
+[; ;IO_control.c: 84: case 2:
+"84
+[e :U 980 ]
+[; ;IO_control.c: 88: return 1;
+"88
+[e ) -> -> 1 `i `b ]
+[e $UE 971  ]
+[; ;IO_control.c: 89: case 3:
+"89
+[e :U 981 ]
+[; ;IO_control.c: 93: return 1;
+"93
+[e ) -> -> 1 `i `b ]
+[e $UE 971  ]
+"94
+}
+[; ;IO_control.c: 94: }
+[e $U 976  ]
+"72
+[e :U 977 ]
+[e [\ _i , $ -> 0 `i 978
+ , $ -> 1 `i 979
+ , $ -> 2 `i 980
+ , $ -> 3 `i 981
+ 976 ]
+"94
+[e :U 976 ]
+"95
+}
+[e :U 975 ]
+"96
+}
+"70
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 18 `i 972  ]
+[e :U 973 ]
+"96
+}
+[; ;IO_control.c: 95: }
+[; ;IO_control.c: 96: }
+[; ;IO_control.c: 97: return 0;
+"97
+[e ) -> -> 0 `i `b ]
+[e $UE 971  ]
+[; ;IO_control.c: 98: };
+"98
+[e :UE 971 ]
 }

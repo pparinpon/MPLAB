@@ -3,4 +3,5 @@
  D:/programdata/16F18346_Link_IC.X/IO_control.c  \
 D:/programdata/16F18346_Link_IC.X/struct_header.h  \
 D:/programdata/16F18346_Link_IC.X/IO_control_header.h  \
+D:/programdata/16F18346_Link_IC.X/cal_position_header.h  \
 D:/programdata/16F18346_Link_IC.X/global_header.h 

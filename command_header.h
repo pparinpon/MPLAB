@@ -79,6 +79,10 @@ extern "C" {
     GLOBAL unsigned int countabuf;
     GLOBAL bit isMycargo;
     
+    //for hand 
+        GLOBAL bit Hand_arm_clutchaction(unsigned char comannd);
+        GLOBAL bit Hand_clutchaction(unsigned char comannd);
+    
     
 #ifdef	__cplusplus
 }

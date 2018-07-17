@@ -67,10 +67,19 @@
 extern "C" {
 #endif /* __cplusplus */
 #include "global_header.h"
-    
-    
-    
-    
+
+    typedef struct {
+    int moter_lotate;
+    float pos_x;
+    float pos_y;
+    float pos_z;
+    float rotate_x;
+    float rotate_y;
+    float rotate_z;
+    }Position;    
+GLOBAL void initPosition(void);
+GLOBAL void setMoter_lotate(unsigned char lotatepos);
+GLOBAL int getMoter_lotate(void);
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code. 
 

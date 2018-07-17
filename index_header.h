@@ -67,15 +67,8 @@
 extern "C" {
 #endif /* __cplusplus */
 #include "global_header.h"
-    GLOBAL float getSin(float data);
-    GLOBAL float getCos(float data);
-    typedef struct{
-        float data;
-        int digit;
-    }Number; 
-//    Number calMultiplication(Number data);
-    Number setNumber(float data);
-    
+GLOBAL void initIndex(void);
+GLOBAL bit setIndexMode(unsigned char m_index);
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code. 
 

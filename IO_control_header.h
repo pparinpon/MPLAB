@@ -70,6 +70,9 @@ extern "C" {
     
     // TODO If C++ is being used, regular C code needs function names to have C 
     // linkage so the functions can be used by the c code.
+    GLOBAL unsigned char IOCode[18];
+    GLOBAL void initIOCode(void);
+    GLOBAL bit IOCode_Command(unsigned char m_IOCode);
     GLOBAL int linkAngle;
     GLOBAL int direction;
     GLOBAL void setCargo_Angle(void);

@@ -1,18 +1,21 @@
+
 #include <xc.h>
 #include <pic16f18346.h>
 #include <pic.h>
 #include "command_header.h"
 #include "IO_control_header.h"
+#include "cal_position_header.h"
 
 #define Normal_Drive 0b01111111
+#define Reverse_Drive 0b10011111;
 unsigned int countabuf;
 unsigned char command[18];
 unsigned char readOK GLOBAL_VAL(Read_OK);
 unsigned char readNG GLOBAL_VAL(Read_NG);
 void initComand(void){
 command[0] = 0b00111111; 
-command[1] = Normal_Drive; // Normal
-command[2] = 0b10011111;
+command[1] = Normal_Drive; // Normal moter forword
+command[2] = Reverse_Drive;// Normal moter reverse
 command[3] = 0b10101111;
 command[4] = 0b10111111;
 command[5] = 0b11001111;
@@ -34,11 +37,13 @@ bit setCommandMode(unsigned char m_command){
         if(command[i] == m_command){
             switch(i){
                 case 0: // reserved
-                    //TODO 
+                    //TODO                     
                     return 1;               
                 case 1://normal
+                    setMoter_lotate(0x01);
                     return 1;
-                case 2:
+                case 2://reverse
+                    setMoter_lotate(0x02);
                     return 1;
                 case 3:
                     return 1;
@@ -68,7 +73,26 @@ bit action(unsigned char inputComannd){
 bit clutchaction(unsigned char comannd){
     if(comannd == 1){
         LATAbits.LATA0 = 1;
-    }else{
+    }
+    else{
         LATAbits.LATA0 = 0;
     }
 };
+
+bit Hand_arm_clutchaction(unsigned char comannd){
+    if(comannd == 1){
+        LATAbits.LATA0 = 1;
+    }else{
+        LATAbits.LATA0 = 0;
+    }
+ };
+ bit Hand_clutchaction(unsigned char comannd){
+       if(comannd == 1){
+        LATAbits.LATA0 = 1;
+    }else{
+        LATAbits.LATA0 = 0;
+    } 
+ };
+
+
+

@@ -4,12 +4,12 @@
 
 
     float getSin(float data){
-        
+                return data;
     };
     float getCos(float data){
-        
+                return data;
     };
 
-    Number calMultiplication(Number data){
-        
-    }
+//    Number calMultiplication(Number data){
+//        return data;
+//    };

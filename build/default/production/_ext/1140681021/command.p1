@@ -1,5 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"73 D:/programdata/16F18346_Link_IC.X/IO_control_header.h
+"81 D:/programdata/16F18346_Link_IC.X/cal_position_header.h
+[v _setMoter_lotate `(v ~T0 @X0 0 ef1`uc ]
+"76 D:/programdata/16F18346_Link_IC.X/IO_control_header.h
 [v _linkAngle `i ~T0 @X0 0 e ]
 "2297 E:\microchip\xc8\v1.45\include\pic16f18346.h
 [s S114 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -7647,292 +7649,379 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;command_header.h: 78: extern unsigned char readNG;
 [; ;command_header.h: 79: extern unsigned int countabuf;
 [; ;command_header.h: 80: extern bit isMycargo;
-[; ;IO_control_header.h: 73: extern int linkAngle;
-[; ;IO_control_header.h: 74: extern int direction;
-[; ;IO_control_header.h: 75: extern void setCargo_Angle(void);
-[; ;IO_control_header.h: 76: extern void resetAngle(void);
-[; ;IO_control_header.h: 77: extern bit isOnClutch(void);
-[; ;IO_control_header.h: 78: extern void setOnClutch(void);
-[; ;IO_control_header.h: 79: extern void setOffClutch(void);
-[; ;IO_control_header.h: 80: extern void addAngle(void);
-[; ;IO_control_header.h: 81: extern void setDirection(int m_direction);
-"8 D:/programdata/16F18346_Link_IC.X/command.c
+[; ;command_header.h: 83: extern bit Hand_arm_clutchaction(unsigned char comannd);
+[; ;command_header.h: 84: extern bit Hand_clutchaction(unsigned char comannd);
+[; ;IO_control_header.h: 73: extern unsigned char IOCode[18];
+[; ;IO_control_header.h: 74: extern void initIOCode(void);
+[; ;IO_control_header.h: 75: extern bit IOCode_Command(unsigned char m_IOCode);
+[; ;IO_control_header.h: 76: extern int linkAngle;
+[; ;IO_control_header.h: 77: extern int direction;
+[; ;IO_control_header.h: 78: extern void setCargo_Angle(void);
+[; ;IO_control_header.h: 79: extern void resetAngle(void);
+[; ;IO_control_header.h: 80: extern bit isOnClutch(void);
+[; ;IO_control_header.h: 81: extern void setOnClutch(void);
+[; ;IO_control_header.h: 82: extern void setOffClutch(void);
+[; ;IO_control_header.h: 83: extern void addAngle(void);
+[; ;IO_control_header.h: 84: extern void setDirection(int m_direction);
+[; ;cal_position_header.h: 71: typedef struct {
+[; ;cal_position_header.h: 72: int moter_lotate;
+[; ;cal_position_header.h: 73: float pos_x;
+[; ;cal_position_header.h: 74: float pos_y;
+[; ;cal_position_header.h: 75: float pos_z;
+[; ;cal_position_header.h: 76: float rotate_x;
+[; ;cal_position_header.h: 77: float rotate_y;
+[; ;cal_position_header.h: 78: float rotate_z;
+[; ;cal_position_header.h: 79: }Position;
+[; ;cal_position_header.h: 80: extern void initPosition(void);
+[; ;cal_position_header.h: 81: extern void setMoter_lotate(unsigned char lotatepos);
+[; ;cal_position_header.h: 82: extern int getMoter_lotate(void);
+"11 D:/programdata/16F18346_Link_IC.X/command.c
 [v _countabuf `ui ~T0 @X0 1 e ]
-[; ;command.c: 8: unsigned int countabuf;
-"9
-[v _command `uc ~T0 @X0 -> 18 `i e ]
-[; ;command.c: 9: unsigned char command[18];
-"10
-[v _readOK `uc ~T0 @X0 1 e ]
-[; ;command.c: 10: unsigned char readOK ;
-"11
-[v _readNG `uc ~T0 @X0 1 e ]
-[; ;command.c: 11: unsigned char readNG ;
+[; ;command.c: 11: unsigned int countabuf;
 "12
+[v _command `uc ~T0 @X0 -> 18 `i e ]
+[; ;command.c: 12: unsigned char command[18];
+"13
+[v _readOK `uc ~T0 @X0 1 e ]
+[; ;command.c: 13: unsigned char readOK ;
+"14
+[v _readNG `uc ~T0 @X0 1 e ]
+[; ;command.c: 14: unsigned char readNG ;
+"15
 [v _initComand `(v ~T0 @X0 1 ef ]
 {
-[; ;command.c: 12: void initComand(void){
+[; ;command.c: 15: void initComand(void){
 [e :U _initComand ]
 [f ]
-[; ;command.c: 13: command[0] = 0b00111111;
-"13
-[e = *U + &U _command * -> -> -> 0 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 63 `i `uc ]
-[; ;command.c: 14: command[1] = 0b01111111;
-"14
-[e = *U + &U _command * -> -> -> 1 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 127 `i `uc ]
-[; ;command.c: 15: command[2] = 0b10011111;
-"15
-[e = *U + &U _command * -> -> -> 2 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 159 `i `uc ]
-[; ;command.c: 16: command[3] = 0b10101111;
+[; ;command.c: 16: command[0] = 0b00111111;
 "16
-[e = *U + &U _command * -> -> -> 3 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 175 `i `uc ]
-[; ;command.c: 17: command[4] = 0b10111111;
+[e = *U + &U _command * -> -> -> 0 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 63 `i `uc ]
+[; ;command.c: 17: command[1] = 0b01111111;
 "17
-[e = *U + &U _command * -> -> -> 4 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 191 `i `uc ]
-[; ;command.c: 18: command[5] = 0b11001111;
+[e = *U + &U _command * -> -> -> 1 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 127 `i `uc ]
+[; ;command.c: 18: command[2] = 0b10011111;;
 "18
-[e = *U + &U _command * -> -> -> 5 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 207 `i `uc ]
-[; ;command.c: 19: command[6] = 0b11010111;
+[e = *U + &U _command * -> -> -> 2 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 159 `i `uc ]
+[; ;command.c: 19: command[3] = 0b10101111;
 "19
-[e = *U + &U _command * -> -> -> 6 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 215 `i `uc ]
-[; ;command.c: 20: command[7] = 0b11011111;
+[e = *U + &U _command * -> -> -> 3 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 175 `i `uc ]
+[; ;command.c: 20: command[4] = 0b10111111;
 "20
-[e = *U + &U _command * -> -> -> 7 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 223 `i `uc ]
-[; ;command.c: 21: command[8] = 0b11100111;
+[e = *U + &U _command * -> -> -> 4 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 191 `i `uc ]
+[; ;command.c: 21: command[5] = 0b11001111;
 "21
-[e = *U + &U _command * -> -> -> 8 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 231 `i `uc ]
-[; ;command.c: 22: command[9] = 0b11101011;
+[e = *U + &U _command * -> -> -> 5 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 207 `i `uc ]
+[; ;command.c: 22: command[6] = 0b11010111;
 "22
-[e = *U + &U _command * -> -> -> 9 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 235 `i `uc ]
-[; ;command.c: 23: command[10] = 0b11101111;
+[e = *U + &U _command * -> -> -> 6 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 215 `i `uc ]
+[; ;command.c: 23: command[7] = 0b11011111;
 "23
-[e = *U + &U _command * -> -> -> 10 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 239 `i `uc ]
-[; ;command.c: 24: command[11] = 0b11110001;
+[e = *U + &U _command * -> -> -> 7 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 223 `i `uc ]
+[; ;command.c: 24: command[8] = 0b11100111;
 "24
-[e = *U + &U _command * -> -> -> 11 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 241 `i `uc ]
-[; ;command.c: 25: command[12] = 0b11110011;
+[e = *U + &U _command * -> -> -> 8 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 231 `i `uc ]
+[; ;command.c: 25: command[9] = 0b11101011;
 "25
-[e = *U + &U _command * -> -> -> 12 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 243 `i `uc ]
-[; ;command.c: 26: command[13] = 0b11110101;
+[e = *U + &U _command * -> -> -> 9 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 235 `i `uc ]
+[; ;command.c: 26: command[10] = 0b11101111;
 "26
-[e = *U + &U _command * -> -> -> 13 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 245 `i `uc ]
-[; ;command.c: 27: command[14] = 0b11110111;
+[e = *U + &U _command * -> -> -> 10 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 239 `i `uc ]
+[; ;command.c: 27: command[11] = 0b11110001;
 "27
-[e = *U + &U _command * -> -> -> 14 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 247 `i `uc ]
-[; ;command.c: 28: command[15] = 0b11111000;
+[e = *U + &U _command * -> -> -> 11 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 241 `i `uc ]
+[; ;command.c: 28: command[12] = 0b11110011;
 "28
-[e = *U + &U _command * -> -> -> 15 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 248 `i `uc ]
-[; ;command.c: 29: command[16] = 0b11111001;
+[e = *U + &U _command * -> -> -> 12 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 243 `i `uc ]
+[; ;command.c: 29: command[13] = 0b11110101;
 "29
-[e = *U + &U _command * -> -> -> 16 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 249 `i `uc ]
-[; ;command.c: 30: command[17] = 0b11111010;
+[e = *U + &U _command * -> -> -> 13 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 245 `i `uc ]
+[; ;command.c: 30: command[14] = 0b11110111;
 "30
-[e = *U + &U _command * -> -> -> 17 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 250 `i `uc ]
-[; ;command.c: 31: }
+[e = *U + &U _command * -> -> -> 14 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 247 `i `uc ]
+[; ;command.c: 31: command[15] = 0b11111000;
 "31
-[e :UE 960 ]
-}
+[e = *U + &U _command * -> -> -> 15 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 248 `i `uc ]
+[; ;command.c: 32: command[16] = 0b11111001;
 "32
+[e = *U + &U _command * -> -> -> 16 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 249 `i `uc ]
+[; ;command.c: 33: command[17] = 0b11111010;
+"33
+[e = *U + &U _command * -> -> -> 17 `i `ui `ux -> -> # *U &U _command `ui `ux -> -> 250 `i `uc ]
+[; ;command.c: 34: }
+"34
+[e :UE 961 ]
+}
+"35
 [v _setCommandMode `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;command.c: 32: bit setCommandMode(unsigned char m_command){
+[; ;command.c: 35: bit setCommandMode(unsigned char m_command){
 [e :U _setCommandMode ]
 [v _m_command `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;command.c: 33: for(int i = 0; i < 18; i++){
-"33
+[; ;command.c: 36: for(int i = 0; i < 18; i++){
+"36
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 18 `i 962  ]
-[e $U 963  ]
-[e :U 962 ]
+[e $ < _i -> 18 `i 963  ]
+[e $U 964  ]
+[e :U 963 ]
 {
-[; ;command.c: 34: if(command[i] == m_command){
-"34
-[e $ ! == -> *U + &U _command * -> -> _i `ui `ux -> -> # *U &U _command `ui `ux `i -> _m_command `i 965  ]
+[; ;command.c: 37: if(command[i] == m_command){
+"37
+[e $ ! == -> *U + &U _command * -> -> _i `ui `ux -> -> # *U &U _command `ui `ux `i -> _m_command `i 966  ]
 {
-[; ;command.c: 35: switch(i){
-"35
-[e $U 967  ]
-{
-[; ;command.c: 36: case 0:
-"36
-[e :U 968 ]
-[; ;command.c: 38: return 1;
+[; ;command.c: 38: switch(i){
 "38
-[e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;command.c: 39: case 1:
+[e $U 968  ]
+{
+[; ;command.c: 39: case 0:
 "39
 [e :U 969 ]
-[; ;command.c: 40: return 1;
-"40
-[e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;command.c: 41: case 2:
+[; ;command.c: 41: return 1;
 "41
-[e :U 970 ]
-[; ;command.c: 42: return 1;
-"42
 [e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;command.c: 43: case 3:
+[e $UE 962  ]
+[; ;command.c: 42: case 1:
+"42
+[e :U 970 ]
+[; ;command.c: 43: setMoter_lotate(0x01);
 "43
-[e :U 971 ]
+[e ( _setMoter_lotate (1 -> -> 1 `i `uc ]
 [; ;command.c: 44: return 1;
 "44
 [e ) -> -> 1 `i `b ]
-[e $UE 961  ]
-[; ;command.c: 45: case 6:
+[e $UE 962  ]
+[; ;command.c: 45: case 2:
 "45
-[e :U 972 ]
-[; ;command.c: 46: linkAngle = 0;
+[e :U 971 ]
+[; ;command.c: 46: setMoter_lotate(0x02);
 "46
-[e = _linkAngle -> 0 `i ]
+[e ( _setMoter_lotate (1 -> -> 2 `i `uc ]
 [; ;command.c: 47: return 1;
 "47
 [e ) -> -> 1 `i `b ]
-[e $UE 961  ]
+[e $UE 962  ]
+[; ;command.c: 48: case 3:
 "48
-}
-[; ;command.c: 48: }
-[e $U 966  ]
-"35
-[e :U 967 ]
-[e [\ _i , $ -> 0 `i 968
- , $ -> 1 `i 969
- , $ -> 2 `i 970
- , $ -> 3 `i 971
- , $ -> 6 `i 972
- 966 ]
-"48
-[e :U 966 ]
+[e :U 972 ]
+[; ;command.c: 49: return 1;
 "49
-}
-[e :U 965 ]
+[e ) -> -> 1 `i `b ]
+[e $UE 962  ]
+[; ;command.c: 50: case 6:
 "50
-}
-"33
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 18 `i 962  ]
-[e :U 963 ]
-"50
-}
-[; ;command.c: 49: }
-[; ;command.c: 50: }
-[; ;command.c: 51: return 0;
+[e :U 973 ]
+[; ;command.c: 51: linkAngle = 0;
 "51
-[e ) -> -> 0 `i `b ]
-[e $UE 961  ]
-[; ;command.c: 52: }
+[e = _linkAngle -> 0 `i ]
+[; ;command.c: 52: return 1;
 "52
-[e :UE 961 ]
-}
+[e ) -> -> 1 `i `b ]
+[e $UE 962  ]
 "53
+}
+[; ;command.c: 53: }
+[e $U 967  ]
+"38
+[e :U 968 ]
+[e [\ _i , $ -> 0 `i 969
+ , $ -> 1 `i 970
+ , $ -> 2 `i 971
+ , $ -> 3 `i 972
+ , $ -> 6 `i 973
+ 967 ]
+"53
+[e :U 967 ]
+"54
+}
+[e :U 966 ]
+"55
+}
+"36
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 18 `i 963  ]
+[e :U 964 ]
+"55
+}
+[; ;command.c: 54: }
+[; ;command.c: 55: }
+[; ;command.c: 56: return 0;
+"56
+[e ) -> -> 0 `i `b ]
+[e $UE 962  ]
+[; ;command.c: 57: }
+"57
+[e :UE 962 ]
+}
+"58
 [v _action `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;command.c: 53: bit action(unsigned char inputComannd){
+[; ;command.c: 58: bit action(unsigned char inputComannd){
 [e :U _action ]
 [v _inputComannd `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;command.c: 54: for(int i = 0; i < 18; i++){
-"54
+[; ;command.c: 59: for(int i = 0; i < 18; i++){
+"59
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 18 `i 974  ]
-[e $U 975  ]
-[e :U 974 ]
-{
-[; ;command.c: 55: if(command[i] == inputComannd){
-"55
-[e $ ! == -> *U + &U _command * -> -> _i `ui `ux -> -> # *U &U _command `ui `ux `i -> _inputComannd `i 977  ]
-{
-[; ;command.c: 56: switch(i){
-"56
-[e $U 979  ]
-{
-[; ;command.c: 57: case 2:
-"57
-[e :U 980 ]
-[; ;command.c: 58: LATAbits.LATA0 = 1;
-"58
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-[; ;command.c: 59: return 1;
-"59
-[e ) -> -> 1 `i `b ]
-[e $UE 973  ]
-[; ;command.c: 60: case 3:
-"60
-[e :U 981 ]
-[; ;command.c: 61: LATAbits.LATA0 = 0;
-"61
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-[; ;command.c: 62: return 1;
-"62
-[e ) -> -> 1 `i `b ]
-[e $UE 973  ]
-"63
-}
-[; ;command.c: 63: }
-[e $U 978  ]
-"56
-[e :U 979 ]
-[e [\ _i , $ -> 2 `i 980
- , $ -> 3 `i 981
- 978 ]
-"63
-[e :U 978 ]
-"64
-}
-[e :U 977 ]
-"65
-}
-"54
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 18 `i 974  ]
+[e $ < _i -> 18 `i 975  ]
+[e $U 976  ]
 [e :U 975 ]
+{
+[; ;command.c: 60: if(command[i] == inputComannd){
+"60
+[e $ ! == -> *U + &U _command * -> -> _i `ui `ux -> -> # *U &U _command `ui `ux `i -> _inputComannd `i 978  ]
+{
+[; ;command.c: 61: switch(i){
+"61
+[e $U 980  ]
+{
+[; ;command.c: 62: case 2:
+"62
+[e :U 981 ]
+[; ;command.c: 63: LATAbits.LATA0 = 1;
+"63
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+[; ;command.c: 64: return 1;
+"64
+[e ) -> -> 1 `i `b ]
+[e $UE 974  ]
+[; ;command.c: 65: case 3:
 "65
-}
-[; ;command.c: 64: }
-[; ;command.c: 65: }
-[; ;command.c: 66: return 0;
+[e :U 982 ]
+[; ;command.c: 66: LATAbits.LATA0 = 0;
 "66
-[e ) -> -> 0 `i `b ]
-[e $UE 973  ]
-[; ;command.c: 67: }
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+[; ;command.c: 67: return 1;
 "67
-[e :UE 973 ]
-}
+[e ) -> -> 1 `i `b ]
+[e $UE 974  ]
 "68
+}
+[; ;command.c: 68: }
+[e $U 979  ]
+"61
+[e :U 980 ]
+[e [\ _i , $ -> 2 `i 981
+ , $ -> 3 `i 982
+ 979 ]
+"68
+[e :U 979 ]
+"69
+}
+[e :U 978 ]
+"70
+}
+"59
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 18 `i 975  ]
+[e :U 976 ]
+"70
+}
+[; ;command.c: 69: }
+[; ;command.c: 70: }
+[; ;command.c: 71: return 0;
+"71
+[e ) -> -> 0 `i `b ]
+[e $UE 974  ]
+[; ;command.c: 72: }
+"72
+[e :UE 974 ]
+}
+"73
 [v _clutchaction `(b ~T0 @X0 1 ef1`uc ]
 {
-[; ;command.c: 68: bit clutchaction(unsigned char comannd){
+[; ;command.c: 73: bit clutchaction(unsigned char comannd){
 [e :U _clutchaction ]
 [v _comannd `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;command.c: 69: if(comannd == 1){
-"69
-[e $ ! == -> _comannd `i -> 1 `i 983  ]
-{
-[; ;command.c: 70: LATAbits.LATA0 = 1;
-"70
-[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
-"71
-}
-[; ;command.c: 71: }else{
-[e $U 984  ]
-[e :U 983 ]
-{
-[; ;command.c: 72: LATAbits.LATA0 = 0;
-"72
-[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
-"73
-}
-[e :U 984 ]
-[; ;command.c: 73: }
-[; ;command.c: 74: };
+[; ;command.c: 74: if(comannd == 1){
 "74
-[e :UE 982 ]
+[e $ ! == -> _comannd `i -> 1 `i 984  ]
+{
+[; ;command.c: 75: LATAbits.LATA0 = 1;
+"75
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+"76
+}
+[; ;command.c: 76: }
+[e $U 985  ]
+"77
+[e :U 984 ]
+[; ;command.c: 77: else{
+{
+[; ;command.c: 78: LATAbits.LATA0 = 0;
+"78
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+"79
+}
+[e :U 985 ]
+[; ;command.c: 79: }
+[; ;command.c: 80: };
+"80
+[e :UE 983 ]
+}
+"82
+[v _Hand_arm_clutchaction `(b ~T0 @X0 1 ef1`uc ]
+{
+[; ;command.c: 82: bit Hand_arm_clutchaction(unsigned char comannd){
+[e :U _Hand_arm_clutchaction ]
+[v _comannd `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;command.c: 83: if(comannd == 1){
+"83
+[e $ ! == -> _comannd `i -> 1 `i 987  ]
+{
+[; ;command.c: 84: LATAbits.LATA0 = 1;
+"84
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+"85
+}
+[; ;command.c: 85: }else{
+[e $U 988  ]
+[e :U 987 ]
+{
+[; ;command.c: 86: LATAbits.LATA0 = 0;
+"86
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+"87
+}
+[e :U 988 ]
+[; ;command.c: 87: }
+[; ;command.c: 88: };
+"88
+[e :UE 986 ]
+}
+"89
+[v _Hand_clutchaction `(b ~T0 @X0 1 ef1`uc ]
+{
+[; ;command.c: 89: bit Hand_clutchaction(unsigned char comannd){
+[e :U _Hand_clutchaction ]
+[v _comannd `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;command.c: 90: if(comannd == 1){
+"90
+[e $ ! == -> _comannd `i -> 1 `i 990  ]
+{
+[; ;command.c: 91: LATAbits.LATA0 = 1;
+"91
+[e = . . _LATAbits 0 0 -> -> 1 `i `uc ]
+"92
+}
+[; ;command.c: 92: }else{
+[e $U 991  ]
+[e :U 990 ]
+{
+[; ;command.c: 93: LATAbits.LATA0 = 0;
+"93
+[e = . . _LATAbits 0 0 -> -> 0 `i `uc ]
+"94
+}
+[e :U 991 ]
+[; ;command.c: 94: }
+[; ;command.c: 95: };
+"95
+[e :UE 989 ]
 }

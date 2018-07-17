@@ -10091,6 +10091,9 @@ extern void initCargo_index(void);
 extern bit setCargo_indexMode(unsigned char m_cargo_index);
 
 # 73 "IO_control_header.h"
+extern unsigned char IOCode[18];
+extern void initIOCode(void);
+extern bit IOCode_Command(unsigned char m_IOCode);
 extern int linkAngle;
 extern int direction;
 extern void setCargo_Angle(void);
